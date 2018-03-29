@@ -1,0 +1,65 @@
+import React, { Component } from 'react';
+import {routes} from "../routes";
+import {Link, Route, Switch} from "react-router-dom";
+import Dashboard from "./Dashboard";
+
+
+function Badge({value}) {
+  return <span className="badge badge-pill bg-light align-text-bottom">{value}</span>;
+}
+
+export default class Content extends Component {
+
+  render() {
+    return (
+      <Switch>
+        {routes.map(route => {
+          return (
+            <Route
+              key={route.path}
+              path={route.path}
+              render={props => (
+              <React.Fragment>
+                <div className="nav-scroller bg-white box-shadow">
+                  <div className="container">
+                    <nav className="nav nav-underline">
+                      {
+                        route.routes && route.routes.map(subRoute => {
+                          return (
+                            <Link
+                              key={subRoute.path}
+                              className="nav-link"
+                              to={subRoute.path}>
+                              {subRoute.label}
+                              {subRoute.badge && <Badge value={subRoute.badge}/> }
+                            </Link>
+                          );
+                        })
+                      }
+                    </nav>
+                  </div>
+                </div>
+                <Switch>
+                  {
+                    route.routes && route.routes.map(subRoute => (
+                      <Route
+                        exact={true}
+                        key={subRoute.path}
+                        path={subRoute.path}
+                        component={subRoute.component} />
+                    ))
+                  }
+                  <Route component={route.component}/>
+                </Switch>
+
+              </React.Fragment>
+            )} />
+          )
+        })
+        }
+      </Switch>
+    )
+  }
+}
+
+
