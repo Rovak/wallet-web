@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Network from "./components/network/Network";
 import Nodes from "./components/network/Nodes";
 import Representatives from "./components/network/Representatives";
+import Blocks from "./components/blockchain/Blocks";
 
 
 export const routes = [
@@ -17,6 +18,11 @@ export const routes = [
         label: "Transactions",
         path: "/blockchain/transactions",
         component: Transactions
+      },
+      {
+        label: "Blocks",
+        path: "/blockchain/blocks",
+        component: Blocks
       },
     ]
   },
