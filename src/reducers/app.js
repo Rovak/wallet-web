@@ -1,7 +1,11 @@
-import {SET_ACCOUNTS} from "../actions/app";
+import {SET_ACCOUNTS, SET_PRICE} from "../actions/app";
 
 const initialState = {
   accounts: [],
+  price: {
+    usd: 0,
+    percentage: 0,
+  }
 };
 
 export function appReducer(state = initialState, action) {
@@ -12,6 +16,16 @@ export function appReducer(state = initialState, action) {
         ...state,
         accounts: action.accounts,
       };
+    }
+
+    case SET_PRICE: {
+      return {
+        ...state,
+        price: {
+          usd: action.price,
+          percentage: action.percentage,
+        }
+      }
     }
   }
 
