@@ -4,9 +4,14 @@ node_js:
 before_install:
   - "npm config set spin false"
 install:
-  - npm install
+  - yarn install
 script:
-  - npm run build
+  - yarn run build
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
 
 deploy:
   provider: pages
