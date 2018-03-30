@@ -192,22 +192,28 @@ class Blockchain extends Component {
     return (
       <main role="main" className="container">
         <div className="row">
-          <div className="col-md">
-            <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-dark rounded box-shadow">
-              <i className="fas fa-dollar-sign fa-3x mr-3"/>
-              <div className="lh-100 mr-auto">
-                <h6 className="mb-0 text-white lh-100">TRX Price</h6>
-                <small>$0.04566 7.36%</small>
+          <div className="col-md-12">
+            <div className="p-3 my-3 text-white-50 bg-dark rounded box-shadow row no-gutters">
+              <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
+                <i className="fas fa-dollar-sign fa-3x mr-3" style={{width: 50}}/>
+                <div className="lh-100">
+                  <h6 className="mb-0 text-white lh-100">TRX Price</h6>
+                  <small>$0.04566 7.36%</small>
+                </div>
               </div>
-              <i className="fas fa-server fa-3x mr-3"/>
-              <div className="lh-100 mr-auto">
-                <h6 className="mb-0 text-white lh-100">Representatives</h6>
-                <small>5</small>
+              <div className="col-md-3 ml-md-auto d-flex align-items-center mb-3 mb-md-0">
+                <i className="fas fa-server fa-3x mr-3" style={{width: 50}}/>
+                <div className="lh-100">
+                  <h6 className="mb-0 text-white lh-100">Representatives</h6>
+                  <small>5</small>
+                </div>
               </div>
-              <i className="fas fa-cube fa-3x mr-3"/>
-              <div className="lh-100">
-                <h6 className="mb-0 text-white lh-100">Last Block</h6>
-                <small>4948C2E8A756D943703...</small>
+              <div className="col-md-3 ml-md-auto d-flex align-items-center">
+                <i className="fas fa-cube fa-3x mr-3" style={{width: 50}}/>
+                <div className="lh-100">
+                  <h6 className="mb-0 text-white lh-100">Last Block</h6>
+                  <small>4948C2E8A756D943703...</small>
+                </div>
               </div>
             </div>
           </div>
