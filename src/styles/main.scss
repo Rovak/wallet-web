@@ -3,6 +3,9 @@
 @import "index.css";
 @import "theme";
 
+body {
+  overflow-y: scroll;
+}
 
 .logo {
   height: 35px;
