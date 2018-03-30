@@ -1,7 +1,18 @@
+language: node_js
+node_js:
+  - "9"
+before_install:
+  - "npm config set spin false"
+install:
+  - npm install
+script:
+  - npm run build
+
 deploy:
   provider: pages
+  local-dir: build
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  github-token: $GITHUB_TOKEN
   keep-history: true
   on:
     branch: master
