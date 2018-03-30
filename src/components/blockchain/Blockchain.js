@@ -152,7 +152,7 @@ class Blockchain extends Component {
         <h6 className="border-bottom border-gray pb-2 mb-0">Recent transactions</h6>
         {
           transactions.map(transaction => (
-            <div key={transaction.hash} className="media text-muted pt-3">
+            <div className="media text-muted pt-3">
               <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" className="mr-2 rounded"/>
               <div className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-center">
                 {transaction.from}
