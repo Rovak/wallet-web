@@ -11,8 +11,8 @@ export const setAccounts = (accounts = []) => ({
 
 export const setPrice = (price, percentage) => ({
   type: SET_PRICE,
-  price,
-  percentage,
+  price: parseFloat(price),
+  percentage: parseFloat(percentage),
 });
 
 
