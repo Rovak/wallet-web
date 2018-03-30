@@ -224,7 +224,7 @@ class Blockchain extends Component {
               <i className="fas fa-exchange-alt fa-3x mr-3"/>
               <div className="lh-100">
                 <h6 className="mb-0 text-white lh-100">Transactions</h6>
-                <small>100,000 total transactions</small>
+                <small>{ (transactions && transactions.length) || 0 } transactions</small>
               </div>
             </div>
 
