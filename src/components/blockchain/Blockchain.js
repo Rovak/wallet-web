@@ -101,7 +101,7 @@ class Blockchain extends Component {
                 #{block.number}
               </div>
               <div className="media-body pb-3 mb-0 small lh-150 border-bottom border-gray">
-                <strong className="d-block text-gray-dark">Mined by {block.hash}</strong>
+                <strong className="d-block text-gray-dark">Mined by {block.witnessAddress}</strong>
                 <div className="row">
                   <div className="col-md">
                     <i className="fas fa-exchange-alt mr-1"/>
