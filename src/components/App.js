@@ -22,7 +22,7 @@ class App extends Component {
 
     return (
       <Provider store={store}>
-        <Router>
+        <Router basename="/wallet-web">
           <React.Fragment>
             <Navigation/>
             <Content/>
