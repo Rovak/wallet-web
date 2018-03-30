@@ -6,12 +6,16 @@ before_install:
 install:
   - yarn install
 script:
-  - CI=false yarn run build
+  - yarn run build
 
 cache:
   yarn: true
   directories:
     - node_modules
+
+env:
+  - CI=false
+  - PUBLIC_URL=http://git.razko.nl/wallet-web
 
 deploy:
   provider: pages
