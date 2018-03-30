@@ -51,7 +51,7 @@ export const routes = [
   {
     path: "/",
     label: "Dashboard",
-    component: Dashboard,
+    component: Blockchain,
   },
 ];
 
