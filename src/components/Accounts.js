@@ -1,37 +1,78 @@
-import React, { Component } from 'react';
-import * as _ from "lodash";
+import React, {Component, Fragment} from 'react';
+import {connect} from "react-redux";
+import {loadAccounts} from "../actions/app";
+import MediaQuery from 'react-responsive';
+import {BarLoader} from "react-spinners";
 
-function createRandomString(length) {
-  let chars = "abcdefghijklmnopqrstufwxyzABCDEFGHIJKLMNOPQRSTUFWXYZ1234567890"
-  let pwd = _.sampleSize(chars, length || 12);
-  return pwd.join("");
-}
+class Accounts extends Component {
 
-export default class Accounts extends Component {
+  componentDidMount() {
+    this.props.loadAccounts();
+  }
 
-  constructor() {
-    super();
+  renderAccounts() {
 
-    let accounts = [];
+    let {accounts} = this.props;
 
-    let max = 1000000000000;
-
-    for (let i = 1; i < 100; i++) {
-      accounts.push({
-        rank: i,
-        hash: createRandomString(32),
-        amount: max - ( i * 78623442368 ),
-      });
+    if (accounts.length === 0) {
+      return (
+        <div className="text-center d-flex justify-content-center">
+          <BarLoader color={'#343a40'} loading={true} height={5} width={150} />
+        </div>
+      );
     }
 
-    this.state = {
-      accounts,
-    }
+    return (
+      <Fragment>
+        <MediaQuery minWidth={980}>
+          <table className="table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Address</th>
+              <th scope="col">Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {
+              accounts.map((account, index) => (
+                <tr>
+                  <th scope="row">{index}</th>
+                  <td>{account.address}</td>
+                  <td>{account.balanceNum} TRX</td>
+                </tr>
+              ))
+            }
+            </tbody>
+          </table>
+        </MediaQuery>
+        <MediaQuery maxWidth={980}>
+          {
+            accounts.map((account, index) => (
+              <div className="media small mb-2">
+                <div className="block">
+                  #{index}
+                </div>
+                <div className="media-body mb-0 lh-150">
+                  <div className="ml-3">
+                    {account.address.toUpperCase()}
+                  </div>
+                  <div className="ml-3 text-muted">
+                    {account.balanceNum} TRX
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+
+        </MediaQuery>
+      </Fragment>
+    )
   }
 
   render() {
 
-    let {accounts} = this.state;
+    let {accounts} = this.props;
 
     return (
       <main role="main" className="container">
@@ -46,7 +87,7 @@ export default class Accounts extends Component {
               <i className="fas fa-trophy fa-3x mr-3"/>
               <div className="lh-100 mr-auto">
                 <h6 className="mb-0 text-white lh-100">Most TRX</h6>
-                <small>{accounts[0].amount} TRX</small>
+                <small>{accounts[0] && accounts[0].amount} TRX</small>
               </div>
               <i className="fas fa-hashtag fa-3x mr-3"/>
               <div className="lh-100">
@@ -59,25 +100,7 @@ export default class Accounts extends Component {
         <div className="row">
           <div className="col-md-12">
             <div className="my-3 p-3 bg-white rounded box-shadow">
-              {
-                accounts.map(account => (
-                  <div className="media text-muted pt-3">
-                    <div className="block mr-3">
-                      #{account.rank}
-                    </div>
-                    <p className="media-body pb-3 mb-0 small lh-150 border-bottom border-gray" style={{ fontSize: '18px'}}>
-                      <div className="row">
-                        <div className="ml-3 mr-auto">
-                          {account.hash.toUpperCase()}
-                        </div>
-                        <div class="mr-3">
-                          {account.amount} TRX
-                        </div>
-                      </div>
-                    </p>
-                  </div>
-                ))
-              }
+              {this.renderAccounts()}
             </div>
           </div>
         </div>
@@ -87,3 +110,16 @@ export default class Accounts extends Component {
 }
 
 
+
+function mapStateToProps(state) {
+  return {
+    accounts: state.app.accounts,
+  };
+}
+
+const mapDispatchToProps = {
+  loadAccounts,
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Accounts)
