@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.scss';
-import "./scripts";
+import "./scripts.js";
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 

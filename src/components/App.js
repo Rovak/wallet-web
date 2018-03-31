@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../styles/App.scss';
 import Navigation from "./Navigation";
 import Content from "./Content";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import {HashRouter as Router} from "react-router-dom";
 import {Provider} from "react-redux";
 import {configureStore} from "../store";
 
