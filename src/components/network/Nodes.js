@@ -34,10 +34,6 @@ class Nodes extends Component {
     this.props.loadNodes();
   }
 
-  componentDidUpdate() {
-    this.buildNodeList();
-  }
-
   render() {
     let {nodes} = this.props;
     let countries = this.buildNodeList();

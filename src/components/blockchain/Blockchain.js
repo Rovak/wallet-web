@@ -187,7 +187,7 @@ class Blockchain extends Component {
 
   render() {
 
-    let {blocks, transactions, price, totalNumberOfTransactions} = this.props;
+    let {blocks, price, totalNumberOfTransactions} = this.props;
 
     return (
       <main role="main" className="container">

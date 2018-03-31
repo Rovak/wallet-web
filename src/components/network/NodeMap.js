@@ -26,14 +26,11 @@ export default class NodeMap extends Component {
       },
     ];
 
-    let length = sizes.length;
-    let byCountryNodes = {};
     let i;
-    let totalCount = 0;
     let newNodes = [];
     nodes.forEach(function(data, index) {
       let node = [data.longitude, data.latitude, data.count, data.city, data.province, data.country];
-      for (i = 0; i < length; i++) {
+      for (i = 0; i < sizes.length; i++) {
         if (data.count >= sizes[i].minimumCount) {
           if (!newNodes[i]) {
             newNodes[i] = [];
@@ -42,23 +39,8 @@ export default class NodeMap extends Component {
           break;
         }
       }
-      if (!byCountryNodes[data.country]) {
-        byCountryNodes[data.country] = data;
-      } else {
-        byCountryNodes[data.country].count += data.count;
-      }
-      totalCount += data.count;
     });
 
-    let unknown = byCountryNodes[''];
-    delete byCountryNodes[''];
-    byCountryNodes = Object.values(byCountryNodes).sort(function(a, b) {
-      return b.count - a.count;
-    });
-    if (unknown) {
-      unknown.country = 'Unknown';
-      byCountryNodes.push(unknown);
-    }
     let series = sizes.map(function(size, index) {
       return {
         type: 'effectScatter',
@@ -118,6 +100,7 @@ export default class NodeMap extends Component {
   componentDidMount() {
     let nodemap = $(this.$ref);
     this.map = echarts.init(nodemap[0]);
+    this.updateMap();
   }
 
   componentDidUpdate() {

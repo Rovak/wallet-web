@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {routes} from "../routes";
 import {Link, Route, Switch} from "react-router-dom";
-import Dashboard from "./Dashboard";
 
 
 function Badge({value}) {
