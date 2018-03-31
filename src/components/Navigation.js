@@ -28,6 +28,11 @@ export default class Navigation extends Component {
             <span className="navbar-toggler-icon"/>
           </button>
 
+
+          <div className="d-md-none pull-right">
+            <img src={logo} className="logo" alt="Tron"/>
+          </div>
+
           <div className="collapse navbar-collapse" id="navbar-top">
             <ul className="navbar-nav mr-auto">
               {viewableRoutes.map(route => (
@@ -56,9 +61,6 @@ export default class Navigation extends Component {
             </ul>
           </div>
 
-          <div className="d-md-none pull-right">
-            <img src={logo} className="logo" alt="Tron"/>
-          </div>
         </div>
       </nav>
     )
