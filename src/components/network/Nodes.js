@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import NodeMap from "./NodeMap";
 import {connect} from "react-redux";
 import {loadNodes} from "../../actions/network";
-import {sortBy, filter} from "lodash";
+import {sortBy, filter, sumBy} from "lodash";
 
 class Nodes extends Component {
 
@@ -48,7 +48,7 @@ class Nodes extends Component {
           <div className="col-sm-12 col-md-4">
             <div className="card">
               <div className="card-header text-center border-bottom-0 bg-dark text-white">
-                {nodes.length} Nodes
+                {sumBy(countries, c => c.total)} Nodes
               </div>
               <div className="card-body p-0 border-0">
                 <table className="table">
