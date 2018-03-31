@@ -9,4 +9,5 @@ export const messages = {
   "network": "netwerk",
   "current": "huidig",
   "last_block": "laatste blok",
+  "total_supply": "totale voorraad",
 };

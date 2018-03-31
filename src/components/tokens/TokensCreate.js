@@ -4,7 +4,13 @@ export default class TokensCreate extends Component {
 
   render() {
     return (
-      <div>Create</div>
+      <main className="container pt-3">
+        <div className="row">
+          <div className="col-sm-12">
+            Create
+          </div>
+        </div>
+      </main>
     )
   }
 }

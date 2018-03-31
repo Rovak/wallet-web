@@ -20,7 +20,7 @@ class TokensView extends Component {
         <tr>
           <th scope="col">{tu("name")}</th>
           <th scope="col">{tu("issuer")}</th>
-          <th scope="col">Total Supply</th>
+          <th scope="col">{tu("total_supply")}</th>
           <th scope="col">Start / End Time</th>
         </tr>
         </thead>

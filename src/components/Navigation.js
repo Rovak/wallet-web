@@ -20,7 +20,7 @@ export default class Navigation extends Component {
 
     return (
       <nav id="topbar" className="navbar navbar-expand-md navbar-dark bg-dark">
-        <div className="d-none d-md-block">
+        <div className="d-none d-md-block position-fixed">
           <img src={logo} className="logo" alt="Tron"/>
         </div>
         <div className="container">
