@@ -10,4 +10,12 @@ export const messages = {
   "current": "current",
   "last_block": "last block",
   "total_supply": "total supply",
+  "sign_out": "sign out",
+  "register_login": "Register / Log-in",
+  "view": "view",
+  "create": "create",
+  "country": "country",
+  "address": "address",
+  "balance": "balance",
+  "votes": "votes",
 };

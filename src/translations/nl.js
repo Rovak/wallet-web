@@ -10,4 +10,12 @@ export const messages = {
   "current": "huidig",
   "last_block": "laatste blok",
   "total_supply": "totale voorraad",
+  "sign_out": "uitloggen",
+  "register_login": "Registreren / Inloggen",
+  "view": "bekijken",
+  "create": "nieuw",
+  "country": "land",
+  "address": "adres",
+  "balance": "balans",
+  "votes": "stemmen",
 };

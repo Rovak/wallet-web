@@ -3,6 +3,7 @@ import MediaQuery from "react-responsive";
 import {connect} from "react-redux";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "react-spinners";
+import {tu} from "../../utils/i18n";
 
 class Representatives extends Component {
 
@@ -29,8 +30,8 @@ class Representatives extends Component {
             <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Address</th>
-              <th scope="col">Votes</th>
+              <th scope="col">{tu("address")}</th>
+              <th scope="col">{tu("votes")}</th>
             </tr>
             </thead>
             <tbody>

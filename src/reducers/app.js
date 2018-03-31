@@ -1,4 +1,4 @@
-import {SET_ACCOUNTS, SET_LANGUAGE, SET_PRICE} from "../actions/app";
+import {LOGIN, SET_ACCOUNTS, SET_LANGUAGE, SET_PRICE} from "../actions/app";
 
 const initialState = {
   accounts: [],
@@ -11,6 +11,9 @@ const initialState = {
     en: "English",
   },
   activeLanguage: navigator.language.split(/[-_]/)[0],
+  account: {
+    isLoggedIn: false,
+  },
 };
 
 export function appReducer(state = initialState, action) {
@@ -37,6 +40,15 @@ export function appReducer(state = initialState, action) {
       return {
         ...state,
         activeLanguage: action.language,
+      };
+    }
+
+    case LOGIN: {
+      return {
+        ...state,
+        account: {
+          isLoggedIn: true,
+        }
       };
     }
 

@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {loadNodes} from "../../actions/network";
 import {sortBy, filter, sumBy} from "lodash";
 import {BarLoader} from "react-spinners";
+import {tu} from "../../utils/i18n";
 
 class Nodes extends Component {
 
@@ -48,7 +49,7 @@ class Nodes extends Component {
         <thead>
         <tr>
           <th>#</th>
-          <th>Country</th>
+          <th>{tu("country")}</th>
           <th>Nodes</th>
         </tr>
         </thead>

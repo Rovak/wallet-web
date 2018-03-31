@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {loadAccounts} from "../actions/app";
 import MediaQuery from 'react-responsive';
 import {BarLoader} from "react-spinners";
+import {tu} from "../utils/i18n";
 
 class Accounts extends Component {
 
@@ -29,8 +30,8 @@ class Accounts extends Component {
             <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Address</th>
-              <th scope="col">Balance</th>
+              <th scope="col">{tu("address")}</th>
+              <th scope="col">{tu("balance")}</th>
             </tr>
             </thead>
             <tbody>

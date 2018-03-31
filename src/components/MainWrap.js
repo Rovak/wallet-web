@@ -13,7 +13,7 @@ class MainWrap extends React.Component {
 
   render() {
 
-    let {activeLanguage, availableLanguages, setLanguage} = this.props;
+    let {activeLanguage, availableLanguages, setLanguage, account} = this.props;
 
     return (
       <React.Fragment>
@@ -24,6 +24,7 @@ class MainWrap extends React.Component {
         <Router>
             <React.Fragment>
               <Navigation
+                account={account}
                 languageChanged={language => setLanguage(language)}
                 activeLanguage={activeLanguage}
                 languages={availableLanguages} />
@@ -40,6 +41,7 @@ function mapStateToProps(state) {
   return {
     activeLanguage: state.app.activeLanguage,
     availableLanguages: state.app.availableLanguages,
+    account: state.app.account,
   };
 }
 
@@ -47,6 +49,5 @@ const mapDispatchToProps = {
   loadAccounts,
   setLanguage
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainWrap)
