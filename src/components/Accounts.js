@@ -36,7 +36,7 @@ class Accounts extends Component {
             <tbody>
             {
               accounts.map((account, index) => (
-                <tr>
+                <tr key={account.address}>
                   <th scope="row">{index}</th>
                   <td>{account.address}</td>
                   <td>{account.balanceNum} TRX</td>
@@ -49,7 +49,7 @@ class Accounts extends Component {
         <MediaQuery maxWidth={980}>
           {
             accounts.map((account, index) => (
-              <div className="media small mb-2">
+              <div className="media small mb-2" key={account.address}>
                 <div className="block">
                   #{index}
                 </div>

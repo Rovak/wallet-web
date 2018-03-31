@@ -1,17 +1,17 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {loadBlocks} from "../../actions/blockchain";
+import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchain";
 import TimeAgo from 'react-timeago'
 import {BarLoader} from "react-spinners";
 import {loadPrice} from "../../actions/app";
 
 class Blockchain extends Component {
 
-
   componentDidMount() {
     this.props.loadBlocks();
     this.props.loadPrice();
+    this.props.loadTotalNumberOfTransactions();
   }
 
   constructor() {
@@ -187,7 +187,7 @@ class Blockchain extends Component {
 
   render() {
 
-    let {blocks, transactions, price} = this.props;
+    let {blocks, transactions, price, totalNumberOfTransactions} = this.props;
 
     return (
       <main role="main" className="container">
@@ -224,7 +224,7 @@ class Blockchain extends Component {
               <i className="fas fa-exchange-alt fa-3x mr-3"/>
               <div className="lh-100">
                 <h6 className="mb-0 text-white lh-100">Transactions</h6>
-                <small>{ (transactions && transactions.length) || 0 } transactions</small>
+                <small>{ totalNumberOfTransactions || 0 } transactions</small>
               </div>
             </div>
 
@@ -262,12 +262,14 @@ function mapStateToProps(state) {
     blocks: state.blockchain.blocks,
     transactions: state.blockchain.transactions,
     price: state.app.price,
+    totalNumberOfTransactions: state.blockchain.totalNumberOfTransactions,
   };
 }
 
 const mapDispatchToProps = {
   loadBlocks,
   loadPrice,
+  loadTotalNumberOfTransactions,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blockchain)

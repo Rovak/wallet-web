@@ -26,23 +26,23 @@ export const routes = [
       },
     ]
   },
-  // {
-  //   path: "/network",
-  //   label: "Network",
-  //   component: Network,
-  //   routes: [
-  //     {
-  //       label: "Nodes",
-  //       path: "/network/nodes",
-  //       component: Nodes
-  //     },
-  //     {
-  //       label: "Representatives",
-  //       path: "/network/representatives",
-  //       component: Representatives
-  //     },
-  //   ]
-  // },
+  {
+    path: "/network",
+    label: "Network",
+    component: Representatives,
+    routes: [
+      {
+        label: "Nodes",
+        path: "/network/nodes",
+        component: Nodes
+      },
+      {
+        label: "Representatives",
+        path: "/network/representatives",
+        component: Representatives
+      },
+    ]
+  },
   {
     path: "/accounts",
     label: "Accounts",

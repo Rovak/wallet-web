@@ -1,10 +1,11 @@
-import {SET_BLOCKS} from "../actions/blockchain";
+import {SET_BLOCKS, SET_TOTAL_TRANSACTIONS} from "../actions/blockchain";
 import * as _ from "lodash";
 
 
 const initialState = {
   transactions: null,
   blocks: [],
+  totalNumberOfTransactions: 0,
 };
 
 export function blockchainReducer(state = initialState, action) {
@@ -25,7 +26,15 @@ export function blockchainReducer(state = initialState, action) {
         transactions,
       }
     }
-  }
 
-  return state;
+    case SET_TOTAL_TRANSACTIONS: {
+      return {
+        ...state,
+        totalNumberOfTransactions: action.numberOfTransactions,
+      }
+    }
+
+    default:
+      return state;
+  }
 }
