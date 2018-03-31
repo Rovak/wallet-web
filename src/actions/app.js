@@ -3,6 +3,12 @@ import xhr from "axios";
 
 export const SET_ACCOUNTS = 'SET_ACCOUNTS';
 export const SET_PRICE = 'SET_PRICE';
+export const SET_LANGUAGE = 'SET_LANGUAGE';
+
+export const setLanguage = (language = 'en') => ({
+  type: SET_LANGUAGE,
+  language,
+});
 
 export const setAccounts = (accounts = []) => ({
   type: SET_ACCOUNTS,

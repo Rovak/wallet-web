@@ -14,8 +14,6 @@ class Representatives extends Component {
 
     let {witnesses} = this.props;
 
-    console.log(witnesses);
-
     if (witnesses.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">

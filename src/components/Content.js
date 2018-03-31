@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {routes} from "../routes";
 import {Link, Route, Switch} from "react-router-dom";
+import {tu} from "../utils/i18n";
 
 
 function Badge({value}) {
@@ -29,7 +30,7 @@ export default class Content extends Component {
                               key={subRoute.path}
                               className="nav-link"
                               to={subRoute.path}>
-                              {subRoute.label}
+                              {tu(subRoute.label)}
                               {subRoute.badge && <Badge value={subRoute.badge}/> }
                             </Link>
                           );

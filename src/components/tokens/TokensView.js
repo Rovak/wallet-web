@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
 import {sumBy} from "lodash";
+import {FormattedDate, FormattedTime} from "react-intl";
+import {tu} from "../../utils/i18n";
 
 class TokensView extends Component {
 
@@ -16,10 +18,10 @@ class TokensView extends Component {
       <table className="table">
         <thead>
         <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Issuer</th>
+          <th scope="col">{tu("name")}</th>
+          <th scope="col">{tu("issuer")}</th>
           <th scope="col">Total Supply</th>
-          <th scope="col">Start/End Time</th>
+          <th scope="col">Start / End Time</th>
         </tr>
         </thead>
         <tbody>
@@ -29,7 +31,13 @@ class TokensView extends Component {
               <td>{token.name}</td>
               <td>{token.ownerAddress}</td>
               <td>{token.totalSupply}</td>
-              <td>{token.startTime} - {token.endTime}</td>
+              <td>
+                <FormattedDate value={token.startTime}/>&nbsp;
+                <FormattedTime value={token.startTime}/>&nbsp;
+                -&nbsp;
+                <FormattedDate value={token.endTime}/>&nbsp;
+                <FormattedTime value={token.endTime}/>
+              </td>
             </tr>
           ))
         }

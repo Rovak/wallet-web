@@ -1,17 +1,14 @@
 import Blockchain from "./components/blockchain/Blockchain";
-import Transactions from "./components/blockchain/Transactions";
 import Accounts from "./components/Accounts";
 import Nodes from "./components/network/Nodes";
 import Representatives from "./components/network/Representatives";
-import Blocks from "./components/blockchain/Blocks";
 import TokensCreate from "./components/tokens/TokensCreate";
 import TokensView from "./components/tokens/TokensView";
-
 
 export const routes = [
   {
     path: "/blockchain",
-    label: "Blockchain",
+    label: "blockchain",
     component: Blockchain,
     // routes: [
     //   {
@@ -28,16 +25,16 @@ export const routes = [
   },
   {
     path: "/network",
-    label: "Network",
+    label: "network",
     component: Representatives,
     routes: [
       {
-        label: "Nodes",
+        label: "nodes",
         path: "/network/nodes",
         component: Nodes
       },
       {
-        label: "Representatives",
+        label: "representatives",
         path: "/network/representatives",
         component: Representatives
       },
@@ -45,16 +42,16 @@ export const routes = [
   },
   {
     path: "/tokens",
-    label: "Tokens",
+    label: "tokens",
     component: TokensView,
     routes: [
       {
-        label: "View",
+        label: "view",
         path: "/tokens/view",
         component: TokensView
       },
       {
-        label: "Create",
+        label: "create",
         path: "/tokens/create",
         component: TokensCreate
       },

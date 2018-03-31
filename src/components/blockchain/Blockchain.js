@@ -5,7 +5,7 @@ import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchai
 import TimeAgo from 'react-timeago'
 import {BarLoader} from "react-spinners";
 import {loadPrice} from "../../actions/app";
-import {FormattedMessage} from "react-intl";
+import {t, tu} from "../../utils/i18n";
 
 class Blockchain extends Component {
 
@@ -106,7 +106,7 @@ class Blockchain extends Component {
                 <div className="row">
                   <div className="col-md">
                     <i className="fas fa-exchange-alt mr-1"/>
-                    {block.transactionsCount} transactions
+                    {block.transactionsCount} {t("transactions")}
                   </div>
                   <div className="col-md">
                     <i className="fas fa-file mr-1"/>
@@ -180,7 +180,7 @@ class Blockchain extends Component {
           ))
         }
         <small className="d-block text-right mt-3">
-          <Link to="/blockchain/transactions">All transactions</Link>
+          <Link to="/blockchain/transactions">All {t("transactions")}</Link>
         </small>
       </Fragment>
     )
@@ -198,7 +198,7 @@ class Blockchain extends Component {
               <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-dollar-sign fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">TRX <FormattedMessage id="money.price" /></h6>
+                  <h6 className="mb-0 text-white lh-100">TRX {tu("money.price")}</h6>
                   <small>${price.usd} <span className={price.percentage > 0 ? "text-success" : "text-danger"}>{price.percentage}%</span></small>
                 </div>
               </div>
@@ -206,13 +206,13 @@ class Blockchain extends Component {
                 <i className="fas fa-server fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
                   <h6 className="mb-0 text-white lh-100">Representatives</h6>
-                  <small>5</small>
+                  <small>#</small>
                 </div>
               </div>
               <div className="col-md-3 ml-md-auto d-flex align-items-center">
                 <i className="fas fa-cube fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">Last Block</h6>
+                  <h6 className="mb-0 text-white lh-100">{tu("last_block")}</h6>
                   <small>4948C2E8A756D943703...</small>
                 </div>
               </div>
@@ -224,8 +224,8 @@ class Blockchain extends Component {
             <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-secondary rounded box-shadow">
               <i className="fas fa-exchange-alt fa-3x mr-3"/>
               <div className="lh-100">
-                <h6 className="mb-0 text-white lh-100">Transactions</h6>
-                <small>{ totalNumberOfTransactions || 0 } transactions</small>
+                <h6 className="mb-0 text-white lh-100">{tu("transactions")}</h6>
+                <small>{ totalNumberOfTransactions || 0 }  {t("transactions")}</small>
               </div>
             </div>
 
@@ -237,8 +237,8 @@ class Blockchain extends Component {
             <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-secondary rounded box-shadow">
               <i className="fas fa-cubes fa-3x mr-3"/>
               <div className="lh-100">
-                <h6 className="mb-0 text-white lh-100">Blocks</h6>
-                { blocks[0] && <small>Current #{blocks[0].number}</small> }
+                <h6 className="mb-0 text-white lh-100">{tu('blocks')}</h6>
+                { blocks[0] && <small>{tu("current")} #{blocks[0].number}</small> }
               </div>
             </div>
 
@@ -248,15 +248,10 @@ class Blockchain extends Component {
 
           </div>
         </div>
-
-
-
-
       </main>
     )
   }
 }
-
 
 function mapStateToProps(state) {
   return {
