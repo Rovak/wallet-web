@@ -3,6 +3,7 @@ import NodeMap from "./NodeMap";
 import {connect} from "react-redux";
 import {loadNodes} from "../../actions/network";
 import {sortBy, filter, sumBy} from "lodash";
+import {BarLoader} from "react-spinners";
 
 class Nodes extends Component {
 
@@ -30,6 +31,42 @@ class Nodes extends Component {
     return countries;
   };
 
+  renderList() {
+
+    let {nodes} = this.props;
+    let countries = this.buildNodeList();
+
+    if (nodes.length === 0) {
+      return (
+        <div className="text-center d-flex justify-content-center p-4">
+          <BarLoader color={'#343a40'} loading={true} height={5} width={150}/>
+        </div>
+      );
+    }
+    return (
+      <table className="table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Country</th>
+          <th>Nodes</th>
+        </tr>
+        </thead>
+        <tbody>
+        {
+          countries.map((country, index) => (
+            <tr>
+              <td>{index + 1}</td>
+              <td>{country.name}</td>
+              <td>{country.total}</td>
+            </tr>
+          ))
+        }
+        </tbody>
+      </table>
+    );
+  }
+
   componentDidMount() {
     this.props.loadNodes();
   }
@@ -43,30 +80,13 @@ class Nodes extends Component {
         <div className="row">
           <div className="col-sm-12 col-md-4">
             <div className="card">
-              <div className="card-header text-center border-bottom-0 bg-dark text-white">
-                {sumBy(countries, c => c.total)} Nodes
-              </div>
+              {
+                nodes.length > 0 && <div className="card-header text-center border-bottom-0 bg-dark text-white">
+                  {sumBy(countries, c => c.total)} Nodes
+                </div>
+              }
               <div className="card-body p-0 border-0">
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Country</th>
-                      <th>Nodes</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      countries.map((country, index) => (
-                        <tr>
-                          <td>{index + 1}</td>
-                          <td>{country.name}</td>
-                          <td>{country.total}</td>
-                        </tr>
-                      ))
-                    }
-                  </tbody>
-                </table>
+                {this.renderList()}
               </div>
             </div>
           </div>

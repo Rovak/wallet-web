@@ -28,18 +28,26 @@ export default class NodeMap extends Component {
 
     let i;
     let newNodes = [];
-    nodes.forEach(function(data, index) {
-      let node = [data.longitude, data.latitude, data.count, data.city, data.province, data.country];
+
+    for (let node of nodes) {
+      let data = [
+        node.longitude,
+        node.latitude,
+        node.count,
+        node.city,
+        node.province,
+        node.country];
+
       for (i = 0; i < sizes.length; i++) {
-        if (data.count >= sizes[i].minimumCount) {
+        if (node.count >= sizes[i].minimumCount) {
           if (!newNodes[i]) {
             newNodes[i] = [];
           }
-          newNodes[i].push(node);
+          newNodes[i].push(data);
           break;
         }
       }
-    });
+    }
 
     let series = sizes.map(function(size, index) {
       return {
