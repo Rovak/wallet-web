@@ -13,18 +13,18 @@ export const routes = [
     path: "/blockchain",
     label: "Blockchain",
     component: Blockchain,
-    routes: [
-      {
-        label: "Transactions",
-        path: "/blockchain/transactions",
-        component: Transactions
-      },
-      {
-        label: "Blocks",
-        path: "/blockchain/blocks",
-        component: Blocks
-      },
-    ]
+    // routes: [
+    //   {
+    //     label: "Transactions",
+    //     path: "/blockchain/transactions",
+    //     component: Transactions
+    //   },
+    //   {
+    //     label: "Blocks",
+    //     path: "/blockchain/blocks",
+    //     component: Blocks
+    //   },
+    // ]
   },
   {
     path: "/network",

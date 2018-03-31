@@ -109,5 +109,4 @@ const mapDispatchToProps = {
   loadNodes,
 };
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(Nodes)

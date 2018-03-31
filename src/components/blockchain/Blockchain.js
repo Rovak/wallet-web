@@ -5,6 +5,7 @@ import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchai
 import TimeAgo from 'react-timeago'
 import {BarLoader} from "react-spinners";
 import {loadPrice} from "../../actions/app";
+import {FormattedMessage} from "react-intl";
 
 class Blockchain extends Component {
 
@@ -197,7 +198,7 @@ class Blockchain extends Component {
               <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-dollar-sign fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">TRX Price</h6>
+                  <h6 className="mb-0 text-white lh-100">TRX <FormattedMessage id="money.price" /></h6>
                   <small>${price.usd} <span className={price.percentage > 0 ? "text-success" : "text-danger"}>{price.percentage}%</span></small>
                 </div>
               </div>

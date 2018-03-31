@@ -5,6 +5,8 @@ import Content from "./Content";
 import {HashRouter as Router} from "react-router-dom";
 import {Provider} from "react-redux";
 import {configureStore} from "../store";
+import {IntlProvider} from "react-intl";
+import {languages} from "../translations";
 
 class App extends Component {
 
@@ -13,22 +15,29 @@ class App extends Component {
     this.state = {
       loading: true,
       store: configureStore(),
+      locale: navigator.language.split(/[-_]/)[0],
     }
   }
 
   render() {
 
-    let {store} = this.state;
+    let {store, locale} = this.state;
+
+    console.log(languages[locale]);
 
     return (
-      <Provider store={store}>
-        <Router>
-          <React.Fragment>
-            <Navigation/>
-            <Content/>
-          </React.Fragment>
-        </Router>
-      </Provider>
+      <IntlProvider
+        locale={locale}
+        messages={languages[locale]}>
+        <Provider store={store}>
+          <Router>
+            <React.Fragment>
+              <Navigation/>
+              <Content/>
+            </React.Fragment>
+          </Router>
+        </Provider>
+      </IntlProvider>
     );
   }
 }
