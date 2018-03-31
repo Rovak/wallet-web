@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import TronLogo from "../../images/trans_tron_logo.png";
 import {genPriKey, getAddressFromPriKey} from "../../lib/crypto/crypto";
 import {base64EncodeToString, byteArray2hexStr} from "../../lib/crypto/code";
+import {loginWithPassword} from "../../actions/app";
+import {connect} from "react-redux";
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor() {
     super();
@@ -14,6 +16,7 @@ export default class Login extends Component {
       address: "",
       password: "",
       privateKey: "",
+      loginPassword: "",
     };
   }
 
@@ -31,6 +34,11 @@ export default class Login extends Component {
     })
   };
 
+  doLogin = () => {
+    let {loginPassword} = this.state;
+    this.props.loginWithPassword(loginPassword);
+  };
+
   renderLogin() {
     return (
       <div className="card-text text-center">
@@ -40,10 +48,10 @@ export default class Login extends Component {
         <h5>Welcome to TRON!</h5>
         <p className="mt-5">
           <label>Password</label>
-          <input className="form-control" type="password"/>
+          <input className="form-control" type="password" onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
         </p>
         <p>
-          <button className="btn btn-outline-danger">Log in</button>
+          <button className="btn btn-outline-danger" onClick={this.doLogin}>Log in</button>
         </p>
         <p>
           <a href="javascript:;" onClick={() => this.setState({ activeTab: 'register' })} className="card-link">or register a new account</a>
@@ -170,3 +178,17 @@ export default class Login extends Component {
     )
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+
+  };
+}
+
+const mapDispatchToProps = {
+  loginWithPassword,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
