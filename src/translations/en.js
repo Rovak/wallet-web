@@ -26,4 +26,6 @@ export const messages = {
   "submit_votes": "submit votes",
   "submit": "submit",
   "your_personal_website_address": "your personal website address",
+  "send": "send",
+  "amount": "amount",
 };

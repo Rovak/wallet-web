@@ -26,4 +26,6 @@ export const messages = {
   "submit_votes": "Bevestig stemmen",
   "submit": "bevestig",
   "your_personal_website_address": "uw persoonlijke website URL",
+  "send": "versturen",
+  "amount": "hoeveelheid",
 };

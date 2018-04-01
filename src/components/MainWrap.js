@@ -16,7 +16,6 @@ class MainWrap extends React.Component {
 
     return (
       <React.Fragment>
-
         <IntlProvider
           locale={activeLanguage}
           messages={languages[activeLanguage]}>

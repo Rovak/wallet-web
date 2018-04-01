@@ -8,6 +8,8 @@ import Login from "./components/account/Login";
 import Account from "./components/account/Account";
 import ApplyForDelegate from "./components/account/ApplyForDelegate";
 import Votes from "./components/account/Votes";
+import Send from "./components/Send";
+import Receive from "./components/Receive";
 
 export const routes = [
   {
@@ -65,6 +67,16 @@ export const routes = [
     path: "/accounts",
     label: "accounts",
     component: Accounts
+  },
+  {
+    path: "/send",
+    label: "send",
+    component: Send
+  },
+  {
+    path: "/receive",
+    label: "receive",
+    component: Receive
   },
   {
     path: "/login",

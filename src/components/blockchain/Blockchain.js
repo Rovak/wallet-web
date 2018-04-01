@@ -148,6 +148,8 @@ class Blockchain extends Component {
       );
     }
 
+    console.log(transactions);
+
     return (
       <Fragment>
         <h6 className="border-bottom border-gray pb-2 mb-0">Recent transactions</h6>
