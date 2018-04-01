@@ -1,5 +1,4 @@
 import {Client} from "../services/api";
-import xhr from "axios";
 
 export const SET_TOKEN_BALANCES = 'SET_TOKEN_BALANCES';
 

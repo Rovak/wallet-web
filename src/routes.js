@@ -6,6 +6,8 @@ import TokensCreate from "./components/tokens/TokensCreate";
 import TokensView from "./components/tokens/TokensView";
 import Login from "./components/account/Login";
 import Account from "./components/account/Account";
+import ApplyForDelegate from "./components/account/ApplyForDelegate";
+import Votes from "./components/account/Votes";
 
 export const routes = [
   {
@@ -68,6 +70,16 @@ export const routes = [
     path: "/login",
     showInMenu: false,
     component: Login,
+  },
+  {
+    path: "/account/votes",
+    showInMenu: false,
+    component: Votes,
+  },
+  {
+    path: "/account/apply-for-delegate",
+    showInMenu: false,
+    component: ApplyForDelegate,
   },
   {
     path: "/account",

@@ -13,6 +13,7 @@ export const messages = {
   "sign_out": "sign out",
   "register_login": "Register / Log-in",
   "register": "register",
+  "apply_for_delegate": "apply for delegate",
   "login": "login",
   "view": "view",
   "create": "create",
@@ -21,4 +22,8 @@ export const messages = {
   "balance": "balance",
   "votes": "votes",
   "password": "password",
+  "my_vote": "my vote",
+  "submit_votes": "submit votes",
+  "submit": "submit",
+  "your_personal_website_address": "your personal website address",
 };

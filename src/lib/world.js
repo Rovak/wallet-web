@@ -1,10 +1,11 @@
+/* eslint-disable no-undef */
 (function (root, factory) {
     if (typeof exports === 'object' && typeof exports.nodeName !== 'string') {
         // CommonJS
         factory(exports, require('echarts'));
     } else {
         // Browser globals
-        factory({}, root.echarts);
+        factory({}, echarts);
     }
 }(this, function (exports, echarts) {
     var log = function (msg) {

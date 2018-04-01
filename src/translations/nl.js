@@ -13,6 +13,7 @@ export const messages = {
   "sign_out": "uitloggen",
   "register_login": "Registreren / Inloggen",
   "register": "registreren",
+  "apply_for_delegate": "solliciteer voor afgevaardigde",
   "login": "inloggen",
   "view": "bekijken",
   "create": "nieuw",
@@ -21,4 +22,8 @@ export const messages = {
   "balance": "balans",
   "votes": "stemmen",
   "password": "wachtwoord",
+  "my_vote": "mijn stem",
+  "submit_votes": "Bevestig stemmen",
+  "submit": "bevestig",
+  "your_personal_website_address": "uw persoonlijke website URL",
 };

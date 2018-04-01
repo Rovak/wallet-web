@@ -211,7 +211,7 @@ class Login extends Component {
           <div className="row justify-content-center">
             <div className="col-12 col-sm-8 col-lg-5">
               <div className="card">
-                <div className="card-header ">
+                <div className="card-header">
                   <ul className="nav nav-tabs card-header-tabs justify-content-center">
                     <li className="nav-item">
                       <a

@@ -77,6 +77,15 @@ class Navigation extends Component {
                           <span className="sr-only">Toggle Dropdown</span>
                         </button>
                         <div className="dropdown-menu">
+                          <Link className="dropdown-item" to="/account/votes">
+                            <i className="fa fa-clipboard-check mr-2"/>
+                            {tu("votes")}
+                          </Link>
+                          <Link className="dropdown-item" to="/account/apply-for-delegate">
+                            <i className="fa fa-briefcase mr-2"/>
+                            {tu("apply_for_delegate")}
+                          </Link>
+                          <div className="dropdown-divider"/>
                           <a className="dropdown-item" href="javascript:;" onClick={this.logout}>
                             <i className="fa fa-sign-out-alt mr-2"/>
                             {tu("sign_out")}
