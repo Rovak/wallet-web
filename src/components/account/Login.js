@@ -5,6 +5,8 @@ import {genPriKey, getAddressFromPriKey} from "../../lib/crypto/crypto";
 import {base64EncodeToString, byteArray2hexStr} from "../../lib/crypto/code";
 import {loginWithPassword} from "../../actions/app";
 import {connect} from "react-redux";
+import {tu} from "../../utils/i18n";
+import {CopyToClipboard} from "react-copy-to-clipboard";
 
 class Login extends Component {
 
@@ -17,7 +19,15 @@ class Login extends Component {
       password: "",
       privateKey: "",
       loginPassword: "",
+
+      registerCheck1: false,
+      registerCheck2: false,
+      registerCheck3: false,
     };
+  }
+
+  componentDidMount() {
+    this.generateAccount();
   }
 
   generateAccount = () => {
@@ -34,9 +44,17 @@ class Login extends Component {
     })
   };
 
+  // component
+
   doLogin = () => {
     let {loginPassword} = this.state;
     this.props.loginWithPassword(loginPassword);
+  };
+
+  isRegisterFormValid = () => {
+    let {registerCheck1, registerCheck2, registerCheck3} = this.state;
+
+    return registerCheck1 && registerCheck2 && registerCheck3;
   };
 
   renderLogin() {
@@ -47,11 +65,11 @@ class Login extends Component {
         </p>
         <h5>Welcome to TRON!</h5>
         <p className="mt-5">
-          <label>Password</label>
+          <label>{tu("password")}</label>
           <input className="form-control" type="password" onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
         </p>
         <p>
-          <button className="btn btn-outline-danger" onClick={this.doLogin}>Log in</button>
+          <button className="btn btn-outline-danger" onClick={this.doLogin}>{tu("login")}</button>
         </p>
         <p>
           <a href="javascript:;" onClick={() => this.setState({ activeTab: 'register' })} className="card-link">or register a new account</a>
@@ -63,6 +81,8 @@ class Login extends Component {
   renderRegister() {
 
     let {address, password, privateKey} = this.state;
+
+    console.log("enabled", this.isRegisterFormValid(), this.state);
 
     return (
       <div className="card-text">
@@ -82,11 +102,16 @@ class Login extends Component {
               <div className="input-group mb-3">
                 <input
                   type="text"
+                  readOnly={true}
                   className="form-control"
                   onChange={(ev) => this.setState({ address: ev.target.value })}
                   value={address} />
                 <div className="input-group-append">
-                  <span className="input-group-text"><i className="fa fa-paste"/></span>
+                  <CopyToClipboard text={address}>
+                    <button className="btn btn-outline-secondary" type="button">
+                      <i className="fa fa-paste"/>
+                    </button>
+                  </CopyToClipboard>
                 </div>
               </div>
             </div>
@@ -94,11 +119,16 @@ class Login extends Component {
               <label>Password</label>
               <div className="input-group mb-3">
                 <input type="text"
+                       readOnly={true}
                        className="form-control"
                        value={password}
                        onChange={(ev) => this.setState({ password: ev.target.value })} />
                 <div className="input-group-append">
-                  <span className="input-group-text"><i className="fa fa-paste"/></span>
+                  <CopyToClipboard text={password}>
+                    <button className="btn btn-outline-secondary" type="button">
+                      <i className="fa fa-paste"/>
+                    </button>
+                  </CopyToClipboard>
                 </div>
               </div>
             </div>
@@ -106,30 +136,44 @@ class Login extends Component {
               <label>Private Key</label>
               <div className="input-group mb-3">
                 <input type="text"
+                       readOnly={true}
                        onChange={(ev) => this.setState({ privateKey: ev.target.value })}
                        className="form-control"
                        value={privateKey} />
                 <div className="input-group-append">
-                  <span className="input-group-text"><i className="fa fa-paste"/></span>
+                  <CopyToClipboard text={privateKey}>
+                    <button className="btn btn-outline-secondary" type="button">
+                      <i className="fa fa-paste"/>
+                    </button>
+                  </CopyToClipboard>
                 </div>
               </div>
             </div>
             <div className="form-check">
-              <input type="checkbox" className="form-check-input" />
-              <label className="form-check-label">I understand that if i lose my password that i will never access my assets</label>
+              <input type="checkbox"
+                     className="form-check-input" onChange={(ev) => this.setState({ registerCheck1: ev.target.checked })} />
+              <label className="form-check-label">
+                I understand that if i lose my password that i will never access my assets
+              </label>
             </div>
-            <div className="form-check">
+            <div className="form-check" onChange={(ev) => this.setState({ registerCheck2: ev.target.checked })}>
               <input type="checkbox" className="form-check-input" />
-              <label className="form-check-label">I understand if i forgot or lost my password that noone can help me recover it</label>
+              <label className="form-check-label">
+                I understand if i forgot or lost my password that noone can help me recover it
+              </label>
             </div>
-            <div className="form-check">
+            <div className="form-check" onChange={(ev) => this.setState({ registerCheck3: ev.target.checked })}>
               <input type="checkbox" className="form-check-input" />
-              <label className="form-check-label">I've written my password on paper</label>
+              <label className="form-check-label">
+                I've written my password on paper
+              </label>
             </div>
           </form>
         </div>
         <p className="mt-3">
-          <button className="btn btn-outline-danger col-sm">Create Account</button>
+          <button className="btn btn-outline-success col-sm" disabled={!this.isRegisterFormValid()}>
+            Create Account
+          </button>
         </p>
       </div>
     )
@@ -157,12 +201,16 @@ class Login extends Component {
                       <a
                           href="javascript:;"
                          className={(activeTab === 'login' ? "active" : "" ) + " nav-link" }
-                         onClick={() => this.setState({ activeTab: 'login' })}>Login</a>
+                         onClick={() => this.setState({ activeTab: 'login' })}>
+                        {tu("login")}
+                      </a>
                     </li>
                     <li className="nav-item">
                       <a href="javascript:;"
                           className={(activeTab === 'register' ? "active" : "" ) + " nav-link" }
-                         onClick={() => this.setState({ activeTab: 'register' })}>Register</a>
+                         onClick={() => this.setState({ activeTab: 'register' })}>
+                        {tu("register")}
+                      </a>
                     </li>
                   </ul>
                 </div>

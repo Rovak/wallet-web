@@ -12,10 +12,13 @@ export const messages = {
   "total_supply": "totale voorraad",
   "sign_out": "uitloggen",
   "register_login": "Registreren / Inloggen",
+  "register": "registreren",
+  "login": "inloggen",
   "view": "bekijken",
   "create": "nieuw",
   "country": "land",
   "address": "adres",
   "balance": "balans",
   "votes": "stemmen",
+  "password": "wachtwoord",
 };

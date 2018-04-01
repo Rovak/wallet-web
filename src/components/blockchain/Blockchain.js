@@ -241,11 +241,9 @@ class Blockchain extends Component {
                 { blocks[0] && <small>{tu("current")} #{blocks[0].number}</small> }
               </div>
             </div>
-
             <div className="my-3 p-3 bg-white rounded box-shadow">
               {this.renderBlocks()}
             </div>
-
           </div>
         </div>
       </main>

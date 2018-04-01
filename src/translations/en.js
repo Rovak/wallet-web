@@ -12,10 +12,13 @@ export const messages = {
   "total_supply": "total supply",
   "sign_out": "sign out",
   "register_login": "Register / Log-in",
+  "register": "register",
+  "login": "login",
   "view": "view",
   "create": "create",
   "country": "country",
   "address": "address",
   "balance": "balance",
   "votes": "votes",
+  "password": "password",
 };
