@@ -8,12 +8,11 @@ import {languages} from "../translations";
 import {HashRouter as Router} from "react-router-dom";
 
 
-
 class MainWrap extends React.Component {
 
   render() {
 
-    let {activeLanguage, availableLanguages, setLanguage, account} = this.props;
+    let {activeLanguage} = this.props;
 
     return (
       <React.Fragment>
@@ -23,11 +22,7 @@ class MainWrap extends React.Component {
           messages={languages[activeLanguage]}>
         <Router>
             <React.Fragment>
-              <Navigation
-                account={account}
-                languageChanged={language => setLanguage(language)}
-                activeLanguage={activeLanguage}
-                languages={availableLanguages} />
+              <Navigation />
               <Content/>
             </React.Fragment>
           </Router>

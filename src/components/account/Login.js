@@ -57,7 +57,15 @@ class Login extends Component {
     return registerCheck1 && registerCheck2 && registerCheck3;
   };
 
+  createAccount = () => {
+    let {password} = this.state;
+    this.props.loginWithPassword(password);
+  };
+
   renderLogin() {
+
+    let {loginPassword} = this.state;
+
     return (
       <div className="card-text text-center">
         <p className="text-center">
@@ -69,10 +77,15 @@ class Login extends Component {
           <input className="form-control" type="password" onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
         </p>
         <p>
-          <button className="btn btn-outline-danger" onClick={this.doLogin}>{tu("login")}</button>
+          <button
+            disabled={loginPassword.length === 0}
+            className="btn btn-outline-danger"
+            onClick={this.doLogin}>{tu("login")}</button>
         </p>
         <p>
-          <a href="javascript:;" onClick={() => this.setState({ activeTab: 'register' })} className="card-link">or register a new account</a>
+          <a href="javascript:;"
+             onClick={() => this.setState({ activeTab: 'register' })}
+             className="card-link">or register a new account</a>
         </p>
       </div>
     )
@@ -81,8 +94,6 @@ class Login extends Component {
   renderRegister() {
 
     let {address, password, privateKey} = this.state;
-
-    console.log("enabled", this.isRegisterFormValid(), this.state);
 
     return (
       <div className="card-text">
@@ -171,7 +182,9 @@ class Login extends Component {
           </form>
         </div>
         <p className="mt-3">
-          <button className="btn btn-outline-success col-sm" disabled={!this.isRegisterFormValid()}>
+          <button className="btn btn-outline-success col-sm"
+                  disabled={!this.isRegisterFormValid()}
+                  onClick={this.createAccount}>
             Create Account
           </button>
         </p>

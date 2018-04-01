@@ -5,6 +5,7 @@ export const SET_ACCOUNTS = 'SET_ACCOUNTS';
 export const SET_PRICE = 'SET_PRICE';
 export const SET_LANGUAGE = 'SET_LANGUAGE';
 export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 
 export const setLanguage = (language = 'en') => ({
   type: SET_LANGUAGE,
@@ -19,6 +20,10 @@ export const setAccounts = (accounts = []) => ({
 export const loginWithPassword = (password) => ({
   type: LOGIN,
   password,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
 });
 
 export const setPrice = (price, percentage) => ({

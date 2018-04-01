@@ -4,13 +4,19 @@ import {routes} from "../routes";
 import {Link, NavLink} from "react-router-dom";
 import {filter} from "lodash";
 import {tu} from "../utils/i18n";
+import {logout, setLanguage} from "../actions/app";
+import {connect} from "react-redux";
 
 
-export default class Navigation extends Component {
+class Navigation extends Component {
 
-  setLanguage(language) {
-    this.props.languageChanged(language);
-  }
+  setLanguage = (language) => {
+    this.props.setLanguage(language);
+  };
+
+  logout = () => {
+    this.props.logout();
+  };
 
   render() {
 
@@ -70,7 +76,7 @@ export default class Navigation extends Component {
                           <span className="sr-only">Toggle Dropdown</span>
                         </button>
                         <div className="dropdown-menu">
-                          <a className="dropdown-item" href="#">
+                          <a className="dropdown-item" href="javascript:;" onClick={this.logout}>
                             <i className="fa fa-sign-out-alt mr-2"/>
                             {tu("sign_out")}
                           </a>
@@ -92,3 +98,18 @@ export default class Navigation extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    activeLanguage: state.app.activeLanguage,
+    languages: state.app.availableLanguages,
+    account: state.app.account,
+  };
+}
+
+const mapDispatchToProps = {
+  setLanguage,
+  logout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
