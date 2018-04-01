@@ -8,6 +8,15 @@ import {tu} from "../../utils/i18n";
 
 class Nodes extends Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      showAllCountries: false,
+      size: 5,
+    };
+  }
+
   buildNodeList = () => {
     let {nodes} = this.props;
 
@@ -33,9 +42,14 @@ class Nodes extends Component {
   };
 
   renderList() {
-
+    let {showAllCountries, size} = this.state;
     let {nodes} = this.props;
     let countries = this.buildNodeList();
+    let shownCountries = countries;
+
+    if (!showAllCountries) {
+      shownCountries = shownCountries.slice(0, size);
+    }
 
     if (nodes.length === 0) {
       return (
@@ -44,6 +58,7 @@ class Nodes extends Component {
         </div>
       );
     }
+
     return (
       <table className="table">
         <thead>
@@ -55,8 +70,8 @@ class Nodes extends Component {
         </thead>
         <tbody>
         {
-          countries.map((country, index) => (
-            <tr>
+          shownCountries.map((country, index) => (
+            <tr key={country.name}>
               <td>{index + 1}</td>
               <td>{country.name}</td>
               <td>{country.total}</td>
@@ -73,6 +88,8 @@ class Nodes extends Component {
   }
 
   render() {
+    let {showAllCountries, size} = this.state;
+
     let {nodes} = this.props;
     let countries = this.buildNodeList();
 
@@ -89,6 +106,14 @@ class Nodes extends Component {
               <div className="card-body p-0 border-0">
                 {this.renderList()}
               </div>
+              {
+                (!showAllCountries && (countries.length - size > 0)) &&
+                <div className="card-footer text-muted text-center">
+                  <a href="javascript:;" onClick={() => this.setState({ showAllCountries: true })}>
+                    Show {countries.length - size} more
+                  </a>
+                </div>
+              }
             </div>
           </div>
           <NodeMap className="col-sm-12 col-md-8" nodes={nodes} />

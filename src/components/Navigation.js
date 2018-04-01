@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../images/tron_logo.png';
 import {routes} from "../routes";
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, withRouter} from "react-router-dom";
 import {filter} from "lodash";
 import {tu} from "../utils/i18n";
 import {logout, setLanguage} from "../actions/app";
@@ -16,6 +16,7 @@ class Navigation extends Component {
 
   logout = () => {
     this.props.logout();
+    this.props.history.push("/");
   };
 
   render() {
@@ -68,10 +69,10 @@ class Navigation extends Component {
                   ?
                     <li className="nav-item">
                       <div className="btn-group ml-2">
-                        <button type="button" className="btn btn-secondary">
+                        <Link className="btn btn-secondary" to="/account">
                           <i className="fa fa-user mr-2"/>
                           Account
-                        </button>
+                        </Link>
                         <button type="button" className="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span className="sr-only">Toggle Dropdown</span>
                         </button>
@@ -112,4 +113,4 @@ const mapDispatchToProps = {
   logout
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navigation))

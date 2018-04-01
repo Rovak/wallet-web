@@ -7,6 +7,7 @@ import {loginWithPassword} from "../../actions/app";
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
 import {CopyToClipboard} from "react-copy-to-clipboard";
+import {withRouter} from "react-router-dom";
 
 class Login extends Component {
 
@@ -49,6 +50,7 @@ class Login extends Component {
   doLogin = () => {
     let {loginPassword} = this.state;
     this.props.loginWithPassword(loginPassword);
+    this.props.history.push("/account");
   };
 
   isRegisterFormValid = () => {
@@ -60,6 +62,7 @@ class Login extends Component {
   createAccount = () => {
     let {password} = this.state;
     this.props.loginWithPassword(password);
+    this.props.history.push("/account");
   };
 
   renderLogin() {
@@ -251,5 +254,5 @@ const mapDispatchToProps = {
   loginWithPassword,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login))
 

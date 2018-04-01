@@ -5,6 +5,7 @@ import Representatives from "./components/network/Representatives";
 import TokensCreate from "./components/tokens/TokensCreate";
 import TokensView from "./components/tokens/TokensView";
 import Login from "./components/account/Login";
+import Account from "./components/account/Account";
 
 export const routes = [
   {
@@ -67,6 +68,11 @@ export const routes = [
     path: "/login",
     showInMenu: false,
     component: Login,
+  },
+  {
+    path: "/account",
+    showInMenu: false,
+    component: Account,
   },
   {
     path: "/",

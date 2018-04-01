@@ -372,9 +372,11 @@ export function Base64() {
 
   // private method for UTF-8 decoding
   this._out2ByteArray = function (utftext) {
-    var byteArray = new Array(utftext.length)
-    var i = 0;
-    var c = c1 = c2 = 0;
+    let byteArray = new Array(utftext.length)
+    let i = 0;
+    let c = 0;
+    let c1 = 0;
+    let c2 = 0;
     while (i < utftext.length) {
       c = utftext.charCodeAt(i);
       byteArray[i] = c;
