@@ -6,9 +6,15 @@ import Content from "./Content";
 import {IntlProvider} from "react-intl";
 import {languages} from "../translations";
 import {HashRouter as Router} from "react-router-dom";
-
+import Lockr from "lockr";
 
 class MainWrap extends React.Component {
+
+  componentDidMount() {
+    // Use language from local storage or detect from browser settings
+    let language = Lockr.get("language", navigator.language.split(/[-_]/)[0]);
+    this.props.setLanguage(language);
+  }
 
   render() {
 

@@ -116,9 +116,6 @@ class Representatives extends Component {
   }
 }
 
-
-
-
 function mapStateToProps(state) {
   return {
     witnesses: state.network.witnesses,

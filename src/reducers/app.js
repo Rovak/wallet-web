@@ -16,7 +16,7 @@ const initialState = {
     // zh: "简体中文",
     fa:"فارسی"
   },
-  activeLanguage: 'en', //navigator.language.split(/[-_]/)[0],
+  activeLanguage: 'en',
   account: {
     key: Lockr.get("account_key"),
     address: undefined,
@@ -45,9 +45,19 @@ export function appReducer(state = initialState, action) {
     }
 
     case SET_LANGUAGE: {
+
+
+      let language = action.language;
+
+      if (typeof state.availableLanguages[action.language] === 'undefined') {
+        language = 'en';
+      }
+
+      Lockr.set("language", language);
+
       return {
         ...state,
-        activeLanguage: action.language,
+        activeLanguage: language,
       };
     }
 
