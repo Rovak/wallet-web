@@ -15,7 +15,7 @@ const initialState = {
     en: "English",
     // zh: "简体中文",
   },
-  activeLanguage: navigator.language.split(/[-_]/)[0],
+  activeLanguage: 'en', //navigator.language.split(/[-_]/)[0],
   account: {
     key: Lockr.get("account_key"),
     address: undefined,
