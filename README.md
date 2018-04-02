@@ -19,12 +19,13 @@
 ## Requirements
 
 * Node v9.8.0
+* Yarn
 
 ## Running
 
 ```
-> npm install
-> npm start
+> yarn install
+> yarn start
 ```
 
 # Community
