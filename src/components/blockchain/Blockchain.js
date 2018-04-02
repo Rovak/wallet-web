@@ -6,6 +6,7 @@ import TimeAgo from 'react-timeago'
 import {BarLoader} from "react-spinners";
 import {loadPrice} from "../../actions/app";
 import {t, tu} from "../../utils/i18n";
+import {loadWitnesses} from "../../actions/network";
 
 class Blockchain extends Component {
 
@@ -13,71 +14,13 @@ class Blockchain extends Component {
     this.props.loadBlocks();
     this.props.loadPrice();
     this.props.loadTotalNumberOfTransactions();
+    this.props.loadWitnesses();
   }
 
   constructor() {
     super();
 
-    this.state = {
-      transactions: [
-        {
-          hash: "asfasdf",
-          from: '4948C2E8A756D9437037D...',
-          to: 'B56446E617E924805E4D6CA0...',
-          amount: 235113,
-        },
-        {
-          hash: "asfasdf324432",
-          from: '4948C2E8A756D9437037D...',
-          to: 'B56446E617E924805E4D6CA0...',
-          amount: 91273,
-        },
-        {
-          hash: "asfasdfkj3j4jk23",
-          from: '4948C2E8A756D9437037D...',
-          to: 'B56446E617E924805E4D6CA0...',
-          amount: 35612,
-        },
-        {
-          hash: "asfasdlnkl234hj324hkjf",
-          from: '4948C2E8A756D9437037D...',
-          to: 'B56446E617E924805E4D6CA0...',
-          amount: 721628,
-        },
-      ],
-      blocks: [
-        {
-          number: 6274,
-          transactions: 1,
-          size: 132,
-          hash: '4948C2E8A756D9437037DCD8C7E0C73D560CA38D',
-        },
-        {
-          number: 6275,
-          transactions: 2,
-          size: 132 * 2,
-          hash: '4948C2E8A756D9437037DCD8C7E0C73DSDAF0CA38D',
-        },
-        {
-          number: 6276,
-          transactions: 3,
-          size: 132 * 3,
-          hash: '4948C2E8A756D94ASDFASDFCD8C7E0C73D560CA38D',
-        },
-        {
-          number: 6277,
-          transactions: 4,
-          size: 132 * 4,
-          hash: '4948ASFDADSF756D9437037DCD8C7E0C73D560CA38D',
-        },
-        {
-          number: 6278,
-          transactions: 5,
-          size: 132 * 5,
-          hash: '4948C2EASDFDAD9437037DCD8C7E0C73D560CA38D',
-        },
-      ]
-    };
+    this.state = {};
   }
 
   renderBlocks() {
@@ -180,7 +123,7 @@ class Blockchain extends Component {
 
   render() {
 
-    let {blocks, price, totalNumberOfTransactions} = this.props;
+    let {blocks, price, totalNumberOfTransactions, witnesses} = this.props;
 
     return (
       <main role="main" className="container">
@@ -198,7 +141,7 @@ class Blockchain extends Component {
                 <i className="fas fa-server fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
                   <h6 className="mb-0 text-white lh-100">{tu("representatives")}</h6>
-                  <small>#</small>
+                  <small>{witnesses.length}</small>
                 </div>
               </div>
               <div className="col-md-3 ml-md-auto d-flex align-items-center">
@@ -249,6 +192,7 @@ function mapStateToProps(state) {
     transactions: state.blockchain.transactions,
     price: state.app.price,
     totalNumberOfTransactions: state.blockchain.totalNumberOfTransactions,
+    witnesses: state.network.witnesses,
   };
 }
 
@@ -256,6 +200,7 @@ const mapDispatchToProps = {
   loadBlocks,
   loadPrice,
   loadTotalNumberOfTransactions,
+  loadWitnesses,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blockchain)
