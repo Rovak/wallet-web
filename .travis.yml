@@ -6,7 +6,7 @@ before_install:
 install:
   - yarn install
 script:
-  - CI=false PUBLIC_URL=http://tronprotocol.github.io/wallet-web yarn run build
+  - CI=false PUBLIC_URL=https://tronprotocol.github.io/wallet-web yarn run build
 
 cache:
   yarn: true
