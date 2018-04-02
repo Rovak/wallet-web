@@ -148,7 +148,7 @@ class Blockchain extends Component {
                 <i className="fas fa-cube fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
                   <h6 className="mb-0 text-white lh-100">{tu("last_block")}</h6>
-                  <small>4948C2E8A756D943703...</small>
+                  <small>{blocks[0] && blocks[0].parentHash.substr(0, 16)}...</small>
                 </div>
               </div>
             </div>
