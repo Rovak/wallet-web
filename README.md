@@ -44,4 +44,3 @@
 
 * [TRON Protocol](https://github.com/tronprotocol/protocol)
 * [Wallet Client](https://github.com/tronprotocol/wallet-cli)
-* [Wallet Web](https://github.com/tronprotocol/Wallet_Web)
