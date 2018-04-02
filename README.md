@@ -20,8 +20,11 @@
 
 * Node v9.8.0
 
+## Running
+
 ```
-npm test
+> npm install
+> npm start
 ```
 
 # Community
