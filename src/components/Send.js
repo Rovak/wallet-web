@@ -87,7 +87,7 @@ class Send extends React.Component {
 
     if (!account.isLoggedIn) {
       return (
-        <div class="alert alert-warning" role="alert">
+        <div className="alert alert-warning" role="alert">
           {tu("require_account_to_send")}
         </div>
       );

@@ -42,7 +42,7 @@ class Receive extends React.Component {
 
     if (!account.isLoggedIn) {
       return (
-        <div class="alert alert-warning" role="alert">
+        <div className="alert alert-warning" role="alert">
           {tu("require_account_to_receive")}
         </div>
       );
@@ -62,7 +62,7 @@ class Receive extends React.Component {
                     qrcode && <img src={qrcode} style={{width: '100%'}} />
                   }
                 </div>
-                <div class="card-footer text-muted text-center">
+                <div className="card-footer text-muted text-center">
                   {tu("scan_qr_code")}
                 </div>
               </div>

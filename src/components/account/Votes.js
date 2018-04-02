@@ -61,7 +61,7 @@ class Votes extends Component {
         <main className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-12">
-              <div class="alert alert-success" role="alert">
+              <div className="alert alert-success" role="alert">
                 {tu("vote_thanks")}
               </div>
             </div>
