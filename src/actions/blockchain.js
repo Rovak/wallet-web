@@ -26,6 +26,9 @@ export const loadBlocks = () => async (dispatch, getState) => {
   let blocks = [];
 
   for (let i = 0; i < 7; i++) {
+    if ((block.number - i) <= 0) {
+      break;
+    }
     blocks.push(await Client.getBlockByNum(block.number - i));
   }
 
