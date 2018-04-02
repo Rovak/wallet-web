@@ -64,7 +64,7 @@ class Send extends React.Component {
     if (sendStatus === 'success') {
       return (
         <div className="alert alert-success text-center">
-          Succesfully send!
+          {tu("successful_send")}
         </div>
       )
     }
@@ -88,7 +88,7 @@ class Send extends React.Component {
     if (!account.isLoggedIn) {
       return (
         <div class="alert alert-warning" role="alert">
-          You must be logged in to send coins
+          {tu("require_account_to_send")}
         </div>
       );
     }

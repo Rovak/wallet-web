@@ -160,7 +160,7 @@ class TokensCreate extends Component {
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">Creating a token</h5>
-                <p className="card-text">Help text...</p>
+                {/*<p className="card-text">Help text...</p>*/}
               </div>
             </div>
           </div>

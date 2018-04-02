@@ -43,7 +43,7 @@ class Receive extends React.Component {
     if (!account.isLoggedIn) {
       return (
         <div class="alert alert-warning" role="alert">
-          You must be logged in to receive coins
+          {tu("require_account_to_receive")}
         </div>
       );
     }
@@ -55,7 +55,7 @@ class Receive extends React.Component {
             <div className="col-12 col-sm-8 col-lg-5">
               <div className="card">
                 <div className="card-header text-center">
-                  Receive TRX
+                  {tu("receive_trx")}
                 </div>
                 <div className="card-body">
                   {
@@ -63,7 +63,7 @@ class Receive extends React.Component {
                   }
                 </div>
                 <div class="card-footer text-muted text-center">
-                  Scan the code with a QR Code scanner
+                  {tu("scan_qr_code")}
                 </div>
               </div>
             </div>

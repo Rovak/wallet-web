@@ -50,7 +50,7 @@ class ApplyForDelegate extends Component {
     if (applyResponse === false) {
       return (
         <div className="alert alert-danger text-center">
-          An unknown error occurred
+          {tu("unknown_error")}
         </div>
       );
     }
@@ -93,7 +93,7 @@ class ApplyForDelegate extends Component {
                     <input type="checkbox"
                            className="form-check-input" onChange={(ev) => this.setState({ check: ev.target.checked })} />
                     <label className="form-check-label">
-                      I understand how to be a TRON representative
+                      {tu("representative_understand")}
                     </label>
                   </div>
                 </div>

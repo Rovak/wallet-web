@@ -107,7 +107,7 @@ class Login extends Component {
         <div className="mt-5">
           <p>
             <button className="btn btn-primary col-sm" onClick={this.generateAccount}>
-              Click to generate your <br/>account address and password
+              {tu("generate_account")}
             </button>
           </p>
           <form>
@@ -167,19 +167,19 @@ class Login extends Component {
               <input type="checkbox"
                      className="form-check-input" onChange={(ev) => this.setState({ registerCheck1: ev.target.checked })} />
               <label className="form-check-label">
-                I understand that if i lose my password that i will never access my assets
+                {tu("create_account_confirm_1")}
               </label>
             </div>
             <div className="form-check" onChange={(ev) => this.setState({ registerCheck2: ev.target.checked })}>
               <input type="checkbox" className="form-check-input" />
               <label className="form-check-label">
-                I understand if i forgot or lost my password that noone can help me recover it
+                {tu("create_account_confirm_2")}
               </label>
             </div>
             <div className="form-check" onChange={(ev) => this.setState({ registerCheck3: ev.target.checked })}>
               <input type="checkbox" className="form-check-input" />
               <label className="form-check-label">
-                I've written my password on paper
+                {tu("create_account_confirm_3")}
               </label>
             </div>
           </form>

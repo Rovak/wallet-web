@@ -83,7 +83,7 @@ class Accounts extends Component {
               <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-piggy-bank fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">Accounts</h6>
+                  <h6 className="mb-0 text-white lh-100">{tu("accounts")}</h6>
                   <small>{accounts.length}</small>
                 </div>
               </div>
@@ -97,7 +97,7 @@ class Accounts extends Component {
               <div className="col-md-3 ml-md-auto d-flex align-items-center">
                 <i className="fas fa-hashtag fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">Newest Account</h6>
+                  <h6 className="mb-0 text-white lh-100">{tu("newest_account")}</h6>
                   <small>4948C2E8A756D943703...</small>
                 </div>
               </div>

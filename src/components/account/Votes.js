@@ -62,7 +62,7 @@ class Votes extends Component {
           <div className="row">
             <div className="col-md-12">
               <div class="alert alert-success" role="alert">
-                Thanks for submitting your vote!
+                {tu("vote_thanks")}
               </div>
             </div>
           </div>

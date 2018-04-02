@@ -148,11 +148,9 @@ class Blockchain extends Component {
       );
     }
 
-    console.log(transactions);
-
     return (
       <Fragment>
-        <h6 className="border-bottom border-gray pb-2 mb-0">Recent transactions</h6>
+        <h6 className="border-bottom border-gray pb-2 mb-0">{tu("recent_transactions")}</h6>
         {
           transactions.slice(0, 7).map(transaction => (
             <div className="media text-muted pt-3">
