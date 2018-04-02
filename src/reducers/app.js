@@ -13,6 +13,7 @@ const initialState = {
   availableLanguages: {
     nl: "Nederlands",
     en: "English",
+    zh: "简体中文",
   },
   activeLanguage: navigator.language.split(/[-_]/)[0],
   account: {

@@ -56,11 +56,11 @@ export const routes = [
         path: "/tokens/view",
         component: TokensView
       },
-      // {
-      //   label: "create",
-      //   path: "/tokens/create",
-      //   component: TokensCreate
-      // },
+      {
+        label: "create",
+        path: "/tokens/create",
+        component: TokensCreate
+      },
     ]
   },
   {
