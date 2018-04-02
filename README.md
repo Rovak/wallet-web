@@ -54,6 +54,8 @@
 > yarn start
 ```
 
+The wallet should then be running on [http://localhost:3000](http://localhost:3000)
+
 # Community
 
 * [Slack](https://join.slack.com/t/tronfoundation/shared_invite/enQtMzAzNzg4NTI4NDM3LTAyZGQzMzEzMjNkNDU0ZjNkNTA4OTYyNTA5YWZmYjE3MTEyOWZhNzljNzQwODM3NDQ0OWRiMTIyMDhlYzgyOGQ)
