@@ -100,7 +100,7 @@ class Send extends React.Component {
             <div className="col-12 col-sm-8 col-lg-5">
               <div className="card">
                 <div className="card-header text-center">
-                  Send TRX
+                 {tu("Send TRX")}
                 </div>
                 <div className="card-body">
                   <form>

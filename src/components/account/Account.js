@@ -71,7 +71,7 @@ class Account extends Component {
               <div className="card-body">
                 <div className="row">
                   <div className="col-md-2">
-                    <b>Address</b>
+                    <b>{tu("address")}</b>
                   </div>
                   <div className="col-md-10">
                     {address}
