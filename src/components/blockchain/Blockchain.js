@@ -156,23 +156,15 @@ class Blockchain extends Component {
             <div className="media text-muted pt-3">
               <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" className="mr-2 rounded"/>
               <div className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-center">
-                {transaction.from}
+                {transaction.from.substr(0, 16)}
                 <i className="fas fa-arrow-right mr-3 ml-3"/>
-                {transaction.to}
+                {transaction.to.substr(0, 16)}
                 <br />
                 <br />
                 <div className="row">
                   <div className="col-md">
-                    <i className="fas fa-hashtag mr-1"/>
-                    0x767301954e1a016...
-                  </div>
-                  <div className="col-md">
                     <i className="fas fa-exchange-alt mr-1"/>
                     {transaction.amount} TRX
-                  </div>
-                  <div className="col-md">
-                    <i className="fas fa-clock mr-1"/>
-                    10 seconds ago
                   </div>
                 </div>
               </div>
@@ -205,7 +197,7 @@ class Blockchain extends Component {
               <div className="col-md-3 ml-md-auto d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-server fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">Representatives</h6>
+                  <h6 className="mb-0 text-white lh-100">{tu("representatives")}</h6>
                   <small>#</small>
                 </div>
               </div>

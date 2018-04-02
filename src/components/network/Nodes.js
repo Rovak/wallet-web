@@ -100,7 +100,7 @@ class Nodes extends Component {
             <div className="card">
               {
                 nodes.length > 0 && <div className="card-header text-center border-bottom-0 bg-dark text-white">
-                  {sumBy(countries, c => c.total)} Nodes
+                  {sumBy(countries, c => c.total)} {tu("nodes")}
                 </div>
               }
               <div className="card-body p-0 border-0">

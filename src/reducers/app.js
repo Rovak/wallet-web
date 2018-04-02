@@ -11,9 +11,9 @@ const initialState = {
     percentage: 0,
   },
   availableLanguages: {
-    nl: "Nederlands",
+    // nl: "Nederlands",
     en: "English",
-    zh: "简体中文",
+    // zh: "简体中文",
   },
   activeLanguage: navigator.language.split(/[-_]/)[0],
   account: {
