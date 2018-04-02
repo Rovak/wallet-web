@@ -74,7 +74,7 @@ class Login extends Component {
         <p className="text-center">
           <img src={TronLogo}/><br/>
         </p>
-        <h5>Welcome to TRON!</h5>
+        <h5>{tu("Welcome to TRON")}</h5>
         <p className="mt-5">
           <label>{tu("password")}</label>
           <input className="form-control" type="password" onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
@@ -88,7 +88,7 @@ class Login extends Component {
         <p>
           <a href="javascript:;"
              onClick={() => this.setState({ activeTab: 'register' })}
-             className="card-link">or register a new account</a>
+             className="card-link">{tu("or register a new account")}</a>
         </p>
       </div>
     )
@@ -103,7 +103,7 @@ class Login extends Component {
         <p className="text-center">
           <img src={TronLogo}/><br/>
         </p>
-        <h5 className="text-center">Register</h5>
+        <h5 className="text-center">{tu("register")}</h5>
         <div className="mt-5">
           <p>
             <button className="btn btn-primary col-sm" onClick={this.generateAccount}>
@@ -112,7 +112,7 @@ class Login extends Component {
           </p>
           <form>
             <div className="form-group">
-              <label>Account Address</label>
+              <label>{tu("Account Address")}</label>
               <div className="input-group mb-3">
                 <input
                   type="text"
@@ -130,7 +130,7 @@ class Login extends Component {
               </div>
             </div>
             <div className="form-group">
-              <label>Password</label>
+              <label>{tu("password")}</label>
               <div className="input-group mb-3">
                 <input type="text"
                        readOnly={true}
@@ -147,7 +147,7 @@ class Login extends Component {
               </div>
             </div>
             <div className="form-group">
-              <label>Private Key</label>
+              <label>{tu("Private Key")}</label>
               <div className="input-group mb-3">
                 <input type="text"
                        readOnly={true}
@@ -187,9 +187,7 @@ class Login extends Component {
         <p className="mt-3">
           <button className="btn btn-outline-success col-sm"
                   disabled={!this.isRegisterFormValid()}
-                  onClick={this.createAccount}>
-            Create Account
-          </button>
+                  onClick={this.createAccount}>{tu("Create Account")} </button>
         </p>
       </div>
     )

@@ -37,7 +37,7 @@ class Blockchain extends Component {
 
     return (
       <Fragment>
-        <h6 className="border-bottom border-gray pb-2 mb-0">Recent blocks</h6>
+        <h6 className="border-bottom border-gray pb-2 mb-0">{tu("Recent blocks")}</h6>
         {
           blocks.map(block => (
             <div key={block.number} className="media text-muted pt-3">
@@ -65,7 +65,7 @@ class Blockchain extends Component {
           ))
         }
         <small className="d-block text-right mt-3">
-          <Link to="/blockchain/blocks">All blocks</Link>
+          <Link to="/blockchain/blocks">{tu("All blocks")}</Link>
         </small>
       </Fragment>
     )
@@ -86,7 +86,7 @@ class Blockchain extends Component {
     if (transactions.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">
-          No transactions
+         {t("No transactions")}
         </div>
       );
     }

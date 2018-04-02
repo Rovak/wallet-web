@@ -14,6 +14,7 @@ const initialState = {
     // nl: "Nederlands",
     en: "English",
     // zh: "简体中文",
+    fa:"فارسی"
   },
   activeLanguage: 'en', //navigator.language.split(/[-_]/)[0],
   account: {
