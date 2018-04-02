@@ -7,6 +7,7 @@ import {IntlProvider} from "react-intl";
 import {languages} from "../translations";
 import {HashRouter as Router} from "react-router-dom";
 import Lockr from "lockr";
+import Footer from "./Footer";
 
 class MainWrap extends React.Component {
 
@@ -25,10 +26,11 @@ class MainWrap extends React.Component {
         <IntlProvider
           locale={activeLanguage}
           messages={languages[activeLanguage]}>
-        <Router>
+          <Router>
             <React.Fragment>
-              <Navigation />
+              <Navigation/>
               <Content/>
+              <Footer/>
             </React.Fragment>
           </Router>
         </IntlProvider>
