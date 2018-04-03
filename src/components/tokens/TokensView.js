@@ -100,7 +100,7 @@ class TokensView extends Component {
                   <FormattedTime value={token.endTime}/>
                 </td>
                 <td className="text-right">
-                  { !this.containsToken(index) &&
+                  { !this.containsToken(token) &&
                     <button type="button" class="btn btn-primary btn-sm" onClick={() => this.toggleToken(token)}>
                       Participate
                     </button>
