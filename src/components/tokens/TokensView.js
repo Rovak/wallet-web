@@ -1,44 +1,164 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
-import {sumBy} from "lodash";
 import {FormattedDate, FormattedTime} from "react-intl";
 import {tu} from "../../utils/i18n";
+import {TextField} from "../../utils/formHelper";
+import {Client} from "../../services/api";
+import {passwordToAddress} from "../../utils/crypto";
 
 class TokensView extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      activeToken: -1,
+      amount: 0,
+      confirmed: false,
+      confirmedParticipate: false,
+    };
+  }
+
+  toggleToken(index) {
+    this.setState({
+      activeToken: index,
+      amount: 0,
+      confirmed: false,
+      confirmedParticipate: false,
+    })
+  }
+
+  containsToken(index) {
+    let {activeToken} = this.state;
+    return activeToken === index;
+  }
 
   componentDidMount() {
     this.props.loadTokens();
   }
 
+  isValid = () => {
+    let {confirmed, amount} = this.state;
+
+    return confirmed && (amount > 0);
+  };
+
+  submit = async (token) => {
+
+    let {account} = this.props;
+    let {amount} = this.state;
+
+    await Client.participateAsset(account.key, {
+      name: token.name,
+      issuerAddress: token.ownerAddress,
+      amount,
+    });
+
+    this.setState({
+      confirmedParticipate: true,
+    })
+  };
+
   renderTable() {
     let {tokens} = this.props;
+    let {amount, confirmedParticipate} = this.state;
 
     return (
       <table className="table">
         <thead>
         <tr>
-          <th scope="col">{tu("name")}</th>
-          <th scope="col">{tu("issuer")}</th>
-          <th scope="col">{tu("total_supply")}</th>
-          <th scope="col">{tu("start_end_time")}</th>
+          <th>{tu("name")}</th>
+          <th>{tu("issuer")}</th>
+          <th>{tu("total_supply")}</th>
+          <th>{tu("start_end_time")}</th>
+          <th>&nbsp;</th>
         </tr>
         </thead>
         <tbody>
         {
           tokens.map((token, index) => (
-            <tr key={token.name}>
-              <td>{token.name}</td>
-              <td>{token.ownerAddress}</td>
-              <td>{token.totalSupply}</td>
-              <td>
-                <FormattedDate value={token.startTime}/>&nbsp;
-                <FormattedTime value={token.startTime}/>&nbsp;
-                -&nbsp;
-                <FormattedDate value={token.endTime}/>&nbsp;
-                <FormattedTime value={token.endTime}/>
-              </td>
-            </tr>
+            <Fragment key={index}>
+              <tr key={token.name}>
+                <td>{token.name}</td>
+                <td>
+                  <span title={token.ownerAddress}>
+                    {token.ownerAddress.substr(0, 16)}...
+                  </span>
+                </td>
+                <td>{token.totalSupply}</td>
+                <td>
+                  <FormattedDate value={token.startTime}/>&nbsp;
+                  <FormattedTime value={token.startTime}/>&nbsp;
+                  -&nbsp;
+                  <FormattedDate value={token.endTime}/>&nbsp;
+                  <FormattedTime value={token.endTime}/>
+                </td>
+                <td className="text-right">
+                  { !this.containsToken(index) &&
+                    <button type="button" class="btn btn-primary btn-sm" onClick={() => this.toggleToken(index)}>
+                      Participate
+                    </button>
+                  }
+                </td>
+              </tr>
+              {
+                (confirmedParticipate && this.containsToken(index)) && <tr>
+                  <td colSpan="5">
+                    <div className="alert alert-success text-center">
+                      You succesfully partipated!
+                    </div>
+                  </td>
+                </tr>
+              }
+              {
+                (!confirmedParticipate && this.containsToken(index)) &&
+                (
+                  <tr>
+                    <td colSpan="5">
+                      <div className="form-group row no-gutters">
+                        <label className="col-2 font-weight-bold text-right">Description</label>
+                        <div className="col-sm-9">
+                          <div className="pl-2">{token.description}</div>
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters">
+                        <label className="col-2 font-weight-bold text-right">Price</label>
+                        <div className="col-sm-9">
+                          <div className="pl-2">{token.price} TRX</div>
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters">
+                        <label className="col-2 font-weight-bold text-right">Amount</label>
+                        <div className="col-sm-2 pl-2">
+                          <TextField type="number" cmp={this} field="amount" className="form-control" />
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters">
+                        <div className="col-2">&nbsp;</div>
+                        <div className="col-sm-10">
+                          <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
+                          <label className="form-check-label">
+                            I've confirmed to spend <b>{amount} TRX</b> on token distribution,
+                            and get a total of <b>{amount * token.price} {token.name} tokens</b> tokens.
+                          </label>
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters">
+                        <div className="col-2">&nbsp;</div>
+                        <div className="col-sm-10">
+                          <button class="btn btn-success"
+                                  disabled={!this.isValid()}
+                                    onClick={() => this.submit(token)}>
+                            Confirm Transaction
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                )
+              }
+            </Fragment>
           ))
         }
         </tbody>
@@ -63,6 +183,7 @@ class TokensView extends Component {
 function mapStateToProps(state) {
   return {
     tokens: state.tokens.tokens,
+    account: state.app.account,
   };
 }
 

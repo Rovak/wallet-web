@@ -64,9 +64,6 @@ class Blockchain extends Component {
             </div>
           ))
         }
-        <small className="d-block text-right mt-3">
-          <Link to="/blockchain/blocks">{tu("All blocks")}</Link>
-        </small>
       </Fragment>
     )
   }

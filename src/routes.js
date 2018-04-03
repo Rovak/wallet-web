@@ -2,7 +2,7 @@ import Blockchain from "./components/blockchain/Blockchain";
 import Accounts from "./components/Accounts";
 import Nodes from "./components/network/Nodes";
 import Representatives from "./components/network/Representatives";
-import TokensCreate from "./components/tokens/TokensCreate";
+import TokensCreate from "./components/tokens/TokenCreate";
 import TokensView from "./components/tokens/TokensView";
 import Login from "./components/account/Login";
 import Account from "./components/account/Account";

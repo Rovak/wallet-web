@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {routes} from "../routes";
 import {Link, Route, Switch} from "react-router-dom";
 import {tu} from "../utils/i18n";
+import {filter} from "lodash";
 
 
 function Badge({value}) {
@@ -24,7 +25,7 @@ export default class Content extends Component {
                   <div className="container">
                     <nav className="nav nav-underline">
                       {
-                        route.routes && route.routes.map(subRoute => {
+                        route.routes && filter(route.routes, r => r.showInMenu !== false).map(subRoute => {
                           return (
                             <Link
                               key={subRoute.path}

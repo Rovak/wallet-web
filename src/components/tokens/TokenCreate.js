@@ -5,9 +5,9 @@ import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
 import {TextField} from "../../utils/formHelper";
 
-class TokensCreate extends Component {
+class TokenCreate extends Component {
 
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
@@ -183,4 +183,4 @@ const mapDispatchToProps = {
   loadTokens,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TokensCreate);
+export default connect(mapStateToProps, mapDispatchToProps)(TokenCreate);
