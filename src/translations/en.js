@@ -57,4 +57,5 @@ export const messages = {
   "require_account_to_receive": "You must be logged in to receive coins",
   "successful_send": "Succesfully send!",
   "nodes": "nodes",
+  "confirm_transaction": "confirm transaction",
 };

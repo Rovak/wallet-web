@@ -122,19 +122,19 @@ class TokensView extends Component {
                   <tr>
                     <td colSpan="5">
                       <div className="form-group row no-gutters">
-                        <label className="col-2 font-weight-bold text-right">Description</label>
+                        <label className="col-2 font-weight-bold text-right">{tu("description")}</label>
                         <div className="col-sm-9">
                           <div className="pl-2">{token.description}</div>
                         </div>
                       </div>
                       <div className="form-group row no-gutters">
-                        <label className="col-2 font-weight-bold text-right">Price</label>
+                        <label className="col-2 font-weight-bold text-right">{tu("price")}</label>
                         <div className="col-sm-9">
                           <div className="pl-2">{token.price} TRX</div>
                         </div>
                       </div>
                       <div className="form-group row no-gutters">
-                        <label className="col-2 font-weight-bold text-right">Amount</label>
+                        <label className="col-2 font-weight-bold text-right">{tu("amount")}</label>
                         <div className="col-sm-2 pl-2">
                           <TextField type="number" cmp={this} field="amount" className="form-control" />
                         </div>
@@ -155,7 +155,7 @@ class TokensView extends Component {
                           <button class="btn btn-success"
                                   disabled={loading || !this.isValid()}
                                     onClick={() => this.submit(token)}>
-                            Confirm Transaction
+                            {tu("confirm_transaction")}
                           </button>
                         </div>
                       </div>
