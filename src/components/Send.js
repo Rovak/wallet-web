@@ -5,6 +5,7 @@ import * as qs from "query-string";
 import {loadTokenBalances} from "../actions/account";
 import {tu} from "../utils/i18n";
 import {Client} from "../services/api";
+import {Link} from "react-router-dom";
 
 class Send extends React.Component {
 
@@ -87,8 +88,13 @@ class Send extends React.Component {
 
     if (!account.isLoggedIn) {
       return (
-        <div className="alert alert-warning" role="alert">
-          {tu("require_account_to_send")}
+        <div>
+          <div className="alert alert-warning">
+            {tu("require_account_to_send")}
+          </div>
+          <p className="text-center">
+            <Link to="/login">Go to login</Link>
+          </p>
         </div>
       );
     }

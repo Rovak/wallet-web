@@ -3,6 +3,7 @@ import React from "react";
 import * as QRCode from "qrcode";
 import {passwordToAddress} from "../utils/crypto";
 import {tu} from "../utils/i18n";
+import {Link} from "react-router-dom";
 
 class Receive extends React.Component {
 
@@ -42,8 +43,13 @@ class Receive extends React.Component {
 
     if (!account.isLoggedIn) {
       return (
-        <div className="alert alert-warning" role="alert">
-          {tu("require_account_to_receive")}
+        <div>
+          <div className="alert alert-warning">
+            {tu("require_account_to_receive")}
+          </div>
+          <p className="text-center">
+            <Link to="/login">Go to login</Link>
+          </p>
         </div>
       );
     }
