@@ -10,6 +10,14 @@ import {connect} from "react-redux";
 
 class Navigation extends Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      showSearch: false,
+    };
+  }
+
   setLanguage = (language) => {
     this.props.setLanguage(language);
   };
@@ -22,6 +30,7 @@ class Navigation extends Component {
   render() {
 
     let {languages, activeLanguage, account} = this.props;
+    let {showSearch} = this.state;
 
     let viewableRoutes = filter(routes, r => r.showInMenu !== false);
 
@@ -49,6 +58,18 @@ class Navigation extends Component {
                   </NavLink>
                 </li>
               ))}
+              <li className="nav-item">
+                {
+                  !showSearch ?
+                    <a href="javascript:;" onClick={() => this.setState({ showSearch: true })} className="nav-link">
+                      <i className="fa fa-search"></i>
+                    </a>
+                    :
+                    <form class="form-inline mt-2 mt-md-0">
+                      <input class="form-control" type="text" placeholder="Search" aria-label="Search" />
+                    </form>
+                }
+              </li>
             </ul>
             <ul className="navbar-nav navbar-right">
               <li className="nav-item dropdown navbar-right">
