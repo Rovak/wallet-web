@@ -17,21 +17,23 @@ class TokensView extends Component {
       amount: 0,
       confirmed: false,
       confirmedParticipate: false,
+      loading: false,
     };
   }
 
-  toggleToken(index) {
+  toggleToken(token) {
     this.setState({
-      activeToken: index,
+      activeToken: token.name,
       amount: 0,
       confirmed: false,
       confirmedParticipate: false,
+      loading: false,
     })
   }
 
-  containsToken(index) {
+  containsToken(token) {
     let {activeToken} = this.state;
-    return activeToken === index;
+    return activeToken === token.name;
   }
 
   componentDidMount() {
@@ -49,6 +51,8 @@ class TokensView extends Component {
     let {account} = this.props;
     let {amount} = this.state;
 
+    this.setState({ loading: true, });
+
     await Client.participateAsset(account.key, {
       name: token.name,
       issuerAddress: token.ownerAddress,
@@ -57,12 +61,13 @@ class TokensView extends Component {
 
     this.setState({
       confirmedParticipate: true,
+      loading: false,
     })
   };
 
   renderTable() {
     let {tokens} = this.props;
-    let {amount, confirmedParticipate} = this.state;
+    let {amount, confirmedParticipate, loading} = this.state;
 
     return (
       <table className="table">
@@ -96,14 +101,14 @@ class TokensView extends Component {
                 </td>
                 <td className="text-right">
                   { !this.containsToken(index) &&
-                    <button type="button" class="btn btn-primary btn-sm" onClick={() => this.toggleToken(index)}>
+                    <button type="button" class="btn btn-primary btn-sm" onClick={() => this.toggleToken(token)}>
                       Participate
                     </button>
                   }
                 </td>
               </tr>
               {
-                (confirmedParticipate && this.containsToken(index)) && <tr>
+                (confirmedParticipate && this.containsToken(token)) && <tr>
                   <td colSpan="5">
                     <div className="alert alert-success text-center">
                       You succesfully partipated!
@@ -112,7 +117,7 @@ class TokensView extends Component {
                 </tr>
               }
               {
-                (!confirmedParticipate && this.containsToken(index)) &&
+                (!confirmedParticipate && this.containsToken(token)) &&
                 (
                   <tr>
                     <td colSpan="5">
@@ -148,7 +153,7 @@ class TokensView extends Component {
                         <div className="col-2">&nbsp;</div>
                         <div className="col-sm-10">
                           <button class="btn btn-success"
-                                  disabled={!this.isValid()}
+                                  disabled={loading || !this.isValid()}
                                     onClick={() => this.submit(token)}>
                             Confirm Transaction
                           </button>
