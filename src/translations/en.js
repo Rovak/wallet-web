@@ -58,4 +58,7 @@ export const messages = {
   "successful_send": "Succesfully send!",
   "nodes": "nodes",
   "confirm_transaction": "confirm transaction",
+  "last_confirmed" : "Last Confirmed",
+  "blocks_produced" : "Blocks Produced",
+  "blocks_missed" : "Blocks Missed",
 };

@@ -30,7 +30,10 @@ class Representatives extends Component {
             <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">{tu("address")}</th>
+              <th scope="col">{tu("name")}</th>
+              <th scope="col">{tu("last_block")}</th>
+              <th scope="col">{tu("blocks_produced")}</th>
+              <th scope="col">{tu("blocks_missed")}</th>
               <th scope="col">{tu("votes")}</th>
             </tr>
             </thead>
@@ -39,7 +42,10 @@ class Representatives extends Component {
               witnesses.map((account, index) => (
                 <tr key={account.address}>
                   <th scope="row">{index}</th>
-                  <td>{account.address.toUpperCase()}</td>
+                  <td>{account.url}</td>
+                  <td>{account.latestBlockNumber}</td>
+                  <td>{account.producedTotal}</td>
+                  <td>{account.missedTotal}</td>
                   <td>{account.votes} TRX</td>
                 </tr>
               ))
@@ -56,7 +62,7 @@ class Representatives extends Component {
                 </div>
                 <div className="media-body mb-0 lh-150">
                   <div className="ml-3">
-                    {account.address.toUpperCase()}
+                    {account.url}
                   </div>
                   <div className="ml-3 text-muted">
                     {account.votes} TRX
