@@ -61,7 +61,10 @@ class Account extends Component {
     let address = passwordToAddress(account.key);
 
     return (
-      <main className="container pt-5 pb-5">
+      <main className="container pt-3">
+        <div class="alert alert-danger text-center">
+          Do not send TRX from your own wallet or exchange to your testnet address!
+        </div>
         <div className="row">
           <div className="col-md-12">
             <div className="card">
@@ -74,7 +77,10 @@ class Account extends Component {
                     <b>{tu("address")}</b>
                   </div>
                   <div className="col-md-10">
-                    {address}
+                    {address}<br/>
+                    <span class="text-danger">
+                      (Do not send TRX from your own wallet or exchange to the above account address of testnet)
+                    </span>
                   </div>
                 </div>
               </div>
@@ -93,7 +99,6 @@ class Account extends Component {
             </div>
           </div>
         </div>
-
       </main>
     )
   }

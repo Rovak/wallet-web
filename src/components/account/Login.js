@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
 import TronLogo from "../../images/trans_tron_logo.png";
 import {genPriKey, getAddressFromPriKey} from "../../lib/crypto/crypto";
@@ -8,6 +9,7 @@ import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
 import {CopyToClipboard} from "react-copy-to-clipboard";
 import {withRouter} from "react-router-dom";
+import TestNetWarning from "../dialogs/TestNetWarning";
 
 class Login extends Component {
 
@@ -24,6 +26,8 @@ class Login extends Component {
       registerCheck1: false,
       registerCheck2: false,
       registerCheck3: false,
+
+      showWarning: false,
     };
   }
 
@@ -60,9 +64,9 @@ class Login extends Component {
   };
 
   createAccount = () => {
-    let {password} = this.state;
-    this.props.loginWithPassword(password);
-    this.props.history.push("/account");
+    this.setState({
+      showWarning: true,
+    });
   };
 
   renderLogin() {
@@ -193,6 +197,28 @@ class Login extends Component {
     )
   }
 
+  nextAfterRegister = () => {
+    let {password} = this.state;
+
+    this.setState({
+      showWarning: false,
+    });
+
+    this.props.loginWithPassword(password);
+    this.props.history.push("/account");
+  };
+
+  renderTestNetWarning() {
+
+    let {showWarning} = this.state;
+
+    return ReactDOM.createPortal(
+      <TestNetWarning
+        visible={showWarning}
+        onClose={this.nextAfterRegister} />,
+      document.getElementById("root"));
+  }
+
   render() {
 
     let {activeTab} = this.state;
@@ -205,6 +231,7 @@ class Login extends Component {
 
     return (
       <main className="container-fluid pt-5 pb-5 bg-dark">
+        {this.renderTestNetWarning()}
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-sm-8 col-lg-5">
