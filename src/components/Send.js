@@ -93,7 +93,7 @@ class Send extends React.Component {
             {tu("require_account_to_send")}
           </div>
           <p className="text-center">
-            <Link to="/login">Go to login</Link>
+            <Link to="/login">{tu("Go to login")}</Link>
           </p>
         </div>
       );

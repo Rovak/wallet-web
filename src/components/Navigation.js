@@ -71,7 +71,7 @@ class Navigation extends Component {
                       <div className="btn-group ml-2">
                         <Link className="btn btn-secondary" to="/account">
                           <i className="fa fa-user mr-2"/>
-                          Account
+                            {tu("Account")}
                         </Link>
                         <button type="button" className="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span className="sr-only">Toggle Dropdown</span>

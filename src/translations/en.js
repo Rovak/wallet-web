@@ -61,4 +61,6 @@ export const messages = {
   "last_confirmed" : "Last Confirmed",
   "blocks_produced" : "Blocks Produced",
   "blocks_missed" : "Blocks Missed",
+  "Do not send1": "Do not send TRX from your own wallet or exchange to your testnet address!",
+  "Do not send2": "Do not send TRX from your own wallet or exchange to the above account address of testnet!",
 };

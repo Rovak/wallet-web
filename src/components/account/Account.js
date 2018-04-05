@@ -63,7 +63,7 @@ class Account extends Component {
     return (
       <main className="container pt-3">
         <div class="alert alert-danger text-center">
-          Do not send TRX from your own wallet or exchange to your testnet address!
+            {tu("Do not send1")}
         </div>
         <div className="row">
           <div className="col-md-12">
@@ -79,7 +79,7 @@ class Account extends Component {
                   <div className="col-md-10">
                     {address}<br/>
                     <span class="text-danger">
-                      (Do not send TRX from your own wallet or exchange to the above account address of testnet)
+                      ({tu("Do not send2")})
                     </span>
                   </div>
                 </div>
