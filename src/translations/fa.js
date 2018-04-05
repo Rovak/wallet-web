@@ -71,6 +71,10 @@ export const messages = {
      "or register a new account":"یک حساب جدید ایجاد کنید ",
      "Account Address":"آدرس",
      "Private Key":"کلید خصوصی",
-     "Create Account":"ایجاد حساب"
-    }
+     "Create Account":"ایجاد حساب",
+     "confirm_transaction": "تایید تراکنش",
+     "last_confirmed" : "آخرین تایید ",
+     "blocks_produced" : "بلاک های ایجاد شده ",
+     "blocks_missed" : "بلاک های از دست رفته",
+}
   
