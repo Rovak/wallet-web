@@ -14,7 +14,8 @@ const initialState = {
     // nl: "Nederlands",
     en: "English",
     // zh: "简体中文",
-    fa:"فارسی"
+    fa:"فارسی",
+    ko:"한국어"
   },
   activeLanguage: 'en',
   account: {
