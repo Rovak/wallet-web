@@ -1,7 +1,19 @@
 @import "node_modules/bootstrap/scss/bootstrap";
-@import "App.scss";
-@import "index.css";
 @import "theme";
+@import "varibles";
+
+//Bootstrap
+
+@import "bootstrap-overwrites";
+
+// Utilities
+
+@import "utilities/bg-colors";
+@import "utilities/box-shadows";
+@import "utilities/line-heights";
+@import "utilities/text-colors";
+@import "utilities/general";
+
 
 body {
   overflow-y: scroll;
@@ -9,26 +21,36 @@ body {
 
 .logo {
   height: 35px;
+  margin-top: 3px;
+  margin-right: 5px;
 }
-
-
-#topbar {
-  //background: url(../images/bg.png);
-  background: #2c2c2c;
-  a {
-    //color: #FFF;
-  }
-}
-
 
 .block {
-  background-color: #2c2c2c;
-  color: #FFF;
+  background-color: $dark-grey;
+  color:  var(--white);
   padding: 10px;
   border-radius: 5px;
 }
 
-
 .node-map {
   height: 600px;
 }
+
+
+
+@include media-breakpoint-down(md) { 
+  body {
+    font-size: 0.8rem;
+  }
+  
+  .logo {
+    margin-top: 0;
+  }
+}
+
+@include media-breakpoint-down(sm) { 
+  body {
+    font-size: 1rem;
+  }
+}
+
