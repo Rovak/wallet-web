@@ -45,7 +45,7 @@ class Blockchain extends Component {
                 #{block.number}
               </div>
               <div className="media-body pb-3 mb-0 small lh-150 border-bottom border-gray">
-                <strong className="d-block text-gray-dark">Mined by {block.witnessAddress.substr(0, 28)}...</strong>
+                <strong className="d-block text-gray-dark">{tu("Mined by")}{block.witnessAddress.substr(0, 28)}...</strong>
                 <div className="row">
                   <div className="col-md">
                     <i className="fas fa-exchange-alt mr-1"/>
@@ -53,7 +53,7 @@ class Blockchain extends Component {
                   </div>
                   <div className="col-md">
                     <i className="fas fa-file mr-1"/>
-                    {block.size} bytes
+                    {block.size} {tu("bytes")}
                   </div>
                   <div className="col-md">
                     <i className="fas fa-clock mr-1"/>

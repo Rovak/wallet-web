@@ -65,7 +65,7 @@ class Nodes extends Component {
         <tr>
           <th>#</th>
           <th>{tu("country")}</th>
-          <th>Nodes</th>
+          <th>{tu("nodes")}</th>
         </tr>
         </thead>
         <tbody>
@@ -110,7 +110,7 @@ class Nodes extends Component {
                 (!showAllCountries && (countries.length - size > 0)) &&
                 <div className="card-footer text-muted text-center">
                   <a href="javascript:;" onClick={() => this.setState({ showAllCountries: true })}>
-                    Show {countries.length - size} more
+                    {tu("Show")} {countries.length - size} {tu("more")}
                   </a>
                 </div>
               }
