@@ -161,7 +161,7 @@ class Blockchain extends Component {
               </div>
             </div>
 
-            <div className="my-3 p-3 bg-white rounded box-shadow">
+            <div className="my-3 p-3 bg-white rounded box-shadow break-word">
               {this.renderTransactions()}
             </div>
           </div>
@@ -173,7 +173,7 @@ class Blockchain extends Component {
                 { blocks[0] && <small>{tu("current")} #{blocks[0].number}</small> }
               </div>
             </div>
-            <div className="my-3 p-3 bg-white rounded box-shadow">
+            <div className="my-3 p-3 bg-white rounded box-shadow break-word">
               {this.renderBlocks()}
             </div>
           </div>
