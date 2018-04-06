@@ -76,5 +76,10 @@ export const messages = {
      "last_confirmed" : "آخرین تایید ",
      "blocks_produced" : "بلاک های ایجاد شده ",
      "blocks_missed" : "بلاک های از دست رفته",
+     "Show":"نمایش",
+     "more":"تا بیشتر",
+     "Mined by":"استخراج توسط:",
+     "bytes":"بایت",
+     "Go to login":"برو به صفحه ورود"
 }
   
