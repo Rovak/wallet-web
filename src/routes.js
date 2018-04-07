@@ -16,18 +16,6 @@ export const routes = [
     path: "/blockchain",
     label: "blockchain",
     component: Blockchain,
-    // routes: [
-    //   {
-    //     label: "Transactions",
-    //     path: "/blockchain/transactions",
-    //     component: Transactions
-    //   },
-    //   {
-    //     label: "Blocks",
-    //     path: "/blockchain/blocks",
-    //     component: Blocks
-    //   },
-    // ]
   },
   {
     path: "/network",
