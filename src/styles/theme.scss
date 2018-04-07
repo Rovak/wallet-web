@@ -4,21 +4,15 @@
     padding-bottom: .75rem;
     font-size: .875rem;
     color: var(--secondary);
-  }
-}
 
-.nav-underline {
-  .nav-link {
     &:hover {
-       color: var(--blue);
-    }
-  }
-}
+      color: var(--blue);
+   }
 
-.nav-underline {
+  }
+
   .active {
     font-weight: 500;
     color: var(--gray-dark);
   }
 }
-
