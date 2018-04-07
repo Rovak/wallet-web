@@ -1,11 +1,11 @@
 import React from "react";
 import {asyncComponent} from "react-async-component";
-import {PropagateLoader} from "react-spinners";
+import {PropagateLoader} from "../../common/loaders";
 
 export default asyncComponent({
   LoadingComponent: () => (
     <div className="col-sm-12 col-md-8 d-flex justify-content-center p-5">
-      <PropagateLoader  color="#343a40" size={20} />
+      <PropagateLoader />
     </div>
   ),
   resolve: () => new Promise(resolve =>

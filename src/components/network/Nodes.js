@@ -4,8 +4,8 @@ import NodeMap from "./NodeMap";
 import {connect} from "react-redux";
 import {loadNodes} from "../../actions/network";
 import {sortBy, filter, sumBy} from "lodash";
-import {BarLoader} from "react-spinners";
 import {tu} from "../../utils/i18n";
+import {BarLoader} from "../common/loaders";
 
 class Nodes extends Component {
 
@@ -55,7 +55,7 @@ class Nodes extends Component {
     if (nodes.length === 0) {
       return (
         <div className="d-flex justify-content-center p-4">
-          <BarLoader color="#343a40" loading={true} height={5} width={150}/>
+          <BarLoader />
         </div>
       );
     }

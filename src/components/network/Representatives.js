@@ -2,8 +2,8 @@ import React, {Component, Fragment} from 'react';
 import MediaQuery from "react-responsive";
 import {connect} from "react-redux";
 import {loadWitnesses} from "../../actions/network";
-import {BarLoader} from "react-spinners";
 import {tu} from "../../utils/i18n";
+import {BarLoader} from "../common/loaders";
 
 class Representatives extends Component {
 
@@ -18,7 +18,7 @@ class Representatives extends Component {
     if (witnesses.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">
-          <BarLoader color="#343a40" loading={true} height={5} width={150} />
+          <BarLoader />
         </div>
       );
     }

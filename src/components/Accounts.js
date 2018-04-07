@@ -2,8 +2,8 @@ import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {loadAccounts} from "../actions/app";
 import MediaQuery from 'react-responsive';
-import {BarLoader} from "react-spinners";
 import {tu} from "../utils/i18n";
+import {BarLoader} from "./common/loaders";
 
 class Accounts extends Component {
 
@@ -18,7 +18,7 @@ class Accounts extends Component {
     if (accounts.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">
-          <BarLoader color="#343a40" loading={true} height={5} width={150} />
+          <BarLoader />
         </div>
       );
     }

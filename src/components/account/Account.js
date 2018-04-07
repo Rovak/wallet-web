@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
-import {BarLoader} from "react-spinners";
 import {loadTokenBalances} from "../../actions/account";
 import {passwordToAddress} from "../../utils/crypto";
+import {BarLoader} from "../common/loaders";
 
 class Account extends Component {
 
@@ -20,7 +20,7 @@ class Account extends Component {
     if (tokenBalances.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center p-4">
-          <BarLoader color="#343a40" loading={true} height={5} width={150}/>
+          <BarLoader />
         </div>
       );
     }

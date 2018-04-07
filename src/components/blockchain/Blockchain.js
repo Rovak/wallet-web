@@ -3,10 +3,10 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchain";
 import TimeAgo from 'react-timeago'
-import {BarLoader} from "react-spinners";
 import {loadPrice} from "../../actions/app";
 import {t, tu} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
+import {BarLoader} from "../common/loaders";
 
 class Blockchain extends Component {
 
@@ -30,7 +30,7 @@ class Blockchain extends Component {
     if (blocks.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">
-          <BarLoader color="#343a40" loading={true} height={5} width={150} />
+          <BarLoader />
         </div>
       );
     }
@@ -75,7 +75,7 @@ class Blockchain extends Component {
     if (transactions === null) {
       return (
         <div className="text-center d-flex justify-content-center">
-          <BarLoader color="#343a40" loading={true} height={5} width={150} />
+          <BarLoader />
         </div>
       );
     }
