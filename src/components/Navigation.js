@@ -66,11 +66,11 @@ class Navigation extends Component {
                   ?
                     <li className="nav-item">
                       <div className="btn-group ml-2">
-                        <Link className="btn btn-secondary" to="/account">
+                        <Link className="btn btn-secondary btn-sm mt-1" to="/account">
                           <i className="fa fa-user mr-2"/>
                             {tu("Account")}
                         </Link>
-                        <button type="button" className="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" className="btn btn-sm btn-secondary btn-sm mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span className="sr-only">Toggle Dropdown</span>
                         </button>
                         <div className="dropdown-menu">
@@ -92,7 +92,7 @@ class Navigation extends Component {
                     </li>
                   :
                     <li className="nav-item">
-                       <Link className="btn btn-secondary my-2 my-sm-0 text-white" to="/login">
+                       <Link className="btn btn-secondary btn-sm mt-1" to="/login">
                          <i className="fa fa-sign-in-alt mr-2" />
                          {tu("register_login")}
                        </Link>
@@ -119,4 +119,4 @@ const mapDispatchToProps = {
   logout
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navigation))
+export default connect(mapStateToProps, mapDispatchToProps, null, { pure: false })(withRouter(Navigation))
