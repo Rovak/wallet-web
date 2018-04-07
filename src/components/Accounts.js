@@ -18,7 +18,7 @@ class Accounts extends Component {
     if (accounts.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">
-          <BarLoader color={'#343a40'} loading={true} height={5} width={150} />
+          <BarLoader color="#343a40" loading={true} height={5} width={150} />
         </div>
       );
     }

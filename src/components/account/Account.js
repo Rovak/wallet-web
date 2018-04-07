@@ -20,7 +20,7 @@ class Account extends Component {
     if (tokenBalances.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center p-4">
-          <BarLoader color={'#343a40'} loading={true} height={5} width={150}/>
+          <BarLoader color="#343a40" loading={true} height={5} width={150}/>
         </div>
       );
     }

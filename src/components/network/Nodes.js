@@ -54,8 +54,8 @@ class Nodes extends Component {
 
     if (nodes.length === 0) {
       return (
-        <div className="text-center d-flex justify-content-center p-4">
-          <BarLoader color={'#343a40'} loading={true} height={5} width={150}/>
+        <div className="d-flex justify-content-center p-4">
+          <BarLoader color="#343a40" loading={true} height={5} width={150}/>
         </div>
       );
     }
