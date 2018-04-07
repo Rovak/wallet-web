@@ -30,7 +30,7 @@ class Blockchain extends Component {
     if (blocks.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">
-          <BarLoader color={'#343a40'} loading={true} height={5} width={150} />
+          <BarLoader color="#343a40" loading={true} height={5} width={150} />
         </div>
       );
     }
@@ -75,7 +75,7 @@ class Blockchain extends Component {
     if (transactions === null) {
       return (
         <div className="text-center d-flex justify-content-center">
-          <BarLoader color={'#343a40'} loading={true} height={5} width={150} />
+          <BarLoader color="#343a40" loading={true} height={5} width={150} />
         </div>
       );
     }

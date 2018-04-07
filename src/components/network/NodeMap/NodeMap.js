@@ -2,6 +2,9 @@
 import React, {Component} from 'react';
 import $ from "jquery";
 
+import "script-loader!echarts/dist/echarts.js";
+import "script-loader!../../../lib/world.js";
+
 export default class NodeMap extends Component {
 
   updateMap = () => {
