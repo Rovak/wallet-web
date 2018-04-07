@@ -11,10 +11,7 @@ export default asyncComponent({
   resolve: () => new Promise(resolve =>
     // Webpack's code splitting API w/naming
     require.ensure(
-      [
-        "script-loader!echarts/dist/echarts.js",
-        "script-loader!../../../lib/world.js",
-      ],
+      [],
       (require) => {
         resolve(require('./NodeMap'));
       },
