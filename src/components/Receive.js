@@ -65,7 +65,7 @@ class Receive extends React.Component {
                 </div>
                 <div className="card-body">
                   {
-                    qrcode && <img src={qrcode} style={{width: '100%'}} />
+                    qrcode && <img src={qrcode} style={{width: '100%'}} alt="account address" />
                   }
                 </div>
                 <div className="card-footer text-muted text-center">

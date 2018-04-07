@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
-
-import TronLogo from "../../images/trans_tron_logo.png";
-import {genPriKey, getAddressFromPriKey} from "../../lib/crypto/crypto";
-import {base64DecodeFromString, base64EncodeToString, byteArray2hexStr} from "../../lib/crypto/code";
-import {loginWithPassword} from "../../actions/app";
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
-import {CopyToClipboard} from "react-copy-to-clipboard";
-import {sumBy} from "lodash";
 import {BarLoader} from "react-spinners";
 import {loadTokenBalances} from "../../actions/account";
 import {passwordToAddress} from "../../utils/crypto";

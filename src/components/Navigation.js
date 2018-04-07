@@ -1,3 +1,4 @@
+/*eslint-disable no-script-url*/
 import React, {Component} from 'react';
 import logo from '../images/tron_logo.png';
 import {routes} from "../routes";
@@ -6,7 +7,6 @@ import {filter} from "lodash";
 import {tu} from "../utils/i18n";
 import {logout, setLanguage} from "../actions/app";
 import {connect} from "react-redux";
-
 
 class Navigation extends Component {
 

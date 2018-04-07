@@ -5,7 +5,6 @@ import {FormattedDate, FormattedTime} from "react-intl";
 import {tu} from "../../utils/i18n";
 import {TextField} from "../../utils/formHelper";
 import {Client} from "../../services/api";
-import {passwordToAddress} from "../../utils/crypto";
 
 class TokensView extends Component {
 

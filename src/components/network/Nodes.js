@@ -1,3 +1,4 @@
+/*eslint-disable no-script-url*/
 import React, {Component} from 'react';
 import NodeMap from "./NodeMap";
 import {connect} from "react-redux";

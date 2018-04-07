@@ -1,8 +1,6 @@
 import Lockr from "lockr";
 
 import {LOGIN, LOGOUT, SET_ACCOUNTS, SET_LANGUAGE, SET_PRICE} from "../actions/app";
-import {base64DecodeFromString, byteArray2hexStr} from "../lib/crypto/code";
-import {getAddressFromPriKey} from "../lib/crypto/crypto";
 
 const initialState = {
   accounts: [],

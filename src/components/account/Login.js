@@ -1,3 +1,4 @@
+/*eslint-disable no-script-url*/
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
@@ -76,7 +77,7 @@ class Login extends Component {
     return (
       <div className="card-text text-center">
         <p className="text-center">
-          <img src={TronLogo}/><br/>
+          <img src={TronLogo} alt="Tron"/><br/>
         </p>
         <h5>{tu("Welcome to TRON")}</h5>
         <p className="mt-5">
@@ -105,7 +106,7 @@ class Login extends Component {
     return (
       <div className="card-text">
         <p className="text-center">
-          <img src={TronLogo}/><br/>
+          <img src={TronLogo} alt="Tron"/><br/>
         </p>
         <h5 className="text-center">{tu("register")}</h5>
         <div className="mt-5">
