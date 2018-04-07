@@ -1,6 +1,6 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "theme";
-@import "varibles";
+@import "variables";
 
 //Bootstrap
 
@@ -38,17 +38,17 @@ body {
 
 
 
-@include media-breakpoint-down(md) { 
+@include media-breakpoint-down(md) {
   body {
     font-size: 0.8rem;
   }
-  
+
   .logo {
     margin-top: 0;
   }
 }
 
-@include media-breakpoint-down(sm) { 
+@include media-breakpoint-down(sm) {
   body {
     font-size: 1rem;
   }
