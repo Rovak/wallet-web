@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../styles/App.scss';
 import {Provider} from "react-redux";
 import {configureStore} from "../store";
 import MainWrap from "./MainWrap";

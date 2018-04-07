@@ -106,7 +106,7 @@ class Accounts extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="my-3 p-3 bg-white rounded box-shadow">
+            <div className="my-3 p-3 bg-white rounded box-shadow break-word">
               {this.renderAccounts()}
             </div>
           </div>

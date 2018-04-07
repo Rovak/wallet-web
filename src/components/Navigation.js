@@ -26,22 +26,19 @@ class Navigation extends Component {
     let viewableRoutes = filter(routes, r => r.showInMenu !== false);
 
     return (
-      <nav id="topbar" className="navbar navbar-expand-md navbar-dark bg-dark">
-        <div className="d-none d-md-block position-fixed">
-          <img src={logo} className="logo" alt="Tron"/>
-        </div>
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container">
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-top">
             <span className="navbar-toggler-icon"/>
           </button>
-
-
           <div className="d-md-none pull-right">
             <img src={logo} className="logo" alt="Tron"/>
           </div>
-
           <div className="collapse navbar-collapse" id="navbar-top">
             <ul className="navbar-nav mr-auto">
+                <li  className="nav-item d-none d-md-block">
+                  <img src={logo} className="logo" alt="Tron"/>
+                </li>
               {viewableRoutes.map(route => (
                 <li key={route.path} className="nav-item">
                   <NavLink className="nav-link" activeClassName="active" to={route.path}>
