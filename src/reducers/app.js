@@ -63,6 +63,7 @@ export function appReducer(state = initialState, action) {
     case LOGIN: {
 
       Lockr.set("account_key", action.password);
+
       return {
         ...state,
         account: {
