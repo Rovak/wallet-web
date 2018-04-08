@@ -6,6 +6,7 @@ import {loadTokenBalances} from "../actions/account";
 import {tu} from "../utils/i18n";
 import {Client} from "../services/api";
 import {Link} from "react-router-dom";
+import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 
 class Send extends React.Component {
 
@@ -35,7 +36,7 @@ class Send extends React.Component {
 
     this.setState({ isLoading: true });
 
-    await Client.send(account.key, token, to, amount);
+    await Client.send(account.key, token, to, amount * 1000000);
 
     this.setState({
       sendStatus: 'success',
@@ -44,7 +45,8 @@ class Send extends React.Component {
   };
 
   componentDidMount() {
-    this.props.loadTokenBalances();
+    let {account} = this.props;
+    this.props.loadTokenBalances(passwordToAddress(account.key));
   }
 
   componentDidUpdate() {
