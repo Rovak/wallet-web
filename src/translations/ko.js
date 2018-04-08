@@ -16,7 +16,7 @@ export const messages = {
     "login": "로그인",
     "view": "보기",
     "create": "생성",
-    "country": "국가",
+    "country": "부위",
     "address": "주소",
     "balance": "잔액",
     "votes": "투표수",

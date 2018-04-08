@@ -16,7 +16,7 @@ export const messages = {
     "login": "ورود",
     "view": "نمایش",
     "create": "ایجاد",
-    "country": "کشور",
+    "country": "منطقه",
     "address": "آدرس",
     "balance": "مانده حساب",
     "votes": "رای ها",

@@ -17,7 +17,7 @@ export const messages = {
   "login": "login",
   "view": "view",
   "create": "create",
-  "country": "country",
+  "country": "region",
   "address": "address",
   "balance": "balance",
   "votes": "votes",
