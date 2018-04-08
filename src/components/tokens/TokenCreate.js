@@ -98,7 +98,7 @@ class TokenCreate extends Component {
             <form>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label>Name of the token</label>
+                  <label>{tu("name_of_the_token")}</label>
                   <TextField cmp={this} field="name" />
                 </div>
                 <div className="form-group col-md-6">
@@ -111,31 +111,31 @@ class TokenCreate extends Component {
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label>Quote Token Amount</label>
+                  <label>{tu("quote_token_amount")}</label>
                   <TextField type="number" cmp={this} field="num" />
                 </div>
                 <div className="form-group col-md-6">
-                  <label>Base Token Amount</label>
+                  <label>{tu("base_token_amount")}</label>
                   <TextField type="number" cmp={this} field="trxNum" />
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label>Start Date</label>
+                  <label>{tu("start_date")}</label>
                   <TextField type="datetime-local" cmp={this} field="startTime" />
                 </div>
                 <div className="form-group col-md-6">
-                  <label>End Date</label>
+                  <label>{tu("end_date")}</label>
                   <TextField type="datetime-local" cmp={this} field="endTime" />
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label>Description</label>
+                  <label>{tu("description")}</label>
                   <TextField type="text" cmp={this} field="description" />
                 </div>
                 <div className="form-group col-md-6">
-                  <label>Description URL</label>
+                  <label>{tu("description_url")}</label>
                   <TextField type="text" cmp={this} field="url" placeholder="http://" />
                 </div>
               </div>
@@ -143,7 +143,7 @@ class TokenCreate extends Component {
                 <div className="form-check">
                   <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
                     <label className="form-check-label">
-                      I confirm that I have to spend 1024 TRX to create the token
+                        {tu("token_spend_confirm")}
                     </label>
                 </div>
               </div>
@@ -152,14 +152,14 @@ class TokenCreate extends Component {
                   disabled={!this.isValid()}
                   type="button"
                   className="btn btn-primary"
-                  onClick={this.submit}>Create Token</button>
+                  onClick={this.submit}>{tu("create_token")}</button>
               </div>
             </form>
           </div>
           <div className="col-sm-4 mt-0 mt-sm-3">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">Creating a token</h5>
+                <h5 className="card-title">{tu("creating_a_token")}</h5>
                 {/*<p className="card-text">Help text...</p>*/}
               </div>
             </div>
