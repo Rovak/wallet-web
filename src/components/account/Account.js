@@ -2,14 +2,13 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
 import {loadTokenBalances} from "../../actions/account";
-import {passwordToAddress} from "../../utils/crypto";
 import {BarLoader} from "../common/loaders";
+import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 
 class Account extends Component {
 
   componentDidMount() {
     let {account, loadTokenBalances} = this.props;
-
     loadTokenBalances(passwordToAddress(account.key));
   }
 

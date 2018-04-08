@@ -4,8 +4,7 @@ import {t, tu} from "../../utils/i18n";
 import {some} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
-import {passwordToAddress} from "../../utils/crypto";
-
+import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 
 class Votes extends Component {
 

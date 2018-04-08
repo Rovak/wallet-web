@@ -17,11 +17,12 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@tronprotocol/wallet-api@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@tronprotocol/wallet-api/-/wallet-api-0.0.15.tgz#5a7a06058a476c2dc67eea845ccf4575c361004c"
+"@tronprotocol/wallet-api@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@tronprotocol/wallet-api/-/wallet-api-0.0.16.tgz#f8c4b1088e77ae325d77d6775c542bcab20d37fb"
   dependencies:
     axios "^0.18.0"
+    crypto-js "^3.1.9-1"
     elliptic "^6.4.0"
     google-protobuf "^3.5.0"
     grpc "^1.10.0"

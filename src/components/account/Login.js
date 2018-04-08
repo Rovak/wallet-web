@@ -1,10 +1,8 @@
 /*eslint-disable no-script-url*/
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
 import TronLogo from "../../images/trans_tron_logo.png";
-import {genPriKey, getAddressFromPriKey} from "../../lib/crypto/crypto";
-import {base64EncodeToString, byteArray2hexStr} from "../../lib/crypto/code";
+import {generateAccount} from "@tronprotocol/wallet-api/src/utils/account";
 import {loginWithPassword} from "../../actions/app";
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
@@ -37,16 +35,13 @@ class Login extends Component {
   }
 
   generateAccount = () => {
-    let priKeyBytes = genPriKey();
-    let addressBytes = getAddressFromPriKey(priKeyBytes);
-    let address = byteArray2hexStr(addressBytes);
-    let pk = base64EncodeToString(priKeyBytes);
-    let prikey_pwd = byteArray2hexStr(priKeyBytes);
+
+    let account = generateAccount();
 
     this.setState({
-      address,
-      password: pk,
-      privateKey: prikey_pwd,
+      address: account.address,
+      password: account.password,
+      privateKey: account.privateKey,
     })
   };
 
