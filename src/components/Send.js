@@ -46,7 +46,9 @@ class Send extends React.Component {
 
   componentDidMount() {
     let {account} = this.props;
-    this.props.loadTokenBalances(passwordToAddress(account.key));
+    if (account.isLoggedIn) {
+      this.props.loadTokenBalances(passwordToAddress(account.key));
+    }
   }
 
   componentDidUpdate() {
