@@ -27242,7 +27242,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.protocol.Transaction.raw.repeatedFields_ = [5,7,11];
+proto.protocol.Transaction.raw.repeatedFields_ = [11];
 
 
 
@@ -27274,10 +27274,6 @@ proto.protocol.Transaction.raw.prototype.toObject = function(opt_includeInstance
 proto.protocol.Transaction.raw.toObject = function(includeInstance, msg) {
   var f, obj = {
     type: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    vinList: jspb.Message.toObjectList(msg.getVinList(),
-    proto.protocol.TXInput.toObject, includeInstance),
-    voutList: jspb.Message.toObjectList(msg.getVoutList(),
-    proto.protocol.TXOutput.toObject, includeInstance),
     expiration: jspb.Message.getFieldWithDefault(msg, 8, 0),
     data: msg.getData_asB64(),
     contractList: jspb.Message.toObjectList(msg.getContractList(),
@@ -27323,16 +27319,6 @@ proto.protocol.Transaction.raw.deserializeBinaryFromReader = function(msg, reade
     case 2:
       var value = /** @type {!proto.protocol.Transaction.TransactionType} */ (reader.readEnum());
       msg.setType(value);
-      break;
-    case 5:
-      var value = new proto.protocol.TXInput;
-      reader.readMessage(value,proto.protocol.TXInput.deserializeBinaryFromReader);
-      msg.addVin(value);
-      break;
-    case 7:
-      var value = new proto.protocol.TXOutput;
-      reader.readMessage(value,proto.protocol.TXOutput.deserializeBinaryFromReader);
-      msg.addVout(value);
       break;
     case 8:
       var value = /** @type {number} */ (reader.readInt64());
@@ -27391,22 +27377,6 @@ proto.protocol.Transaction.raw.serializeBinaryToWriter = function(message, write
       f
     );
   }
-  f = message.getVinList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      5,
-      f,
-      proto.protocol.TXInput.serializeBinaryToWriter
-    );
-  }
-  f = message.getVoutList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      7,
-      f,
-      proto.protocol.TXOutput.serializeBinaryToWriter
-    );
-  }
   f = message.getExpiration();
   if (f !== 0) {
     writer.writeInt64(
@@ -27458,68 +27428,6 @@ proto.protocol.Transaction.raw.prototype.getType = function() {
 /** @param {!proto.protocol.Transaction.TransactionType} value */
 proto.protocol.Transaction.raw.prototype.setType = function(value) {
   jspb.Message.setProto3EnumField(this, 2, value);
-};
-
-
-/**
- * repeated TXInput vin = 5;
- * @return {!Array.<!proto.protocol.TXInput>}
- */
-proto.protocol.Transaction.raw.prototype.getVinList = function() {
-  return /** @type{!Array.<!proto.protocol.TXInput>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.protocol.TXInput, 5));
-};
-
-
-/** @param {!Array.<!proto.protocol.TXInput>} value */
-proto.protocol.Transaction.raw.prototype.setVinList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 5, value);
-};
-
-
-/**
- * @param {!proto.protocol.TXInput=} opt_value
- * @param {number=} opt_index
- * @return {!proto.protocol.TXInput}
- */
-proto.protocol.Transaction.raw.prototype.addVin = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.protocol.TXInput, opt_index);
-};
-
-
-proto.protocol.Transaction.raw.prototype.clearVinList = function() {
-  this.setVinList([]);
-};
-
-
-/**
- * repeated TXOutput vout = 7;
- * @return {!Array.<!proto.protocol.TXOutput>}
- */
-proto.protocol.Transaction.raw.prototype.getVoutList = function() {
-  return /** @type{!Array.<!proto.protocol.TXOutput>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.protocol.TXOutput, 7));
-};
-
-
-/** @param {!Array.<!proto.protocol.TXOutput>} value */
-proto.protocol.Transaction.raw.prototype.setVoutList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 7, value);
-};
-
-
-/**
- * @param {!proto.protocol.TXOutput=} opt_value
- * @param {number=} opt_index
- * @return {!proto.protocol.TXOutput}
- */
-proto.protocol.Transaction.raw.prototype.addVout = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.protocol.TXOutput, opt_index);
-};
-
-
-proto.protocol.Transaction.raw.prototype.clearVoutList = function() {
-  this.setVoutList([]);
 };
 
 
@@ -30205,6 +30113,7 @@ proto.protocol.ReasonCode = {
   LOCAL_IDENTITY: 10,
   PING_TIMEOUT: 11,
   USER_REASON: 12,
+  RESET: 16,
   UNKNOWN: 255
 };
 
@@ -32961,6 +32870,7 @@ var global = Function('return this')();
 
 var core_Tron_pb = __webpack_require__(31);
 goog.exportSymbol('proto.protocol.AccountCreateContract', null, global);
+goog.exportSymbol('proto.protocol.AccountUpdateContract', null, global);
 goog.exportSymbol('proto.protocol.AssetIssueContract', null, global);
 goog.exportSymbol('proto.protocol.DeployContract', null, global);
 goog.exportSymbol('proto.protocol.ParticipateAssetIssueContract', null, global);
@@ -33212,6 +33122,223 @@ proto.protocol.AccountCreateContract.prototype.getOwnerAddress_asU8 = function()
 /** @param {!(string|Uint8Array)} value */
 proto.protocol.AccountCreateContract.prototype.setOwnerAddress = function(value) {
   jspb.Message.setProto3BytesField(this, 3, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.protocol.AccountUpdateContract = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.protocol.AccountUpdateContract, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.protocol.AccountUpdateContract.displayName = 'proto.protocol.AccountUpdateContract';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.protocol.AccountUpdateContract.prototype.toObject = function(opt_includeInstance) {
+  return proto.protocol.AccountUpdateContract.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.protocol.AccountUpdateContract} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protocol.AccountUpdateContract.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    accountName: msg.getAccountName_asB64(),
+    ownerAddress: msg.getOwnerAddress_asB64()
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.protocol.AccountUpdateContract}
+ */
+proto.protocol.AccountUpdateContract.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.protocol.AccountUpdateContract;
+  return proto.protocol.AccountUpdateContract.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.protocol.AccountUpdateContract} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.protocol.AccountUpdateContract}
+ */
+proto.protocol.AccountUpdateContract.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setAccountName(value);
+      break;
+    case 2:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setOwnerAddress(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.protocol.AccountUpdateContract.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.protocol.AccountUpdateContract.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.protocol.AccountUpdateContract} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.protocol.AccountUpdateContract.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getAccountName_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      1,
+      f
+    );
+  }
+  f = message.getOwnerAddress_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional bytes account_name = 1;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protocol.AccountUpdateContract.prototype.getAccountName = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * optional bytes account_name = 1;
+ * This is a type-conversion wrapper around `getAccountName()`
+ * @return {string}
+ */
+proto.protocol.AccountUpdateContract.prototype.getAccountName_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getAccountName()));
+};
+
+
+/**
+ * optional bytes account_name = 1;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getAccountName()`
+ * @return {!Uint8Array}
+ */
+proto.protocol.AccountUpdateContract.prototype.getAccountName_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getAccountName()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.protocol.AccountUpdateContract.prototype.setAccountName = function(value) {
+  jspb.Message.setProto3BytesField(this, 1, value);
+};
+
+
+/**
+ * optional bytes owner_address = 2;
+ * @return {!(string|Uint8Array)}
+ */
+proto.protocol.AccountUpdateContract.prototype.getOwnerAddress = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * optional bytes owner_address = 2;
+ * This is a type-conversion wrapper around `getOwnerAddress()`
+ * @return {string}
+ */
+proto.protocol.AccountUpdateContract.prototype.getOwnerAddress_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getOwnerAddress()));
+};
+
+
+/**
+ * optional bytes owner_address = 2;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getOwnerAddress()`
+ * @return {!Uint8Array}
+ */
+proto.protocol.AccountUpdateContract.prototype.getOwnerAddress_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getOwnerAddress()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
+proto.protocol.AccountUpdateContract.prototype.setOwnerAddress = function(value) {
+  jspb.Message.setProto3BytesField(this, 2, value);
 };
 
 
@@ -66595,16 +66722,16 @@ const {genPriKey, getAddressFromPriKey} = __webpack_require__(20);
 function generateAccount() {
   let priKeyBytes = genPriKey();
   let addressBytes = getAddressFromPriKey(priKeyBytes);
-  let pk = base64EncodeToString(priKeyBytes);
   let address = byteArray2hexStr(addressBytes);
+  let password = base64EncodeToString(priKeyBytes);
+  let privateKey = byteArray2hexStr(priKeyBytes);
 
   return {
-    privateKey: pk,
+    privateKey,
     address,
-    password: byteArray2hexStr(priKeyBytes),
+    password,
   }
 }
-
 
 module.exports = {
   generateAccount,
@@ -66932,7 +67059,7 @@ var _createClass=function(){function defineProperties(target,props){for(var i=0;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_react_router_dom__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__tronprotocol_wallet_api_src_utils_crypto__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__tronprotocol_wallet_api_src_utils_crypto___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__tronprotocol_wallet_api_src_utils_crypto__);
-var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();function _asyncToGenerator(fn){return function(){var gen=fn.apply(this,arguments);return new Promise(function(resolve,reject){function step(key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{return Promise.resolve(value).then(function(value){step("next",value);},function(err){step("throw",err);});}}return step("next");});};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}/* eslint-disable no-restricted-globals */var Send=function(_React$Component){_inherits(Send,_React$Component);function Send(props){var _this2=this;_classCallCheck(this,Send);var _this=_possibleConstructorReturn(this,(Send.__proto__||Object.getPrototypeOf(Send)).call(this,props));_this.isValid=function(){var _this$state=_this.state,to=_this$state.to,token=_this$state.token,amount=_this$state.amount;return to!==""&&token!==""&&amount>0;};_this.send=_asyncToGenerator(/*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(){var _this$state2,to,token,amount,account;return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_this$state2=_this.state,to=_this$state2.to,token=_this$state2.token,amount=_this$state2.amount;account=_this.props.account;_this.setState({isLoading:true});_context.next=5;return __WEBPACK_IMPORTED_MODULE_6__services_api__["a" /* Client */].send(account.key,token,to,amount*1000000);case 5:_this.setState({sendStatus:'success',isLoading:false});case 6:case"end":return _context.stop();}}},_callee,_this2);}));var queryParams=__WEBPACK_IMPORTED_MODULE_3_query_string__["parse"](props.location.search);_this.state={to:queryParams.to||"",token:"",amount:0,sendStatus:'waiting',isLoading:false};return _this;}_createClass(Send,[{key:"componentDidMount",value:function componentDidMount(){var account=this.props.account;this.props.loadTokenBalances(Object(__WEBPACK_IMPORTED_MODULE_8__tronprotocol_wallet_api_src_utils_crypto__["passwordToAddress"])(account.key));}},{key:"componentDidUpdate",value:function componentDidUpdate(){var tokenBalances=this.props.tokenBalances;var token=this.state.token;if(!token&&tokenBalances.length>0){this.setState({token:tokenBalances[0].name});}}},{key:"renderFooter",value:function renderFooter(){var _state=this.state,sendStatus=_state.sendStatus,isLoading=_state.isLoading;if(sendStatus==='success'){return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"alert alert-success text-center"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("successful_send"));}return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("p",null,__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("button",{type:"button",disabled:!this.isValid()||isLoading,className:"btn btn-primary col-md",onClick:this.send},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("send")));}},{key:"render",value:function render(){var _this3=this;var _props=this.props,tokenBalances=_props.tokenBalances,account=_props.account;var _state2=this.state,to=_state2.to,token=_state2.token,amount=_state2.amount;if(!account.isLoggedIn){return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",null,__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"alert alert-warning"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("require_account_to_send")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("p",{className:"text-center"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_router_dom__["b" /* Link */],{to:"/login"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("Go to login"))));}return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("main",{className:"container-fluid pt-5 pb-5 bg-dark"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"container"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"row justify-content-center"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"col-12 col-sm-8 col-lg-5"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"card"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"card-header text-center"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("Send TRX")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"card-body"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("form",null,__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"form-group"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("label",null,Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("to")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"input-group mb-3"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("input",{type:"text",onChange:function onChange(ev){return _this3.setState({to:ev.target.value});},className:"form-control",value:to}))),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"form-group"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("label",null,Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("token")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"input-group mb-3"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("select",{className:"form-control",value:token},tokenBalances.map(function(tokenBalance){return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("option",{key:tokenBalance.name,value:tokenBalance.balance},tokenBalance.name," (",tokenBalance.balance," available)");})))),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"form-group"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("label",null,Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("amount")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"input-group mb-3"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("input",{type:"number",onChange:function onChange(ev){return _this3.setState({amount:ev.target.value});},className:"form-control",value:amount}))),this.renderFooter())))))));}}]);return Send;}(__WEBPACK_IMPORTED_MODULE_2_react___default.a.Component);function mapStateToProps(state){return{account:state.app.account,tokenBalances:state.account.tokens};}var mapDispatchToProps={loadTokenBalances:__WEBPACK_IMPORTED_MODULE_4__actions_account__["b" /* loadTokenBalances */]};/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps,mapDispatchToProps)(Send));
+var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();function _asyncToGenerator(fn){return function(){var gen=fn.apply(this,arguments);return new Promise(function(resolve,reject){function step(key,arg){try{var info=gen[key](arg);var value=info.value;}catch(error){reject(error);return;}if(info.done){resolve(value);}else{return Promise.resolve(value).then(function(value){step("next",value);},function(err){step("throw",err);});}}return step("next");});};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}/* eslint-disable no-restricted-globals */var Send=function(_React$Component){_inherits(Send,_React$Component);function Send(props){var _this2=this;_classCallCheck(this,Send);var _this=_possibleConstructorReturn(this,(Send.__proto__||Object.getPrototypeOf(Send)).call(this,props));_this.isValid=function(){var _this$state=_this.state,to=_this$state.to,token=_this$state.token,amount=_this$state.amount;return to!==""&&token!==""&&amount>0;};_this.send=_asyncToGenerator(/*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(){var _this$state2,to,token,amount,account;return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context){while(1){switch(_context.prev=_context.next){case 0:_this$state2=_this.state,to=_this$state2.to,token=_this$state2.token,amount=_this$state2.amount;account=_this.props.account;_this.setState({isLoading:true});_context.next=5;return __WEBPACK_IMPORTED_MODULE_6__services_api__["a" /* Client */].send(account.key,token,to,amount*1000000);case 5:_this.setState({sendStatus:'success',isLoading:false});case 6:case"end":return _context.stop();}}},_callee,_this2);}));var queryParams=__WEBPACK_IMPORTED_MODULE_3_query_string__["parse"](props.location.search);_this.state={to:queryParams.to||"",token:"",amount:0,sendStatus:'waiting',isLoading:false};return _this;}_createClass(Send,[{key:"componentDidMount",value:function componentDidMount(){var account=this.props.account;if(account.isLoggedIn){this.props.loadTokenBalances(Object(__WEBPACK_IMPORTED_MODULE_8__tronprotocol_wallet_api_src_utils_crypto__["passwordToAddress"])(account.key));}}},{key:"componentDidUpdate",value:function componentDidUpdate(){var tokenBalances=this.props.tokenBalances;var token=this.state.token;if(!token&&tokenBalances.length>0){this.setState({token:tokenBalances[0].name});}}},{key:"renderFooter",value:function renderFooter(){var _state=this.state,sendStatus=_state.sendStatus,isLoading=_state.isLoading;if(sendStatus==='success'){return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"alert alert-success text-center"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("successful_send"));}return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("p",null,__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("button",{type:"button",disabled:!this.isValid()||isLoading,className:"btn btn-primary col-md",onClick:this.send},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("send")));}},{key:"render",value:function render(){var _this3=this;var _props=this.props,tokenBalances=_props.tokenBalances,account=_props.account;var _state2=this.state,to=_state2.to,token=_state2.token,amount=_state2.amount;if(!account.isLoggedIn){return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",null,__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"alert alert-warning"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("require_account_to_send")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("p",{className:"text-center"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7_react_router_dom__["b" /* Link */],{to:"/login"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("Go to login"))));}return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("main",{className:"container-fluid pt-5 pb-5 bg-dark"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"container"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"row justify-content-center"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"col-12 col-sm-8 col-lg-5"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"card"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"card-header text-center"},Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("Send TRX")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"card-body"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("form",null,__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"form-group"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("label",null,Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("to")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"input-group mb-3"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("input",{type:"text",onChange:function onChange(ev){return _this3.setState({to:ev.target.value});},className:"form-control",value:to}))),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"form-group"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("label",null,Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("token")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"input-group mb-3"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("select",{className:"form-control",value:token},tokenBalances.map(function(tokenBalance){return __WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("option",{key:tokenBalance.name,value:tokenBalance.balance},tokenBalance.name," (",tokenBalance.balance," available)");})))),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"form-group"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("label",null,Object(__WEBPACK_IMPORTED_MODULE_5__utils_i18n__["b" /* tu */])("amount")),__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("div",{className:"input-group mb-3"},__WEBPACK_IMPORTED_MODULE_2_react___default.a.createElement("input",{type:"number",onChange:function onChange(ev){return _this3.setState({amount:ev.target.value});},className:"form-control",value:amount}))),this.renderFooter())))))));}}]);return Send;}(__WEBPACK_IMPORTED_MODULE_2_react___default.a.Component);function mapStateToProps(state){return{account:state.app.account,tokenBalances:state.account.tokens};}var mapDispatchToProps={loadTokenBalances:__WEBPACK_IMPORTED_MODULE_4__actions_account__["b" /* loadTokenBalances */]};/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps,mapDispatchToProps)(Send));
 
 /***/ }),
 /* 312 */
@@ -69641,4 +69768,4 @@ registerValidSW(swUrl);}}).catch(function(){console.log('No internet connection 
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.52b1ec2d.js.map
+//# sourceMappingURL=main.2a4ff8f2.js.map
