@@ -66736,6 +66736,10 @@ function generateAccount() {
   }
 }
 
+module.exports = {
+  generateAccount,
+};
+
 
 /***/ }),
 /* 303 */
@@ -69821,4 +69825,4 @@ registerValidSW(swUrl);}}).catch(function(){console.log('No internet connection 
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.1ba77c9f.js.map
+//# sourceMappingURL=main.50275343.js.map
