@@ -74,4 +74,6 @@ export const messages = {
   "base_token_amount": "Base Token Amount",
   "creating_a_token": "Creating a token",
   "available": "available",
+  "invalid_address": "invalid address",
+  "insufficient_tokens": "Insufficient tokens",
 };
