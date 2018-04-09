@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import {connect} from "react-redux";
-import React from "react";
+import React, {Fragment} from "react";
 import * as qs from "query-string";
 import {loadTokenBalances} from "../../actions/account";
 import {tu} from "../../utils/i18n";
@@ -8,6 +8,8 @@ import {Client} from "../../services/api";
 import {Link} from "react-router-dom";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
+import {isAddressValid} from "@tronprotocol/wallet-api/src/utils/address";
+import {find} from "lodash";
 
 class Send extends React.Component {
 
@@ -19,18 +21,25 @@ class Send extends React.Component {
     this.state = {
       to: queryParams.to || "",
       token: "",
-      amount: 0,
+      amount: '',
       sendStatus: 'waiting',
       isLoading: false,
     };
   }
 
+  /**
+   * Check if the form is valid
+   * @returns {*|boolean}
+   */
   isValid = () => {
     let {to, token, amount} = this.state;
 
-    return to !== "" && token !== "" && amount > 0;
+    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount;
   };
 
+  /**
+   * Send the transaction
+   */
   send = async () => {
     let {to, token, amount} = this.state;
     let {account} = this.props;
@@ -44,6 +53,35 @@ class Send extends React.Component {
       isLoading: false,
     });
   };
+
+  setAmount = (amount) => {
+
+    if (amount !== '') {
+      amount = parseFloat(amount);
+    }
+
+    this.setState({
+      amount: amount > 0 ? amount : '',
+    });
+  };
+
+  getSelectedTokenBalance = () => {
+    let {tokenBalances} = this.props;
+    let {token} = this.state;
+
+    if (token) {
+      return parseFloat(find(tokenBalances, t => t.name === token).balance);
+    }
+
+    return 0;
+  };
+
+  isAmountValid = () => {
+    let {amount} = this.state;
+    let selectedTokenBalance = this.getSelectedTokenBalance();
+    return amount === 0 || amount === '' || selectedTokenBalance >= amount;
+  };
+
 
   componentDidMount() {
     let {account} = this.props;
@@ -86,10 +124,89 @@ class Send extends React.Component {
     )
   }
 
+  resetForm = ()  => {
+    this.setState({
+      amount: '',
+      sendStatus: 'waiting',
+      isLoading: false,
+      to: "",
+    });
+  };
+
+  renderForm() {
+    let {sendStatus} = this.state;
+
+    let {tokenBalances} = this.props;
+    let {to, token, amount} = this.state;
+
+    let isToValid = to.length === 0 || isAddressValid(to);
+    let isAmountValid = this.isAmountValid();
+
+
+    if (sendStatus === 'success') {
+      return (
+        <Fragment>
+          <div className="alert alert-success text-center">
+            {tu("successful_send")}
+          </div>
+          <div className="justify-content-center">
+            <button class="btn btn-primary btn-block" onClick={this.resetForm}>
+              {tu("make_another_transaction")}
+            </button>
+          </div>
+        </Fragment>
+      )
+    }
+
+
+    return (
+      <form>
+        <div className="form-group">
+          <label>{tu("to")}</label>
+          <div className="input-group mb-3">
+            <input type="text"
+                   onChange={(ev) => this.setState({ to: ev.target.value })}
+                   className={"form-control " + (!isToValid ? "is-invalid" : "")}
+                   value={to} />
+            <div className="invalid-feedback">
+              {tu("invalid_address")}
+            </div>
+          </div>
+        </div>
+        <div className="form-group">
+          <label>{tu("token")}</label>
+          <div className="input-group mb-3">
+            <select
+              className="form-control"
+              value={token}>
+              {
+                tokenBalances.map(tokenBalance => (
+                  <SendOption key={tokenBalance.name} name={tokenBalance.name} balance={tokenBalance.balance}/>
+                ))
+              }
+            </select>
+          </div>
+        </div>
+        <div className="form-group">
+          <label>{tu("amount")}</label>
+          <div className="input-group mb-3">
+            <input type="number"
+                   onChange={(ev) => this.setAmount(ev.target.value) }
+                   className={"form-control " + (!isAmountValid ? "is-invalid" : "")}
+                   value={amount} />
+            <div className="invalid-feedback">
+              {tu("insufficient_tokens")}
+            </div>
+          </div>
+        </div>
+        {this.renderFooter()}
+      </form>
+    )
+  }
+
   render() {
 
-    let {tokenBalances, account} = this.props;
-    let {to, token, amount} = this.state;
+    let {account} = this.props;
 
     if (!account.isLoggedIn) {
       return (
@@ -114,39 +231,7 @@ class Send extends React.Component {
                  {tu("Send TRX")}
                 </div>
                 <div className="card-body">
-                  <form>
-                    <div className="form-group">
-                      <label>{tu("to")}</label>
-                      <div className="input-group mb-3">
-                        <input type="text"
-                               onChange={(ev) => this.setState({ to: ev.target.value })}
-                               className="form-control"
-                               value={to} />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label>{tu("token")}</label>
-                      <div className="input-group mb-3">
-                        <select className="form-control" value={token}>
-                          {
-                            tokenBalances.map(tokenBalance => (
-                              <SendOption name={tokenBalance.name} balance={tokenBalance.balance}/>
-                            ))
-                          }
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label>{tu("amount")}</label>
-                      <div className="input-group mb-3">
-                        <input type="number"
-                               onChange={(ev) => this.setState({ amount: ev.target.value })}
-                               className="form-control"
-                               value={amount} />
-                      </div>
-                    </div>
-                    {this.renderFooter()}
-                  </form>
+                  {this.renderForm()}
                 </div>
               </div>
             </div>
