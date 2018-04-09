@@ -92,6 +92,7 @@ class Account extends Component {
         trxRequestResponse: {
           success: false,
           code: 9,
+          message: 'An unknown error occurred, please try again in a few minutes',
         },
       })
     }
