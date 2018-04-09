@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
-import {tu} from "../utils/i18n";
+import {tu} from "../../utils/i18n";
 import {Link} from "react-router-dom";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 

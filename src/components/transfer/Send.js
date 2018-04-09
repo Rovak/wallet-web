@@ -2,9 +2,9 @@
 import {connect} from "react-redux";
 import React from "react";
 import * as qs from "query-string";
-import {loadTokenBalances} from "../actions/account";
-import {tu} from "../utils/i18n";
-import {Client} from "../services/api";
+import {loadTokenBalances} from "../../actions/account";
+import {tu} from "../../utils/i18n";
+import {Client} from "../../services/api";
 import {Link} from "react-router-dom";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
