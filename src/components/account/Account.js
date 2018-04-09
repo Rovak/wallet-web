@@ -158,11 +158,12 @@ class Account extends Component {
     return (
       <React.Fragment>
         <button className="btn btn-primary" onClick={this.requestTrx}>
-          Request TRX for testing
+          {tu("request_trx_for_testing")}
         </button>
         <p className="pt-1">
-          When requesting TRX you will receive 10.000 TRX which you can use for testing on the testnet.<br/>
-          You may only request TRX once per account.
+          {tu("information_message_1")}
+          <br/>
+          {tu("information_message_2")}
         </p>
       </React.Fragment>
     );
@@ -219,7 +220,7 @@ class Account extends Component {
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header border-bottom-0 text-center">
-                  {tu("Testnet")}
+                  {tu("testnet")}
                 </div>
                 <div className="card-body text-center">
                   {this.renderTestnetRequest()}
