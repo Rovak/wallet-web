@@ -153,7 +153,7 @@ class Account extends Component {
     return (
       <main className="container pt-3">
         <div className="alert alert-danger text-center">
-          {tu("Do not send1")}
+          {tu("do_not_send_1")}
         </div>
         <div className="row">
           <div className="col-md-12">
@@ -169,7 +169,7 @@ class Account extends Component {
                   <div className="col-md-10">
                     {address}<br/>
                     <span className="text-danger">
-                      ({tu("Do not send2")})
+                      ({tu("do_not_send_2")})
                     </span>
                   </div>
                 </div>
