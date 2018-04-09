@@ -80,4 +80,5 @@ export const messages = {
   "information_message_2": "You may only request TRX once per account.",
   "invalid_address": "invalid address",
   "insufficient_tokens": "Insufficient tokens",
+  "make_another_transaction": "Make another transaction",
 };
