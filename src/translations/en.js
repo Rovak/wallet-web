@@ -73,4 +73,5 @@ export const messages = {
   "quote_token_amount": "Quote Token Amount",
   "base_token_amount": "Base Token Amount",
   "creating_a_token": "Creating a token",
+  "available": "available",
 };

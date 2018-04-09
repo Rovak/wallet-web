@@ -90,4 +90,5 @@ export const messages = {
     "quote_token_amount": "견적 토큰 금액",
     "base_token_amount": "기본 토큰 금액",
     "creating_a_token": "토큰 만들기",
+    "available": "이용가능",
 };
