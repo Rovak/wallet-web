@@ -13,6 +13,7 @@ class Account extends Component {
 
     this.state = {
       waitingForTrx: false,
+      showRequest: false,
       trxRequestResponse: {
         success: false,
         code: -1,
@@ -23,6 +24,7 @@ class Account extends Component {
 
   componentDidMount() {
     this.reloadTokens();
+    this.checkRequestStatus();
   }
 
   reloadTokens = () => {
@@ -63,6 +65,27 @@ class Account extends Component {
       </table>
     )
   }
+
+  checkRequestStatus = async() => {
+    let {account} = this.props;
+
+    try {
+
+      let address = passwordToAddress(account.key);
+
+      let {data} = await xhr.post("http://47.74.190.150:8081/status", {
+        address,
+      });
+
+      if (data.success) {
+        this.setState({
+          showRequest: true,
+        });
+      }
+    } finally {
+
+    }
+  };
 
   requestTrx = async () => {
     let {account} = this.props;
@@ -148,6 +171,7 @@ class Account extends Component {
   render() {
 
     let {account} = this.props;
+    let {showRequest} = this.state;
 
     let address = passwordToAddress(account.key);
 
@@ -190,18 +214,20 @@ class Account extends Component {
             </div>
           </div>
         </div>
-        <div className="row mt-3">
-          <div className="col-md-12">
-            <div className="card">
-              <div className="card-header border-bottom-0 text-center">
-                {tu("Testnet")}
-              </div>
-              <div className="card-body text-center">
-                {this.renderTestnetRequest()}
+        {
+          showRequest && <div className="row mt-3">
+            <div className="col-md-12">
+              <div className="card">
+                <div className="card-header border-bottom-0 text-center">
+                  {tu("Testnet")}
+                </div>
+                <div className="card-body text-center">
+                  {this.renderTestnetRequest()}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        }
       </main>
     )
   }
