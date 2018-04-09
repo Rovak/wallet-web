@@ -7,6 +7,7 @@ import {tu} from "../utils/i18n";
 import {Client} from "../services/api";
 import {Link} from "react-router-dom";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import SendOption from "./SendOption";
 
 class Send extends React.Component {
 
@@ -129,9 +130,7 @@ class Send extends React.Component {
                         <select className="form-control" value={token}>
                           {
                             tokenBalances.map(tokenBalance => (
-                              <option key={tokenBalance.name} value={tokenBalance.balance}>
-                                {tokenBalance.name} ({tokenBalance.balance} available)
-                              </option>
+                              <SendOption name={tokenBalance.name} balance={tokenBalance.balance}/>
                             ))
                           }
                         </select>
