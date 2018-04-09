@@ -80,6 +80,20 @@ export const messages = {
      "more":"تا بیشتر",
      "Mined by":"استخراج توسط:",
      "bytes":"بایت",
-     "Go to login":"برو به صفحه ورود"
+     "Go to login":"برو به صفحه ورود",
+     "do_not_send_1": "لطفا هیچ ترونی از آدرس ولت یا اکسچنج به این حساب واریز نکنید",
+     "do_not_send_2": "لطفا هیچ ترونی از آدرس ولت یا اکسچنج به این حساب واریز نکنید",
+     "name_of_the_token": "نام توکن",
+     "create_token": "ایجاد توکن",
+     "start_date": "تاریخ شروع",
+     "end_date":"پایان شروع",
+     "token_spend_confirm": "من تأیید میکنم که باید 1024 ترون را برای ساختن توکن صرف کنم",
+     "description": "توضیحات",
+     "description_url": "آدرس توضیحات",
+     "quote_token_amount": "مقدار توقع توکن",
+     "base_token_amount": "مقدار توکن اصلی",
+     "creating_a_token": "ایجاد توکن",
+     "available": "در دسترس",
+
 }
   
