@@ -178,6 +178,7 @@ class Send extends React.Component {
           <div className="input-group mb-3">
             <select
               className="form-control"
+              onChange={(ev) =>  this.setState({ token: ev.target.value }) }
               value={token}>
               {
                 tokenBalances.map(tokenBalance => (
