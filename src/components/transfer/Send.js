@@ -48,6 +48,8 @@ class Send extends React.Component {
 
     await Client.send(account.key, token, to, amount * 1000000);
 
+    this.refreshTokenBalances();
+
     this.setState({
       sendStatus: 'success',
       isLoading: false,
@@ -84,11 +86,15 @@ class Send extends React.Component {
 
 
   componentDidMount() {
+    this.refreshTokenBalances();
+  }
+
+  refreshTokenBalances = () => {
     let {account} = this.props;
     if (account.isLoggedIn) {
       this.props.loadTokenBalances(passwordToAddress(account.key));
     }
-  }
+  };
 
   componentDidUpdate() {
     let {tokenBalances} = this.props;
