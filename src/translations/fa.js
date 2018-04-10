@@ -94,6 +94,10 @@ export const messages = {
      "base_token_amount": "مقدار توکن اصلی",
      "creating_a_token": "ایجاد توکن",
      "available": "در دسترس",
-
+     "information_message_1": "بعد از درخواست ترون شما 10.000 ترون برای تست در شبکه دریافت میکنید",
+     "information_message_2": " شما به ازای هر حساب فقط یک بار میتوانید ترون درخواست کنید ",
+     "invalid_address": "آدرس غیر معتبر است",
+     "insufficient_tokens": "عدم وجود توکن کافی",
+     "make_another_transaction": "تراکنش دیگری انجام دهید",
 }
   
