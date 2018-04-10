@@ -73,7 +73,7 @@ class Account extends Component {
 
       let address = passwordToAddress(account.key);
 
-      let {data} = await xhr.post("http://47.74.190.150:8081/status", {
+      let {data} = await xhr.post("https://tronscan.org/request-coins", {
         address,
       });
 
@@ -96,7 +96,7 @@ class Account extends Component {
 
       let address = passwordToAddress(account.key);
 
-      let {data} = await xhr.post("http://47.74.190.150:8081/request-coins", {
+      let {data} = await xhr.post("https://tronscan.org/request-coins", {
         address,
       });
 
