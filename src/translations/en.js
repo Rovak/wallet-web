@@ -76,7 +76,7 @@ export const messages = {
   "available": "available",
   "request_trx_for_testing": "Request TRX for testing",
   "testnet": "Testnet",
-  "information_message_1": "When requesting TRX you will receive 10.000 TRX which you can use for testing on the testnet.",
+  "information_message_1": "When requesting TRX you will receive 10000 TRX which you can use for testing on the testnet.",
   "information_message_2": "You may only request TRX once per account.",
   "invalid_address": "invalid address",
   "insufficient_tokens": "Insufficient tokens",

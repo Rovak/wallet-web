@@ -120,7 +120,7 @@ class Account extends Component {
       if (trxRequestResponse.success === true) {
         return (
           <div className="alert alert-success text-success">
-            10.000 TRX have been added to your account!
+            10000 TRX have been added to your account!
           </div>
         )
       } else {
