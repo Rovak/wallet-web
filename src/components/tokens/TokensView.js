@@ -144,7 +144,7 @@ class TokensView extends Component {
                           <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
                           <label className="form-check-label">
                             I've confirmed to spend <b>{amount} TRX</b> on token distribution,
-                            and get a total of <b>{amount * token.price} {token.name} tokens</b> tokens.
+                            and get a total of <b>{amount / token.price} {token.name}</b> tokens.
                           </label>
                         </div>
                       </div>
