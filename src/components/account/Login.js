@@ -160,23 +160,6 @@ class Login extends Component {
                 </div>
               </div>
             </div>
-            <div className="form-group">
-              <label>{tu("Private Key")}</label>
-              <div className="input-group mb-3">
-                <input type="text"
-                       readOnly={true}
-                       onChange={(ev) => this.setState({ privateKey: ev.target.value })}
-                       className="form-control"
-                       value={privateKey} />
-                <div className="input-group-append">
-                  <CopyToClipboard text={privateKey}>
-                    <button className="btn btn-outline-secondary" type="button">
-                      <i className="fa fa-paste"/>
-                    </button>
-                  </CopyToClipboard>
-                </div>
-              </div>
-            </div>
             <div className="form-check">
               <input type="checkbox"
                      className="form-check-input" onChange={(ev) => this.setState({ registerCheck1: ev.target.checked })} />
