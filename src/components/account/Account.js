@@ -13,7 +13,7 @@ class Account extends Component {
 
     this.state = {
       waitingForTrx: false,
-      showRequest: false,
+      showRequest: true,
       trxRequestResponse: {
         success: false,
         code: -1,
@@ -24,7 +24,6 @@ class Account extends Component {
 
   componentDidMount() {
     this.reloadTokens();
-    this.checkRequestStatus();
   }
 
   reloadTokens = () => {
@@ -65,27 +64,6 @@ class Account extends Component {
       </table>
     )
   }
-
-  checkRequestStatus = async() => {
-    let {account} = this.props;
-
-    try {
-
-      let address = passwordToAddress(account.key);
-
-      let {data} = await xhr.post("https://tronscan.org/request-coins", {
-        address,
-      });
-
-      if (data.success) {
-        this.setState({
-          showRequest: true,
-        });
-      }
-    } finally {
-
-    }
-  };
 
   requestTrx = async () => {
     let {account} = this.props;
