@@ -74,7 +74,7 @@ class Account extends Component {
 
       let address = passwordToAddress(account.key);
 
-      let {data} = await xhr.post("https://tronscan.org/request-coins", {
+      let {data} = await xhr.post(`${window.location.origin}/request-coins`, {
         address,
       });
 
