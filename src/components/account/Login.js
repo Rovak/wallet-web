@@ -17,16 +17,18 @@ class Login extends Component {
 
     this.state = {
       activeTab: 'login',
+
+      // Register
       address: "",
       password: "",
       privateKey: "",
-      loginPassword: "",
-
       registerCheck1: false,
       registerCheck2: false,
       registerCheck3: false,
-
       showWarning: false,
+
+      // Login
+      loginPassword: "",
     };
   }
 
@@ -65,9 +67,21 @@ class Login extends Component {
     });
   };
 
-  renderLogin() {
-
+  isLoginValid = () => {
     let {loginPassword} = this.state;
+
+    if (!loginPassword || loginPassword.length === 0) {
+      return false;
+    }
+
+    if (loginPassword.length < 40) {
+      return false;
+    }
+
+    return true;
+  };
+
+  renderLogin() {
 
     return (
       <div className="card-text text-center">
@@ -81,7 +95,7 @@ class Login extends Component {
         </p>
         <p>
           <button
-            disabled={loginPassword.length === 0}
+            disabled={!this.isLoginValid()}
             className="btn btn-outline-danger"
             onClick={this.doLogin}>{tu("login")}</button>
         </p>
@@ -237,15 +251,15 @@ class Login extends Component {
                     <li className="nav-item">
                       <a
                           href="javascript:;"
-                         className={(activeTab === 'login' ? "active" : "" ) + " nav-link" }
-                         onClick={() => this.setState({ activeTab: 'login' })}>
+                          className={(activeTab === 'login' ? "active" : "" ) + " nav-link" }
+                          onClick={() => this.setState({ activeTab: 'login' })}>
                         {tu("login")}
                       </a>
                     </li>
                     <li className="nav-item">
                       <a href="javascript:;"
                           className={(activeTab === 'register' ? "active" : "" ) + " nav-link" }
-                         onClick={() => this.setState({ activeTab: 'register' })}>
+                          onClick={() => this.setState({ activeTab: 'register' })}>
                         {tu("register")}
                       </a>
                     </li>
