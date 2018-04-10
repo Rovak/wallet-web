@@ -95,4 +95,7 @@ export const messages = {
     "testnet": "테스트넷",
     "information_message_1": "TRX를 요청할 때 10000 TRX를 받습니다. TRX는 테스트 네트워크에서 테스트하는 데 사용할 수 있습니다.",
     "information_message_2": "TRX는 계정 당 한 번만 요청할 수 있습니다.",
+    "invalid_address": "잘못된 주소",
+    "insufficient_tokens": "불충분한 토큰",
+    "make_another_transaction": "다른 거래 만들기",
 };
