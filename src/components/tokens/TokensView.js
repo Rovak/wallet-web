@@ -55,7 +55,7 @@ class TokensView extends Component {
     await Client.participateAsset(account.key, {
       name: token.name,
       issuerAddress: token.ownerAddress,
-      amount,
+      amount: amount * 1000000,
     });
 
     this.setState({
