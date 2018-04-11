@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
 import {FormattedDate, FormattedTime} from "react-intl";
-import {tu} from "../../utils/i18n";
+import {tu, tv} from "../../utils/i18n";
 import {TextField} from "../../utils/formHelper";
 import {Client} from "../../services/api";
 
@@ -145,8 +145,13 @@ class TokensView extends Component {
                         <div className="col-sm-10">
                           <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
                           <label className="form-check-label">
-                            I've confirmed to spend <b>{amount} TRX</b> on token distribution,
-                            and get a total of <b>{amount / token.price} {token.name}</b> tokens.
+                            {tv({
+                              id: "token_exchange_confirm",
+                              values: {
+                                trxAmount: <b>{amount} TRX</b>,
+                                tokenAmount: <b>{amount / token.price} {token.name}</b>
+                              }
+                            })}
                           </label>
                         </div>
                       </div>
