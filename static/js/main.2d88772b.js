@@ -56209,7 +56209,7 @@ var initialState={witnesses:[],nodes:[]};function networkReducer(){var state=arg
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = tokensReducer;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_tokens__ = __webpack_require__(46);
-var initialState={tokens:[]};function tokensReducer(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:initialState;var action=arguments[1];switch(action.type){case __WEBPACK_IMPORTED_MODULE_0__actions_tokens__["a" /* SET_TOKENS */]:{console.log(action);return Object.assign({},state,{tokens:action.tokens});}default:return state;}}
+var initialState={tokens:[]};function tokensReducer(){var state=arguments.length>0&&arguments[0]!==undefined?arguments[0]:initialState;var action=arguments[1];switch(action.type){case __WEBPACK_IMPORTED_MODULE_0__actions_tokens__["a" /* SET_TOKENS */]:{return Object.assign({},state,{tokens:action.tokens});}default:return state;}}
 
 /***/ }),
 /* 217 */
@@ -69850,4 +69850,4 @@ registerValidSW(swUrl);}}).catch(function(){console.log('No internet connection 
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.235951e4.js.map
+//# sourceMappingURL=main.2d88772b.js.map
