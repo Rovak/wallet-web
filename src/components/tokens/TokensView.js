@@ -16,6 +16,7 @@ class TokensView extends Component {
       amount: 0,
       confirmed: false,
       confirmedParticipate: false,
+      participateSuccess: false,
       loading: false,
     };
   }
@@ -26,6 +27,7 @@ class TokensView extends Component {
       amount: 0,
       confirmed: false,
       confirmedParticipate: false,
+      participateSuccess: false,
       loading: false,
     })
   }
@@ -52,7 +54,7 @@ class TokensView extends Component {
 
     this.setState({ loading: true, });
 
-    await Client.participateAsset(account.key, {
+    let isSuccess = await Client.participateAsset(account.key, {
       name: token.name,
       issuerAddress: token.ownerAddress,
       amount: amount * 1000000,
@@ -60,13 +62,14 @@ class TokensView extends Component {
 
     this.setState({
       confirmedParticipate: true,
+      participateSuccess: isSuccess,
       loading: false,
-    })
+    });
   };
 
   renderTable() {
     let {tokens, account} = this.props;
-    let {amount, confirmedParticipate, loading} = this.state;
+    let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
 
     return (
       <table className="table">
@@ -109,13 +112,23 @@ class TokensView extends Component {
                 }
               </tr>
               {
-                (confirmedParticipate && this.containsToken(token)) && <tr>
-                  <td colSpan="5">
-                    <div className="alert alert-success text-center">
-                      You succesfully partipated!
-                    </div>
-                  </td>
-                </tr>
+                (confirmedParticipate && this.containsToken(token)) && (
+                  participateSuccess ? <tr>
+                      <td colSpan="5">
+                        <div className="alert alert-success text-center">
+                          You succesfully partipated!
+                        </div>
+                      </td>
+                    </tr>
+                    :
+                    <tr>
+                      <td colSpan="5">
+                        <div className="alert alert-warning text-center">
+                          An error occurred
+                        </div>
+                      </td>
+                    </tr>
+                )
               }
               {
                 (!confirmedParticipate && this.containsToken(token)) &&
