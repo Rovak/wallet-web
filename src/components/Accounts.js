@@ -62,7 +62,7 @@ class Accounts extends Component {
                     {account.address.toUpperCase()}
                   </div>
                   <div className="ml-3 text-muted">
-                    {account.balanceNum} TRX
+                    <FormattedNumber value={account.balanceNum}/> TRX
                   </div>
                 </div>
               </div>
