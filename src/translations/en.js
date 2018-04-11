@@ -81,4 +81,6 @@ export const messages = {
   "invalid_address": "invalid address",
   "insufficient_tokens": "Insufficient tokens",
   "make_another_transaction": "Make another transaction",
+  "participate": "Participate",
+  "token_exchange_confirm": "I've confirmed to spend {trxAmount} on token distribution, and get a total of {tokenAmount} tokens."
 };

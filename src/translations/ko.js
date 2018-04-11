@@ -98,4 +98,6 @@ export const messages = {
     "invalid_address": "잘못된 주소",
     "insufficient_tokens": "불충분한 토큰",
     "make_another_transaction": "다른 거래 만들기",
+    "participate": "참여하기",
+    "token_exchange_confirm": "토큰 배포에 {trxAmount}를 사용하여, {tokenAmount}의 토큰을 얻었습니다."
 };
