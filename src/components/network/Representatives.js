@@ -42,7 +42,7 @@ class Representatives extends Component {
             {
               witnesses.map((account, index) => (
                 <tr key={account.address}>
-                  <td className="text-right">{index}</td>
+                  <td className="text-right">{index + 1}</td>
                   <td>{account.url}</td>
                   <td className="text-right"><FormattedNumber value={account.latestBlockNumber} /></td>
                   <td className="text-right"><FormattedNumber value={account.producedTotal} /></td>

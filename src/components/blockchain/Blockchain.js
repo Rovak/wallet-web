@@ -7,6 +7,7 @@ import {loadPrice} from "../../actions/app";
 import {t, tu} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
+import {FormattedNumber} from "react-intl";
 
 class Blockchain extends Component {
 
@@ -49,7 +50,7 @@ class Blockchain extends Component {
                 <div className="row">
                   <div className="col-md">
                     <i className="fas fa-exchange-alt mr-1"/>
-                    {block.transactionsCount} {t("transactions")}
+                    <FormattedNumber value={block.transactionsCount} /> {t("transactions")}
                   </div>
                   <div className="col-md">
                     <i className="fas fa-file mr-1"/>
