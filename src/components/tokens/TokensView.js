@@ -6,6 +6,7 @@ import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
 import {tu, tv} from "../../utils/i18n";
 import {TextField} from "../../utils/formHelper";
 import {Client} from "../../services/api";
+import MediaQuery from "react-responsive";
 
 class TokensView extends Component {
 
@@ -189,15 +190,17 @@ class TokensView extends Component {
                       <div className="form-group row no-gutters">
                         <div className="col-2">&nbsp;</div>
                         <div className="col-sm-10">
-                          <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
-                          <label className="form-check-label">
-                            {
-                              tv("token_exchange_confirm", {
-                                trxAmount: <b><FormattedNumber value={amount} /> TRX</b>,
-                                tokenAmount: <b><FormattedNumber value={amount / token.price} /> {token.name}</b>
-                              }
-                            )}
-                          </label>
+                          <div className="form-check">
+                            <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
+                            <label className="form-check-label">
+                              {
+                                tv("token_exchange_confirm", {
+                                  trxAmount: <b><FormattedNumber value={amount} /> TRX</b>,
+                                  tokenAmount: <b><FormattedNumber value={amount / token.price} /> {token.name}</b>
+                                }
+                              )}
+                            </label>
+                          </div>
                         </div>
                       </div>
                       <div className="form-group row no-gutters">
@@ -222,13 +225,157 @@ class TokensView extends Component {
     );
   }
 
+  renderSmallDate(token) {
+
+    let now = new Date().getTime();
+
+    if (token.endTime < now) {
+      return (
+        <Fragment>
+          <span class="text-muted">
+            Finished&nbsp;
+            <FormattedDate value={token.endTime}/>&nbsp;
+            <FormattedTime value={token.endTime}/>
+          </span>
+        </Fragment>
+      );
+    }
+
+    if (token.startTime < now) {
+      return (
+        <Fragment>
+          <span class="text-muted">
+            Started&nbsp;
+            <FormattedDate value={token.startTime}/>&nbsp;
+            <FormattedTime value={token.startTime}/>
+          </span>
+          {
+            !this.containsToken(token) &&  <button
+              class="btn btn-primary btn-sm float-right"
+              onClick={() => this.toggleToken(token)}>
+              {tu("participate")}
+            </button>
+          }
+
+        </Fragment>
+      )
+    }
+
+    return (
+      <Fragment>
+          <span class="text-muted">
+            Starts&nbsp;
+            <FormattedDate value={token.startTime}/>&nbsp;
+            <FormattedTime value={token.startTime}/>
+          </span>
+      </Fragment>
+    );
+  }
+
+  renderSmallTable() {
+    let {tokens, account} = this.props;
+    let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
+
+    tokens = sortBy(tokens, t => t.name);
+
+    return (
+      <Fragment>
+        {
+          tokens.map((token, index) => (
+            <div class="media mt-1 pb-1 border-bottom" key={token.name}>
+              <div class="media-body">
+                <span className="float-right">
+                  <FormattedNumber value={token.totalSupply} />&nbsp;
+                  {tu("supply")}
+                </span>
+                <h5 class="mt-0 font-weight-bold">{token.name}</h5>
+                <div>
+                  {this.renderSmallDate(token)}
+                </div>
+                {
+                  (confirmedParticipate && this.containsToken(token)) && (
+                    participateSuccess ?
+                      <div className="alert alert-success text-center">
+                        You succesfully partipated!
+                      </div>
+                      :
+                      <div className="alert alert-warning text-center">
+                        An error occurred
+                      </div>
+                  )
+                }
+                {
+                  (!confirmedParticipate && this.containsToken(token)) &&
+                  (
+                    <form class="clearfix mt-2">
+                      <div className="form-group row no-gutters mb-0">
+                        <label className="col-2 font-weight-bold">{tu("description")}</label>
+                        <div className="col-sm-9 ml-0 ml-sm-2">
+                          {token.description}
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters mb-0">
+                        <label className="col-2 font-weight-bold">{tu("price")}</label>
+                        <div className="col-sm-9 ml-0 ml-sm-2">
+                          <FormattedNumber value={token.price} /> TRX
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters">
+                        <label className="col-2 font-weight-bold">{tu("amount")}</label>
+                        <div className="col-sm-2 ml-0 ml-sm-2">
+                          <TextField type="number" cmp={this} field="amount" className="form-control" />
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters">
+                        <div className="col-sm-2">&nbsp;</div>
+                        <div className="col-sm-10">
+                          <div className="form-check">
+
+                            <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
+                            <label className="form-check-label">
+                              {
+                                tv("token_exchange_confirm", {
+                                    trxAmount: <b><FormattedNumber value={amount} /> TRX</b>,
+                                    tokenAmount: <b><FormattedNumber value={amount / token.price} /> {token.name}</b>
+                                  }
+                                )}
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="form-group row no-gutters">
+                        <div className="col-sm-12">
+                          <button className="btn btn-success btn-block"
+                                  disabled={loading || !this.isValid()}
+                                  onClick={() => this.submit(token)}>
+                            {tu("confirm_transaction")}
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  )
+                }
+              </div>
+            </div>
+          ))
+        }
+      </Fragment>
+
+    )
+  }
+
   render() {
 
     return (
       <main className="container pt-3">
         <div className="row">
           <div className="col-sm-12">
+            <MediaQuery minWidth={980}>
               {this.renderTable()}
+            </MediaQuery>
+            <MediaQuery maxWidth={980}>
+              {this.renderSmallTable()}
+            </MediaQuery>
           </div>
         </div>
       </main>

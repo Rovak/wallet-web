@@ -87,4 +87,5 @@ export const messages = {
   "blockchain": "blockchain",
   "tokens": "tokens",
   "receive": "receive",
+  "supply": "supply",
 };
