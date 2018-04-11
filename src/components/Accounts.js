@@ -4,6 +4,7 @@ import {loadAccounts} from "../actions/app";
 import MediaQuery from 'react-responsive';
 import {tu} from "../utils/i18n";
 import {BarLoader} from "./common/loaders";
+import {FormattedNumber} from "react-intl";
 
 class Accounts extends Component {
 
@@ -31,16 +32,18 @@ class Accounts extends Component {
             <tr>
               <th scope="col">#</th>
               <th scope="col">{tu("address")}</th>
-              <th scope="col">{tu("balance")}</th>
+              <th scope="col" className="text-right">{tu("balance")}</th>
             </tr>
             </thead>
             <tbody>
             {
               accounts.map((account, index) => (
                 <tr key={account.address}>
-                  <th scope="row">{index}</th>
+                  <th scope="row">{index + 1}</th>
                   <td>{account.address}</td>
-                  <td>{account.balanceNum} TRX</td>
+                  <td className="text-right">
+                    <FormattedNumber value={account.balanceNum} /> TRX
+                  </td>
                 </tr>
               ))
             }
