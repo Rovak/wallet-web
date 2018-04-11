@@ -46,11 +46,13 @@ class Blockchain extends Component {
                 #{block.number}
               </div>
               <div className="media-body pb-3 mb-0 small lh-150 border-bottom border-gray">
-                <strong className="d-block text-gray-dark">{tu("Produced by")}{block.witnessAddress.substr(0, 28)}...</strong>
+                <strong className="d-block text-gray-dark break-word">
+                  {tu("Produced by")} {block.witnessAddress.substr(0, 28)}...
+                </strong>
                 <div className="row">
                   <div className="col-md">
                     <i className="fas fa-exchange-alt mr-1"/>
-                    <FormattedNumber value={block.transactionsCount} /> {t("transactions")}
+                    <FormattedNumber value={block.transactionsCount} />
                   </div>
                   <div className="col-md">
                     <i className="fas fa-file mr-1"/>
@@ -171,7 +173,7 @@ class Blockchain extends Component {
                 { blocks[0] && <small>{tu("current")} #{blocks[0].number}</small> }
               </div>
             </div>
-            <div className="my-3 p-3 bg-white rounded box-shadow break-word">
+            <div className="my-3 p-3 bg-white rounded box-shadow">
               {this.renderBlocks()}
             </div>
           </div>
