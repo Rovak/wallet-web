@@ -67420,7 +67420,7 @@ module.exports = function (encodedURI) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_intl__ = __webpack_require__(29);
-var SendOption=function SendOption(_ref){var name=_ref.name,balance=_ref.balance,intl=_ref.intl;return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option",{value:name},name," (",balance," ",intl.formatMessage({id:"available"}),")");};/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_intl__["f" /* injectIntl */])(SendOption));
+var SendOption=function SendOption(_ref){var name=_ref.name,balance=_ref.balance,intl=_ref.intl;return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("option",{value:name},name," (",intl.formatNumber(balance)," ",intl.formatMessage({id:"available"}),")");};/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_intl__["f" /* injectIntl */])(SendOption));
 
 /***/ }),
 /* 316 */
@@ -69846,4 +69846,4 @@ registerValidSW(swUrl);}}).catch(function(){console.log('No internet connection 
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.64db423e.js.map
+//# sourceMappingURL=main.1efe0e1d.js.map
