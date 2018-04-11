@@ -145,13 +145,12 @@ class TokensView extends Component {
                         <div className="col-sm-10">
                           <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
                           <label className="form-check-label">
-                            {tv({
-                              id: "token_exchange_confirm",
-                              values: {
+                            {
+                              tv("token_exchange_confirm", {
                                 trxAmount: <b>{amount} TRX</b>,
                                 tokenAmount: <b>{amount / token.price} {token.name}</b>
                               }
-                            })}
+                            )}
                           </label>
                         </div>
                       </div>
