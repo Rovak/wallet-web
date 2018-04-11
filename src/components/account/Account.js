@@ -5,6 +5,7 @@ import {loadTokenBalances} from "../../actions/account";
 import {BarLoader} from "../common/loaders";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import xhr from "axios";
+import {FormattedNumber} from "react-intl";
 
 class Account extends Component {
 
@@ -48,7 +49,7 @@ class Account extends Component {
         <thead>
         <tr>
           <th>{tu("name")}</th>
-          <th>{tu("balance")}</th>
+          <th class="text-right">{tu("balance")}</th>
         </tr>
         </thead>
         <tbody>
@@ -56,7 +57,9 @@ class Account extends Component {
           tokenBalances.map((token) => (
             <tr key={token.name}>
               <td>{token.name}</td>
-              <td>{token.balance}</td>
+              <td class="text-right">
+                <FormattedNumber value={token.balance} />
+              </td>
             </tr>
           ))
         }

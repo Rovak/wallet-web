@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
-import {FormattedDate, FormattedTime} from "react-intl";
+import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
 import {tu, tv} from "../../utils/i18n";
 import {TextField} from "../../utils/formHelper";
 import {Client} from "../../services/api";
@@ -67,9 +67,40 @@ class TokensView extends Component {
     });
   };
 
+  renderParticipateButton(token) {
+    let now = new Date().getTime();
+
+    if (token.startTime > now) {
+      return (
+        <button type="button" className="btn btn-block btn-outline-dark btn-sm" disabled>
+          {tu("not started yet")}
+        </button>
+      );
+    }
+
+    if (token.endTime < now) {
+      return (
+        <button type="button" className="btn btn-block btn-dark btn-sm" disabled>
+          {tu("finished")}
+        </button>
+      );
+    }
+
+    if (!this.containsToken(token)) {
+      return (
+        <button type="button" className="btn btn-block btn-primary btn-sm" onClick={() => this.toggleToken(token)}>
+          {tu("participate")}
+        </button>
+      );
+    }
+
+    return null;
+  }
+
   renderTable() {
     let {tokens, account} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
+
 
     return (
       <table className="table">
@@ -77,7 +108,7 @@ class TokensView extends Component {
         <tr>
           <th>{tu("name")}</th>
           <th>{tu("issuer")}</th>
-          <th>{tu("total_supply")}</th>
+          <th className="text-right">{tu("total_supply")}</th>
           <th>{tu("start_end_time")}</th>
           <th>&nbsp;</th>
         </tr>
@@ -93,7 +124,9 @@ class TokensView extends Component {
                     {token.ownerAddress.substr(0, 16)}...
                   </span>
                 </td>
-                <td>{token.totalSupply}</td>
+                <td className="text-right">
+                  <FormattedNumber value={token.totalSupply} />
+                </td>
                 <td>
                   <FormattedDate value={token.startTime}/>&nbsp;
                   <FormattedTime value={token.startTime}/>&nbsp;
@@ -103,11 +136,7 @@ class TokensView extends Component {
                 </td>
                 {
                   account.isLoggedIn && <td className="text-right">
-                    { !this.containsToken(token) &&
-                    <button type="button" class="btn btn-primary btn-sm" onClick={() => this.toggleToken(token)}>
-                      {tu("participate")}
-                    </button>
-                    }
+                    {this.renderParticipateButton(token)}
                   </td>
                 }
               </tr>
@@ -144,7 +173,9 @@ class TokensView extends Component {
                       <div className="form-group row no-gutters">
                         <label className="col-2 font-weight-bold text-right">{tu("price")}</label>
                         <div className="col-sm-9">
-                          <div className="pl-2">{token.price} TRX</div>
+                          <div className="pl-2">
+                            <FormattedNumber value={token.price} /> TRX
+                          </div>
                         </div>
                       </div>
                       <div className="form-group row no-gutters">
@@ -160,8 +191,8 @@ class TokensView extends Component {
                           <label className="form-check-label">
                             {
                               tv("token_exchange_confirm", {
-                                trxAmount: <b>{amount} TRX</b>,
-                                tokenAmount: <b>{amount / token.price} {token.name}</b>
+                                trxAmount: <b><FormattedNumber value={amount} /> TRX</b>,
+                                tokenAmount: <b><FormattedNumber value={amount / token.price} /> {token.name}</b>
                               }
                             )}
                           </label>
@@ -170,7 +201,7 @@ class TokensView extends Component {
                       <div className="form-group row no-gutters">
                         <div className="col-2">&nbsp;</div>
                         <div className="col-sm-10">
-                          <button class="btn btn-success"
+                          <button className="btn btn-success"
                                   disabled={loading || !this.isValid()}
                                     onClick={() => this.submit(token)}>
                             {tu("confirm_transaction")}
