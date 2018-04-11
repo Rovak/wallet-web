@@ -1,9 +1,9 @@
 import React from "react";
-import { injectIntl } from "react-intl";
+import {FormattedNumber, injectIntl} from "react-intl";
 
 const SendOption = ({ name, balance, intl }) => (
   <option value={name}>
-    {name} ({balance} {intl.formatMessage({ id: "available" })})
+    {name} ({intl.formatNumber(balance)} {intl.formatMessage({ id: "available" })})
   </option>
 );
 
