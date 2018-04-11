@@ -65,7 +65,7 @@ class TokensView extends Component {
   };
 
   renderTable() {
-    let {tokens} = this.props;
+    let {tokens, account} = this.props;
     let {amount, confirmedParticipate, loading} = this.state;
 
     return (
@@ -98,13 +98,15 @@ class TokensView extends Component {
                   <FormattedDate value={token.endTime}/>&nbsp;
                   <FormattedTime value={token.endTime}/>
                 </td>
-                <td className="text-right">
-                  { !this.containsToken(token) &&
+                {
+                  account.isLoggedIn && <td className="text-right">
+                    { !this.containsToken(token) &&
                     <button type="button" class="btn btn-primary btn-sm" onClick={() => this.toggleToken(token)}>
-                      Participate
+                      {tu("participate")}
                     </button>
-                  }
-                </td>
+                    }
+                  </td>
+                }
               </tr>
               {
                 (confirmedParticipate && this.containsToken(token)) && <tr>
