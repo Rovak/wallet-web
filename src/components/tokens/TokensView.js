@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
+import {sortBy} from "lodash";
 import {loadTokens} from "../../actions/tokens";
 import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
 import {tu, tv} from "../../utils/i18n";
@@ -101,6 +102,7 @@ class TokensView extends Component {
     let {tokens, account} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
 
+    tokens = sortBy(tokens, t => t.name);
 
     return (
       <table className="table">
