@@ -94,7 +94,7 @@ export const messages = {
      "base_token_amount": "مقدار توکن اصلی",
      "creating_a_token": "ایجاد توکن",
      "available": "در دسترس",
-     "information_message_1": "بعد از درخواست ترون شما 10.000 ترون برای تست در شبکه دریافت میکنید",
+     "information_message_1": "بعد از درخواست ترون شما 10000 ترون برای تست در شبکه دریافت میکنید",
      "information_message_2": " شما به ازای هر حساب فقط یک بار میتوانید ترون درخواست کنید ",
      "invalid_address": "آدرس غیر معتبر است",
      "insufficient_tokens": "عدم وجود توکن کافی",
@@ -103,5 +103,9 @@ export const messages = {
      "An_unknown_error_occurred,_please_try_again_in_a_few_minutes":"یک مشکل ناشناخته ایجاد شده لطفا بعدا تلاش کنید", 
      "testnet":"تست شبکه", 
      "An_error_occurred": "یک خطا رخ داد",
+     "price":"قیمت",
+     "token_exchange_confirm":"تایید تراکنش توکن",
+     "participate":"مشارکت",
+     "request_trx_for_testing":"درخواست ترون برای تست",
 }
   
