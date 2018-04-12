@@ -106,15 +106,15 @@ class TokensView extends Component {
     tokens = sortBy(tokens, t => t.name);
 
     return (
-      <table className="table">
-        <thead>
-        <tr>
-          <th>{tu("name")}</th>
-          <th>{tu("issuer")}</th>
-          <th className="text-right">{tu("total_supply")}</th>
-          <th>{tu("start_end_time")}</th>
-          <th>&nbsp;</th>
-        </tr>
+      <table className="table table-striped">
+        <thead className="thead-dark">
+          <tr>
+            <th>{tu("name")}</th>
+            <th>{tu("issuer")}</th>
+            <th className="text-right">{tu("total_supply")}</th>
+            <th>{tu("start_end_time")}</th>
+            <th>&nbsp;</th>
+          </tr>
         </thead>
         <tbody>
         {

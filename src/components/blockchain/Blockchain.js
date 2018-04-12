@@ -38,10 +38,9 @@ class Blockchain extends Component {
 
     return (
       <Fragment>
-        <h6 className="border-bottom border-gray pb-2 mb-0">{tu("Recent blocks")}</h6>
         {
           blocks.map(block => (
-            <div key={block.number} className="media text-muted pt-3">
+            <div key={block.number} className="media text-muted pb-1">
               <div className="block mr-3">
                 #{block.number}
               </div>
@@ -93,7 +92,6 @@ class Blockchain extends Component {
 
     return (
       <Fragment>
-        <h6 className="border-bottom border-gray pb-2 mb-0">{tu("recent_transactions")}</h6>
         {
           transactions.slice(0, 7).map(transaction => (
             <div className="media text-muted pt-3">
@@ -153,28 +151,25 @@ class Blockchain extends Component {
         </div>
         <div className="row">
           <div className="col-md">
-            <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-secondary rounded box-shadow">
-              <i className="fas fa-exchange-alt fa-3x mr-3"/>
-              <div className="lh-100">
-                <h6 className="mb-0 text-white lh-100">{tu("transactions")}</h6>
-                <small>{ totalNumberOfTransactions || 0 }  {t("transactions")}</small>
+            <div class="card border-light mb-3">
+              <div class="card-header">
+                <i className="fas fa-exchange-alt mr-1"/>
+                {tu("recent_transactions")}
               </div>
-            </div>
-
-            <div className="my-3 p-3 bg-white rounded box-shadow break-word">
-              {this.renderTransactions()}
+              <div class="card-body">
+                {this.renderTransactions()}
+              </div>
             </div>
           </div>
           <div className="col-md">
-            <div className="d-flex align-items-center p-3 my-3 text-white-50 bg-secondary rounded box-shadow">
-              <i className="fas fa-cubes fa-3x mr-3"/>
-              <div className="lh-100">
-                <h6 className="mb-0 text-white lh-100">{tu('blocks')}</h6>
-                { blocks[0] && <small>{tu("current")} #{blocks[0].number}</small> }
+            <div class="card border-light mb-3">
+              <div class="card-header">
+                <i className="fas fa-cubes mr-1"/>
+                {tu("Recent blocks")}
               </div>
-            </div>
-            <div className="my-3 p-3 bg-white rounded box-shadow">
-              {this.renderBlocks()}
+              <div class="card-body">
+                {this.renderBlocks()}
+              </div>
             </div>
           </div>
         </div>

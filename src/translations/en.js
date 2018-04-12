@@ -88,4 +88,5 @@ export const messages = {
   "tokens": "tokens",
   "receive": "receive",
   "supply": "supply",
+  "create_a_token": "Create a token"
 };

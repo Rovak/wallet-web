@@ -45,7 +45,7 @@ class Account extends Component {
     }
 
     return (
-      <table className="table border-0">
+      <table className="table border-0 m-0">
         <thead>
         <tr>
           <th>{tu("name")}</th>
