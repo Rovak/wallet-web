@@ -99,5 +99,9 @@ export const messages = {
     "insufficient_tokens": "불충분한 토큰",
     "make_another_transaction": "다른 거래 만들기",
     "participate": "참여하기",
-    "token_exchange_confirm": "토큰 배포에 {trxAmount}를 사용하여, {tokenAmount}의 토큰을 얻었습니다."
+    "token_exchange_confirm": "토큰 배포에 {trxAmount}를 사용하여, {tokenAmount}의 토큰을 얻었습니다.",
+    "have_been_added_to_your_account!": "have been added to your account!",
+    "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "An unknown error occured, please try again in a few minutes",
+    "An_error_occurred": "An error occurred",
+
 };
