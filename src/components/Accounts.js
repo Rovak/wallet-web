@@ -30,9 +30,9 @@ class Accounts extends Component {
           <table className="table table-striped">
             <thead className="thead-dark">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">{tu("address")}</th>
-              <th scope="col" className="text-right">{tu("balance")}</th>
+              <th>#</th>
+              <th>{tu("address")}</th>
+              <th className="text-right">{tu("balance")}</th>
             </tr>
             </thead>
             <tbody>
