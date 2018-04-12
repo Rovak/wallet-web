@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchain";
 import TimeAgo from 'react-timeago'
@@ -8,6 +7,7 @@ import {t, tu} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
+import {Col, Row} from "reactstrap";
 
 class Blockchain extends Component {
 
@@ -118,11 +118,11 @@ class Blockchain extends Component {
 
   render() {
 
-    let {blocks, price, totalNumberOfTransactions, witnesses} = this.props;
+    let {blocks, price, witnesses} = this.props;
 
     return (
       <main role="main" className="container">
-        <div className="row">
+        <Row>
           <div className="col-md-12">
             <div className="p-3 my-3 text-white-50 bg-dark rounded box-shadow row no-gutters">
               <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
@@ -148,9 +148,9 @@ class Blockchain extends Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-md">
+        </Row>
+        <Row>
+          <Col>
             <div class="card border-light mb-3">
               <div class="card-header">
                 <i className="fas fa-exchange-alt mr-1"/>
@@ -160,8 +160,8 @@ class Blockchain extends Component {
                 {this.renderTransactions()}
               </div>
             </div>
-          </div>
-          <div className="col-md">
+          </Col>
+          <Col>
             <div class="card border-light mb-3">
               <div class="card-header">
                 <i className="fas fa-cubes mr-1"/>
@@ -171,8 +171,8 @@ class Blockchain extends Component {
                 {this.renderBlocks()}
               </div>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </main>
     )
   }
