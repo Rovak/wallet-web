@@ -103,6 +103,8 @@ export const messages = {
      "token_exchange_confirm":"تایید تراکنش توکن",
      "participate":"مشارکت",
      "request_trx_for_testing":"درخواست ترون برای تست",
-     
+     "have been added to your account!":"به اکانت شما افزوده شد",
+     "An unknown error occurred, please try again in a few minutes":"یک مشکل ناشناخته ایجاد شده لطفا بعدا تلاش کنید",
+     "testnet":"تست شبکه"
 }
   
