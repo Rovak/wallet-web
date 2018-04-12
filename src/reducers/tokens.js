@@ -8,8 +8,6 @@ export function tokensReducer(state = initialState, action) {
 
   switch (action.type) {
     case SET_TOKENS: {
-
-      console.log(action);
       return {
         ...state,
         tokens: action.tokens,

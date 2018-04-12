@@ -14,6 +14,6 @@ export function tu(id) {
   );
 }
 
-export function tv({ id, values }) {
+export function tv(id, values) {
   return <FormattedMessage id={id} values={values} />;
 }

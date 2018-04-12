@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {loadWitnesses} from "../../actions/network";
 import {tu} from "../../utils/i18n";
 import {BarLoader} from "../common/loaders";
+import {FormattedNumber} from "react-intl";
 
 class Representatives extends Component {
 
@@ -29,24 +30,24 @@ class Representatives extends Component {
           <table className="table">
             <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">{tu("name")}</th>
-              <th scope="col">{tu("last_block")}</th>
-              <th scope="col">{tu("blocks_produced")}</th>
-              <th scope="col">{tu("blocks_missed")}</th>
-              <th scope="col">{tu("votes")}</th>
+              <th className="text-right">#</th>
+              <th>{tu("name")}</th>
+              <th className="text-right">{tu("last_block")}</th>
+              <th className="text-right">{tu("blocks_produced")}</th>
+              <th className="text-right">{tu("blocks_missed")}</th>
+              <th className="text-right">{tu("votes")}</th>
             </tr>
             </thead>
             <tbody>
             {
               witnesses.map((account, index) => (
                 <tr key={account.address}>
-                  <th scope="row">{index}</th>
+                  <td className="text-right">{index + 1}</td>
                   <td>{account.url}</td>
-                  <td>{account.latestBlockNumber}</td>
-                  <td>{account.producedTotal}</td>
-                  <td>{account.missedTotal}</td>
-                  <td>{account.votes} TRX</td>
+                  <td className="text-right"><FormattedNumber value={account.latestBlockNumber} /></td>
+                  <td className="text-right"><FormattedNumber value={account.producedTotal} /></td>
+                  <td className="text-right"><FormattedNumber value={account.missedTotal} /></td>
+                  <td className="text-right"><FormattedNumber value={account.votes} /> TRX</td>
                 </tr>
               ))
             }

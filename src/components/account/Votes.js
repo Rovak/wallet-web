@@ -86,7 +86,7 @@ class Votes extends Component {
               {
                 witnesses.map((account, index) => (
                   <tr key={account.address}>
-                    <th scope="row">{index}</th>
+                    <th scope="row">{index + 1}</th>
                     <td>{account.address.toUpperCase()}</td>
                     <td>{account.votes} TRX</td>
                     <td>
