@@ -99,5 +99,9 @@ export const messages = {
      "invalid_address": "آدرس غیر معتبر است",
      "insufficient_tokens": "عدم وجود توکن کافی",
      "make_another_transaction": "تراکنش دیگری انجام دهید",
+     "have_been_added_to_your_account!":"به حساب شما افزوده شد",
+     "An_unknown_error_occurred,_please_try_again_in_a_few_minutes":"یک مشکل ناشناخته ایجاد شده لطفا بعدا تلاش کنید", 
+     "testnet":"تست شبکه", 
+     "An_error_occurred": "یک خطا رخ داد",
 }
   
