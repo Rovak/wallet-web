@@ -84,8 +84,8 @@ export const messages = {
   "make_another_transaction": "Make another transaction",
   "participate": "Participate",
   "token_exchange_confirm": "I've confirmed to spend {trxAmount} on token distribution, and get a total of {tokenAmount} tokens.",
-  "have_been_added_to_your_account!":"have been added to your account!",
-  "An_unknown_error_occurred,_please_try_again_in_a_few_minutes":"An unknown error occurred, please try again in a few minutes"
+  "have_been_added_to_your_account!": "have been added to your account!",
+  "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "An unknown error occurred, please try again in a few minutes"
   "participate": "participate",
   "token_exchange_confirm": "I've confirmed to spend {trxAmount} on token distribution, and get a total of {tokenAmount} tokens.",
   "blockchain": "blockchain",
