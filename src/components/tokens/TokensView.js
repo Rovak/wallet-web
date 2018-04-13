@@ -157,7 +157,7 @@ class TokensView extends Component {
                     <tr>
                       <td colSpan="5">
                         <div className="alert alert-warning text-center">
-                          An error occurred
+                         {tu("An_error_occurred")}
                         </div>
                       </td>
                     </tr>
