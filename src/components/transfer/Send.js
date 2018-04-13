@@ -10,6 +10,7 @@ import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
 import {isAddressValid} from "@tronprotocol/wallet-api/src/utils/address";
 import {find} from "lodash";
+import {ONE_TRX} from "../../constants";
 
 class Send extends React.Component {
 
@@ -46,7 +47,7 @@ class Send extends React.Component {
 
     this.setState({ isLoading: true });
 
-    await Client.send(account.key, token, to, amount * 1000000);
+    await Client.send(account.key, token, to, amount * ONE_TRX);
 
     this.refreshTokenBalances();
 

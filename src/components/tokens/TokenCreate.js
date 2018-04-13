@@ -4,6 +4,7 @@ import {Client} from "../../services/api";
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
 import {TextField} from "../../utils/formHelper";
+import {ONE_TRX} from "../../constants";
 
 class TokenCreate extends Component {
 
@@ -35,7 +36,7 @@ class TokenCreate extends Component {
         name: this.state.name,
         totalSupply: this.state.totalSupply,
         num: this.state.num,
-        trxNum: this.state.trxNum,
+        trxNum: this.state.trxNum * ONE_TRX,
         startTime: this.state.startTime,
         endTime: this.state.endTime,
         description: this.state.description,

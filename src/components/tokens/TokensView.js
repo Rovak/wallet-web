@@ -7,6 +7,7 @@ import {tu, tv} from "../../utils/i18n";
 import {TextField} from "../../utils/formHelper";
 import {Client} from "../../services/api";
 import MediaQuery from "react-responsive";
+import {ONE_TRX} from "../../constants";
 
 class TokensView extends Component {
 
@@ -59,7 +60,7 @@ class TokensView extends Component {
     let isSuccess = await Client.participateAsset(account.key, {
       name: token.name,
       issuerAddress: token.ownerAddress,
-      amount: amount * 1000000,
+      amount: amount * ONE_TRX,
     });
 
     this.setState({
