@@ -6,7 +6,7 @@ import {t, tu} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
-import TimeAgoI18N from "./TimeAgoI18N";
+import TimeAgoI18N from "../common/TimeAgoI18N";
 
 class Blockchain extends Component {
 
