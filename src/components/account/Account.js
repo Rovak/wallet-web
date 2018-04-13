@@ -49,7 +49,7 @@ class Account extends Component {
         <thead>
         <tr>
           <th>{tu("name")}</th>
-          <th class="text-right">{tu("balance")}</th>
+          <th className="text-right">{tu("balance")}</th>
         </tr>
         </thead>
         <tbody>
@@ -57,7 +57,7 @@ class Account extends Component {
           tokenBalances.map((token) => (
             <tr key={token.name}>
               <td>{token.name}</td>
-              <td class="text-right">
+              <td className="text-right">
                 <FormattedNumber value={token.balance} />
               </td>
             </tr>

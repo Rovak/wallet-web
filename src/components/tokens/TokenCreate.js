@@ -95,11 +95,11 @@ class TokenCreate extends Component {
       <main className="container pt-3">
         <div className="row">
           <div className="col-sm-8">
-            <div class="card">
-              <div class="card-header">
+            <div className="card">
+              <div className="card-header">
                 {tu("create_a_token")}
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 <form>
                   <div className="form-row">
                     <div className="form-group col-md-6">

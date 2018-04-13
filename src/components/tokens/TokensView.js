@@ -232,7 +232,7 @@ class TokensView extends Component {
     if (token.endTime < now) {
       return (
         <Fragment>
-          <span class="text-muted">
+          <span className="text-muted">
             Finished&nbsp;
             <FormattedDate value={token.endTime}/>&nbsp;
             <FormattedTime value={token.endTime}/>
@@ -244,14 +244,14 @@ class TokensView extends Component {
     if (token.startTime < now) {
       return (
         <Fragment>
-          <span class="text-muted">
+          <span className="text-muted">
             Started&nbsp;
             <FormattedDate value={token.startTime}/>&nbsp;
             <FormattedTime value={token.startTime}/>
           </span>
           {
             !this.containsToken(token) &&  <button
-              class="btn btn-primary btn-sm float-right"
+              className="btn btn-primary btn-sm float-right"
               onClick={() => this.toggleToken(token)}>
               {tu("participate")}
             </button>
@@ -263,7 +263,7 @@ class TokensView extends Component {
 
     return (
       <Fragment>
-          <span class="text-muted">
+          <span className="text-muted">
             Starts&nbsp;
             <FormattedDate value={token.startTime}/>&nbsp;
             <FormattedTime value={token.startTime}/>
@@ -282,13 +282,13 @@ class TokensView extends Component {
       <Fragment>
         {
           tokens.map((token, index) => (
-            <div class="media mt-1 pb-1 border-bottom" key={token.name}>
-              <div class="media-body">
+            <div className="media mt-1 pb-1 border-bottom" key={token.name}>
+              <div className="media-body">
                 <span className="float-right">
                   <FormattedNumber value={token.totalSupply} />&nbsp;
                   {tu("supply")}
                 </span>
-                <h5 class="mt-0 font-weight-bold">{token.name}</h5>
+                <h5 className="mt-0 font-weight-bold">{token.name}</h5>
                 <div>
                   {this.renderSmallDate(token)}
                 </div>
@@ -307,7 +307,7 @@ class TokensView extends Component {
                 {
                   (!confirmedParticipate && this.containsToken(token)) &&
                   (
-                    <form class="clearfix mt-2">
+                    <form className="clearfix mt-2">
                       <div className="form-group row no-gutters mb-0">
                         <label className="col-2 font-weight-bold">{tu("description")}</label>
                         <div className="col-sm-9 ml-0 ml-sm-2">

@@ -156,7 +156,7 @@ class Send extends React.Component {
             {tu("successful_send")}
           </div>
           <div className="justify-content-center">
-            <button class="btn btn-primary btn-block" onClick={this.resetForm}>
+            <button className="btn btn-primary btn-block" onClick={this.resetForm}>
               {tu("make_another_transaction")}
             </button>
           </div>
