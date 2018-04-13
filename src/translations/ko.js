@@ -100,6 +100,7 @@ export const messages = {
     "make_another_transaction": "다른 거래 만들기",
     "participate": "참여하기",
     "token_exchange_confirm": "토큰 배포에 {trxAmount}를 사용하여, {tokenAmount}의 토큰을 얻었습니다.",
+    "create_a_token": "토큰 생성",
     "finished": "종료",
     "not_started_yet": "준비중",
     "unknown_error_message": "알 수 없는 오류가 발생했습니다. 몇 분 후에 다시 시도하십시오.",
