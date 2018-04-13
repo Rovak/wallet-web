@@ -75,7 +75,7 @@ class TokensView extends Component {
     if (token.startTime > now) {
       return (
         <button type="button" className="btn btn-block btn-outline-dark btn-sm" disabled>
-          {tu("not started yet")}
+          {tu("not_started_yet")}
         </button>
       );
     }
@@ -296,11 +296,11 @@ class TokensView extends Component {
                   (confirmedParticipate && this.containsToken(token)) && (
                     participateSuccess ?
                       <div className="alert alert-success text-center">
-                        You succesfully partipated!
+                        {tu("participated")}
                       </div>
                       :
                       <div className="alert alert-warning text-center">
-                        An error occurred
+                        {tu("participated_error")}
                       </div>
                   )
                 }

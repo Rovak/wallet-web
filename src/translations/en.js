@@ -88,5 +88,10 @@ export const messages = {
   "tokens": "tokens",
   "receive": "receive",
   "supply": "supply",
-  "create_a_token": "Create a token"
+  "create_a_token": "Create a token",
+  "not_started_yet": "Not started yet",
+  "unknown_error_message": "An unknown error occurred, please try again in a few minutes",
+  "complete_add_to_account": "10000 TRX have been added to your account!",
+  "participated": "You successfully participated!",
+  "participated_error": "An error occurred"
 };

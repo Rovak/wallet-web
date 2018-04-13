@@ -99,5 +99,11 @@ export const messages = {
     "insufficient_tokens": "불충분한 토큰",
     "make_another_transaction": "다른 거래 만들기",
     "participate": "참여하기",
-    "token_exchange_confirm": "토큰 배포에 {trxAmount}를 사용하여, {tokenAmount}의 토큰을 얻었습니다."
+    "token_exchange_confirm": "토큰 배포에 {trxAmount}를 사용하여, {tokenAmount}의 토큰을 얻었습니다.",
+    "finished": "종료",
+    "not_started_yet": "준비중",
+    "unknown_error_message": "알 수 없는 오류가 발생했습니다. 몇 분 후에 다시 시도하십시오.",
+    "complete_add_to_account": "10000 TRX가 귀하의 계정에 추가되었습니다!",
+    "participated": "당신은 성공적으로 참여했습니다!",
+    "participated_error": "에러가 발생했습니다."
 };

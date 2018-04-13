@@ -96,7 +96,7 @@ class Account extends Component {
         trxRequestResponse: {
           success: false,
           code: 9,
-          message: 'An unknown error occurred, please try again in a few minutes',
+          message: tu("unknown_error_message")
         },
       })
     }
@@ -123,7 +123,7 @@ class Account extends Component {
       if (trxRequestResponse.success === true) {
         return (
           <div className="alert alert-success text-success">
-            10000 TRX have been added to your account!
+            {tu("complete_add_to_account")}
           </div>
         )
       } else {
