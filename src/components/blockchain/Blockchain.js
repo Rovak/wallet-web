@@ -1,13 +1,12 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchain";
-import TimeAgo from 'react-timeago'
 import {loadPrice} from "../../actions/app";
 import {t, tu} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
+import TimeAgoI18N from "./TimeAgoI18N";
 
 class Blockchain extends Component {
 
@@ -26,7 +25,7 @@ class Blockchain extends Component {
 
   renderBlocks() {
 
-    let {blocks} = this.props;
+    let {blocks, activeLanguage} = this.props;
 
     if (blocks.length === 0) {
       return (
@@ -49,17 +48,17 @@ class Blockchain extends Component {
                   {tu("Produced by")} {block.witnessAddress.substr(0, 28)}...
                 </strong>
                 <div className="row">
-                  <div className="col-md">
+                  <div className="col-md-3">
                     <i className="fas fa-exchange-alt mr-1"/>
                     <FormattedNumber value={block.transactionsCount} />
                   </div>
-                  <div className="col-md">
+                  <div className="col-md-4">
                     <i className="fas fa-file mr-1"/>
                     {block.size} {tu("bytes")}
                   </div>
                   <div className="col-md">
                     <i className="fas fa-clock mr-1"/>
-                    <TimeAgo date={block.time} />
+                    <TimeAgoI18N date={block.time} activeLanguage={activeLanguage}/>
                   </div>
                 </div>
               </div>
@@ -118,7 +117,7 @@ class Blockchain extends Component {
 
   render() {
 
-    let {blocks, price, totalNumberOfTransactions, witnesses} = this.props;
+    let {blocks, price, witnesses} = this.props;
 
     return (
       <main role="main" className="container">
@@ -185,6 +184,7 @@ function mapStateToProps(state) {
     price: state.app.price,
     totalNumberOfTransactions: state.blockchain.totalNumberOfTransactions,
     witnesses: state.network.witnesses,
+    activeLanguage: state.app.activeLanguage
   };
 }
 

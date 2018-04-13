@@ -273,7 +273,7 @@ class TokensView extends Component {
   }
 
   renderSmallTable() {
-    let {tokens, account} = this.props;
+    let {tokens} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
 
     tokens = sortBy(tokens, t => t.name);
