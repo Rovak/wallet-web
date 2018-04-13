@@ -45,11 +45,11 @@ class Account extends Component {
     }
 
     return (
-      <table className="table border-0">
+      <table className="table border-0 m-0">
         <thead>
         <tr>
           <th>{tu("name")}</th>
-          <th class="text-right">{tu("balance")}</th>
+          <th className="text-right">{tu("balance")}</th>
         </tr>
         </thead>
         <tbody>
@@ -57,7 +57,7 @@ class Account extends Component {
           tokenBalances.map((token) => (
             <tr key={token.name}>
               <td>{token.name}</td>
-              <td class="text-right">
+              <td className="text-right">
                 <FormattedNumber value={token.balance} />
               </td>
             </tr>
@@ -97,6 +97,9 @@ class Account extends Component {
           success: false,
           code: 9,
           message: tu("An_unknown_error_occurred,_please_try_again_in_a_few_minutes"),
+
+          message: tu("unknown_error_message")
+
         },
       })
     }
@@ -123,7 +126,11 @@ class Account extends Component {
       if (trxRequestResponse.success === true) {
         return (
           <div className="alert alert-success text-success">
+
             10000 TRX {tu("have_been_added_to_your_account!")}
+
+            {tu("complete_add_to_account")}
+
           </div>
         )
       } else {

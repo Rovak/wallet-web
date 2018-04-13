@@ -38,7 +38,7 @@ export default class TestNetWarning extends React.Component {
                 <p>Dear users,</p>
                 <p>The launch of testnet aims to test all the features of our blockchain explorer and wallet.</p>
                 <p>
-                  <span class="font-weight-bold text-danger pr-1">
+                  <span className="font-weight-bold text-danger pr-1">
                     Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
                     own wallet or exchange to the account address of testnet.
                   </span>
@@ -57,7 +57,7 @@ export default class TestNetWarning extends React.Component {
             </div>
           </div>
         </div>
-        <div class="modal-backdrop show" style={{ display: visible ? 'block' : 'none'}}/>
+        <div className="modal-backdrop show" style={{ display: visible ? 'block' : 'none'}}/>
       </React.Fragment>
     )
   }

@@ -27,16 +27,16 @@ class Representatives extends Component {
     return (
       <Fragment>
         <MediaQuery minWidth={980}>
-          <table className="table">
-            <thead>
-            <tr>
-              <th className="text-right">#</th>
-              <th>{tu("name")}</th>
-              <th className="text-right">{tu("last_block")}</th>
-              <th className="text-right">{tu("blocks_produced")}</th>
-              <th className="text-right">{tu("blocks_missed")}</th>
-              <th className="text-right">{tu("votes")}</th>
-            </tr>
+          <table className="table table-striped bg-white">
+              <thead className="thead-dark">
+              <tr>
+                <th className="text-right">#</th>
+                <th>{tu("name")}</th>
+                <th className="text-right">{tu("last_block")}</th>
+                <th className="text-right">{tu("blocks_produced")}</th>
+                <th className="text-right">{tu("blocks_missed")}</th>
+                <th className="text-right">{tu("votes")}</th>
+              </tr>
             </thead>
             <tbody>
             {
@@ -113,7 +113,7 @@ class Representatives extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="my-3 p-3 bg-white rounded box-shadow break-word">
+            <div className="break-word box-shadow">
               {this.renderWitnesses()}
             </div>
           </div>

@@ -18,7 +18,7 @@ class Accounts extends Component {
 
     if (accounts.length === 0) {
       return (
-        <div className="text-center d-flex justify-content-center">
+        <div className="text-center d-flex justify-content-center py-5">
           <BarLoader />
         </div>
       );
@@ -27,8 +27,8 @@ class Accounts extends Component {
     return (
       <Fragment>
         <MediaQuery minWidth={980}>
-          <table className="table">
-            <thead>
+          <table className="table table-striped">
+            <thead className="thead-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">{tu("address")}</th>
@@ -51,24 +51,25 @@ class Accounts extends Component {
           </table>
         </MediaQuery>
         <MediaQuery maxWidth={980}>
-          {
-            accounts.map((account, index) => (
-              <div className="media small mb-2" key={account.address}>
-                <div className="block">
-                  #{index}
-                </div>
-                <div className="media-body mb-0 lh-150">
-                  <div className="ml-3">
-                    {account.address.toUpperCase()}
+          <div className="p-3">
+            {
+              accounts.map((account, index) => (
+                <div className="media small mb-2" key={account.address}>
+                  <div className="block">
+                    #{index}
                   </div>
-                  <div className="ml-3 text-muted">
-                    <FormattedNumber value={account.balanceNum}/> TRX
+                  <div className="media-body mb-0 lh-150">
+                    <div className="ml-3">
+                      {account.address.toUpperCase()}
+                    </div>
+                    <div className="ml-3 text-muted">
+                      <FormattedNumber value={account.balanceNum}/> TRX
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
-          }
-
+              ))
+            }
+          </div>
         </MediaQuery>
       </Fragment>
     )
@@ -82,7 +83,7 @@ class Accounts extends Component {
       <main role="main" className="container">
         <div className="row">
           <div className="col-md-12">
-            <div className="p-3 my-3 text-white-50 bg-dark rounded box-shadow row no-gutters">
+            <div className="p-3 my-3 text-white-50 bg-dark rounded row no-gutters">
               <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-piggy-bank fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
@@ -109,7 +110,7 @@ class Accounts extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="my-3 p-3 bg-white rounded box-shadow break-word">
+            <div className="mt-1 bg-white break-word">
               {this.renderAccounts()}
             </div>
           </div>

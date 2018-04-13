@@ -70,14 +70,15 @@ class Votes extends Component {
     }
 
     return (
-      <main className="container pt-5 pb-5">
+      <main className="container mt-3">
         <div className="row">
           <div className="col-md-12">
-            <table className="table">
-              <thead>
+            <table className="table table-striped bg-white">
+              <thead className="thead-dark">
               <tr>
                 <th style={{width: 25}}>#</th>
                 <th>{tu("address")}</th>
+                <th>{tu("url")}</th>
                 <th>{tu("votes")}</th>
                 <th style={{width: 120}}>{tu("my_vote")}</th>
               </tr>
@@ -88,10 +89,12 @@ class Votes extends Component {
                   <tr key={account.address}>
                     <th scope="row">{index + 1}</th>
                     <td>{account.address.toUpperCase()}</td>
+                    <td>{account.url}</td>
                     <td>{account.votes} TRX</td>
                     <td>
                       <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
-                             className="form-control"
+                             className="form-control form-control-sm text-center"
+                             placeholder="0"
                              type="number" />
                     </td>
                   </tr>

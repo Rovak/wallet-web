@@ -91,4 +91,10 @@ export const messages = {
   "have_been_added_to_your_account!": "have been added to your account!",
   "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "An unknown error occured, please try again in a few minutes",
   "An_error_occurred": "An error occurred",
+  "create_a_token": "Create a token",
+  "not_started_yet": "Not started yet",
+  "unknown_error_message": "An unknown error occurred, please try again in a few minutes",
+  "complete_add_to_account": "10000 TRX have been added to your account!",
+  "participated": "You successfully participated!",
+  "participated_error": "An error occurred"
 };
