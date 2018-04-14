@@ -53,7 +53,7 @@ export const messages = {
   "accounts": "accounts",
   "account": "account",
   "scan_qr_code": "Scan the code with a QR Code scanner",
-  "receive_trx": "receive trx",
+  "receive_trx": "receive TRX",
   "require_account_to_send": "You must be logged in to send coins",
   "require_account_to_receive": "You must be logged in to receive coins",
   "successful_send": "Succesfully send!",
