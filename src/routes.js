@@ -10,6 +10,8 @@ import ApplyForDelegate from "./components/account/ApplyForDelegate";
 import Votes from "./components/account/Votes";
 import Send from "./components/transfer/Send";
 import Receive from "./components/transfer/Receive";
+import Blocks from "./components/blockchain/Blocks";
+import Block from "./components/blockchain/Block";
 
 export const routes = [
   {
@@ -33,6 +35,18 @@ export const routes = [
         component: Representatives
       },
     ]
+  },
+  {
+    path: "/block/:id",
+    label: "block",
+    component: Block,
+    showInMenu: false,
+  },
+  {
+    path: "/blocks",
+    label: "blocks",
+    component: Blocks,
+    showInMenu: false,
   },
   {
     path: "/tokens",

@@ -57,6 +57,7 @@
     "react-router-dom": "^4.2.2",
     "react-spinners": "^0.2.6",
     "react-timeago": "^3.4.3",
+    "reactstrap": "^5.0.0-beta.3",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.7",

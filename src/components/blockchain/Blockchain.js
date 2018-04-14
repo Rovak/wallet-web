@@ -7,6 +7,7 @@ import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
 import TimeAgoI18N from "../common/TimeAgoI18N";
+import {Link} from "react-router-dom";
 
 class Blockchain extends Component {
 
@@ -40,9 +41,9 @@ class Blockchain extends Component {
         {
           blocks.map(block => (
             <div key={block.number} className="media text-muted pb-1">
-              <div className="block mr-3">
+              <Link className="block mr-3 text-white" to={"/block/" + block.number}>
                 #{block.number}
-              </div>
+              </Link>
               <div className="media-body pb-3 mb-0 small lh-150 border-bottom border-gray">
                 <strong className="d-block text-gray-dark break-word">
                   {tu("Produced by")} {block.witnessAddress.substr(0, 28)}...
@@ -151,7 +152,7 @@ class Blockchain extends Component {
         <div className="row">
           <div className="col-md">
             <div className="card border-light mb-3">
-              <div className="card-header">
+              <div className="card-header bg-dark text-white">
                 <i className="fas fa-exchange-alt mr-1"/>
                 {tu("recent_transactions")}
               </div>
@@ -162,7 +163,7 @@ class Blockchain extends Component {
           </div>
           <div className="col-md">
             <div className="card border-light mb-3">
-              <div className="card-header">
+              <div className="card-header bg-dark text-white">
                 <i className="fas fa-cubes mr-1"/>
                 {tu("Recent blocks")}
               </div>
@@ -184,7 +185,7 @@ function mapStateToProps(state) {
     price: state.app.price,
     totalNumberOfTransactions: state.blockchain.totalNumberOfTransactions,
     witnesses: state.network.witnesses,
-    activeLanguage: state.app.activeLanguage
+    activeLanguage: state.app.activeLanguage,
   };
 }
 
