@@ -4,6 +4,7 @@ import {Client} from "../../services/api";
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
 import {TextField} from "../../utils/formHelper";
+import {ONE_TRX} from "../../constants";
 
 class TokenCreate extends Component {
 
@@ -35,7 +36,7 @@ class TokenCreate extends Component {
         name: this.state.name,
         totalSupply: this.state.totalSupply,
         num: this.state.num,
-        trxNum: this.state.trxNum,
+        trxNum: this.state.trxNum * ONE_TRX,
         startTime: this.state.startTime,
         endTime: this.state.endTime,
         description: this.state.description,
@@ -95,11 +96,11 @@ class TokenCreate extends Component {
       <main className="container pt-3">
         <div className="row">
           <div className="col-sm-8">
-            <div class="card">
-              <div class="card-header">
+            <div className="card">
+              <div className="card-header">
                 {tu("create_a_token")}
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 <form>
                   <div className="form-row">
                     <div className="form-group col-md-6">

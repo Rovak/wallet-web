@@ -1,5 +1,5 @@
 import React from "react";
-import {FormattedNumber, injectIntl} from "react-intl";
+import {injectIntl} from "react-intl";
 
 const SendOption = ({ name, balance, intl }) => (
   <option value={name}>

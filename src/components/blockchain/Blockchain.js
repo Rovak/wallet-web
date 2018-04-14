@@ -1,13 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchain";
-import TimeAgo from 'react-timeago'
 import {loadPrice} from "../../actions/app";
 import {t, tu} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
 import {Col, Row} from "reactstrap";
+import TimeAgoI18N from "../common/TimeAgoI18N";
 
 class Blockchain extends Component {
 
@@ -26,7 +26,7 @@ class Blockchain extends Component {
 
   renderBlocks() {
 
-    let {blocks} = this.props;
+    let {blocks, activeLanguage} = this.props;
 
     if (blocks.length === 0) {
       return (
@@ -49,17 +49,17 @@ class Blockchain extends Component {
                   {tu("Produced by")} {block.witnessAddress.substr(0, 28)}...
                 </strong>
                 <div className="row">
-                  <div className="col-md">
+                  <div className="col-md-3">
                     <i className="fas fa-exchange-alt mr-1"/>
                     <FormattedNumber value={block.transactionsCount} />
                   </div>
-                  <div className="col-md">
+                  <div className="col-md-4">
                     <i className="fas fa-file mr-1"/>
                     {block.size} {tu("bytes")}
                   </div>
                   <div className="col-md">
                     <i className="fas fa-clock mr-1"/>
-                    <TimeAgo date={block.time} />
+                    <TimeAgoI18N date={block.time} activeLanguage={activeLanguage}/>
                   </div>
                 </div>
               </div>
@@ -93,8 +93,8 @@ class Blockchain extends Component {
     return (
       <Fragment>
         {
-          transactions.slice(0, 7).map(transaction => (
-            <div className="media text-muted pt-3">
+          transactions.slice(0, 7).map((transaction, i) => (
+            <div key={i} className="media text-muted pt-3">
               <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt="" className="mr-2 rounded"/>
               <div className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray text-center">
                 {transaction.from.substr(0, 16)}...
@@ -122,7 +122,7 @@ class Blockchain extends Component {
 
     return (
       <main role="main" className="container">
-        <Row>
+        <div className="row">
           <div className="col-md-12">
             <div className="p-3 my-3 text-white-50 bg-dark rounded box-shadow row no-gutters">
               <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
@@ -148,31 +148,31 @@ class Blockchain extends Component {
               </div>
             </div>
           </div>
-        </Row>
-        <Row>
-          <Col>
-            <div class="card border-light mb-3">
-              <div class="card-header">
+        </div>
+        <div className="row">
+          <div className="col-md">
+            <div className="card border-light mb-3">
+              <div className="card-header">
                 <i className="fas fa-exchange-alt mr-1"/>
                 {tu("recent_transactions")}
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 {this.renderTransactions()}
               </div>
             </div>
-          </Col>
-          <Col>
-            <div class="card border-light mb-3">
-              <div class="card-header">
+          </div>
+          <div className="col-md">
+            <div className="card border-light mb-3">
+              <div className="card-header">
                 <i className="fas fa-cubes mr-1"/>
                 {tu("Recent blocks")}
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 {this.renderBlocks()}
               </div>
             </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </main>
     )
   }
@@ -185,6 +185,7 @@ function mapStateToProps(state) {
     price: state.app.price,
     totalNumberOfTransactions: state.blockchain.totalNumberOfTransactions,
     witnesses: state.network.witnesses,
+    activeLanguage: state.app.activeLanguage
   };
 }
 

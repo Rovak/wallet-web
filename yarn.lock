@@ -17,9 +17,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@tronprotocol/wallet-api@^0.0.20":
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/@tronprotocol/wallet-api/-/wallet-api-0.0.20.tgz#63cac44b941cfcd4680eb9987d4ec7b237b1a563"
+"@tronprotocol/wallet-api@^0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@tronprotocol/wallet-api/-/wallet-api-0.0.22.tgz#855bd0ddcbd4f270469fab16deae0b48b8391638"
   dependencies:
     axios "^0.18.0"
     chai "^4.1.2"
