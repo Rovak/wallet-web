@@ -10,7 +10,7 @@ export function BlockTransactions({block}) {
   if (transactions.length === 0) {
     return (
       <div class="text-center p-3">
-        {tu("no_transactions")}
+        {tu("no_transactions_found")}
       </div>
     );
   }

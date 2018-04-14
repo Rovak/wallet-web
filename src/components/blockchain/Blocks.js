@@ -33,44 +33,6 @@ class Blocks extends React.Component {
             <div className="card mt-1">
               <div className="card-body">
                 Showing Block (#5428906 to #5428882) out of 5428907 total blocks
-                <div className="float-right">
-                  <Pagination className="mb-0">
-                    <PaginationItem>
-                      <PaginationLink previous href="#" />
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        1
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        2
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        3
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        4
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink href="#">
-                        5
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink next href="#" />
-                    </PaginationItem>
-                  </Pagination>
-                </div>
-                {/*<h5 className="card-title">Special title treatment</h5>*/}
-                {/*<p className="card-text">With supporting text below as a natural lead-in to additional content.</p>*/}
-                {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}
               </div>
               <table className="table table-sm table-hover bg-white m-0">
                 <thead className="thead-light">

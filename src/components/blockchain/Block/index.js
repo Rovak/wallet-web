@@ -63,13 +63,13 @@ class Block extends React.Component {
           label: <span>{transactions.length} {tu("transactions")}</span>,
           cmp: BlockTransactions,
         },
-        {
-          id: "comments",
-          icon: "fa fa-comments",
-          path: "/comments",
-          label: tu("comments"),
-          cmp: BlockComments,
-        },
+        // {
+        //   id: "comments",
+        //   icon: "fa fa-comments",
+        //   path: "/comments",
+        //   label: tu("comments"),
+        //   cmp: BlockComments,
+        // },
       ]
     });
   }
@@ -83,11 +83,12 @@ class Block extends React.Component {
       <main role="main" className="container">
         <div className="row mt-2">
           <div className="col-md-12">
-            <Link to={"/block/" + (block.number - 1)} className="btn btn-outline-dark">
-              <i className="fa fa-arrow-left mr-2"/>
-              {tu(("previous"))}
-            </Link>
-
+            {
+              block.number > 0 && <Link to={"/block/" + (block.number - 1)} className="btn btn-outline-dark">
+                <i className="fa fa-arrow-left mr-2"/>
+                {tu(("previous"))}
+              </Link>
+            }
             <Link to={"/block/" + (block.number + 1)} className="btn btn-outline-dark float-right">
               {tu(("next"))}
               <i className="fa fa-arrow-right ml-2"/>
