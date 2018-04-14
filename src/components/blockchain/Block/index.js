@@ -98,7 +98,7 @@ class Block extends React.Component {
         <div className="row mt-2">
           <div className="col-md-12 ">
             <div className="card">
-              <h5 className="card-header text-center">
+              <h5 className="card-header text-center bg-dark text-white">
                 <fa className="fa fa-cube mr-2"/>
                 {tu("block")} #{block.number}
               </h5>
