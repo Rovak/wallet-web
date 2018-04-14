@@ -111,14 +111,16 @@ class Block extends React.Component {
                   <th>{tu("height")}:</th>
                   <td>{block.number}</td>
                 </tr>
-                <tr>
-                  <th>{tu("time")}:</th>
-                  <td>
-                    <FormattedDate value={block.time} />&nbsp;
-                    <FormattedTime value={block.time} />&nbsp;
-                    (<TimeAgoI18N date={block.time} activeLanguage={activeLanguage}/>)
-                  </td>
-                </tr>
+                {
+                  block.time !== 0 && <tr>
+                    <th>{tu("time")}:</th>
+                    <td>
+                      <FormattedDate value={block.time} />&nbsp;
+                      <FormattedTime value={block.time} />&nbsp;
+                      (<TimeAgoI18N date={block.time} activeLanguage={activeLanguage}/>)
+                    </td>
+                  </tr>
+                }
                 <tr>
                   <th>{tu("transactions")}:</th>
                   <td>
@@ -129,12 +131,15 @@ class Block extends React.Component {
                   <th>{tu("parenthash")}:</th>
                   <td>{block.parentHash}</td>
                 </tr>
-                <tr>
-                  <th>{tu("witness")}:</th>
-                  <td>
-                    {block.witnessAddress}
-                  </td>
-                </tr>
+                {
+                  block.witnessAddress !== "" && <tr>
+                    <th>{tu("witness")}:</th>
+                    <td>
+                      {block.witnessAddress}
+                    </td>
+                  </tr>
+                }
+
                 <tr>
                   <th>{tu("size")}:</th>
                   <td>
