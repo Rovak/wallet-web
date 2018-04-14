@@ -107,5 +107,6 @@ export const messages = {
      "token_exchange_confirm":"تایید تراکنش توکن",
      "participate":"مشارکت",
      "request_trx_for_testing":"درخواست ترون برای تست",
+	 "address_warning":"قم فقط بإدخال عنوان TRON للمحفظة. يمكن أن تؤدي العناوين غير الصحيحة إلى فقدان TRX.",
 }
   

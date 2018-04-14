@@ -122,6 +122,9 @@ class Send extends React.Component {
 
     return (
       <p>
+		<div className="alert alert-warning">
+			{tu("address_warning")}
+         </div>
         <button
           type="button"
           disabled={!this.isValid() || isLoading}

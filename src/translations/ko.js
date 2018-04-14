@@ -110,5 +110,6 @@ export const messages = {
     "unknown_error_message": "알 수 없는 오류가 발생했습니다. 몇 분 후에 다시 시도하십시오.",
     "complete_add_to_account": "10000 TRX가 귀하의 계정에 추가되었습니다!",
     "participated": "당신은 성공적으로 참여했습니다!",
-    "participated_error": "에러가 발생했습니다."
+    "participated_error": "에러가 발생했습니다.",
+	"address_warning":"유효한 TRON 지갑 주소 만 입력하십시오. 잘못된 주소는 TRX 손실을 초래할 수 있습니다.",
 };
