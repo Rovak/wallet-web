@@ -6,8 +6,8 @@ import {t, tu} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
-import {Col, Row} from "reactstrap";
 import TimeAgoI18N from "../common/TimeAgoI18N";
+import {Link} from "react-router-dom";
 
 class Blockchain extends Component {
 
@@ -41,9 +41,9 @@ class Blockchain extends Component {
         {
           blocks.map(block => (
             <div key={block.number} className="media text-muted pb-1">
-              <div className="block mr-3">
+              <Link className="block mr-3 text-white" to={"/block/" + block.number}>
                 #{block.number}
-              </div>
+              </Link>
               <div className="media-body pb-3 mb-0 small lh-150 border-bottom border-gray">
                 <strong className="d-block text-gray-dark break-word">
                   {tu("Produced by")} {block.witnessAddress.substr(0, 28)}...
@@ -185,7 +185,7 @@ function mapStateToProps(state) {
     price: state.app.price,
     totalNumberOfTransactions: state.blockchain.totalNumberOfTransactions,
     witnesses: state.network.witnesses,
-    activeLanguage: state.app.activeLanguage
+    activeLanguage: state.app.activeLanguage,
   };
 }
 
