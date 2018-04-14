@@ -152,7 +152,7 @@ class Blockchain extends Component {
         <div className="row">
           <div className="col-md">
             <div className="card border-light mb-3">
-              <div className="card-header">
+              <div className="card-header bg-dark text-white">
                 <i className="fas fa-exchange-alt mr-1"/>
                 {tu("recent_transactions")}
               </div>
@@ -163,7 +163,7 @@ class Blockchain extends Component {
           </div>
           <div className="col-md">
             <div className="card border-light mb-3">
-              <div className="card-header">
+              <div className="card-header bg-dark text-white">
                 <i className="fas fa-cubes mr-1"/>
                 {tu("Recent blocks")}
               </div>
