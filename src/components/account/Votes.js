@@ -101,15 +101,15 @@ class Votes extends Component {
       <main className="container mt-3">
         <div className="row">
           <div className="col-md-12">
-			<div>
-			<p>
-				<input type="text"
-          placeholder={intl.formatMessage({ id: "search_address_or_url" })}
-          onChange={this.onSearchFieldChangeHandler}
-          className="form-control"
-          value={searchString} />
-			</p>
-			</div>
+            <div>
+              <p>
+                <input type="text"
+                       placeholder={intl.formatMessage({id: "search_address_or_url"})}
+                       onChange={this.onSearchFieldChangeHandler}
+                       className="form-control"
+                       value={searchString}/>
+              </p>
+            </div>
             <table className="table table-striped bg-white">
               <thead className="thead-dark">
               <tr>
@@ -132,7 +132,7 @@ class Votes extends Component {
                       <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
                              className="form-control form-control-sm text-center"
                              placeholder="0"
-                             type="number" />
+                             type="number"/>
                     </td>
                   </tr>
                 ))
@@ -147,7 +147,7 @@ class Votes extends Component {
                     onClick={this.voteForWitnesses}
                     disabled={!this.hasVotes()}>
               {t("submit_votes")}
-              </button>
+            </button>
           </div>
         </div>
       </main>
