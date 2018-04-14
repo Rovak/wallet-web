@@ -98,4 +98,9 @@ export const messages = {
   "address_warning":"Only enter valid TRON wallet address. Incorrect addresses can lead to TRX loss.",
   "search_address_or_url": "Search for address or URL",
   "no_transactions_found": "No transactions found",
+  "token_name": "token name",
+  "exchange_rate": "Exchange Rate",
+  "token_price": "Token Price",
+  "issue_a_token": "Issue a Token",
+  "issue_token": "Issue Token",
 };

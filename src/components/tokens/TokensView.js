@@ -71,7 +71,7 @@ class TokensView extends Component {
     let isSuccess = await Client.participateAsset(account.key, {
       name: token.name,
       issuerAddress: token.ownerAddress,
-      amount: amount * ONE_TRX,
+      amount: amount * token.price,
     });
 
     this.setState({
@@ -198,7 +198,7 @@ class TokensView extends Component {
                         <label className="col-2 font-weight-bold text-right">{tu("price")}</label>
                         <div className="col-sm-9">
                           <div className="pl-2">
-                            <FormattedNumber value={token.price} /> TRX
+                            <FormattedNumber value={(token.price / ONE_TRX)} /> TRX
                           </div>
                         </div>
                       </div>
@@ -216,8 +216,8 @@ class TokensView extends Component {
                             <label className="form-check-label">
                               {
                                 tv("token_exchange_confirm", {
-                                  trxAmount: <b><FormattedNumber value={amount} /> TRX</b>,
-                                  tokenAmount: <b><FormattedNumber value={amount / token.price} /> {token.name}</b>
+                                  trxAmount: <b><FormattedNumber value={amount * (token.price / ONE_TRX)} /> TRX</b>,
+                                  tokenAmount: <b><FormattedNumber value={amount} /> {token.name}</b>
                                 }
                               )}
                             </label>
@@ -338,7 +338,7 @@ class TokensView extends Component {
                       <div className="form-group row no-gutters mb-0">
                         <label className="col-2 font-weight-bold">{tu("price")}</label>
                         <div className="col-sm-9 ml-0 ml-sm-2">
-                          <FormattedNumber value={token.price} /> TRX
+                          <FormattedNumber value={(token.price / ONE_TRX)} /> TRX
                         </div>
                       </div>
                       <div className="form-group row no-gutters">
@@ -356,8 +356,8 @@ class TokensView extends Component {
                             <label className="form-check-label">
                               {
                                 tv("token_exchange_confirm", {
-                                    trxAmount: <b><FormattedNumber value={amount} /> TRX</b>,
-                                    tokenAmount: <b><FormattedNumber value={amount / token.price} /> {token.name}</b>
+                                    trxAmount: <b><FormattedNumber value={amount * (token.price / ONE_TRX)} /> TRX</b>,
+                                    tokenAmount: <b><FormattedNumber value={amount} /> {token.name}</b>
                                   }
                                 )}
                             </label>
