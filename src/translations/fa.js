@@ -87,7 +87,7 @@ export const messages = {
      "create_token": "ایجاد توکن",
      "start_date": "تاریخ شروع",
      "end_date":"پایان شروع",
-     "token_spend_confirm": "من تأیید میکنم که باید 1024 ترون را برای ساختن توکن صرف کنم",
+     "token_spend_confirm": "من تأیید می کنم که مجموع هزینه های نشانه یک کل هزینه 1024 TRX را ایجاد می کند",
      "description": "توضیحات",
      "description_url": "آدرس توضیحات",
      "quote_token_amount": "مقدار توقع توکن",

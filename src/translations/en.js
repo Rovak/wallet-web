@@ -68,7 +68,7 @@ export const messages = {
   "create_token": "Create Token",
   "start_date": "Start Date",
   "end_date": "End Date",
-  "token_spend_confirm": "I confirm that I have to spend 1024 TRX to create the token",
+  "token_spend_confirm": "I confirm that creating the total supply of the token costs a one time total fee of 1024 TRX.",
   "description": "Description",
   "description_url": "Description URL",
   "quote_token_amount": "Quote Token Amount",

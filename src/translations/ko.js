@@ -84,7 +84,7 @@ export const messages = {
     "create_token": "토큰 생성",
     "start_date": "시작 일자",
     "end_date": "종료 일자",
-    "token_spend_confirm": "토큰을 만들기 위해 1024 TRX를 써야한다는 것을 확인합니다",
+    "token_spend_confirm": "나는 토큰의 총 공급을 만드는 데 한 번 총 1024 TRX의 비용이 들었음을 확인합니다.",
     "description": "토큰 설명",
     "description_url": "토큰 설명 주소",
     "quote_token_amount": "견적 토큰 금액",
