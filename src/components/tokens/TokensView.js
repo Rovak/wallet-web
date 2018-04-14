@@ -35,6 +35,17 @@ class TokensView extends Component {
     })
   }
 
+  closeToken() {
+    this.setState({
+      activeToken: -1,
+      amount: 0,
+      confirmed: false,
+      confirmedParticipate: false,
+      participateSuccess: false,
+      loading: false,
+    })
+  }
+
   containsToken(token) {
     let {activeToken} = this.state;
     return activeToken === token.name;
@@ -72,6 +83,7 @@ class TokensView extends Component {
 
   renderParticipateButton(token) {
     let now = new Date().getTime();
+    let {activeToken} = this.state;
 
     if (token.startTime > now) {
       return (
@@ -95,6 +107,14 @@ class TokensView extends Component {
           {tu("participate")}
         </button>
       );
+    }
+
+    if (activeToken) {
+      return (
+        <button type="button" className="btn btn-block btn-secondary btn-sm" onClick={() => this.closeToken()}>
+          {tu("close")}
+        </button>
+      )
     }
 
     return null;
