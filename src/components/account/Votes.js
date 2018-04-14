@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {t, tu} from "../../utils/i18n";
-import {some} from "lodash";
+import {filter, some} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import {injectIntl} from "react-intl";
 
 class Votes extends Component {
 
@@ -14,7 +15,7 @@ class Votes extends Component {
     this.state = {
       votes: {},
       votesSubmitted: false,
-	  searchString:"",
+      searchString: "",
     };
   }
 
@@ -50,17 +51,37 @@ class Votes extends Component {
   hasVotes = () => {
     return some(Object.values(this.state.votes), votes => votes > 0);
   };
-  
-  onSearchFieldChangeHandler(e){
-	this.setState({
-		searchString: e.target.value,
-		})
-	};
- 
+
+  onSearchFieldChangeHandler = (e) => {
+    this.setState({
+      searchString: e.target.value,
+    })
+  };
+
+
+  filteredWitnesses() {
+    let {witnesses} = this.props;
+    let {searchString} = this.state;
+
+    searchString = searchString.toUpperCase();
+
+    if (searchString.length > 0) {
+      witnesses = filter(
+        witnesses, w =>
+          w.address.toUpperCase().indexOf(searchString) !== -1 ||
+          w.url.toUpperCase().indexOf(searchString) !== -1);
+    }
+
+    return witnesses;
+  }
+
+
   render() {
 
-    let {witnesses} = this.props;
-    let {votesSubmitted} = this.state;
+    let {intl} = this.props;
+    let {votesSubmitted, searchString} = this.state;
+
+    let witnesses = this.filteredWitnesses();
 
     if (votesSubmitted) {
       return (
@@ -80,14 +101,15 @@ class Votes extends Component {
       <main className="container mt-3">
         <div className="row">
           <div className="col-md-12">
-			<div>
-			<p>
-				<input type="text" placeholder="Search for address or URL"
-                   onChange={this.onSearchFieldChangeHandler.bind(this)}
-                   className="form-control"
-                   value={this.state.searchString} />
-			</p>
-			</div>
+            <div>
+              <p>
+                <input type="text"
+                       placeholder={intl.formatMessage({id: "search_address_or_url"})}
+                       onChange={this.onSearchFieldChangeHandler}
+                       className="form-control"
+                       value={searchString}/>
+              </p>
+            </div>
             <table className="table table-striped bg-white">
               <thead className="thead-dark">
               <tr>
@@ -100,10 +122,7 @@ class Votes extends Component {
               </thead>
               <tbody>
               {
-                witnesses.filter(account => this.state.searchString == "" || 
-				(account.address.indexOf(this.state.searchString)!=-1)||
-				(account.url.toLowerCase().indexOf(this.state.searchString.toLowerCase())!=-1))
-				.map((account, index) => (
+                witnesses.map((account, index) => (
                   <tr key={account.address}>
                     <th scope="row">{index + 1}</th>
                     <td>{account.address.toUpperCase()}</td>
@@ -113,7 +132,7 @@ class Votes extends Component {
                       <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
                              className="form-control form-control-sm text-center"
                              placeholder="0"
-                             type="number" />
+                             type="number"/>
                     </td>
                   </tr>
                 ))
@@ -128,7 +147,7 @@ class Votes extends Component {
                     onClick={this.voteForWitnesses}
                     disabled={!this.hasVotes()}>
               {t("submit_votes")}
-              </button>
+            </button>
           </div>
         </div>
       </main>
@@ -148,5 +167,5 @@ const mapDispatchToProps = {
   loadWitnesses,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Votes)
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(Votes))
 

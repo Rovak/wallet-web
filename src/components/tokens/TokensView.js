@@ -187,7 +187,7 @@ class TokensView extends Component {
                 (!confirmedParticipate && this.containsToken(token)) &&
                 (
                   <tr>
-                    <td colSpan="5">
+                    <td colSpan="5" className="bg-white">
                       <div className="form-group row no-gutters">
                         <label className="col-2 font-weight-bold text-right">{tu("description")}</label>
                         <div className="col-sm-9">
