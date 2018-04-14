@@ -13,7 +13,8 @@ const initialState = {
     en: "English",
     // zh: "简体中文",
     fa:"فارسی",
-    ko:"한국어"
+    ko:"한국어",
+    br: "Português Brasil",
   },
   activeLanguage: 'en',
   account: {
@@ -63,6 +64,7 @@ export function appReducer(state = initialState, action) {
     case LOGIN: {
 
       Lockr.set("account_key", action.password);
+
       return {
         ...state,
         account: {

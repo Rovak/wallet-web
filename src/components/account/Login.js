@@ -1,10 +1,8 @@
 /*eslint-disable no-script-url*/
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
 import TronLogo from "../../images/trans_tron_logo.png";
-import {genPriKey, getAddressFromPriKey} from "../../lib/crypto/crypto";
-import {base64EncodeToString, byteArray2hexStr} from "../../lib/crypto/code";
+import {generateAccount} from "@tronprotocol/wallet-api/src/utils/account";
 import {loginWithPassword} from "../../actions/app";
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
@@ -19,16 +17,18 @@ class Login extends Component {
 
     this.state = {
       activeTab: 'login',
+
+      // Register
       address: "",
       password: "",
       privateKey: "",
-      loginPassword: "",
-
       registerCheck1: false,
       registerCheck2: false,
       registerCheck3: false,
-
       showWarning: false,
+
+      // Login
+      loginPassword: "",
     };
   }
 
@@ -37,16 +37,13 @@ class Login extends Component {
   }
 
   generateAccount = () => {
-    let priKeyBytes = genPriKey();
-    let addressBytes = getAddressFromPriKey(priKeyBytes);
-    let address = byteArray2hexStr(addressBytes);
-    let pk = base64EncodeToString(priKeyBytes);
-    let prikey_pwd = byteArray2hexStr(priKeyBytes);
+
+    let account = generateAccount();
 
     this.setState({
-      address,
-      password: pk,
-      privateKey: prikey_pwd,
+      address: account.address,
+      password: account.password,
+      privateKey: account.privateKey,
     })
   };
 
@@ -70,9 +67,21 @@ class Login extends Component {
     });
   };
 
-  renderLogin() {
-
+  isLoginValid = () => {
     let {loginPassword} = this.state;
+
+    if (!loginPassword || loginPassword.length === 0) {
+      return false;
+    }
+
+    if (loginPassword.length < 40) {
+      return false;
+    }
+
+    return true;
+  };
+
+  renderLogin() {
 
     return (
       <div className="card-text text-center">
@@ -86,7 +95,7 @@ class Login extends Component {
         </p>
         <p>
           <button
-            disabled={loginPassword.length === 0}
+            disabled={!this.isLoginValid()}
             className="btn btn-outline-danger"
             onClick={this.doLogin}>{tu("login")}</button>
         </p>
@@ -242,15 +251,15 @@ class Login extends Component {
                     <li className="nav-item">
                       <a
                           href="javascript:;"
-                         className={(activeTab === 'login' ? "active" : "" ) + " nav-link" }
-                         onClick={() => this.setState({ activeTab: 'login' })}>
+                          className={(activeTab === 'login' ? "active" : "" ) + " nav-link" }
+                          onClick={() => this.setState({ activeTab: 'login' })}>
                         {tu("login")}
                       </a>
                     </li>
                     <li className="nav-item">
                       <a href="javascript:;"
                           className={(activeTab === 'register' ? "active" : "" ) + " nav-link" }
-                         onClick={() => this.setState({ activeTab: 'register' })}>
+                          onClick={() => this.setState({ activeTab: 'register' })}>
                         {tu("register")}
                       </a>
                     </li>

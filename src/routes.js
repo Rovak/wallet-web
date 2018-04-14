@@ -8,8 +8,8 @@ import Login from "./components/account/Login";
 import Account from "./components/account/Account";
 import ApplyForDelegate from "./components/account/ApplyForDelegate";
 import Votes from "./components/account/Votes";
-import Send from "./components/Send";
-import Receive from "./components/Receive";
+import Send from "./components/transfer/Send";
+import Receive from "./components/transfer/Receive";
 
 export const routes = [
   {

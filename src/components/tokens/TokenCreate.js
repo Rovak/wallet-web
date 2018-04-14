@@ -4,6 +4,7 @@ import {Client} from "../../services/api";
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
 import {TextField} from "../../utils/formHelper";
+import {ONE_TRX} from "../../constants";
 
 class TokenCreate extends Component {
 
@@ -35,7 +36,7 @@ class TokenCreate extends Component {
         name: this.state.name,
         totalSupply: this.state.totalSupply,
         num: this.state.num,
-        trxNum: this.state.trxNum,
+        trxNum: this.state.trxNum * ONE_TRX,
         startTime: this.state.startTime,
         endTime: this.state.endTime,
         description: this.state.description,
@@ -95,71 +96,79 @@ class TokenCreate extends Component {
       <main className="container pt-3">
         <div className="row">
           <div className="col-sm-8">
-            <form>
-              <div className="form-row">
-                <div className="form-group col-md-6">
-                  <label>Name of the token</label>
-                  <TextField cmp={this} field="name" />
-                </div>
-                <div className="form-group col-md-6">
-                  <label>{tu("total_supply")}</label>
-                  <TextField type="number" cmp={this} field="totalSupply" />
-                  {/*<small className="form-text text-muted">*/}
-                    {/*Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.*/}
-                  {/*</small>*/}
-                </div>
+            <div className="card">
+              <div className="card-header">
+                {tu("create_a_token")}
               </div>
-              <div className="form-row">
-                <div className="form-group col-md-6">
-                  <label>Quote Token Amount</label>
-                  <TextField type="number" cmp={this} field="num" />
-                </div>
-                <div className="form-group col-md-6">
-                  <label>Base Token Amount</label>
-                  <TextField type="number" cmp={this} field="trxNum" />
-                </div>
+              <div className="card-body">
+                <form>
+                  <div className="form-row">
+                    <div className="form-group col-md-6">
+                      <label>{tu("name_of_the_token")}</label>
+                      <TextField cmp={this} field="name" />
+                    </div>
+                    <div className="form-group col-md-6">
+                      <label>{tu("total_supply")}</label>
+                      <TextField type="number" cmp={this} field="totalSupply" />
+                      {/*<small className="form-text text-muted">*/}
+                      {/*Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.*/}
+                      {/*</small>*/}
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group col-md-6">
+                      <label>{tu("quote_token_amount")}</label>
+                      <TextField type="number" cmp={this} field="num" />
+                    </div>
+                    <div className="form-group col-md-6">
+                      <label>{tu("base_token_amount")}</label>
+                      <TextField type="number" cmp={this} field="trxNum" />
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group col-md-6">
+                      <label>{tu("start_date")}</label>
+                      <TextField type="datetime-local" cmp={this} field="startTime" />
+                    </div>
+                    <div className="form-group col-md-6">
+                      <label>{tu("end_date")}</label>
+                      <TextField type="datetime-local" cmp={this} field="endTime" />
+                    </div>
+                  </div>
+                  <div className="form-row">
+                    <div className="form-group col-md-6">
+                      <label>{tu("description")}</label>
+                      <TextField type="text" cmp={this} field="description" />
+                    </div>
+                    <div className="form-group col-md-6">
+                      <label>{tu("description_url")}</label>
+                      <TextField type="text" cmp={this} field="url" placeholder="http://" />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <div className="form-check">
+                      <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
+                      <label className="form-check-label">
+                        {tu("token_spend_confirm")}
+                      </label>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <button
+                      disabled={!this.isValid()}
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={this.submit}>{tu("create_token")}</button>
+                  </div>
+                </form>
               </div>
-              <div className="form-row">
-                <div className="form-group col-md-6">
-                  <label>Start Date</label>
-                  <TextField type="datetime-local" cmp={this} field="startTime" />
-                </div>
-                <div className="form-group col-md-6">
-                  <label>End Date</label>
-                  <TextField type="datetime-local" cmp={this} field="endTime" />
-                </div>
-              </div>
-              <div className="form-row">
-                <div className="form-group col-md-6">
-                  <label>Description</label>
-                  <TextField type="text" cmp={this} field="description" />
-                </div>
-                <div className="form-group col-md-6">
-                  <label>Description URL</label>
-                  <TextField type="text" cmp={this} field="url" placeholder="http://" />
-                </div>
-              </div>
-              <div className="form-group">
-                <div className="form-check">
-                  <TextField type="checkbox" cmp={this} field="confirmed" className="form-check-input" />
-                    <label className="form-check-label">
-                      I confirm that I have to spend 1024 TRX to create the token
-                    </label>
-                </div>
-              </div>
-              <div className="text-center">
-                <button
-                  disabled={!this.isValid()}
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={this.submit}>Create Token</button>
-              </div>
-            </form>
+            </div>
+
           </div>
-          <div className="col-sm-4 mt-0 mt-sm-3">
+          <div className="col-sm-4 mt-3 mt-sm-0">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">Creating a token</h5>
+                <h5 className="card-title">{tu("creating_a_token")}</h5>
                 {/*<p className="card-text">Help text...</p>*/}
               </div>
             </div>

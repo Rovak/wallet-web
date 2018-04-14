@@ -2,16 +2,35 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
 import {loadTokenBalances} from "../../actions/account";
-import {passwordToAddress} from "../../utils/crypto";
 import {BarLoader} from "../common/loaders";
+import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import xhr from "axios";
+import {FormattedNumber} from "react-intl";
 
 class Account extends Component {
 
-  componentDidMount() {
-    let {account, loadTokenBalances} = this.props;
+  constructor() {
+    super();
 
-    loadTokenBalances(passwordToAddress(account.key));
+    this.state = {
+      waitingForTrx: false,
+      showRequest: true,
+      trxRequestResponse: {
+        success: false,
+        code: -1,
+        message: '',
+      },
+    };
   }
+
+  componentDidMount() {
+    this.reloadTokens();
+  }
+
+  reloadTokens = () => {
+    let {account, loadTokenBalances} = this.props;
+    loadTokenBalances(passwordToAddress(account.key));
+  };
 
   renderTokens() {
 
@@ -20,17 +39,17 @@ class Account extends Component {
     if (tokenBalances.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center p-4">
-          <BarLoader />
+          <BarLoader/>
         </div>
       );
     }
 
     return (
-      <table className="table border-0">
+      <table className="table border-0 m-0">
         <thead>
         <tr>
           <th>{tu("name")}</th>
-          <th>{tu("balance")}</th>
+          <th className="text-right">{tu("balance")}</th>
         </tr>
         </thead>
         <tbody>
@@ -38,7 +57,9 @@ class Account extends Component {
           tokenBalances.map((token) => (
             <tr key={token.name}>
               <td>{token.name}</td>
-              <td>{token.balance}</td>
+              <td className="text-right">
+                <FormattedNumber value={token.balance} />
+              </td>
             </tr>
           ))
         }
@@ -47,16 +68,106 @@ class Account extends Component {
     )
   }
 
+  requestTrx = async () => {
+    let {account} = this.props;
+
+    this.setState({waitingForTrx: true});
+
+    try {
+
+      let address = passwordToAddress(account.key);
+
+      let {data} = await xhr.post(`${window.location.origin}/request-coins`, {
+        address,
+      });
+
+      this.setState({
+        trxRequestResponse: {
+          success: data.success,
+          code: data.code,
+          message: data.message,
+        },
+      });
+
+      setTimeout(() => this.reloadTokens(), 1500);
+
+    } catch(e) {
+      this.setState({
+        trxRequestResponse: {
+          success: false,
+          code: 9,
+          message: tu("An_unknown_error_occurred,_please_try_again_in_a_few_minutes"),
+
+          message: tu("unknown_error_message")
+
+        },
+      })
+    }
+    finally {
+      this.setState({
+        waitingForTrx: false
+      });
+    }
+  };
+
+  renderTestnetRequest() {
+
+    let {waitingForTrx, trxRequestResponse} = this.state;
+
+    if (waitingForTrx) {
+      return (
+        <div className="text-center d-flex justify-content-center p-4">
+          <BarLoader/>
+        </div>
+      );
+    }
+
+    if (trxRequestResponse.code !== -1) {
+      if (trxRequestResponse.success === true) {
+        return (
+          <div className="alert alert-success text-success">
+
+            10000 TRX {tu("have_been_added_to_your_account!")}
+
+            {tu("complete_add_to_account")}
+
+          </div>
+        )
+      } else {
+        return (
+          <div className="alert alert-warning text-warning">
+            {trxRequestResponse.message}
+          </div>
+        )
+      }
+    }
+
+
+    return (
+      <React.Fragment>
+        <button className="btn btn-primary" onClick={this.requestTrx}>
+          {tu("request_trx_for_testing")}
+        </button>
+        <p className="pt-1">
+          {tu("information_message_1")}
+          <br/>
+          {tu("information_message_2")}
+        </p>
+      </React.Fragment>
+    );
+  }
+
   render() {
 
     let {account} = this.props;
+    let {showRequest} = this.state;
 
     let address = passwordToAddress(account.key);
 
     return (
       <main className="container pt-3">
-        <div class="alert alert-danger text-center">
-            {tu("Do not send1")}
+        <div className="alert alert-danger text-center">
+          {tu("do_not_send_1")}
         </div>
         <div className="row">
           <div className="col-md-12">
@@ -71,8 +182,8 @@ class Account extends Component {
                   </div>
                   <div className="col-md-10">
                     {address}<br/>
-                    <span class="text-danger">
-                      ({tu("Do not send2")})
+                    <span className="text-danger">
+                      ({tu("do_not_send_2")})
                     </span>
                   </div>
                 </div>
@@ -92,6 +203,20 @@ class Account extends Component {
             </div>
           </div>
         </div>
+        {
+          showRequest && <div className="row mt-3">
+            <div className="col-md-12">
+              <div className="card">
+                <div className="card-header border-bottom-0 text-center">
+                  {tu("testnet")}
+                </div>
+                <div className="card-body text-center">
+                  {this.renderTestnetRequest()}
+                </div>
+              </div>
+            </div>
+          </div>
+        }
       </main>
     )
   }
