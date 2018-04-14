@@ -96,4 +96,5 @@ export const messages = {
   "participated": "You successfully participated!",
   "participated_error": "An error occurred",
   "address_warning":"Only enter valid TRON wallet address. Incorrect addresses can lead to TRX loss.",
+  "search_address_or_url": "Search for address or URL",
 };
