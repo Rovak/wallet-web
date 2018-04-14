@@ -108,6 +108,7 @@ export const messages = {
     "not_started_yet": "준비중",
     "participated": "당신은 성공적으로 참여했습니다!",
     "participated_error": "에러가 발생했습니다.",
+    "address_warning":"유효한 TRON 지갑 주소 만 입력하십시오. 잘못된 주소는 TRX 손실을 초래할 수 있습니다.",
     "close": "닫기",
     "bytes": "Bytes",
 };

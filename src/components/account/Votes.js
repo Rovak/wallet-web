@@ -14,6 +14,7 @@ class Votes extends Component {
     this.state = {
       votes: {},
       votesSubmitted: false,
+	  searchString:"",
     };
   }
 
@@ -49,7 +50,13 @@ class Votes extends Component {
   hasVotes = () => {
     return some(Object.values(this.state.votes), votes => votes > 0);
   };
-
+  
+  onSearchFieldChangeHandler(e){
+	this.setState({
+		searchString: e.target.value,
+		})
+	};
+ 
   render() {
 
     let {witnesses} = this.props;
@@ -73,6 +80,14 @@ class Votes extends Component {
       <main className="container mt-3">
         <div className="row">
           <div className="col-md-12">
+			<div>
+			<p>
+				<input type="text" placeholder="Search for address or URL"
+                   onChange={this.onSearchFieldChangeHandler.bind(this)}
+                   className="form-control"
+                   value={this.state.searchString} />
+			</p>
+			</div>
             <table className="table table-striped bg-white">
               <thead className="thead-dark">
               <tr>
@@ -85,7 +100,10 @@ class Votes extends Component {
               </thead>
               <tbody>
               {
-                witnesses.map((account, index) => (
+                witnesses.filter(account => this.state.searchString == "" || 
+				(account.address.indexOf(this.state.searchString)!=-1)||
+				(account.url.toLowerCase().indexOf(this.state.searchString.toLowerCase())!=-1))
+				.map((account, index) => (
                   <tr key={account.address}>
                     <th scope="row">{index + 1}</th>
                     <td>{account.address.toUpperCase()}</td>

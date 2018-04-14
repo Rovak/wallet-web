@@ -94,5 +94,6 @@ export const messages = {
   "create_a_token": "Create a token",
   "not_started_yet": "Not started yet",
   "participated": "You successfully participated!",
-  "participated_error": "An error occurred"
+  "participated_error": "An error occurred",
+  "address_warning":"Only enter valid TRON wallet address. Incorrect addresses can lead to TRX loss.",
 };
