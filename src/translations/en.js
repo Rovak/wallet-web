@@ -93,8 +93,6 @@ export const messages = {
   "An_error_occurred": "An error occurred",
   "create_a_token": "Create a token",
   "not_started_yet": "Not started yet",
-  "unknown_error_message": "An unknown error occurred, please try again in a few minutes",
-  "complete_add_to_account": "10000 TRX have been added to your account!",
   "participated": "You successfully participated!",
   "participated_error": "An error occurred",
   "address_warning":"Only enter valid TRON wallet address. Incorrect addresses can lead to TRX loss.",
