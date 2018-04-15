@@ -111,4 +111,11 @@ export const messages = {
   "address_warning":"유효한 TRON 지갑 주소 만 입력하십시오. 잘못된 주소는 TRX 손실을 초래할 수 있습니다.",
   "close": "닫기",
   "bytes": "Bytes",
+  "ok": "OK",
+  "the_lunch_test": "The launch of testnet aims to test all the features of our blockchain explorer and wallet.",
+  "plese_keep_in_mind": `Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
+  own wallet or exchange to the account address of testnet.`,
+  "tron_foundation": "TRON Foundation",
+  "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
+  "dear_users,": "Dear users,",
 };
