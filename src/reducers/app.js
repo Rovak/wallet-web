@@ -16,6 +16,7 @@ const initialState = {
     ko:"한국어",
     br: "Português Brasil",
     fr: "Français",
+    es: "Español" ,
   },
   activeLanguage: 'en',
   account: {

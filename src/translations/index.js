@@ -5,6 +5,7 @@ import * as messages_fa from "./fa.js";
 import * as messages_ko from "./ko.js";
 import * as messages_br from "./br.js";
 import * as messages_fr from "./fr.js";
+import * as messages_es from "./es.js";
 
 import {addLocaleData} from 'react-intl';
 import nlLocaleData from 'react-intl/locale-data/nl';
@@ -13,8 +14,10 @@ import faLocaleData from 'react-intl/locale-data/fa';
 import koLocaleData from 'react-intl/locale-data/ko';
 import brLocaleData from 'react-intl/locale-data/br';
 import frLocaleData from 'react-intl/locale-data/fr';
+import esLocaleData from 'react-intl/locale-data/es';
 
-addLocaleData([...nlLocaleData, ...zhLocaleData, ...faLocaleData, ...koLocaleData, ...brLocaleData, ...frLocaleData]);
+addLocaleData([...nlLocaleData, ...zhLocaleData, ...faLocaleData, ...koLocaleData,
+     ...brLocaleData, ...frLocaleData,...esLocaleData]);
 
 export const languages = {
     'nl': messages_nl.messages,
@@ -23,5 +26,6 @@ export const languages = {
     'fa': messages_fa.messages,
     'ko': messages_ko.messages,
     'br': messages_br.messages,
-    'fr': messages_fr.messages
+    'fr': messages_fr.messages,
+    'es': messages_es.messages,
 };
