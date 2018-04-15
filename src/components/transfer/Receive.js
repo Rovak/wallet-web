@@ -1,8 +1,9 @@
 import {connect} from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
-import {passwordToAddress} from "../utils/crypto";
-import {tu} from "../utils/i18n";
+import {tu} from "../../utils/i18n";
+import {Link} from "react-router-dom";
+import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 
 class Receive extends React.Component {
 
@@ -42,8 +43,13 @@ class Receive extends React.Component {
 
     if (!account.isLoggedIn) {
       return (
-        <div className="alert alert-warning" role="alert">
-          {tu("require_account_to_receive")}
+        <div>
+          <div className="alert alert-warning">
+            {tu("require_account_to_receive")}
+          </div>
+          <p className="text-center">
+            <Link to="/login">{tu("Go to login")}</Link>
+          </p>
         </div>
       );
     }
@@ -59,7 +65,7 @@ class Receive extends React.Component {
                 </div>
                 <div className="card-body">
                   {
-                    qrcode && <img src={qrcode} style={{width: '100%'}} />
+                    qrcode && <img src={qrcode} style={{width: '100%'}} alt="account address" />
                   }
                 </div>
                 <div className="card-footer text-muted text-center">

@@ -1,3 +1,4 @@
+/*eslint-disable no-script-url*/
 import React, {Component} from 'react';
 import logo from '../images/tron_logo.png';
 import {routes} from "../routes";
@@ -6,7 +7,6 @@ import {filter} from "lodash";
 import {tu} from "../utils/i18n";
 import {logout, setLanguage} from "../actions/app";
 import {connect} from "react-redux";
-
 
 class Navigation extends Component {
 
@@ -26,22 +26,19 @@ class Navigation extends Component {
     let viewableRoutes = filter(routes, r => r.showInMenu !== false);
 
     return (
-      <nav id="topbar" className="navbar navbar-expand-md navbar-dark bg-dark">
-        <div className="d-none d-md-block position-fixed">
-          <img src={logo} className="logo" alt="Tron"/>
-        </div>
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container">
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-top">
             <span className="navbar-toggler-icon"/>
           </button>
-
-
           <div className="d-md-none pull-right">
             <img src={logo} className="logo" alt="Tron"/>
           </div>
-
           <div className="collapse navbar-collapse" id="navbar-top">
             <ul className="navbar-nav mr-auto">
+                <li  className="nav-item d-none d-md-block">
+                  <img src={logo} className="logo" alt="Tron"/>
+                </li>
               {viewableRoutes.map(route => (
                 <li key={route.path} className="nav-item">
                   <NavLink className="nav-link" activeClassName="active" to={route.path}>
@@ -69,11 +66,11 @@ class Navigation extends Component {
                   ?
                     <li className="nav-item">
                       <div className="btn-group ml-2">
-                        <Link className="btn btn-secondary" to="/account">
+                        <Link className="btn btn-secondary btn-sm mt-1" to="/account">
                           <i className="fa fa-user mr-2"/>
-                          Account
+                            {tu("account")}
                         </Link>
-                        <button type="button" className="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" className="btn btn-sm btn-secondary btn-sm mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span className="sr-only">Toggle Dropdown</span>
                         </button>
                         <div className="dropdown-menu">
@@ -95,7 +92,7 @@ class Navigation extends Component {
                     </li>
                   :
                     <li className="nav-item">
-                       <Link className="btn btn-secondary my-2 my-sm-0 text-white" to="/login">
+                       <Link className="btn btn-secondary btn-sm mt-1" to="/login">
                          <i className="fa fa-sign-in-alt mr-2" />
                          {tu("register_login")}
                        </Link>
@@ -122,4 +119,4 @@ const mapDispatchToProps = {
   logout
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navigation))
+export default connect(mapStateToProps, mapDispatchToProps, null, { pure: false })(withRouter(Navigation))

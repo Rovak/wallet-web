@@ -17,7 +17,7 @@ export const messages = {
   "login": "login",
   "view": "view",
   "create": "create",
-  "country": "country",
+  "country": "region",
   "address": "address",
   "balance": "balance",
   "votes": "votes",
@@ -56,4 +56,7 @@ export const messages = {
   "require_account_to_send": "You must be logged in to send coins",
   "require_account_to_receive": "You must be logged in to receive coins",
   "successful_send": "Succesfully send!",
+  "have_been_added_to_your_account!": "have been added to your account!",
+  "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "An unknown error occured, please try again in a few minutes",
+  "An_error_occurred": "An error occurred",
 };

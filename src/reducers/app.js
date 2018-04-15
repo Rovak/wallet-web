@@ -1,8 +1,6 @@
 import Lockr from "lockr";
 
 import {LOGIN, LOGOUT, SET_ACCOUNTS, SET_LANGUAGE, SET_PRICE} from "../actions/app";
-import {base64DecodeFromString, byteArray2hexStr} from "../lib/crypto/code";
-import {getAddressFromPriKey} from "../lib/crypto/crypto";
 
 const initialState = {
   accounts: [],
@@ -14,7 +12,10 @@ const initialState = {
     // nl: "Nederlands",
     en: "English",
     // zh: "简体中文",
-    fa:"فارسی"
+    fa:"فارسی",
+    ko:"한국어",
+    br: "Português Brasil",
+    fr: "Français",
   },
   activeLanguage: 'en',
   account: {
@@ -64,6 +65,7 @@ export function appReducer(state = initialState, action) {
     case LOGIN: {
 
       Lockr.set("account_key", action.password);
+
       return {
         ...state,
         account: {
