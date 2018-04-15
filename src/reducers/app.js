@@ -15,6 +15,7 @@ const initialState = {
     fa:"فارسی",
     ko:"한국어",
     br: "Português Brasil",
+    fr: "Français",
   },
   activeLanguage: 'en',
   account: {

@@ -8,6 +8,7 @@ import time_zh from 'react-timeago/lib/language-strings/zh-TW';
 import time_fa from 'react-timeago/lib/language-strings/fa';
 import time_ko from 'react-timeago/lib/language-strings/ko';
 import time_br from 'react-timeago/lib/language-strings/pt-br';
+import time_fr from 'react-timeago/lib/language-strings/fr';
 
 const timeLanguages = {
     'nl': time_nl,
@@ -15,7 +16,8 @@ const timeLanguages = {
     'zh': time_zh,
     'fa': time_fa,
     'ko': time_ko,
-    'br': time_br
+    'br': time_br,
+    'fr': time_fr
 };
 
 const TimeAgoI18N = ({date, activeLanguage}) => {
