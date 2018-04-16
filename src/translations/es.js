@@ -1,7 +1,7 @@
 
 export const messages = {
-  "app.title": "Tron Protocol",
-  "money.price": "precio",
+  "app_title": "Tron Protocol",
+  "money_price": "precio",
   "blocks": "bloques",
   "transactions": "transacciones",
   "name": "nombre",
@@ -59,9 +59,9 @@ export const messages = {
   "successful_send": "¡Enviado con éxito!",
   "nodes": "nodos",
   "confirm_transaction": "confirmar transacción",
-  "last_confirmed" : "último confirmado",
-  "blocks_produced" : "Bloques producidos",
-  "blocks_missed" : "Bloques perdidos",
+  "last_confirmed": "último confirmado",
+  "blocks_produced": "Bloques producidos",
+  "blocks_missed": "Bloques perdidos",
   "do_not_send_1": "¡No envíes TRX desde tu cartera o exchange a tu dirección de testnet!",
   "do_not_send_2": "¡No envíes TRX desde tu cartera o exchange a la dirección de testnet que aparece arriba!",
   "name_of_the_token": "Nombre del token",

@@ -34,8 +34,10 @@ class Send extends React.Component {
    */
   isValid = () => {
     let {to, token, amount} = this.state;
+    const {account} = this.props ; 
+    let address = passwordToAddress(account.key);
 
-    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount;
+    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address ; ;
   };
 
   /**

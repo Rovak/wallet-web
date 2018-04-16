@@ -159,7 +159,7 @@ class Account extends Component {
             return (
               <div>
                 <div className="alert alert-warning">
-                {tu("need_to_login")} 
+                {tu("need_to_login")}
                 </div>
                 <p className="text-center">
                   <Link to="/login">{tu("Go to login")}</Link>
@@ -179,7 +179,7 @@ class Account extends Component {
         <div className="row">
           <div className="col-md-12">
             <div className="card">
-              <div className="card-header text-center">
+              <div className="card-header text-center bg-dark text-white">
                 {tu("account")}
               </div>
               <div className="card-body">
@@ -201,7 +201,7 @@ class Account extends Component {
         <div className="row mt-3">
           <div className="col-md-12">
             <div className="card">
-              <div className="card-header border-bottom-0 text-center">
+              <div className="card-header border-bottom-0 text-center bg-dark text-white">
                 {tu("tokens")}
               </div>
               <div className="card-body p-0 border-0">
@@ -214,7 +214,7 @@ class Account extends Component {
           showRequest && <div className="row mt-3">
             <div className="col-md-12">
               <div className="card">
-                <div className="card-header border-bottom-0 text-center">
+                <div className="card-header border-bottom-0 text-center bg-dark text-white">
                   {tu("testnet")}
                 </div>
                 <div className="card-body text-center">
