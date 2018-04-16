@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {t, tu} from "../../utils/i18n";
-import {filter, some} from "lodash";
+import {filter, find, some, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import {injectIntl} from "react-intl";
+import {loadTokenBalances} from "../../actions/account";
+import {Sticky, StickyContainer} from "react-sticky";
+import MediaQuery from "react-responsive";
 
 class Votes extends Component {
 
@@ -20,7 +23,9 @@ class Votes extends Component {
   }
 
   componentDidMount() {
-    this.props.loadWitnesses();
+    let {account, loadWitnesses, loadTokenBalances} = this.props;
+    loadWitnesses();
+    loadTokenBalances(passwordToAddress(account.key));
   }
 
   setVote = (address, numberOfVotes) => {
@@ -32,7 +37,7 @@ class Votes extends Component {
     });
   };
 
-  voteForWitnesses = () => {
+  voteForWitnesses = async () => {
     let {account} = this.props;
     let {votes} = this.state;
 
@@ -41,14 +46,17 @@ class Votes extends Component {
       amount: votes[address],
     }));
 
-    Client.voteForWitnesses(passwordToAddress(account.key), witnessVotes);
+    await Client.voteForWitnesses(account.key, witnessVotes);
 
     this.setState({
       votesSubmitted: true,
-    })
+    });
   };
 
   hasVotes = () => {
+    let voteStatus = this.getVoteStatus();
+
+    return voteStatus.votesSpend > 0 && voteStatus.votesAvailable >= 0;
     return some(Object.values(this.state.votes), votes => votes > 0);
   };
 
@@ -75,6 +83,39 @@ class Votes extends Component {
     return witnesses;
   }
 
+  getVoteStatus() {
+    let {tokenBalances} = this.props;
+    let {votes} = this.state;
+
+    let trx = find(tokenBalances, tb => tb.name.toUpperCase() === "TRX");
+    let trxBalance = trx ? trx.balance : 0;
+
+    let votesSpend = sumBy(Object.values(votes), vote => parseInt(vote) || 0);
+
+    let votesAvailable = trxBalance - votesSpend;
+    let spendAll = (votesSpend > 0 && votesAvailable === 0);
+
+    let voteState = 0;
+
+    if (votesAvailable > 0) {
+      voteState = 1;
+    } else if (votesAvailable < 0) {
+      voteState = -1;
+    }
+
+    if (trxBalance === 0) {
+      voteState = -1;
+    }
+
+    return {
+      trxBalance,
+      votesSpend,
+      votesAvailable,
+      spendAll,
+      voteState,
+      votePercentage: (votesSpend / trxBalance) * 100,
+    };
+  }
 
   render() {
 
@@ -82,6 +123,7 @@ class Votes extends Component {
     let {votesSubmitted, searchString} = this.state;
 
     let witnesses = this.filteredWitnesses();
+    let voteStatus = this.getVoteStatus();
 
     if (votesSubmitted) {
       return (
@@ -97,59 +139,130 @@ class Votes extends Component {
       );
     }
 
+    const VoteCard = ({className = ""}) => (
+      <div className={"card " + className}>
+        <div className="card-header text-center bg-dark text-white">
+          {tu("vote")}
+        </div>
+        <div className="card-body">
+          {
+            voteStatus.voteState === 1 &&
+            <p className="text-center">
+              {voteStatus.votesAvailable} TRX {tu("remaining")}
+            </p>
+          }
+          {
+            (voteStatus.voteState === -1 || voteStatus.voteState === 0) &&
+            <p className="text-center">
+              {tu("no_trx_remaining")}
+            </p>
+          }
+          <div className="progress">
+            <div
+              className={
+                "progress-bar" +
+                (voteStatus.voteState === 0 ? " bg-success" : "") +
+                (voteStatus.voteState === -1 ? " bg-danger" : "")
+              }
+              style={{width: voteStatus.votePercentage + '%'}} />
+          </div>
+          {
+            (voteStatus.voteState === 1 || voteStatus.voteState === 0) &&
+            <button className="btn btn-success col-md mt-3"
+                    onClick={this.voteForWitnesses}
+                    disabled={voteStatus.votesSpend === 0 || voteStatus.voteState === -1}>
+              {tu("submit_votes")}
+            </button>
+          }
+          {
+            (voteStatus.voteState === -1) &&
+            <button className="btn btn-danger col-md mt-3"
+                    onClick={this.voteForWitnesses}
+                    disabled={voteStatus.votesSpend === 0 || voteStatus.voteState === -1}>
+              {tu("to_much_votes")}
+            </button>
+          }
+          <p className="mt-3">
+            Use your TRX to vote for Super Representatives. For every TRX you hold in your
+            account you have one vote to spend. TRX will not be consumed.
+            You can vote as many times for the several representatives as you like.
+            The final votes will be tallied at 24 o'clock and the list of delegates will be updated.
+          </p>
+        </div>
+      </div>
+    );
+
     return (
       <main className="container mt-3">
         <div className="row">
           <div className="col-md-12">
+            <p>
+              <input type="text"
+                     placeholder={intl.formatMessage({id: "search_address_or_url"})}
+                     onChange={this.onSearchFieldChangeHandler}
+                     className="form-control"
+                     value={searchString}/>
+            </p>
+          </div>
+        </div>
+        <StickyContainer className="row">
+          <div className="col-md-8">
             <div>
-              <p>
-                <input type="text"
-                       placeholder={intl.formatMessage({id: "search_address_or_url"})}
-                       onChange={this.onSearchFieldChangeHandler}
-                       className="form-control"
-                       value={searchString}/>
-              </p>
+
             </div>
-            <table className="table table-striped bg-white">
-              <thead className="thead-dark">
-              <tr>
-                <th style={{width: 25}}>#</th>
-                <th>{tu("address")}</th>
-                <th>{tu("url")}</th>
-                <th>{tu("votes")}</th>
-                <th style={{width: 120}}>{tu("my_vote")}</th>
-              </tr>
-              </thead>
-              <tbody>
-              {
-                witnesses.map((account, index) => (
-                  <tr key={account.address}>
-                    <th scope="row">{index + 1}</th>
-                    <td>{account.address.toUpperCase()}</td>
-                    <td>{account.url}</td>
-                    <td>{account.votes} TRX</td>
-                    <td>
-                      <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
-                             className="form-control form-control-sm text-center"
-                             placeholder="0"
-                             type="number"/>
-                    </td>
+            <div className="card">
+              <div className="card-header text-center bg-dark text-white">
+                {tu("candidates")}
+              </div>
+              <div className="card-body p-0">
+                <table className="table table-striped bg-white">
+                  <thead className="thead-dark">
+                  <tr>
+                    <th style={{width: 25}}>#</th>
+                    <th>{tu("address")}</th>
+                    <th>{tu("votes")}</th>
+                    <th className="text-center" style={{width: 120}}>{tu("my_vote")}</th>
                   </tr>
-                ))
-              }
-              </tbody>
-            </table>
+                  </thead>
+                  <tbody>
+                  {
+                    witnesses.map((account, index) => (
+                      <tr key={account.address}>
+                        <th scope="row">{index + 1}</th>
+                        <td>
+                          {account.address.substr(0, 24)}...<br/>
+                          {account.url}
+                        </td>
+                        <td>{account.votes} TRX</td>
+                        <td>
+                          <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
+                                 className="form-control form-control-sm text-center"
+                                 placeholder="0"
+                                 type="number"/>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <button className="btn btn-success col-md text-uppercase"
-                    onClick={this.voteForWitnesses}
-                    disabled={!this.hasVotes()}>
-              {t("submit_votes")}
-            </button>
+          <div className="col-md-4">
+            <MediaQuery minWidth={768}>
+              <Sticky>
+                {
+                  ({ style, isSticky }) => <div style={{...style, top: isSticky ? style.top + 25 : 0}}>
+                    <VoteCard/>
+                  </div>
+                }
+              </Sticky>
+            </MediaQuery>
+            <MediaQuery maxWidth={768}>
+              <VoteCard className="mt-3" />
+            </MediaQuery>
           </div>
-        </div>
+        </StickyContainer>
       </main>
     )
   }
@@ -159,12 +272,14 @@ class Votes extends Component {
 function mapStateToProps(state) {
   return {
     account: state.app.account,
+    tokenBalances: state.account.tokens,
     witnesses: state.network.witnesses,
   };
 }
 
 const mapDispatchToProps = {
   loadWitnesses,
+  loadTokenBalances
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(Votes))
