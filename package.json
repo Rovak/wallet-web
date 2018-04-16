@@ -117,5 +117,20 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "description": "<h1 align=\"center\">   wallet-web   <br> </h1>",
+  "main": "index.js",
+  "devDependencies": {
+    "mocha": "^5.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tronprotocol/wallet-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tronprotocol/wallet-web/issues"
+  },
+  "homepage": "https://github.com/tronprotocol/wallet-web#readme"
 }
