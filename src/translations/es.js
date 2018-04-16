@@ -104,12 +104,12 @@ export const messages = {
   "issue_a_token": "Ofertar un Token",
   "issue_token": "Ofertar Token",
   "ok": "OK",
-  "the_lunch_test": "The launch of testnet aims to test all the features of our blockchain explorer and wallet.",
-  "plese_keep_in_mind": `Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
-  own wallet or exchange to the account address of testnet.`,
+  "the_lunch_test": "El lanzamiento  de testnet tiene como objetivo probar todas las características del explorador de blockchain y cartera.",
+  "plese_keep_in_mind": `Por favor ten en cuenta que la cuenta registrada aquí es solo para testnet, nunca envíes TRX reales desde wallets o exchange a 
+                    esta cuenta de pruebas.`,
   "tron_foundation": "TRON Foundation",
-  "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
-  "dear_users,": "Dear users,",
-  "finished": "Finished",
-  "need_to_login": "You must be logged in to access to account page "
+  "trx_for_testing": "Los TRX para pruebas serán enviados a tu cuenta de pruebas una vez envíes tu solicitud.",
+  "dear_users,": "Estimados usurios,",
+  "finished": "Finalizado",
+  "need_to_login": "Debes iniciar sesión para entrar a tu cuenta"
 };
