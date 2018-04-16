@@ -7,8 +7,8 @@ import {tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
 import {Link} from "react-router-dom";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
-import SendOption from "./SendOption";
 import {isAddressValid} from "@tronprotocol/wallet-api/src/utils/address";
+import SendOption from "./SendOption";
 import {find} from "lodash";
 import {ONE_TRX} from "../../constants";
 

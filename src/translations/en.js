@@ -112,4 +112,8 @@ export const messages = {
   "dear_users,": "Dear users,",
   "finished": "Finished",
   "need_to_login": "You must be logged in to access to account page"
+  "token": "token",
+  "details": "details",
+  "url": "url",
+  "participation": "participation",
 };
