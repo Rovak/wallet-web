@@ -126,4 +126,5 @@ export const messages = {
   "exchange_rate": "교환 비율",
   "url": "토큰 정보 안내 주소",
   "search_address_or_url": "주소 또는 URL 검색",
+  "need_to_login": "You must be logged in to access to account page "
 };
