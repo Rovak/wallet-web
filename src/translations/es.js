@@ -83,7 +83,7 @@ export const messages = {
   "insufficient_tokens": "Tokens insuficientes",
   "make_another_transaction": "Hacer otra transacción",
   "participate": "participar",
-  "token_exchange_confirm": "Confirmo qu gastaré {trxAmount} distribuyendo tokens y conseguiré un total de {tokenAmount} tokens.",
+  "token_exchange_confirm": "Confirmo que gastaré {trxAmount} en la distribución de tokens y conseguiré un total de {tokenAmount} tokens.",
   "blockchain": "blockchain",
   "tokens": "tokens",
   "receive": "recibir",
@@ -112,5 +112,10 @@ export const messages = {
   "dear_users,": "Estimados usurios,",
   "finished": "Finalizado",
   "need_to_login": "Debes iniciar sesión para entrar a tu cuenta",
-  "thanks_for_applying": "¡Gracias por su solicitud!"
+  "thanks_for_applying": "¡Gracias por su solicitud!",
+  "previous": "anterior",
+  "next": "siguiente",
+  "block": "bloque",
+  "time": "hora",
+  "size": "tamaño",
 };
