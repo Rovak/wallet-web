@@ -132,6 +132,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tronprotocol/wallet-web/issues"
-  },
-  "homepage": "https://github.com/tronprotocol/wallet-web#readme"
+  }
 }
