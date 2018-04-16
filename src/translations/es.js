@@ -111,5 +111,6 @@ export const messages = {
   "trx_for_testing": "Los TRX para pruebas serán enviados a tu cuenta de pruebas una vez envíes tu solicitud.",
   "dear_users,": "Estimados usurios,",
   "finished": "Finalizado",
-  "need_to_login": "Debes iniciar sesión para entrar a tu cuenta"
+  "need_to_login": "Debes iniciar sesión para entrar a tu cuenta",
+  "thanks_for_applying": "¡Gracias por su solicitud!"
 };

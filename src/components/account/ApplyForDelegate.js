@@ -41,7 +41,7 @@ class ApplyForDelegate extends Component {
     if (applyResponse === true ){
       return (
         <div className="alert alert-success text-center">
-          Thanks for your apply!
+          {tu("thanks_for_applying")}
         </div>
       )
     }
