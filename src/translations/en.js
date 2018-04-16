@@ -115,5 +115,6 @@ export const messages = {
   "details": "details",
   "url": "url",
   "participation": "participation",
-  "need_to_login": "You must be logged in to access to account page "
+  "need_to_login": "You must be logged in to access to account page",
+  "thanks_for_applying": "Thanks for applying!"
 };
