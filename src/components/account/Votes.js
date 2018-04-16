@@ -9,6 +9,7 @@ import {injectIntl} from "react-intl";
 import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
+import {Alert} from "reactstrap";
 
 class Votes extends Component {
 
@@ -130,9 +131,9 @@ class Votes extends Component {
         <main className="container pt-5 pb-5">
           <div className="row">
             <div className="col-md-12">
-              <div className="alert alert-success" role="alert">
+              <Alert color="success" className="text-center">
                 {tu("vote_thanks")}
-              </div>
+              </Alert>
             </div>
           </div>
         </main>
