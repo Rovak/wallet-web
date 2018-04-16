@@ -135,7 +135,7 @@ class TokenCreate extends Component {
                       <div className="form-group col-md-6">
                         <label>{tu("total_supply")}</label>
                         <TextField type="number" cmp={this} field="totalSupply" />
-                        <small class="form-text text-muted">
+                        <small className="form-text text-muted">
                           Total amount of tokens which will be in circulation
                         </small>
                       </div>
@@ -146,7 +146,7 @@ class TokenCreate extends Component {
                       <div className="form-group col-md-12">
                         <label>{tu("description")}</label>
                         <TextField type="text" cmp={this} field="description" />
-                        <small class="form-text text-muted">
+                        <small className="form-text text-muted">
                           A short description of the purpose of the token
                         </small>
                       </div>
@@ -156,7 +156,7 @@ class TokenCreate extends Component {
                       <div className="form-group col-md-12">
                         <label>{tu("url")}</label>
                         <TextField type="text" cmp={this} field="url" placeholder="http://" />
-                        <small class="form-text text-muted">
+                        <small className="form-text text-muted">
                           A website where users can find more information about the token
                         </small>
                       </div>

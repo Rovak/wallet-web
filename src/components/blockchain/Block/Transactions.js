@@ -9,7 +9,7 @@ export function BlockTransactions({block}) {
 
   if (transactions.length === 0) {
     return (
-      <div class="text-center p-3">
+      <div className="text-center p-3">
         {tu("no_transactions_found")}
       </div>
     );
@@ -30,7 +30,7 @@ export function BlockTransactions({block}) {
           <tr key={transaction.index}>
             <td>{transaction.from}</td>
             <td>{transaction.to}</td>
-            <td class="text-right text-nowrap">
+            <td className="text-right text-nowrap">
               <FormattedNumber value={transaction.amount} />&nbsp; TRX
             </td>
           </tr>
