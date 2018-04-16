@@ -97,4 +97,12 @@ export const messages = {
   "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "An unknown error occured, please try again in a few minutes",
   "An_error_occurred": "An error occurred",
   "address_warning":"Insira apenas o endereço válido da carteira TRON. Endereços incorretos podem causar perda de TRX.",
+  "ok": "OK",
+  "the_lunch_test": "The launch of testnet aims to test all the features of our blockchain explorer and wallet.",
+  "plese_keep_in_mind": `Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
+  own wallet or exchange to the account address of testnet.`,
+  "tron_foundation": "TRON Foundation",
+  "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
+  "dear_users,": "Dear users,",
+  "finished": "Finished"
 };

@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 import React from "react";
+import {tu} from "../../utils/i18n";
+
 
 
 export default class TestNetWarning extends React.Component {
@@ -35,23 +37,21 @@ export default class TestNetWarning extends React.Component {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-body">
-                <p>Dear users,</p>
-                <p>The launch of testnet aims to test all the features of our blockchain explorer and wallet.</p>
+                <p>{tu("dear_users,")}</p>
+                <p>{tu("the_lunch_test")}</p>
                 <p>
                   <span className="font-weight-bold text-danger pr-1">
-                    Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
-                    own wallet or exchange to the account address of testnet.
+                    {tu("plese_keep_in_mind")}
                   </span>
-                  TRX for testing will be sent to your testing account once
-                  you successfully apply through account management.
+                 {tu("trx_for_testing")}
                 </p>
                 <p className="text-right">
-                  TRON Foundation
+                  {tu("tron_foundation")}
                 </p>
               </div>
               <div className="modal-footer justify-content-center">
                 <button type="button" className="btn btn-danger" onClick={onClose}>
-                  OK
+                  {tu("ok")}
                 </button>
               </div>
             </div>
