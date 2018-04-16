@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {t, tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
-import {passwordToAddress} from "../../utils/crypto";
 
 class ApplyForDelegate extends Component {
 

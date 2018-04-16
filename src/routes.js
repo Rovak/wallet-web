@@ -8,26 +8,16 @@ import Login from "./components/account/Login";
 import Account from "./components/account/Account";
 import ApplyForDelegate from "./components/account/ApplyForDelegate";
 import Votes from "./components/account/Votes";
-import Send from "./components/Send";
-import Receive from "./components/Receive";
+import Send from "./components/transfer/Send";
+import Receive from "./components/transfer/Receive";
+import Blocks from "./components/blockchain/Blocks";
+import Block from "./components/blockchain/Block";
 
 export const routes = [
   {
     path: "/blockchain",
     label: "blockchain",
     component: Blockchain,
-    // routes: [
-    //   {
-    //     label: "Transactions",
-    //     path: "/blockchain/transactions",
-    //     component: Transactions
-    //   },
-    //   {
-    //     label: "Blocks",
-    //     path: "/blockchain/blocks",
-    //     component: Blocks
-    //   },
-    // ]
   },
   {
     path: "/network",
@@ -45,6 +35,18 @@ export const routes = [
         component: Representatives
       },
     ]
+  },
+  {
+    path: "/block/:id",
+    label: "block",
+    component: Block,
+    showInMenu: false,
+  },
+  {
+    path: "/blocks",
+    label: "blocks",
+    component: Blocks,
+    showInMenu: false,
   },
   {
     path: "/tokens",

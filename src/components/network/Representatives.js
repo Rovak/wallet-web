@@ -2,8 +2,9 @@ import React, {Component, Fragment} from 'react';
 import MediaQuery from "react-responsive";
 import {connect} from "react-redux";
 import {loadWitnesses} from "../../actions/network";
-import {BarLoader} from "react-spinners";
 import {tu} from "../../utils/i18n";
+import {BarLoader} from "../common/loaders";
+import {FormattedNumber} from "react-intl";
 
 class Representatives extends Component {
 
@@ -17,8 +18,8 @@ class Representatives extends Component {
 
     if (witnesses.length === 0) {
       return (
-        <div className="text-center d-flex justify-content-center">
-          <BarLoader color={'#343a40'} loading={true} height={5} width={150} />
+        <div className="text-center d-flex justify-content-center p-4">
+          <BarLoader />
         </div>
       );
     }
@@ -26,21 +27,27 @@ class Representatives extends Component {
     return (
       <Fragment>
         <MediaQuery minWidth={980}>
-          <table className="table">
-            <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">{tu("address")}</th>
-              <th scope="col">{tu("votes")}</th>
-            </tr>
+          <table className="table table-striped bg-white">
+              <thead className="thead-dark">
+              <tr>
+                <th className="text-right">#</th>
+                <th>{tu("name")}</th>
+                <th className="text-right">{tu("last_block")}</th>
+                <th className="text-right">{tu("blocks_produced")}</th>
+                <th className="text-right">{tu("blocks_missed")}</th>
+                <th className="text-right">{tu("votes")}</th>
+              </tr>
             </thead>
             <tbody>
             {
               witnesses.map((account, index) => (
                 <tr key={account.address}>
-                  <th scope="row">{index}</th>
-                  <td>{account.address.toUpperCase()}</td>
-                  <td>{account.votes} TRX</td>
+                  <td className="text-right">{index + 1}</td>
+                  <td>{account.url}</td>
+                  <td className="text-right"><FormattedNumber value={account.latestBlockNumber} /></td>
+                  <td className="text-right"><FormattedNumber value={account.producedTotal} /></td>
+                  <td className="text-right"><FormattedNumber value={account.missedTotal} /></td>
+                  <td className="text-right"><FormattedNumber value={account.votes} /> TRX</td>
                 </tr>
               ))
             }
@@ -56,7 +63,7 @@ class Representatives extends Component {
                 </div>
                 <div className="media-body mb-0 lh-150">
                   <div className="ml-3">
-                    {account.address.toUpperCase()}
+                    {account.url}
                   </div>
                   <div className="ml-3 text-muted">
                     {account.votes} TRX
@@ -106,7 +113,7 @@ class Representatives extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="my-3 p-3 bg-white rounded box-shadow">
+            <div className="break-word box-shadow">
               {this.renderWitnesses()}
             </div>
           </div>

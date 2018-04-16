@@ -1,10 +1,11 @@
+/*eslint-disable no-script-url*/
 import React, {Component} from 'react';
 import NodeMap from "./NodeMap";
 import {connect} from "react-redux";
 import {loadNodes} from "../../actions/network";
 import {sortBy, filter, sumBy} from "lodash";
-import {BarLoader} from "react-spinners";
 import {tu} from "../../utils/i18n";
+import {BarLoader} from "../common/loaders";
 
 class Nodes extends Component {
 
@@ -53,8 +54,8 @@ class Nodes extends Component {
 
     if (nodes.length === 0) {
       return (
-        <div className="text-center d-flex justify-content-center p-4">
-          <BarLoader color={'#343a40'} loading={true} height={5} width={150}/>
+        <div className="d-flex justify-content-center p-4">
+          <BarLoader />
         </div>
       );
     }
@@ -65,7 +66,7 @@ class Nodes extends Component {
         <tr>
           <th>#</th>
           <th>{tu("country")}</th>
-          <th>Nodes</th>
+          <th>{tu("nodes")}</th>
         </tr>
         </thead>
         <tbody>
@@ -110,7 +111,7 @@ class Nodes extends Component {
                 (!showAllCountries && (countries.length - size > 0)) &&
                 <div className="card-footer text-muted text-center">
                   <a href="javascript:;" onClick={() => this.setState({ showAllCountries: true })}>
-                    Show {countries.length - size} more
+                    {tu("Show")} {countries.length - size} {tu("more")}
                   </a>
                 </div>
               }
