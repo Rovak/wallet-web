@@ -66,5 +66,6 @@ export const messages = {
   "tron_foundation": "TRON Foundation",
   "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
   "dear_users,": "Dear users,",
-  "finished": "Finished"
+  "finished": "Finished",
+  "need_to_login": "You must be logged in to access to account page "
 };
