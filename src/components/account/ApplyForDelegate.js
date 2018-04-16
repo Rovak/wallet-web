@@ -72,7 +72,7 @@ class ApplyForDelegate extends Component {
         <div className="row justify-content-center">
           <div className="col-md-8">
             <div className="card">
-              <div className="card-header text-center">
+              <div className="card-header text-center bg-dark text-white">
                 {tu("apply_for_delegate")}
               </div>
               <div className="card-body">

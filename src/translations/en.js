@@ -116,5 +116,7 @@ export const messages = {
   "url": "url",
   "participation": "participation",
   "need_to_login": "You must be logged in to access to account page",
-  "thanks_for_applying": "Thanks for applying!"
+  "thanks_for_applying": "Thanks for applying!",
+  "to_much_votes": "To much votes",
+  "no_trx_remaining": "No TRX remaining",
 };
