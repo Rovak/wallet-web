@@ -115,6 +115,9 @@ export const messages = {
   "the_lunch_test": "테스트넷의 출시는 블록 체인 탐색기와 지갑의 모든 기능을 테스트하는 것을 목표로합니다.",
   "plese_keep_in_mind": `등록 된 계정 주소는 테스트넷에만 사용되므로 TRX를 자신의 지갑이나 테스트넷의 계좌 주소로 보내지 마십시오.`,
   "tron_foundation": "TRON Foundation",
+  "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
+  "dear_users,": "Dear users,",
+  "need_to_login": "You must be logged in to access to account page "
   "trx_for_testing": `계정 관리를 통해 성공적으로 신청하면 테스트용 TRX가 테스트 계정으로 전송됩니다.`,
   "dear_users,": "친애하는 사용자,",
   "issue_a_token": "토큰 발행",

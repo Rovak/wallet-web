@@ -6,6 +6,7 @@ import {BarLoader} from "../common/loaders";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import xhr from "axios";
 import {FormattedNumber} from "react-intl";
+import {Link} from "react-router-dom";
 
 class Account extends Component {
 
@@ -29,7 +30,10 @@ class Account extends Component {
 
   reloadTokens = () => {
     let {account, loadTokenBalances} = this.props;
-    loadTokenBalances(passwordToAddress(account.key));
+
+    if(account.isLoggedIn)
+
+      loadTokenBalances(passwordToAddress(account.key));
   };
 
   renderTokens() {
@@ -153,10 +157,22 @@ class Account extends Component {
   render() {
 
     let {account} = this.props;
+    if (!account.isLoggedIn) {
+      return (
+        <div>
+          <div className="alert alert-warning">
+          {tu("need_to_login")} 
+          </div>
+          <p className="text-center">
+            <Link to="/login">{tu("Go to login")}</Link>
+          </p>
+        </div>
+      );
+    }
     let {showRequest} = this.state;
 
     let address = passwordToAddress(account.key);
-
+   
     return (
       <main className="container pt-3">
         <div className="alert alert-danger text-center">
