@@ -44,8 +44,10 @@ class Votes extends Component {
 
     let witnessVotes = Object.keys(votes).map(address => ({
       address,
-      amount: votes[address],
+      amount: parseInt(votes[address]),
     }));
+
+    witnessVotes = filter(witnessVotes, vote => vote.amount > 0);
 
     await Client.voteForWitnesses(account.key, witnessVotes);
 
@@ -58,7 +60,6 @@ class Votes extends Component {
     let voteStatus = this.getVoteStatus();
 
     return voteStatus.votesSpend > 0 && voteStatus.votesAvailable >= 0;
-    return some(Object.values(this.state.votes), votes => votes > 0);
   };
 
   onSearchFieldChangeHandler = (e) => {
