@@ -31,6 +31,15 @@ class Votes extends Component {
 
   setVote = (address, numberOfVotes) => {
     let {votes} = this.state;
+
+    if (numberOfVotes !== "") {
+      numberOfVotes = parseInt(numberOfVotes);
+
+      if (numberOfVotes < 0) {
+        numberOfVotes = 0;
+      }
+    }
+
     votes[address] = numberOfVotes;
 
     this.setState({
@@ -122,7 +131,7 @@ class Votes extends Component {
   render() {
 
     let {intl} = this.props;
-    let {votesSubmitted, searchString} = this.state;
+    let {votesSubmitted, searchString, votes} = this.state;
 
     let witnesses = this.filteredWitnesses();
     let voteStatus = this.getVoteStatus();
@@ -238,6 +247,7 @@ class Votes extends Component {
                         <td>{account.votes} TRX</td>
                         <td>
                           <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
+                                 value={votes[account.address]}
                                  className="form-control form-control-sm text-center"
                                  placeholder="0"
                                  type="number"/>
