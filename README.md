@@ -49,12 +49,24 @@
 
 ## Running
 
-```
+```bash
 > yarn install
 > yarn start
 ```
 
 The wallet should then be running on [http://localhost:3000](http://localhost:3000)
+
+## Changing the default API URL
+
+By default the Explorer will connect to https://tronscan.io for its data. 
+
+When developing locally the url can be changed by defining the `API_URL` environment variable
+
+```bash
+> API_URL=http://127.0.0.0:8088 yarn start
+```
+
+This should change the API_URL to point to your local `wallet-cli` server
 
 # Community
 

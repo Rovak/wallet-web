@@ -72,7 +72,7 @@ export const messages = {
   "create_token": "Criar Token",
   "start_date": "Data de Início",
   "end_date": "Data de Fim",
-  "token_spend_confirm": "Eu confirmo que utilizarei 1024 TRX para criar o token",
+  "token_spend_confirm": "Confirmo que a criação do fornecimento total do token custa uma taxa total única de 1024 TRX.",
   "description": "Descrição",
   "description_url": "Página URL",
   "quote_token_amount": "Valor do Token",
@@ -93,5 +93,8 @@ export const messages = {
   "or register a new account": "ou criar uma nova conta",
   "Account Address": "Endereço da Conta",
   "Create Account": "Criar conta",
-
+  "have_been_added_to_your_account!": "have been added to your account!",
+  "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "An unknown error occured, please try again in a few minutes",
+  "An_error_occurred": "An error occurred",
+  "address_warning":"Insira apenas o endereço válido da carteira TRON. Endereços incorretos podem causar perda de TRX.",
 };

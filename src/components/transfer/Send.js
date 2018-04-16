@@ -9,6 +9,7 @@ import {Link} from "react-router-dom";
 import {isAddressValid, passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
 import {find} from "lodash";
+import {ONE_TRX} from "../../constants";
 
 class Send extends React.Component {
 
@@ -45,7 +46,7 @@ class Send extends React.Component {
 
     this.setState({ isLoading: true });
 
-    await Client.send(account.key, token, to, amount * 1000000);
+    await Client.send(account.key, token, to, amount * ONE_TRX);
 
     this.refreshTokenBalances();
 
@@ -120,6 +121,9 @@ class Send extends React.Component {
 
     return (
       <p>
+        <div className="alert alert-warning">
+          {tu("address_warning")}
+        </div>
         <button
           type="button"
           disabled={!this.isValid() || isLoading}
@@ -155,7 +159,7 @@ class Send extends React.Component {
             {tu("successful_send")}
           </div>
           <div className="justify-content-center">
-            <button class="btn btn-primary btn-block" onClick={this.resetForm}>
+            <button className="btn btn-primary btn-block" onClick={this.resetForm}>
               {tu("make_another_transaction")}
             </button>
           </div>
