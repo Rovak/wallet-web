@@ -117,11 +117,12 @@ export const messages = {
   "participation": "participation",
   "need_to_login": "You must be logged in to access to account page",
   "thanks_for_applying": "Thanks for applying!",
-  "to_much_votes": "To much votes",
+  "too_many_votes": "Too many votes",
   "no_trx_remaining": "No TRX remaining",
   "previous": "previous",
   "next": "next",
   "block": "block",
   "time": "time",
-  "size": "size"
+  "size": "size",
+  "no_transactions": "No transactions"
 };

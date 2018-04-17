@@ -190,7 +190,7 @@ class Votes extends Component {
             <button className="btn btn-danger col-md mt-3"
                     onClick={this.voteForWitnesses}
                     disabled={voteStatus.votesSpend === 0 || voteStatus.voteState === -1}>
-              {tu("to_much_votes")}
+              {tu("too_many_votes")}
             </button>
           }
           <p className="mt-3">

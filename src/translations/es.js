@@ -111,11 +111,18 @@ export const messages = {
   "trx_for_testing": "Los TRX para pruebas serán enviados a tu cuenta de pruebas una vez envíes tu solicitud.",
   "dear_users,": "Estimados usurios,",
   "finished": "Finalizado",
+  "token": "token",
+  "details": "detalles",
+  "url": "url",
+  "participation": "participación",
   "need_to_login": "Debes iniciar sesión para entrar a tu cuenta",
   "thanks_for_applying": "¡Gracias por su solicitud!",
+  "too_many_votes": "Demasiados votos",
+  "no_trx_remaining": "No quedan TRX",
   "previous": "anterior",
   "next": "siguiente",
   "block": "bloque",
   "time": "hora",
   "size": "tamaño",
+  "no_transactions": "No hay transaciones"
 };
