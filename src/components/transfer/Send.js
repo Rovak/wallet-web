@@ -6,8 +6,7 @@ import {loadTokenBalances} from "../../actions/account";
 import {tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
 import {Link} from "react-router-dom";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
-import {isAddressValid} from "@tronprotocol/wallet-api/src/utils/address";
+import {isAddressValid, passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
 import {find} from "lodash";
 import {ONE_TRX} from "../../constants";
@@ -34,7 +33,7 @@ class Send extends React.Component {
    */
   isValid = () => {
     let {to, token, amount} = this.state;
-    const {account} = this.props ; 
+    const {account} = this.props ;
     let address = passwordToAddress(account.key);
 
     return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address ; ;
@@ -206,7 +205,7 @@ class Send extends React.Component {
             <input type="number"
                    onChange={(ev) => this.setAmount(ev.target.value) }
                    className={"form-control " + (!isAmountValid ? "is-invalid" : "")}
-                   value={amount} 
+                   value={amount}
                    placeholder='0.0000'/>
             <div className="invalid-feedback">
               {tu("insufficient_tokens")}
