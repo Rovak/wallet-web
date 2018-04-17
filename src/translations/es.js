@@ -118,11 +118,15 @@ export const messages = {
   "need_to_login": "Debes iniciar sesión para entrar a tu cuenta",
   "thanks_for_applying": "¡Gracias por su solicitud!",
   "too_many_votes": "Demasiados votos",
-  "no_trx_remaining": "No quedan TRX",
+  "no_trx_remaining": "No tienes TRX para votar",
   "previous": "anterior",
   "next": "siguiente",
   "block": "bloque",
   "time": "hora",
   "size": "tamaño",
-  "no_transactions": "No hay transaciones"
+  "no_transactions": "No hay transaciones",
+  "vote": "votar",
+  "candidates": "candidatos",
+  "use_your_vote": `Utiliza tus TRXs para votar a Super Representantes. Por cada TRX que poseas tienes derecho a un voto. Ningún TRX se gasta al votar.
+  Puedes dar la cantidad de votos que quieras a diferentes representantes. El recuento de votos se hará a las 00:00h y la lista de representantes quedará actualizada.`
 };
