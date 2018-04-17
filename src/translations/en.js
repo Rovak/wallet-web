@@ -128,5 +128,7 @@ export const messages = {
   "vote": "vote",
   "candidates": "candidates",
   "use_your_vote": `Use your TRX to vote for Super Representatives. For every TRX you hold in your account you have one vote to spend. TRX will not be consumed.
-  You can vote as many times for the several representatives as you like. The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`
+  You can vote as many times for the several representatives as you like. The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+  "close":"close",
+  "price":"price"
 };

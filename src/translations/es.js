@@ -83,7 +83,7 @@ export const messages = {
   "insufficient_tokens": "Tokens insuficientes",
   "make_another_transaction": "Hacer otra transacción",
   "participate": "participar",
-  "token_exchange_confirm": "Confirmo que gastaré {trxAmount} en la distribución de tokens y conseguiré un total de {tokenAmount} tokens.",
+  "token_exchange_confirm": "Confirmo que gastaré {trxAmount} en esta distribución de tokens y conseguiré un total de {tokenAmount} tokens.",
   "blockchain": "blockchain",
   "tokens": "tokens",
   "receive": "recibir",
@@ -128,5 +128,7 @@ export const messages = {
   "vote": "votar",
   "candidates": "candidatos",
   "use_your_vote": `Utiliza tus TRXs para votar a Super Representantes. Por cada TRX que poseas tienes derecho a un voto. Ningún TRX se gasta al votar.
-  Puedes dar la cantidad de votos que quieras a diferentes representantes. El recuento de votos se hará a las 00:00h y la lista de representantes quedará actualizada.`
+  Puedes dar la cantidad de votos que quieras a diferentes representantes. El recuento de votos se hará a las 00:00h y la lista de representantes quedará actualizada.`,
+  "close":"cerrar",
+  "price":"precio"
 };
