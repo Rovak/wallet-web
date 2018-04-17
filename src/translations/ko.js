@@ -16,7 +16,7 @@ export const messages = {
   "login": "로그인",
   "view": "보기",
   "create": "생성",
-  "country": "부위",
+  "country": "지역",
   "address": "주소",
   "balance": "잔액",
   "votes": "투표수",
@@ -108,7 +108,7 @@ export const messages = {
   "not_started_yet": "준비중",
   "participated": "당신은 성공적으로 참여했습니다!",
   "participated_error": "에러가 발생했습니다.",
-  "address_warning":"유효한 TRON 지갑 주소 만 입력하십시오. 잘못된 주소는 TRX 손실을 초래할 수 있습니다.",
+  "address_warning":"유효한 TRON 지갑 주소만 입력하십시오. 잘못된 주소는 TRX 손실을 초래할 수 있습니다.",
   "close": "닫기",
   "bytes": "Bytes",
   "ok": "확인",
@@ -126,5 +126,8 @@ export const messages = {
   "exchange_rate": "교환 비율",
   "url": "토큰 정보 안내 주소",
   "search_address_or_url": "주소 또는 URL 검색",
-  "need_to_login": "You must be logged in to access to account page "
+  "need_to_login": "계정 페이지에 액세스하려면 로그인해야합니다.",
+  "candidates": "후보자",
+  "no_trx_remaining": "남아있는 TRX가 없습니다.",
+  "vote": "투표",
 };
