@@ -114,4 +114,5 @@ export const messages = {
   "need_to_login": "Debes iniciar sesión para entrar a tu cuenta",
   "thanks_for_applying": "¡Gracias por su solicitud!",
   "produced_by": "Produced by {witnessAddress}",
+  "show_more": "Show {countriesLength} More",
 };

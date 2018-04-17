@@ -70,4 +70,5 @@ export const messages = {
   "finished": "Finished",
   "need_to_login": "You must be logged in to access to account page",
   "produced_by": "Produced by {witnessAddress}",
+  "show_more": "Show {countriesLength} More",
 };

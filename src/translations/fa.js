@@ -128,4 +128,5 @@ export const messages = {
   "finished": "پایان یافته",
   "need_to_login": "برای دسترسی به صفحه ی حسابتان باید ابتدا وارد حسابتان شوید",
   "produced_by": "Produced by {witnessAddress}",
+  "show_more": "Show {countriesLength} More",
 };

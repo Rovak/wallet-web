@@ -120,4 +120,5 @@ export const messages = {
   "to_much_votes": "To much votes",
   "no_trx_remaining": "No TRX remaining",
   "produced_by": "Produced by {witnessAddress}",
+  "show_more": "Show {countriesLength} More",
 };

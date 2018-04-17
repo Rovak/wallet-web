@@ -131,4 +131,5 @@ export const messages = {
   "no_trx_remaining": "남아있는 TRX가 없습니다.",
   "vote": "투표",
   "produced_by": "{witnessAddress}에 의해 생성됨",
+  "show_more": "{countriesLength}개 더보기",
 };

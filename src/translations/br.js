@@ -106,4 +106,5 @@ export const messages = {
   "dear_users,": "Dear users,",
   "finished": "Finished",
   "produced_by": "Produced by {witnessAddress}",
+  "show_more": "Show {countriesLength} More",
 };
