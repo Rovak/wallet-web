@@ -22,7 +22,7 @@ class ExternalUrl extends Component {
                 </button>
               </div>
               <div class="modal-body">
-                {tu("The URL")} <b> {this.props.url} </b> {tu("is not a verified site and may, as a result, not be secure. Proceed with caution.")} 
+                {tu("The URL")} <b> {this.props.url} </b> {tu("is not a verified site and may, as a result, be insecure. Proceed with caution.")} 
               </div>
               <div class="modal-footer">
                 <a class="btn btn-warning" href={this.props.url} target="_blank">{tu("Proceed")}</a>

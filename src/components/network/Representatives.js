@@ -64,7 +64,7 @@ class Representatives extends Component {
                 </div>
                 <div className="media-body mb-0 lh-150">
                   <div className="ml-3">
-                    {account.url}
+                    <ExternalUrl url={account.url} index={index}></ExternalUrl>
                   </div>
                   <div className="ml-3 text-muted">
                     {account.votes} TRX
