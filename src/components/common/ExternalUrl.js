@@ -5,9 +5,9 @@ class ExternalUrl extends Component {
   render() {
     return (
       <div>
-        <a href="#" data-toggle="modal" data-target="#ExternalUrlWarning">{this.props.url}</a>
+        <a href="#" data-toggle="modal" data-target={"#ExternalUrlWarning_" + this.props.index}>{this.props.url}</a>
 
-        <div class="modal fade" id="ExternalUrlWarning" tabindex="-1" role="dialog" aria-labelledby="ExternalUrlWarning" aria-hidden="true">
+        <div class="modal fade" id={"ExternalUrlWarning_" + this.props.index} tabindex="-1" role="dialog" aria-labelledby="ExternalUrlWarning" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
