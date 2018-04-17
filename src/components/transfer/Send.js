@@ -122,7 +122,7 @@ class Send extends React.Component {
     }
 
     return (
-      <p>
+      <Fragment>
         <div className="alert alert-warning">
           {tu("address_warning")}
         </div>
@@ -131,7 +131,7 @@ class Send extends React.Component {
           disabled={!this.isValid() || isLoading}
           className="btn btn-primary col-md"
           onClick={this.send}>{tu("send")}</button>
-      </p>
+      </Fragment>
     )
   }
 
