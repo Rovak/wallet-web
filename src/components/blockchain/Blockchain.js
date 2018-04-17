@@ -85,7 +85,7 @@ class Blockchain extends Component {
     if (transactions.length === 0) {
       return (
         <div className="text-center d-flex justify-content-center">
-         {t("No transactions")}
+         {t("no_transactions")}
         </div>
       );
     }

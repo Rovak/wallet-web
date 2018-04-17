@@ -190,14 +190,11 @@ class Votes extends Component {
             <button className="btn btn-danger col-md mt-3"
                     onClick={this.voteForWitnesses}
                     disabled={voteStatus.votesSpend === 0 || voteStatus.voteState === -1}>
-              {tu("to_much_votes")}
+              {tu("too_many_votes")}
             </button>
           }
           <p className="mt-3">
-            Use your TRX to vote for Super Representatives. For every TRX you hold in your
-            account you have one vote to spend. TRX will not be consumed.
-            You can vote as many times for the several representatives as you like.
-            The final votes will be tallied at 24 o'clock and the list of delegates will be updated.
+            {tu("use_your_vote")}
           </p>
         </div>
       </div>
@@ -242,7 +239,7 @@ class Votes extends Component {
                         <th scope="row">{index + 1}</th>
                         <td>
                           {account.address.substr(0, 24)}...<br/>
-                          {account.url}
+                          <small>{account.url}</small>
                         </td>
                         <td>{account.votes} TRX</td>
                         <td>
