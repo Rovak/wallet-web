@@ -132,4 +132,5 @@ export const messages = {
   "vote": "투표",
   "produced_by": "{witnessAddress}에 의해 생성됨",
   "show_more": "{countriesLength}개 더보기",
+  "remaining": "남아있습니다",
 };
