@@ -130,4 +130,5 @@ export const messages = {
   "candidates": "후보자",
   "no_trx_remaining": "남아있는 TRX가 없습니다.",
   "vote": "투표",
+  "produced_by": "{witnessAddress}에 의해 생성됨",
 };

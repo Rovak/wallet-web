@@ -119,4 +119,5 @@ export const messages = {
   "thanks_for_applying": "Thanks for applying!",
   "to_much_votes": "To much votes",
   "no_trx_remaining": "No TRX remaining",
+  "produced_by": "Produced by {witnessAddress}",
 };

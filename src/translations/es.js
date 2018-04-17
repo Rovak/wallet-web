@@ -112,5 +112,6 @@ export const messages = {
   "dear_users,": "Estimados usurios,",
   "finished": "Finalizado",
   "need_to_login": "Debes iniciar sesión para entrar a tu cuenta",
-  "thanks_for_applying": "¡Gracias por su solicitud!"
+  "thanks_for_applying": "¡Gracias por su solicitud!",
+  "produced_by": "Produced by {witnessAddress}",
 };

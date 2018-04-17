@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {loadBlocks, loadTotalNumberOfTransactions} from "../../actions/blockchain";
 import {loadPrice} from "../../actions/app";
-import {t, tu} from "../../utils/i18n";
+import {t, tu, tv} from "../../utils/i18n";
 import {loadWitnesses} from "../../actions/network";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
@@ -46,7 +46,11 @@ class Blockchain extends Component {
               </Link>
               <div className="media-body pb-3 mb-0 small lh-150 border-bottom border-gray">
                 <strong className="d-block text-gray-dark break-word">
-                  {tu("Produced by")} {block.witnessAddress.substr(0, 28)}...
+                    {
+                      tv("produced_by", {
+                          witnessAddress: block.witnessAddress.substr(0, 28) + '...'
+                      })
+                    }
                 </strong>
                 <div className="row">
                   <div className="col-md-3">

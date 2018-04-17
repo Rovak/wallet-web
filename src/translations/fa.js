@@ -126,5 +126,6 @@ export const messages = {
   "trx_for_testing": `از طریق حسابتان میتوانید ترون برای تست در شبکه دریافت کنید`,
   "dear_users,": "کاربران عزیز",
   "finished": "پایان یافته",
-  "need_to_login": "برای دسترسی به صفحه ی حسابتان باید ابتدا وارد حسابتان شوید"
-}
+  "need_to_login": "برای دسترسی به صفحه ی حسابتان باید ابتدا وارد حسابتان شوید",
+  "produced_by": "Produced by {witnessAddress}",
+};
