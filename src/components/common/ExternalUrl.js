@@ -3,6 +3,11 @@ import {tu} from "../../utils/i18n";
 
 class ExternalUrl extends Component {
   render() {
+    if (this.props.url.substring(0, 4) !== "http") {
+      return (
+        <p>{this.props.url}</p>
+      );
+    }
     return (
       <div>
         <a href="#" data-toggle="modal" data-target={"#ExternalUrlWarning_" + this.props.index}>{this.props.url}</a>
