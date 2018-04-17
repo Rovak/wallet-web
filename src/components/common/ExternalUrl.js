@@ -11,13 +11,13 @@ class ExternalUrl extends Component {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="ExternalUrlWarningLabel">External Link</h5>
+                <h5 class="modal-title" id="ExternalUrlWarningLabel">External URL</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                {tu("The link")} <b> {this.props.url} </b> {tu("is not a verified site and therefore may not be secure. Proceed at your own risk.")} 
+                {tu("The URL")} <b> {this.props.url} </b> {tu("is not a verified site and may, as a result, not be secure. Proceed with caution.")} 
               </div>
               <div class="modal-footer">
                 <a class="btn btn-warning" href={this.props.url} target="_blank">{tu("Proceed")}</a>
