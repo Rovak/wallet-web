@@ -2,6 +2,7 @@ export const messages = {
   "app_title": "Tron Protocol",
   "money_price": "가격",
   "blocks": "블록",
+  "block": "블록",
   "transactions": "거래",
   "name": "이름",
   "issuer": "발행자",
@@ -16,7 +17,7 @@ export const messages = {
   "login": "로그인",
   "view": "보기",
   "create": "생성",
-  "country": "부위",
+  "country": "지역",
   "address": "주소",
   "balance": "잔액",
   "votes": "투표수",
@@ -64,7 +65,8 @@ export const messages = {
   "Recent blocks": "최근 블록",
   "All blocks": "모든 블록",
   "Send TRX": "TRX 보내기",
-  "to": "보낼 주소",
+  "to": "받는 주소",
+  "from": "보내는 주소",
   "Most TRX": "최대 TRX",
   "account": "계정",
   "Account": "계정",
@@ -108,7 +110,7 @@ export const messages = {
   "not_started_yet": "준비중",
   "participated": "당신은 성공적으로 참여했습니다!",
   "participated_error": "에러가 발생했습니다.",
-  "address_warning":"유효한 TRON 지갑 주소 만 입력하십시오. 잘못된 주소는 TRX 손실을 초래할 수 있습니다.",
+  "address_warning":"유효한 TRON 지갑 주소만 입력하십시오. 잘못된 주소는 TRX 손실을 초래할 수 있습니다.",
   "close": "닫기",
   "bytes": "Bytes",
   "ok": "확인",
@@ -126,5 +128,30 @@ export const messages = {
   "exchange_rate": "교환 비율",
   "url": "토큰 정보 안내 주소",
   "search_address_or_url": "주소 또는 URL 검색",
-  "need_to_login": "You must be logged in to access to account page "
+  "need_to_login": "계정 페이지에 액세스하려면 로그인해야합니다.",
+  "candidates": "후보자",
+  "no_trx_remaining": "남아있는 TRX가 없습니다.",
+  "vote": "투표",
+  "produced_by": "{witnessAddress}에 의해 생성됨",
+  "show_more": "{countriesLength}개 더보기",
+  "remaining": "남아있습니다",
+  "previous": "이전",
+  "next": "다음",
+  "height": "높이",
+  "time": "시간",
+  "parenthash": "부모 해시",
+  "witness": "증인",
+  "size": "크기",
+  "no_transactions_found": "거래 없음",
+  "vote_guide_message": `TRX를 사용하여 Super Representatives에 투표하십시오. 
+    귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
+    TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
+    최종 투표는 24시에 집계되며 대표단 명단이 업데이트됩니다.`,
+  "token_issue_guide_message_1":`Tron 프로토콜에서 토큰을 발행하는 것은 
+    계정에 최소 1024 개의 TRX를 가진 사람이 수행 할 수 있습니다.`,
+  "token_issue_guide_message_2":`토큰이 발급되면 토큰 개요 페이지에 표시됩니다.
+    사용자는 참여 기간 내에 참여하고 TRX를 토큰으로 교환 할 수 있습니다.`,
+  "token_issue_guide_message_3":`토큰을 발행하면 계정에 총 공급과 동일한 토큰 금액이 지급됩니다.
+    다른 사용자가 TRX를 토큰으로 교환하면 토큰이 계정에서 철회되고 지정된 환율과 동일한 TRX를 받게됩니다.`,
+  "search_address": "주소 검색",
 };

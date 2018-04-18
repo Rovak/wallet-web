@@ -4,7 +4,7 @@ import NodeMap from "./NodeMap";
 import {connect} from "react-redux";
 import {loadNodes} from "../../actions/network";
 import {sortBy, filter, sumBy} from "lodash";
-import {tu} from "../../utils/i18n";
+import {tu, tv} from "../../utils/i18n";
 import {BarLoader} from "../common/loaders";
 
 class Nodes extends Component {
@@ -111,7 +111,11 @@ class Nodes extends Component {
                 (!showAllCountries && (countries.length - size > 0)) &&
                 <div className="card-footer text-muted text-center">
                   <a href="javascript:;" onClick={() => this.setState({ showAllCountries: true })}>
-                    {tu("Show")} {countries.length - size} {tu("more")}
+                      {
+                        tv("show_more", {
+                          countriesLength: countries.length - size
+                        })
+                      }
                   </a>
                 </div>
               }
