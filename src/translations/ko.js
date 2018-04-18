@@ -153,4 +153,5 @@ export const messages = {
     사용자는 참여 기간 내에 참여하고 TRX를 토큰으로 교환 할 수 있습니다.`,
   "token_issue_guide_message_3":`토큰을 발행하면 계정에 총 공급과 동일한 토큰 금액이 지급됩니다.
     다른 사용자가 TRX를 토큰으로 교환하면 토큰이 계정에서 철회되고 지정된 환율과 동일한 TRX를 받게됩니다.`,
+  "search_address": "주소 검색",
 };

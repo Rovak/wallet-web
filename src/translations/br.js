@@ -118,4 +118,5 @@ export const messages = {
   "token_issue_guide_message_3":`After issuing the token your account will receive the amount of tokens equal to the total supply.
                 When other users exchange their TRX for tokens then the tokens will be withdrawn from your account and you will
                 receive TRX equal to the specified exchange rate.`,
+  "search_address": "Search for address",
 };
