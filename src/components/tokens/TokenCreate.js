@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {tu} from "../../utils/i18n";
+import {t,tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
 import {connect} from "react-redux";
 import {loadTokens} from "../../actions/tokens";
@@ -248,18 +248,13 @@ class TokenCreate extends Component {
             <div className="card">
               <div className="card-body">
                 <p>
-                  Issuing a token on the Tron Protocol can be done
-                  by anyone who has at least 1024 TRX in their account.
+                  {t("token_issue_guide_message_1")}
                 </p>
                 <p>
-                  When a token is issued it will be shown on the token overview page.
-                  Users can then participate within the participation period and exchange their TRX
-                  for tokens.
+                  {t("token_issue_guide_message_2")}
                 </p>
                 <p>
-                  After issuing the token your account will receive the amount of tokens equal to the total supply.
-                  When other users exchange their TRX for tokens then the tokens will be withdrawn from your account and you will
-                  receive TRX equal to the specified exchange rate.
+                  {t("token_issue_guide_message_3")}
                 </p>
               </div>
             </div>

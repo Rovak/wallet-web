@@ -65,7 +65,8 @@ export const messages = {
   "Recent blocks": "최근 블록",
   "All blocks": "모든 블록",
   "Send TRX": "TRX 보내기",
-  "to": "보낼 주소",
+  "to": "받는 주소",
+  "from": "보내는 주소",
   "Most TRX": "최대 TRX",
   "account": "계정",
   "Account": "계정",
@@ -142,4 +143,14 @@ export const messages = {
   "witness": "증인",
   "size": "크기",
   "no_transactions_found": "거래 없음",
+  "vote_guide_message": `TRX를 사용하여 Super Representatives에 투표하십시오. 
+    귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
+    TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
+    최종 투표는 24시에 집계되며 대표단 명단이 업데이트됩니다.`,
+  "token_issue_guide_message_1":`Tron 프로토콜에서 토큰을 발행하는 것은 
+    계정에 최소 1024 개의 TRX를 가진 사람이 수행 할 수 있습니다.`,
+  "token_issue_guide_message_2":`토큰이 발급되면 토큰 개요 페이지에 표시됩니다.
+    사용자는 참여 기간 내에 참여하고 TRX를 토큰으로 교환 할 수 있습니다.`,
+  "token_issue_guide_message_3":`토큰을 발행하면 계정에 총 공급과 동일한 토큰 금액이 지급됩니다.
+    다른 사용자가 TRX를 토큰으로 교환하면 토큰이 계정에서 철회되고 지정된 환율과 동일한 TRX를 받게됩니다.`,
 };

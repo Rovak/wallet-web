@@ -194,10 +194,7 @@ class Votes extends Component {
             </button>
           }
           <p className="mt-3">
-            Use your TRX to vote for Super Representatives. For every TRX you hold in your
-            account you have one vote to spend. TRX will not be consumed.
-            You can vote as many times for the several representatives as you like.
-            The final votes will be tallied at 24 o'clock and the list of delegates will be updated.
+            {t("vote_guide_message")}
           </p>
         </div>
       </div>

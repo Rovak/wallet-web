@@ -129,4 +129,15 @@ export const messages = {
   "need_to_login": "برای دسترسی به صفحه ی حسابتان باید ابتدا وارد حسابتان شوید",
   "produced_by": "Produced by {witnessAddress}",
   "show_more": "Show {countriesLength} More",
+  "vote_guide_message": `Use your TRX to vote for Super Representatives. 
+    For every TRX you hold in your account you have one vote to spend. 
+    TRX will not be consumed. You can vote as many times for the several representatives as you like. 
+    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+  "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
+                by anyone who has at least 1024 TRX in their account.`,
+  "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
+                Users can then participate within the participation period and exchange their TRX for tokens.`,
+  "token_issue_guide_message_3":`After issuing the token your account will receive the amount of tokens equal to the total supply.
+                When other users exchange their TRX for tokens then the tokens will be withdrawn from your account and you will
+                receive TRX equal to the specified exchange rate.`,
 };
