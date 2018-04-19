@@ -36,7 +36,7 @@ class Send extends React.Component {
     const {account} = this.props ;
     let address = passwordToAddress(account.key);
 
-    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address ; ;
+    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
   };
 
   /**
