@@ -237,7 +237,7 @@ class Votes extends Component {
                     witnesses.map((account, index) => (
                       <tr key={account.address}>
                         <th scope="row">{index + 1}</th>
-                        <td>
+                        <td className="break-word">
                           {account.address.substr(0, 24)}...<br/>
                           {account.url}
                         </td>
