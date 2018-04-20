@@ -130,6 +130,11 @@ export const messages = {
         Quando outros usuários trocarem seus TRX por tokens, os tokens serão retirados da sua conta e você
         receber TRX de acordo com a taxa de câmbio especificada.`,
   "search_address": "Procurar por endereço",
+  "check_box_invalid": "Verification is required.",
+  "required_invalid": "The {title} field is required.",
+  "min_invalid": "The {title} must be at least {min}.",
+  "date_invalid": "The {title} is not a valid date format.",
+  "url_invalid": "The {title} format is invalid",
   "bytes": "bytes",
   "blockchain": "blockchain",
   "tokens": "tokens",
