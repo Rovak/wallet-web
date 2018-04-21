@@ -85,7 +85,7 @@ class Navigation extends Component {
                   :
                     <li class="nav-item">
                       <Link class="nav-link" to="/login">
-                      {tu("register_login")}
+                        {tu("register_login")}
                       </Link>
                     </li>
               }
