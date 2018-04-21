@@ -4,12 +4,42 @@ import {loadAccounts} from "../actions/app";
 import MediaQuery from 'react-responsive';
 import {tu} from "../utils/i18n";
 import {BarLoader} from "./common/loaders";
-import {FormattedNumber} from "react-intl";
+import {FormattedNumber, injectIntl} from "react-intl";
+import {filter} from "lodash";
 
 class Accounts extends Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      searchString: "",
+    }
+  }
+
   componentDidMount() {
     this.props.loadAccounts();
+  }
+
+  onSearchFieldChangeHandler = (e) => {
+      this.setState({
+          searchString: e.target.value,
+      })
+  };
+
+  filteredAccounts() {
+    let {accounts} = this.props;
+    let {searchString} = this.state;
+
+    searchString = searchString.toUpperCase();
+
+    if (searchString.length > 0) {
+      accounts = filter(
+        accounts, a =>
+          a.address.toUpperCase().indexOf(searchString) !== -1);
+    }
+
+    return accounts;
   }
 
   renderAccounts() {
@@ -23,6 +53,8 @@ class Accounts extends Component {
         </div>
       );
     }
+
+    accounts = this.filteredAccounts();
 
     return (
       <Fragment>
@@ -77,10 +109,20 @@ class Accounts extends Component {
 
   render() {
 
-    let {accounts} = this.props;
+    let {accounts, intl} = this.props;
+    let {searchString} = this.state;
 
     return (
-      <main role="main" className="container">
+      <main role="main" className="container mt-3">
+        <div className="row">
+          <div className="col-md-12">
+            <input type="text"
+                   placeholder={intl.formatMessage({id: "search_address"})}
+                   onChange={this.onSearchFieldChangeHandler}
+                   className="form-control"
+                   value={searchString}/>
+          </div>
+        </div>
         <div className="row">
           <div className="col-md-12">
             <div className="p-3 my-3 text-white-50 bg-dark rounded row no-gutters">
@@ -133,4 +175,4 @@ const mapDispatchToProps = {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Accounts)
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(Accounts))

@@ -113,4 +113,21 @@ export const messages = {
   "need_to_login": "Vous devez être connecté pour accéder à la page du compte ",
   "produced_by": "Produit par {witnessAddress}",
   "show_more": "Afficher {countriesLength} de plus",
+  "vote_guide_message": `Utilisez votre TRX pour voter pour les Super Representants. 
+    Vous pouvez envoyer un vote pour chaque TRX détenu. 
+    TRX ne sera pas consommé. Vous pouvez voter autant de fois que vous le souhaitez pour plusieurs représentants. 
+    Les votes finaux seront comptés à minuit et la liste des délégués sera mise à jour.`,
+  "token_issue_guide_message_1":`L'émission d'un jeton sur le protocole Tron peut être faite
+                par quiconque ayant au moins 1024 TRX dans son compte.`,
+  "token_issue_guide_message_2":`Quand un jeton est émis, il sera affiché sur la page d'aperçu des jetons.
+                Les utilisateurs peuvent alors participer à la période de participation et échanger leur TRX contre des jetons.`,
+  "token_issue_guide_message_3":`Après avoir émis le jeton, votre compte recevra un nombre de jetons égal à l'offre totale.
+                Lorsque d'autres utilisateurs échangent leur TRX contre des jetons, les jetons seront retirés de votre compte et vous
+                recevez du TRX égal au taux de change spécifié.`,
+  "search_address": "Rechercher une adresse",
+  "check_box_invalid": "La vérification est requise.",
+  "required_invalid": "Le champ {title} est obligatoire.",
+  "min_invalid": "Le {title} doit être au moins {min}.",
+  "date_invalid": "Le {titre} n'a pas un format de date valide.",
+  "url_invalid": "Le {title} format est invalide",
 };

@@ -2,15 +2,12 @@
 import React from "react";
 import {loadTokens} from "../../../actions/tokens";
 import {connect} from "react-redux";
-import {head} from "lodash";
 import {Link, NavLink, Route, Switch} from "react-router-dom";
 import {Client} from "../../../services/api";
 import {tu} from "../../../utils/i18n";
 import TimeAgoI18N from "../../common/TimeAgoI18N";
 import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
-import * as _ from "lodash";
 import {BlockTransactions} from "./Transactions";
-import {BlockComments} from "./BlockComments";
 
 class Block extends React.Component {
 
