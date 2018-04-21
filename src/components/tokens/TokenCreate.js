@@ -79,7 +79,7 @@ class TokenCreate extends Component {
       }
     };
 
-    let { num, trxNum, name, isTokenCreated } = this.state;
+    let { isTokenCreated } = this.state;
 
     return (
       <main className="container pt-3">
@@ -104,9 +104,6 @@ class TokenCreate extends Component {
                     confirmed: this.state.confirmed
                   }}
                   isValid={this.isValid}
-                  num={num}
-                  trxNum={trxNum}
-                  name={name}
                   isTokenCreated={isTokenCreated}
                   intl={this.props.intl}
                 />

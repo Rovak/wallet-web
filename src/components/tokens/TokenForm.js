@@ -86,14 +86,12 @@ class TokenForm extends Component {
     const {
       handleSubmit,
       submitting,
-      intl,
-      num,
-      trxNum,
-      name,
       isTokenCreated,
+      intl,
       values
     } = this.props;
 
+    const {name, trxNum, num} = values;
     let exchangeRate = trxNum / num;
     let isValid = this.props.isValid(values);
 
