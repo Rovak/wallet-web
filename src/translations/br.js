@@ -10,15 +10,14 @@ export const messages = {
   "current": "atual",
   "last_block": "último bloco",
   "Recent blocks": "Blocos recentes",
-  "Mined by": "Minerado por ",
   "total_supply": "oferta total",
   "sign_out": "sair",
   "register_login": "Registrar / Entrar",
   "register": "registrar",
-  "apply_for_delegate": "candidatar-se a delegado",
+  "apply_for_delegate": "candidatar-se a representante",
   "login": "entrar",
   "view": "visualizar",
-  "create": "criar",
+  "create": "novo",
   "country": "região",
   "address": "endereço",
   "balance": "saldo",
@@ -29,17 +28,17 @@ export const messages = {
   "submit": "enviar",
   "your_personal_website_address": "Digite seu site pessoal",
   "send": "enviar",
-  "amount": "valor",
+  "amount": "quantidade",
   "to": "para",
   "apply_for_delegate_description": `
-    Titulares do TRX podem aplicar para se tornar um super delegado utilizando a função de gerenciamento de conta, e votando nos candidados. 
+    Titulares do TRX podem aplicar para se tornar um super representante utilizando a função de gerenciamento de conta, e votando nos candidados. 
     Cada conta pode atualizar suas informações de voto, também é permitido votar em vários candidatos.
     O número máximo de votos é menor ou igual a quantidade de TRX que o usuário retém no momento
     (Se você tiver uma certa quantidade de TRX, você poderá votar utilizando uma quantia menor ou igual de votos).
     O resultado dos votos serão calculados com base nas informações finais de todos os eleitores em cada
-     ciclo de voto, o qual é realizado entre 00:00 e 24:00. Os titulares de TRX com mais votos se tornarão super delegados.
-     Toda transação feita na rede deve ser validada por todos os super delegates, que receberão alguns bônus.
-     Não será consumido TRX no processo de aplicação e votação para super delegado.
+     ciclo de voto, o qual é realizado entre 00:00 e 24:00. Os titulares de TRX com mais votos se tornarão super representante.
+     Toda transação feita na rede deve ser validada por todos os super representantes, que receberão alguns bônus.
+     Não será consumido TRX no processo de aplicação e votação para super representante.
   `,
   "unknown_error": "Ocoreu um erro desconhecido",
   "representative_understand": "Eu compreendo como ser um representante TRON",
@@ -72,7 +71,7 @@ export const messages = {
   "create_token": "Criar Token",
   "start_date": "Data de Início",
   "end_date": "Data de Fim",
-  "token_spend_confirm": "Confirmo que a criação do fornecimento total do token custa uma taxa total única de 1024 TRX.",
+  "token_spend_confirm": "Confirmo que a criação do fornecimento total do token custa uma taxa única de 1024 TRX.",
   "description": "Descrição",
   "description_url": "Página URL",
   "quote_token_amount": "Valor do Token",
@@ -87,36 +86,65 @@ export const messages = {
   "insufficient_tokens": "tokens insuficientes",
   "make_another_transaction": "Faça outra transação",
   "receive": "receber",
-  "show": "mostrar",
-  "more": "mais",
   "token_exchange_confirm": "Eu confirmo a troca pelo token",
   "or register a new account": "ou criar uma nova conta",
   "Account Address": "Endereço da Conta",
+  "Private Key": "Chave Privada",
   "Create Account": "Criar conta",
-  "have_been_added_to_your_account!": "have been added to your account!",
-  "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "An unknown error occured, please try again in a few minutes",
-  "An_error_occurred": "An error occurred",
+  "Welcome to TRON": "Seja bem vindo à TRON",
+  "have_been_added_to_your_account!": "foram adicionados à sua conta!",
+  "An_unknown_error_occurred,_please_try_again_in_a_few_minutes": "Ocorreu um erro desconhecido. Por favor tente novamente em alguns minutos",
+  "An_error_occurred": "Ocorreu um erro.",
   "address_warning":"Insira apenas o endereço válido da carteira TRON. Endereços incorretos podem causar perda de TRX.",
+  "search_address_or_url": "Pesquisar por endereço ou URL",
+  "no_transactions_found": "Nenhuma transação encontrada",
   "ok": "OK",
-  "the_lunch_test": "The launch of testnet aims to test all the features of our blockchain explorer and wallet.",
-  "plese_keep_in_mind": `Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
-  own wallet or exchange to the account address of testnet.`,
-  "tron_foundation": "TRON Foundation",
-  "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
-  "dear_users,": "Dear users,",
-  "finished": "Finished",
-  "produced_by": "Produced by {witnessAddress}",
-  "show_more": "Show {countriesLength} More",
-  "vote_guide_message": `Use your TRX to vote for Super Representatives. 
-    For every TRX you hold in your account you have one vote to spend. 
-    TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
-  "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
-                by anyone who has at least 1024 TRX in their account.`,
-  "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
-                Users can then participate within the participation period and exchange their TRX for tokens.`,
-  "token_issue_guide_message_3":`After issuing the token your account will receive the amount of tokens equal to the total supply.
-                When other users exchange their TRX for tokens then the tokens will be withdrawn from your account and you will
-                receive TRX equal to the specified exchange rate.`,
-  "search_address": "Search for address",
+  "the_lunch_test": "O lançamento da testnet visa testar todos os recursos do nosso gerenciador de blockchain e carteira digital.",
+  "plese_keep_in_mind": `Por favor lembre-se de que, como o endereço da sua conta registrada é usado apenas para a testnet, não envie TRX de sua 
+      própria carteira ou exchange para o endereço de conta da testnet.`,
+  "tron_foundation": "Fundação TRON",
+  "trx_for_testing": `TRX para testes serão enviados para sua conta de testes, assim que você aplicar com sucesso através do gerenciamento de contas.`,
+  "dear_users,": "Caro usuários,",
+  "finished": "Finalizado",
+  "token": "token",
+  "details": "detalhes",
+  "url": "URL",
+  "participation": "participação",
+  "need_to_login": "Você deve estar logado para acessar a página da conta",
+  "candidates": "Candidatos",
+  "thanks_for_applying": "Obrigado por se inscrever!",
+  "to_much_votes": "Votos excedentes",
+  "no_trx_remaining": "Não há TRX restante",
+  "vote": "votar",
+  "produced_by": "Produzido por {witnessAddress}",
+  "show_more": "Mostrar mais {countriesLength}",
+  "vote_guide_message": `Use seus TRX para votar nos Super Representantes.
+        Para cada TRX que você possui em sua conta, você terá de votos para gastar.
+        TRX não será consumido. Você pode votar quantas vezes quiser para os vários representantes.
+        Os votos finais serão computados às 24 horas, e a lista de representantes será atualizada.`,
+  "token_issue_guide_message_1":`Emitir um token no protocolo Tron pode ser feito
+        por qualquer pessoa que tenha pelo menos 1024 TRX em sua conta.`,
+  "token_issue_guide_message_2":`Quando um token é emitido, ele será mostrado na página de visão geral de tokens.
+        Os usuários podem então participar dentro do período de participação e trocar seus TRX por tokens.`,
+  "token_issue_guide_message_3":`Depois de emitir o token, sua conta receberá a quantidade de tokens igual à oferta total.
+        Quando outros usuários trocarem seus TRX por tokens, os tokens serão retirados da sua conta e você
+        receber TRX de acordo com a taxa de câmbio especificada.`,
+  "search_address": "Procurar por endereço",
+  "check_box_invalid": "Verification is required.",
+  "required_invalid": "The {title} field is required.",
+  "min_invalid": "The {title} must be at least {min}.",
+  "date_invalid": "The {title} is not a valid date format.",
+  "url_invalid": "The {title} format is invalid",
+  "bytes": "bytes",
+  "blockchain": "blockchain",
+  "tokens": "tokens",
+  "participate": "participar",
+  "issue_a_token": "emitir um token",
+  "token_name": "nome do token",
+  "exchange_rate": "câmbio",
+  "token_price": "valor do token",
+  "issue_token": "Emitir",
+  "close": "fechar",
+  "price": "valor",
+
 };

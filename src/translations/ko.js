@@ -154,4 +154,9 @@ export const messages = {
   "token_issue_guide_message_3":`토큰을 발행하면 계정에 총 공급과 동일한 토큰 금액이 지급됩니다.
     다른 사용자가 TRX를 토큰으로 교환하면 토큰이 계정에서 철회되고 지정된 환율과 동일한 TRX를 받게됩니다.`,
   "search_address": "주소 검색",
+  "check_box_invalid": "확인이 필요합니다.",
+  "required_invalid": "{title}(은)는 필수 입력 항목입니다.",
+  "min_invalid": "{title}(은)는 최소 {min}이상 입력을 해야합니다.",
+  "date_invalid": "{title}(은)는 유효한 날짜 포맷이 아닙니다.",
+  "url_invalid": "{title}에 올바른 URL을 입력해주세요.",
 };
