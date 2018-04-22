@@ -104,31 +104,30 @@ export const messages = {
   "issue_a_token": "Émettre un jeton",
   "issue_token": "Jeton d'émission",
   "ok": "OK",
-  "the_lunch_test": "The launch of testnet aims to test all the features of our blockchain explorer and wallet.",
-  "plese_keep_in_mind": `Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
-  own wallet or exchange to the account address of testnet.`,
-  "tron_foundation": "TRON Foundation",
-  "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
-  "dear_users,": "Dear users,",
-  "finished": "Finished",
-  "need_to_login": "You must be logged in to access to account page ",
-  "produced_by": "Produced by {witnessAddress}",
-  "show_more": "Show {countriesLength} More",
-  "vote_guide_message": `Use your TRX to vote for Super Representatives. 
-    For every TRX you hold in your account you have one vote to spend. 
-    TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
-  "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
-                by anyone who has at least 1024 TRX in their account.`,
-  "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
-                Users can then participate within the participation period and exchange their TRX for tokens.`,
-  "token_issue_guide_message_3":`After issuing the token your account will receive the amount of tokens equal to the total supply.
-                When other users exchange their TRX for tokens then the tokens will be withdrawn from your account and you will
-                receive TRX equal to the specified exchange rate.`,
-  "search_address": "Search for address",
-  "check_box_invalid": "Verification is required.",
-  "required_invalid": "The {title} field is required.",
-  "min_invalid": "The {title} must be at least {min}.",
-  "date_invalid": "The {title} is not a valid date format.",
-  "url_invalid": "The {title} format is invalid",
+  "the_lunch_test": "Le lancement de testnet vise à tester toutes les fonctionnalités de notre explorateur blockchain et de notre portefeuille.",
+  "plese_keep_in_mind": `Veuillez garder à l'esprit, que votre adresse de compte enregistrée est utilisée uniquement sur le testnet. Ne faites pas de transactions TRX entre votre portefeuille réel et celui du testnet.`,
+  "tron_foundation": "Fondation TRON",
+  "trx_for_testing": `Les TRX pour les tests seront envoyés à votre compte de test une fois que vous aurez fait la demande depuis la page de votre compte.`,
+  "dear_users,": "Chers utilisateurs,",
+  "finished": "Terminé",
+  "need_to_login": "Vous devez être connecté pour accéder à la page du compte ",
+  "produced_by": "Produit par {witnessAddress}",
+  "show_more": "Afficher {countriesLength} de plus",
+  "vote_guide_message": `Utilisez votre TRX pour voter pour les Super Representants. 
+    Vous pouvez envoyer un vote pour chaque TRX détenu. 
+    TRX ne sera pas consommé. Vous pouvez voter autant de fois que vous le souhaitez pour plusieurs représentants. 
+    Les votes finaux seront comptés à minuit et la liste des délégués sera mise à jour.`,
+  "token_issue_guide_message_1":`L'émission d'un jeton sur le protocole Tron peut être faite
+                par quiconque ayant au moins 1024 TRX dans son compte.`,
+  "token_issue_guide_message_2":`Quand un jeton est émis, il sera affiché sur la page d'aperçu des jetons.
+                Les utilisateurs peuvent alors participer à la période de participation et échanger leur TRX contre des jetons.`,
+  "token_issue_guide_message_3":`Après avoir émis le jeton, votre compte recevra un nombre de jetons égal à l'offre totale.
+                Lorsque d'autres utilisateurs échangent leur TRX contre des jetons, les jetons seront retirés de votre compte et vous
+                recevez du TRX égal au taux de change spécifié.`,
+  "search_address": "Rechercher une adresse",
+  "check_box_invalid": "La vérification est requise.",
+  "required_invalid": "Le champ {title} est obligatoire.",
+  "min_invalid": "Le {title} doit être au moins {min}.",
+  "date_invalid": "Le {titre} n'a pas un format de date valide.",
+  "url_invalid": "Le {title} format est invalide",
 };
