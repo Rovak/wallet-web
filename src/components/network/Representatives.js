@@ -43,7 +43,8 @@ class Representatives extends Component {
               witnesses.map((account, index) => (
                 <tr key={account.address}>
                   <td className="text-right">{index + 1}</td>
-                  <td>{account.url}</td>
+                  <td>
+                    <span className="text-truncate text-nowrap d-inline-block" style={{maxWidth: 300}}>{account.url}</span></td>
                   <td className="text-right"><FormattedNumber value={account.latestBlockNumber} /></td>
                   <td className="text-right"><FormattedNumber value={account.producedTotal} /></td>
                   <td className="text-right"><FormattedNumber value={account.missedTotal} /></td>
@@ -57,7 +58,7 @@ class Representatives extends Component {
         <MediaQuery maxWidth={980}>
           {
             witnesses.map((account, index) => (
-              <div className="media small mb-2" key={account.address}>
+              <div className="media small mb-2 text-truncate text-nowrap" key={account.address}>
                 <div className="block">
                   #{index}
                 </div>
@@ -113,7 +114,7 @@ class Representatives extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="break-word box-shadow">
+            <div className="box-shadow">
               {this.renderWitnesses()}
             </div>
           </div>
