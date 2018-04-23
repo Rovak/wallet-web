@@ -146,5 +146,5 @@ export const messages = {
   "issue_token": "Emitir",
   "close": "fechar",
   "price": "valor",
-
+  "require_account_to_apply": "you must be logged in to apply for delegate",
 };

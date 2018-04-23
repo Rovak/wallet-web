@@ -138,4 +138,5 @@ export const messages = {
   "min_invalid": "The {title} must be at least {min}.",
   "date_invalid": "The {title} is not a valid date format.",
   "url_invalid": "The {title} format is invalid",
+  "require_account_to_apply": "you must be logged in to apply for delegate",
 };

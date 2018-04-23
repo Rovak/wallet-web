@@ -53,8 +53,8 @@ export const messages = {
   "accounts": "계정",
   "scan_qr_code": "QR 코드 스캐너로 코드를 스캔하세요",
   "receive_trx": "TRX 받기",
-  "require_account_to_send": "코인을 보내려면 로그인을 해야 합니다",
-  "require_account_to_receive": "코인을 받으려면 로그인을 해야 합니다",
+  "require_account_to_send": "코인을 보내려면 로그인해야합니다",
+  "require_account_to_receive": "코인을 받으려면 로그인해야합니다",
   "successful_send": "전송 성공!",
   "nodes": "노드",
   "receive": "받기",
@@ -159,4 +159,5 @@ export const messages = {
   "min_invalid": "{title}(은)는 최소 {min}이상 입력을 해야합니다.",
   "date_invalid": "{title}(은)는 유효한 날짜 포맷이 아닙니다.",
   "url_invalid": "{title}에 올바른 URL을 입력해주세요.",
+  "require_account_to_apply": "위임을 신청하려면 로그인해야합니다.",
 };
