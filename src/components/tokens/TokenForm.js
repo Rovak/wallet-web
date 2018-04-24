@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import { tu } from "../../utils/i18n";
+import { t, tu, tv } from "../../utils/i18n";
 import { Alert } from "reactstrap";
 import { FormattedNumber, injectIntl } from "react-intl";
 import Validator from "validatorjs";
@@ -153,7 +153,7 @@ class TokenForm extends Component {
                 label={intl.formatMessage({ id: "total_supply" })}
               />
               <small className="form-text text-muted">
-                Total amount of tokens which will be in circulation
+                {t("total_supply_short_txt")}
               </small>
             </div>
           </div>
@@ -166,7 +166,7 @@ class TokenForm extends Component {
                 label={intl.formatMessage({ id: "description" })}
               />
               <small className="form-text text-muted">
-                A short description of the purpose of the token
+                {t("description_short_txt")}
               </small>
             </div>
           </div>
@@ -180,7 +180,7 @@ class TokenForm extends Component {
                 label={intl.formatMessage({ id: "url" })}
               />
               <small className="form-text text-muted">
-                A website where users can find more information about the token
+                {t("url_short_txt")}
               </small>
             </div>
           </div>
@@ -190,15 +190,13 @@ class TokenForm extends Component {
           <legend>{tu("exchange_rate")}</legend>
           <div className="form-row text-muted">
             <p className="col-md-12">
-              Specify the price of a single token by defining how many tokens a
-              participant will receive for every TRX they spend.
+              {t("exchange_rate_short_txt_1")}
             </p>
             <p className="col-md-12">
-              Participants will receive{" "}
-              <b>
-                {<FormattedNumber value={num} />} {name || tu("token")}
-              </b>&nbsp; for every{" "}
-              <b>{<FormattedNumber value={trxNum} />} TRX</b>.
+              {tv("exchange_rate_short_txt_2", {
+                num: <b>{<FormattedNumber value={num} />} {name || tu("token")}</b>,
+                trxNum: <b>{<FormattedNumber value={trxNum} />} TRX</b>
+              })}
             </p>
           </div>
 
@@ -238,9 +236,9 @@ class TokenForm extends Component {
 
           <div className="form-row text-muted">
             <p className="col-md-12">
-              Specify the participation period in which tokens will be issued.
-              During the participation period users can exchange TRX for {name}{" "}
-              tokens.
+              {tv("participation_short_txt",{
+                name:<b>{name}</b>
+              })}
             </p>
           </div>
 
@@ -279,7 +277,7 @@ class TokenForm extends Component {
 
         {isTokenCreated ? (
           <Alert color="success" className="text-center">
-            Token successfully issued
+            {t("success_short_txt")}
           </Alert>
         ) : (
           <div className="text-center">

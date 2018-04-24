@@ -162,4 +162,12 @@ export const messages = {
   "require_account_to_apply": "위임을 신청하려면 로그인해야합니다.",
   "start_past_date_invalid": "{startDate}는 현재보다 과거일 수 없습니다.",
   "end_past_date_invalid": "{endDate}는 {startDate}보다 과거일 수 없습니다.",
+  "total_supply_short_txt": "유통 예정인 총 토큰 양",
+  "description_short_txt": "토큰의 목적에 대한 간단한 설명",
+  "url_short_txt": "사용자가 토큰에 대한 자세한 정보를 찾을 수있는 웹 사이트",
+  "exchange_rate_short_txt_1": `참여자가 지출하는 모든 TRX에 대해 받는 토큰 수를 정의하여 단일 토큰의 가격을 지정하십시오.`,
+  "exchange_rate_short_txt_2": `참여자는 {trxNum}마다 {num}을받을 것입니다.`,
+  "participation_short_txt": `토큰이 발행 될 참여 기간을 지정하십시오. 
+    참여 기간 동안 사용자는 {name} 토큰에 대해 TRX를 교환 할 수 있습니다.`,
+  "success_short_txt": "토큰이 성공적으로 발행되었습니다.",
 };

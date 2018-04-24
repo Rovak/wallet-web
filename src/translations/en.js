@@ -141,4 +141,13 @@ export const messages = {
   "require_account_to_apply": "you must be logged in to apply for delegate",
   "start_past_date_invalid": "{startDate} can not be earlier than current.",
   "end_past_date_invalid": "{endDate} can not be earlier than {startDate}.",
+  "total_supply_short_txt": "Total amount of tokens which will be in circulation",
+  "description_short_txt": "A short description of the purpose of the token",
+  "url_short_txt": "A website where users can find more information about the token",
+  "exchange_rate_short_txt_1": `Specify the price of a single token by defining how many tokens
+    a participant will receive for every TRX they spend.`,
+  "exchange_rate_short_txt_2": `Participants will receive {num} for every {trxNum}.`,
+  "participation_short_txt": `Specify the participation period in which tokens will be issued.
+    During the participation period users can exchange TRX for {name} tokens.`,
+  "success_short_txt": "Token successfully issued",
 };
