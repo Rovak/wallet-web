@@ -12,19 +12,15 @@ const validate = (values, props) => {
 
   Validator.register(
     "check_box_invalid",
-    function(value) {
-      return value === true;
-    },
+    (value) => value === true,
     intl.formatMessage({ id: "check_box_invalid" })
   );
 
   Validator.register(
     "start_past_date_invalid",
-    function(value) {
-      return moment(value).isAfter(
+    (value) => moment(value).isAfter(
         moment().format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS)
-      );
-    },
+    ),
     intl.formatMessage(
       { id: "start_past_date_invalid" },
       { startDate: intl.formatMessage({ id: "start_date" }) }
@@ -33,9 +29,7 @@ const validate = (values, props) => {
 
   Validator.register(
     "end_past_date_invalid",
-    function(value) {
-      return moment(value).isAfter(values.startTime);
-    },
+    (value) => moment(value).isAfter(values.startTime),
     intl.formatMessage(
       { id: "end_past_date_invalid" },
       {
