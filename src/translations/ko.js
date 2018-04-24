@@ -160,4 +160,6 @@ export const messages = {
   "date_invalid": "{title}(은)는 유효한 날짜 포맷이 아닙니다.",
   "url_invalid": "{title}에 올바른 URL을 입력해주세요.",
   "require_account_to_apply": "위임을 신청하려면 로그인해야합니다.",
+  "start_past_date_invalid": "{startDate}는 현재보다 과거일 수 없습니다.",
+  "end_past_date_invalid": "{endDate}는 {startDate}보다 과거일 수 없습니다.",
 };

@@ -131,4 +131,6 @@ export const messages = {
   "date_invalid": "Le {titre} n'a pas un format de date valide.",
   "url_invalid": "Le {title} format est invalide",
   "require_account_to_apply": "you must be logged in to apply for delegate",
+  "start_past_date_invalid": "{startDate} can not be earlier than current.",
+  "end_past_date_invalid": "{endDate} can not be earlier than {startDate}.",
 };

@@ -5,6 +5,7 @@ import { tu } from "../../utils/i18n";
 import { Alert } from "reactstrap";
 import { FormattedNumber, injectIntl } from "react-intl";
 import Validator from "validatorjs";
+import moment from "moment";
 
 const validate = (values, props) => {
   const { intl } = props;
@@ -17,13 +18,40 @@ const validate = (values, props) => {
     intl.formatMessage({ id: "check_box_invalid" })
   );
 
+  Validator.register(
+    "start_past_date_invalid",
+    function(value) {
+      return moment(value).isAfter(
+        moment().format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS)
+      );
+    },
+    intl.formatMessage(
+      { id: "start_past_date_invalid" },
+      { startDate: intl.formatMessage({ id: "start_date" }) }
+    )
+  );
+
+  Validator.register(
+    "end_past_date_invalid",
+    function(value) {
+      return moment(value).isAfter(values.startTime);
+    },
+    intl.formatMessage(
+      { id: "end_past_date_invalid" },
+      {
+        startDate: intl.formatMessage({ id: "start_date" }),
+        endDate: intl.formatMessage({ id: "end_date" })
+      }
+    )
+  );
+
   const rules = {
     name: "required",
     totalSupply: "required|min:1",
     num: "required|min:1",
     trxNum: "required|min:1",
-    startTime: "required|date",
-    endTime: "required|date",
+    startTime: "required|date|start_past_date_invalid",
+    endTime: "required|date|end_past_date_invalid",
     description: "required",
     url: "required|url",
     confirmed: "check_box_invalid"
