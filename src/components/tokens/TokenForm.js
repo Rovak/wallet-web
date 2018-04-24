@@ -7,6 +7,20 @@ import { FormattedNumber, injectIntl } from "react-intl";
 import Validator from "validatorjs";
 import moment from "moment";
 
+const initialValues = {
+  name: "",
+  totalSupply: 100000,
+  num: 1,
+  trxNum: 1,
+  startTime: moment().format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS),
+  endTime: moment()
+      .add(90, "days")
+      .format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS),
+  description: "",
+  url: "http://",
+  confirmed: false
+};
+
 const validate = (values, props) => {
   const { intl } = props;
 
@@ -113,7 +127,7 @@ class TokenForm extends Component {
       values
     } = this.props;
 
-    const {name, trxNum, num} = values;
+    const { name, trxNum, num } = values;
     let exchangeRate = trxNum / num;
     let isValid = this.props.isValid(values);
 
@@ -293,5 +307,6 @@ export default reduxForm({
   form: "token",
   touchOnBlur: false,
   touchOnChange: true,
-  validate
+  initialValues: initialValues,
+  validate,
 })(TokenForm);
