@@ -23,16 +23,16 @@ export const loadBlocks = () => async (dispatch, getState) => {
 
   let block = await Client.getLatestBlock();
 
-  let blocks = [];
+  let blockRequests = [];
 
   for (let i = 0; i < 7; i++) {
     if ((block.number - i) < 0) {
       break;
     }
-    blocks.push(await Client.getBlockByNum(block.number - i));
+    blockRequests.push(Client.getBlockByNum(block.number - i));
   }
 
-  dispatch(setBlocks(blocks));
+  dispatch(setBlocks(await Promise.all(blockRequests)));
 };
 
 export const loadTotalNumberOfTransactions = () => async (dispatch, getState) => {

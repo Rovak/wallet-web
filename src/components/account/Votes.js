@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {t, tu} from "../../utils/i18n";
-import {filter, find, some, sumBy} from "lodash";
+import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
@@ -33,7 +33,7 @@ class Votes extends Component {
     let {votes} = this.state;
 
     if (numberOfVotes !== "") {
-      numberOfVotes = parseInt(numberOfVotes);
+      numberOfVotes = parseInt(numberOfVotes, 10);
 
       if (numberOfVotes < 0) {
         numberOfVotes = 0;
@@ -53,7 +53,7 @@ class Votes extends Component {
 
     let witnessVotes = Object.keys(votes).map(address => ({
       address,
-      amount: parseInt(votes[address]),
+      amount: parseInt(votes[address], 10),
     }));
 
     witnessVotes = filter(witnessVotes, vote => vote.amount > 0);
@@ -101,7 +101,7 @@ class Votes extends Component {
     let trx = find(tokenBalances, tb => tb.name.toUpperCase() === "TRX");
     let trxBalance = trx ? trx.balance : 0;
 
-    let votesSpend = sumBy(Object.values(votes), vote => parseInt(vote) || 0);
+    let votesSpend = sumBy(Object.values(votes), vote => parseInt(vote, 10) || 0);
 
     let votesAvailable = trxBalance - votesSpend;
     let spendAll = (votesSpend > 0 && votesAvailable === 0);
@@ -194,10 +194,7 @@ class Votes extends Component {
             </button>
           }
           <p className="mt-3">
-            Use your TRX to vote for Super Representatives. For every TRX you hold in your
-            account you have one vote to spend. TRX will not be consumed.
-            You can vote as many times for the several representatives as you like.
-            The final votes will be tallied at 24 o'clock and the list of delegates will be updated.
+            {t("vote_guide_message")}
           </p>
         </div>
       </div>
@@ -240,7 +237,7 @@ class Votes extends Component {
                     witnesses.map((account, index) => (
                       <tr key={account.address}>
                         <th scope="row">{index + 1}</th>
-                        <td>
+                        <td className="break-word">
                           {account.address.substr(0, 24)}...<br/>
                           {account.url}
                         </td>

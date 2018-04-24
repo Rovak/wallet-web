@@ -6,8 +6,7 @@ import {loadTokenBalances} from "../../actions/account";
 import {tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
 import {Link} from "react-router-dom";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
-import {isAddressValid} from "@tronprotocol/wallet-api/src/utils/address";
+import {isAddressValid, passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
 import {find} from "lodash";
 import {ONE_TRX} from "../../constants";
@@ -34,10 +33,10 @@ class Send extends React.Component {
    */
   isValid = () => {
     let {to, token, amount} = this.state;
-    const {account} = this.props ; 
+    const {account} = this.props ;
     let address = passwordToAddress(account.key);
 
-    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address ; ;
+    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
   };
 
   /**
@@ -60,7 +59,8 @@ class Send extends React.Component {
   };
 
   setAmount = (amount) => {
-
+    // 20180417 fbsobreira: allow send values smaller than 0 (FIX issue #91)
+    /*
     if (amount !== '') {
       amount = parseFloat(amount);
     }
@@ -68,6 +68,13 @@ class Send extends React.Component {
     this.setState({
       amount: amount > 0 ? amount : '',
     });
+    */
+    amount = amount.replace(/^0+(?!\.|$)/, '').replace(/[^0-9 .]+/g,'').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1");
+    
+    this.setState({
+      amount: amount,
+    });
+   
   };
 
   getSelectedTokenBalance = () => {
@@ -123,7 +130,7 @@ class Send extends React.Component {
     }
 
     return (
-      <p>
+      <Fragment>
         <div className="alert alert-warning">
           {tu("address_warning")}
         </div>
@@ -132,7 +139,7 @@ class Send extends React.Component {
           disabled={!this.isValid() || isLoading}
           className="btn btn-primary col-md"
           onClick={this.send}>{tu("send")}</button>
-      </p>
+      </Fragment>
     )
   }
 
@@ -203,10 +210,10 @@ class Send extends React.Component {
         <div className="form-group">
           <label>{tu("amount")}</label>
           <div className="input-group mb-3">
-            <input type="number"
+            <input type="text"
                    onChange={(ev) => this.setAmount(ev.target.value) }
                    className={"form-control " + (!isAmountValid ? "is-invalid" : "")}
-                   value={amount} 
+                   value={amount}
                    placeholder='0.0000'/>
             <div className="invalid-feedback">
               {tu("insufficient_tokens")}

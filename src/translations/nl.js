@@ -68,5 +68,36 @@ export const messages = {
   "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
   "dear_users,": "Dear users,",
   "finished": "Finished",
-  "need_to_login": "You must be logged in to access to account page "
+  "need_to_login": "You must be logged in to access to account page",
+  "produced_by": "Produced by {witnessAddress}",
+  "show_more": "Show {countriesLength} More",
+  "vote_guide_message": `Use your TRX to vote for Super Representatives. 
+    For every TRX you hold in your account you have one vote to spend. 
+    TRX will not be consumed. You can vote as many times for the several representatives as you like. 
+    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+  "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
+                by anyone who has at least 1024 TRX in their account.`,
+  "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
+                Users can then participate within the participation period and exchange their TRX for tokens.`,
+  "token_issue_guide_message_3":`After issuing the token your account will receive the amount of tokens equal to the total supply.
+                When other users exchange their TRX for tokens then the tokens will be withdrawn from your account and you will
+                receive TRX equal to the specified exchange rate.`,
+  "search_address": "Search for address",
+  "check_box_invalid": "Verification is required.",
+  "required_invalid": "The {title} field is required.",
+  "min_invalid": "The {title} must be at least {min}.",
+  "date_invalid": "The {title} is not a valid date format.",
+  "url_invalid": "The {title} format is invalid",
+  "require_account_to_apply": "you must be logged in to apply for delegate",
+  "start_past_date_invalid": "{startDate} can not be earlier than current.",
+  "end_past_date_invalid": "{endDate} can not be earlier than {startDate}.",
+  "total_supply_short_txt": "Total amount of tokens which will be in circulation",
+  "description_short_txt": "A short description of the purpose of the token",
+  "url_short_txt": "A website where users can find more information about the token",
+  "exchange_rate_short_txt_1": `Specify the price of a single token by defining how many tokens
+    a participant will receive for every TRX they spend.`,
+  "exchange_rate_short_txt_2": `Participants will receive {num} for every {trxNum}.`,
+  "participation_short_txt": `Specify the participation period in which tokens will be issued.
+    During the participation period users can exchange TRX for {name} tokens.`,
+  "success_short_txt": "Token successfully issued",
 };
