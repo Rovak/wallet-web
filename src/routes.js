@@ -7,6 +7,7 @@ import TokensView from "./components/tokens/TokensView";
 import Login from "./components/account/Login";
 import Account from "./components/account/Account";
 import ApplyForDelegate from "./components/account/ApplyForDelegate";
+import Transactions from "./components/account/Transactions";
 import Votes from "./components/account/Votes";
 import Send from "./components/transfer/Send";
 import Receive from "./components/transfer/Receive";
@@ -84,6 +85,11 @@ export const routes = [
     path: "/login",
     showInMenu: false,
     component: Login,
+  },
+  {
+    path: "/account/transactions",
+    showInMenu: false,
+    component: Transactions,
   },
   {
     path: "/account/votes",

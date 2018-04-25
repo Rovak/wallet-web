@@ -150,4 +150,7 @@ export const messages = {
   "participation_short_txt": `Specify the participation period in which tokens will be issued.
     During the participation period users can exchange TRX for {name} tokens.`,
   "success_short_txt": "Token successfully issued",
+  "my_transactions": "My Transactions",
+  "from": "from",
+  "to": "to"
 };
