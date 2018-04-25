@@ -56,7 +56,7 @@ export const messages = {
   "receive_trx": "receive TRX",
   "require_account_to_send": "You must be logged in to send coins",
   "require_account_to_receive": "You must be logged in to receive coins",
-  "successful_send": "Succesfully send!",
+  "successful_send": "Succesfully sent!",
   "nodes": "nodes",
   "confirm_transaction": "confirm transaction",
   "last_confirmed": "Last Confirmed",
