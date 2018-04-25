@@ -243,12 +243,12 @@ class Send extends React.Component {
     }
 
     return (
-      <main className="container-fluid pt-5 pb-5 bg-dark">
+      <main className="container-fluid pt-5 pb-5">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-sm-8 col-lg-5">
               <div className="card">
-                <div className="card-header text-center">
+                <div className="card-header text-center bg-dark text-white">
                  {tu("Send TRX")}
                 </div>
                 <div className="card-body">
