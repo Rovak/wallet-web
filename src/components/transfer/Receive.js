@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
-import {tu} from "../../utils/i18n";
-import {Link} from "react-router-dom";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
-import {CopyToClipboard} from "react-copy-to-clipboard";
+import { tu } from "../../utils/i18n";
+import { Link } from "react-router-dom";
+import { passwordToAddress } from "@tronprotocol/wallet-api/src/utils/crypto";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import MediaQuery from "react-responsive";
 
 class Receive extends React.Component {
@@ -67,32 +67,27 @@ class Receive extends React.Component {
                 </div>
                 <div className="card-body justify-content-center text-center">
                   <p>{tu("send_trx_address")}</p>
-                  <h5><b>{passwordToAddress(account.key)}</b></h5>
+                  <div className="input-group mb-3">
+                    <input type="text"
+                      readOnly={true}
+                      className="form-control"
+                      value={passwordToAddress(account.key)} />
+                    <div className="input-group-append">
+                      <CopyToClipboard text={passwordToAddress(account.key)}>
+                        <button className="btn btn-outline-secondary" type="button">
+                          <i className="fa fa-paste" />
+                        </button>
+                      </CopyToClipboard>
+                    </div>
+                  </div>
                   <hr />
                   <p>{tu("scan_qr_code")}</p>
 
                   {
-                    qrcode && <img src={qrcode} style={{ width: '50%' }} alt="account address" className="m-2"/>
+                    qrcode && <img src={qrcode} style={{ width: '50%' }} alt="account address" className="m-1" />
                   }
+
                 </div>
-                <div className="card-footer text-muted text-center">
-                  {tu("scan_qr_code")}
-                </div>
-                <MediaQuery minWidth={980}>
-                    <div className="input-group mb-3">
-                        <input type="text"
-                               readOnly={true}
-                               className="form-control"
-                               value={passwordToAddress(account.key)} />
-                        <div className="input-group-append">
-                          <CopyToClipboard text={passwordToAddress(account.key)}>
-                            <button className="btn btn-outline-secondary" type="button">
-                              <i className="fa fa-paste"/>
-                            </button>
-                          </CopyToClipboard>
-                        </div>
-                    </div>
-                </MediaQuery>
               </div>
             </div>
           </div>
