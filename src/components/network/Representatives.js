@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import MediaQuery from "react-responsive";
+import ExternalUrl from "../common/ExternalUrl";
 import {connect} from "react-redux";
 import {loadWitnesses} from "../../actions/network";
 import {tu} from "../../utils/i18n";
@@ -44,7 +45,7 @@ class Representatives extends Component {
                 <tr key={account.address}>
                   <td className="text-right">{index + 1}</td>
                   <td>
-                    <span className="text-truncate text-nowrap d-inline-block" style={{maxWidth: 300}}>{account.url}</span></td>
+                    <ExternalUrl url={account.url}><span className="text-truncate text-nowrap d-inline-block" style={{maxWidth: 300}}></span></ExternalUrl></td>
                   <td className="text-right"><FormattedNumber value={account.latestBlockNumber} /></td>
                   <td className="text-right"><FormattedNumber value={account.producedTotal} /></td>
                   <td className="text-right"><FormattedNumber value={account.missedTotal} /></td>
@@ -64,7 +65,7 @@ class Representatives extends Component {
                 </div>
                 <div className="media-body mb-0 lh-150">
                   <div className="ml-3">
-                    {account.url}
+                    <ExternalUrl url={account.url} index={index}></ExternalUrl>
                   </div>
                   <div className="ml-3 text-muted">
                     {account.votes} TRX

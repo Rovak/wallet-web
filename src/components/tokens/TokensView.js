@@ -249,6 +249,7 @@ class TokensView extends Component {
   renderSmallDate(token) {
 
     let now = new Date().getTime();
+    let {account} = this.props;
 
     if (token.endTime < now) {
       return (
@@ -271,7 +272,7 @@ class TokensView extends Component {
             <FormattedTime value={token.startTime}/>
           </span>
           {
-            !this.containsToken(token) &&  <button
+            (!this.containsToken(token) && account.isLoggedIn) &&  <button
               className="btn btn-primary btn-sm float-right"
               onClick={() => this.toggleToken(token)}>
               {tu("participate")}

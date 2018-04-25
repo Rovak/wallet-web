@@ -118,8 +118,20 @@ export const messages = {
   "participation": "participation",
   "need_to_login": "You must be logged in to access to account page",
   "thanks_for_applying": "Thanks for applying!",
-  "to_much_votes": "To much votes",
+  "too_many_votes": "Too many votes",
   "no_trx_remaining": "No TRX remaining",
+  "previous": "previous",
+  "next": "next",
+  "block": "block",
+  "time": "time",
+  "size": "size",
+  "no_transactions": "No transactions",
+  "vote": "vote",
+  "candidates": "candidates",
+  "use_your_vote": `Use your TRX to vote for Super Representatives. For every TRX you hold in your account you have one vote to spend. TRX will not be consumed.
+  You can vote as many times for the several representatives as you like. The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+  "close":"close",
+  "price":"price",
   "produced_by": "Produced by {witnessAddress}",
   "show_more": "Show {countriesLength} More",
   "vote_guide_message": `Use your TRX to vote for Super Representatives. 
@@ -151,4 +163,8 @@ export const messages = {
   "participation_short_txt": `Specify the participation period in which tokens will be issued.
     During the participation period users can exchange TRX for {name} tokens.`,
   "success_short_txt": "Token successfully issued",
+  "the_url": "The URL",
+  "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
+  "proceed": "Proceed",
+  "close": "close"
 };
