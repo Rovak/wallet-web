@@ -84,24 +84,26 @@ export const routes = [
     path: "/send",
     label: "send",
     component: Send,
-    icon: "fa fa-paper-plane mr-2"
+    icon: "fa fa-paper-plane mr-2",
+    showLoggedIn: true
   },
   {
     path: "/receive",
     label: "receive",
     component: Receive,
-    icon: "fa fa-qrcode mr-2"
+    icon: "fa fa-qrcode mr-2",
+    showLoggedIn: true
   },
   {
     path: "/login",
     showInMenu: false,
     component: Login,
   },
-  {
-    path: "/account/transactions",
-    showInMenu: false,
-    component: Transactions,
-  },
+//  {
+//    path: "/account/transactions",
+//    showInMenu: false,
+//    component: Transactions,
+//  },
   {
     path: "/account/votes",
     showInMenu: false,

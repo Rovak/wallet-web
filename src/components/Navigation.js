@@ -22,9 +22,16 @@ class Navigation extends Component {
   render() {
 
     let {languages, activeLanguage, account} = this.props;
-
-    let viewableRoutes = filter(routes, r => r.showInMenu !== false);
-
+    
+    let allMenuRoutes = filter(routes, r => r.showInMenu !== false);
+    let viewableRoutes = null;
+    
+    if (account.isLoggedIn){
+        viewableRoutes = allMenuRoutes;
+    }else{
+        viewableRoutes = filter(allMenuRoutes, r => r.showLoggedIn !== true);
+    }
+    
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container">
@@ -45,7 +52,7 @@ class Navigation extends Component {
                     {
                         (route.icon !== ''?  <i className={route.icon}/> : '')
                     }
-                    {tu(route.label)}
+                    {tu(route.label)}      
                   </NavLink>
                 </li>
               ))}
@@ -77,10 +84,12 @@ class Navigation extends Component {
                           <span className="sr-only">Toggle Dropdown</span>
                         </button>
                         <div className="dropdown-menu">
+                        {/*
                           <Link className="dropdown-item" to="/account/transactions">
                             <i className="fa fa-exchange-alt mr-2"/>
                             {tu("my_transactions")}
                           </Link>
+                        */}  
                           <Link className="dropdown-item" to="/account/votes">
                             <i className="fa fa-clipboard-check mr-2"/>
                             {tu("votes")}
