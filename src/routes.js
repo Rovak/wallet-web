@@ -99,11 +99,11 @@ export const routes = [
     showInMenu: false,
     component: Login,
   },
-//  {
-//    path: "/account/transactions",
-//    showInMenu: false,
-//    component: Transactions,
-//  },
+  {
+    path: "/account/transactions",
+    showInMenu: false,
+    component: Transactions,
+  },
   {
     path: "/account/votes",
     showInMenu: false,
