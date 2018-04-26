@@ -10,6 +10,7 @@ import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
+import {Link, Redirect} from "react-router-dom";
 
 class Votes extends Component {
 
@@ -25,6 +26,9 @@ class Votes extends Component {
 
   componentDidMount() {
     let {account, loadWitnesses, loadTokenBalances} = this.props;
+    if (!account.isLoggedIn) {
+      return <Redirect to="/login" />;
+    }  
     loadWitnesses();
     loadTokenBalances(passwordToAddress(account.key));
   }
@@ -129,6 +133,11 @@ class Votes extends Component {
   }
 
   render() {
+
+    let { account } = this.props;
+    if (!account.isLoggedIn) {
+      return <Redirect to="/login" />;
+    }  
 
     let {intl} = this.props;
     let {votesSubmitted, searchString, votes} = this.state;

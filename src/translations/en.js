@@ -162,14 +162,17 @@ export const messages = {
   "participation_short_txt": `Specify the participation period in which tokens will be issued.
     During the participation period users can exchange TRX for {name} tokens.`,
   "success_short_txt": "Token successfully issued",
-<<<<<<< HEAD
   "my_transactions": "My Transactions",
   "from": "from",
-  "to": "to"
-=======
+  "to": "to",
   "the_url": "The URL",
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
-  "close": "close"
->>>>>>> 2c3792342fa8034f3347e61c4ae2bd756ab4a4fc
+  "bytes": "bytes",
+  "recent_blocks": "Recent blocks",
+  "send_trx": "Send TRX",
+  "create_account": "Create Account",
+  "register_new_account": "or register a new account",
+  "account_address": "Account Address",
+  "welcome_to_tron": "Welcome to TRON"
 };

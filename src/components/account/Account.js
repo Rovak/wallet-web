@@ -6,7 +6,7 @@ import {BarLoader} from "../common/loaders";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import xhr from "axios";
 import {FormattedNumber} from "react-intl";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Account extends Component {
 
@@ -156,17 +156,9 @@ class Account extends Component {
 
     let {account} = this.props;
     if (!account.isLoggedIn) {
-            return (
-              <div>
-                <div className="alert alert-warning">
-                {tu("need_to_login")}
-                </div>
-                <p className="text-center">
-                  <Link to="/login">{tu("Go to login")}</Link>
-                </p>
-              </div>
-            );
-          }
+      return <Redirect to="/login" />;
+    } 
+          
     let {showRequest} = this.state;
 
     let address = passwordToAddress(account.key);
