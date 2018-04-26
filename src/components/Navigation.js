@@ -42,6 +42,9 @@ class Navigation extends Component {
               {viewableRoutes.map(route => (
                 <li key={route.path} className="nav-item">
                   <NavLink className="nav-link" activeClassName="active" to={route.path}>
+                    {
+                        (route.icon !== ''?  <i className={route.icon}/> : '')
+                    }
                     {tu(route.label)}
                   </NavLink>
                 </li>

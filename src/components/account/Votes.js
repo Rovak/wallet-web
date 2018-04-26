@@ -190,11 +190,11 @@ class Votes extends Component {
             <button className="btn btn-danger col-md mt-3"
                     onClick={this.voteForWitnesses}
                     disabled={voteStatus.votesSpend === 0 || voteStatus.voteState === -1}>
-              {tu("to_much_votes")}
+              {tu("too_many_votes")}
             </button>
           }
           <p className="mt-3">
-            {t("vote_guide_message")}
+            {tu("use_your_vote")}
           </p>
         </div>
       </div>
@@ -239,7 +239,7 @@ class Votes extends Component {
                         <th scope="row">{index + 1}</th>
                         <td className="break-word">
                           {account.address.substr(0, 24)}...<br/>
-                          {account.url}
+                          <small>{account.url}</small>
                         </td>
                         <td>{account.votes} TRX</td>
                         <td>
