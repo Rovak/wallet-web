@@ -93,6 +93,7 @@ const renderInputField = ({
   input,
   type,
   label,
+  max,
   className = "form-control",
   meta: { touched, error, warning }
 }) => (
@@ -103,6 +104,7 @@ const renderInputField = ({
         {...input}
         type={type}
         className={className + (touched && error ? " is-invalid" : "")}
+        {...(max ? {max:max} : {})}
       />
       {type === "checkbox" && (
         <label className="form-check-label" style={{ marginBottom: 0 }}>
@@ -247,6 +249,7 @@ class TokenForm extends Component {
               <Field
                 type="datetime-local"
                 name="startTime"
+                max="9999-12-31T23:59"
                 component={renderInputField}
                 label={intl.formatMessage({ id: "start_date" })}
               />
@@ -255,6 +258,7 @@ class TokenForm extends Component {
               <Field
                 type="datetime-local"
                 name="endTime"
+                max="9999-12-31T23:59"
                 component={renderInputField}
                 label={intl.formatMessage({ id: "end_date" })}
               />
