@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import ExternalUrlWarning from '../dialogs/ExternalUrlWarning';
-import { tu } from "../../utils/i18n";
+import React, { Component } from "react";
+import ExternalUrlWarning from "../dialogs/ExternalUrlWarning";
 
 class ExternalUrl extends Component {
   constructor(props) {
@@ -13,16 +12,26 @@ class ExternalUrl extends Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  }
+  };
 
   render() {
     return (
       <React.Fragment>
-        <a href="javascript:;" onClick={this.toggleModal}>{this.props.url}</a>
+        <a
+          href={this.props.url}
+          onClick={e => {
+            e.preventDefault();
+            this.toggleModal();
+          }}
+        >
+          {this.props.url}
+        </a>
 
-        <ExternalUrlWarning show={this.state.isOpen} url={this.props.url}
-          onClose={this.toggleModal}>
-        </ExternalUrlWarning>
+        <ExternalUrlWarning
+          show={this.state.isOpen}
+          url={this.props.url}
+          onClose={this.toggleModal}
+        />
       </React.Fragment>
     );
   }
