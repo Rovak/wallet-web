@@ -143,6 +143,7 @@ export const messages = {
   "witness": "증인",
   "size": "크기",
   "no_transactions_found": "거래 없음",
+  "no_transactions": "거래 없음",
   "vote_guide_message": `TRX를 사용하여 Super Representatives에 투표하십시오. 
     귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
     TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
