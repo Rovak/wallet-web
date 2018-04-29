@@ -170,4 +170,7 @@ export const messages = {
   "participation_short_txt": `토큰이 발행 될 참여 기간을 지정하십시오. 
     참여 기간 동안 사용자는 {name} 토큰에 대해 TRX를 교환 할 수 있습니다.`,
   "success_short_txt": "토큰이 성공적으로 발행되었습니다.",
+  "the_url": "이 주소",
+  "external_link_warning": "(은)는 외부 링크이므로 결과적으로 안전하지 않을 수 있습니다. 주의해서 진행하십시오.",
+  "proceed": "진행",
 };

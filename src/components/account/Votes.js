@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {t, tu} from "../../utils/i18n";
+import {tu} from "../../utils/i18n";
 import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
