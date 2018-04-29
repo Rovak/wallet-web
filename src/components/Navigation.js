@@ -18,6 +18,14 @@ class Navigation extends Component {
     this.props.logout();
     this.props.history.push("/");
   };
+  
+//  componentDidMount() {
+//    $('.nav-link').on('click', function(){
+//        console.log('nav click...');
+//        $(".navbar-toggle").click(); //bootstrap 3.x by Richard
+//        //this.forceUpdate({});
+//    });
+//  }
 
   render() {
 
