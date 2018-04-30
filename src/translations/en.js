@@ -9,7 +9,7 @@ export const messages = {
   "network": "network",
   "current": "current",
   "last_block": "last block",
-  "total_supply": "total supply",
+  "total_supply": "Total Supply",
   "sign_out": "sign out",
   "register_login": "Register / Log-in",
   "register": "register",
@@ -27,7 +27,7 @@ export const messages = {
   "submit": "submit",
   "your_personal_website_address": "your personal website address",
   "send": "send",
-  "amount": "amount",
+  "amount": "Amount",
   "apply_for_delegate_description": `
     TRX holders can apply to become a super delegate by using the account management function, and vote for candidates. 
     Each account can update current voter information and also is allowed to vote for multiple candidates. 
@@ -98,7 +98,7 @@ export const messages = {
   "address_warning":"Only enter valid TRON wallet address. Incorrect addresses can lead to TRX loss.",
   "search_address_or_url": "Search for address or URL",
   "no_transactions_found": "No transactions found",
-  "token_name": "token name",
+  "token_name": "Token Name",
   "exchange_rate": "Exchange Rate",
   "token_price": "Token Price",
   "issue_a_token": "Issue a Token",
@@ -111,9 +111,9 @@ export const messages = {
   "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
   "dear_users,": "Dear users,",
   "finished": "Finished",
-  "token": "token",
+  "token": "Token",
   "details": "details",
-  "url": "url",
+  "url": "Url",
   "participation": "participation",
   "need_to_login": "You must be logged in to access to account page",
   "thanks_for_applying": "Thanks for applying!",
