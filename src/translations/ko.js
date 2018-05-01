@@ -125,6 +125,7 @@ export const messages = {
   "details": "세부 사항",
   "participation": "참여",
   "token_price": "토큰 가격",
+  "price": "가격",
   "exchange_rate": "교환 비율",
   "url": "토큰 정보 안내 주소",
   "search_address_or_url": "주소 또는 URL 검색",
@@ -143,6 +144,11 @@ export const messages = {
   "witness": "증인",
   "size": "크기",
   "no_transactions_found": "거래 없음",
+  "no_transactions": "거래 없음",
+  "use_your_vote": `TRX를 사용하여 Super Representatives에 투표하십시오. 
+    귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
+    TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
+    최종 투표는 24시에 집계되며 대표단 명단이 업데이트됩니다.`,
   "vote_guide_message": `TRX를 사용하여 Super Representatives에 투표하십시오. 
     귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
     TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 

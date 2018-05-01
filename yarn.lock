@@ -3360,11 +3360,11 @@ grpc-tools@^1.6.6:
     node-pre-gyp "^0.6.38"
 
 grpc@^1.10.0, grpc@^1.8.4:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.10.1.tgz#90691404aeb769a98784924d08e8fd07c920b2da"
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.11.0.tgz#89d761726f1bc2d8485426b762e70308efc61b21"
   dependencies:
     lodash "^4.15.0"
-    nan "^2.10.0"
+    nan "^2.0.0"
     node-pre-gyp "0.7.0"
     protobufjs "^5.0.0"
 
@@ -5025,8 +5025,8 @@ mocha@^5.0.5:
     supports-color "4.4.0"
 
 mocha@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-5.1.0.tgz#5ff11cc39c0bb65330ac6c41f9086634e3e3f686"
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-5.1.1.tgz#b774c75609dac05eb48f4d9ba1d827b97fde8a7b"
   dependencies:
     browser-stdout "1.3.1"
     commander "2.11.0"
@@ -5063,7 +5063,7 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nan@^2.10.0, nan@^2.3.0:
+nan@^2.0.0, nan@^2.10.0, nan@^2.3.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.10.0.tgz#96d0cd610ebd58d4b4de9cc0c6828cda99c7548f"
 
@@ -6328,9 +6328,9 @@ react-sticky@^6.0.2:
     prop-types "^15.5.8"
     raf "^3.3.0"
 
-react-timeago@^3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/react-timeago/-/react-timeago-3.4.3.tgz#eb9061eefb044e4a2b09ce8c99d34645b2dbfa25"
+react-timeago@4.1.9:
+  version "4.1.9"
+  resolved "https://registry.yarnpkg.com/react-timeago/-/react-timeago-4.1.9.tgz#a5dee4ac072299a9a5ca5a61f56177a80f83c1fb"
 
 react-transition-group@^2.2.1:
   version "2.3.0"

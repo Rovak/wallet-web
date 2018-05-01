@@ -75,10 +75,10 @@ const validate = (values, props) => {
   const validator = new Validator(values, rules, messages);
 
   validator.setAttributeNames({
-    name: intl.formatMessage({ id: "name_of_the_token" }),
+    name: intl.formatMessage({ id: "token_name" }),
     totalSupply: intl.formatMessage({ id: "total_supply" }),
-    num: intl.formatMessage({ id: "token" }) + intl.formatMessage({ id: "amount" }),
-    trxNum: "TRX" + intl.formatMessage({ id: "amount" }),
+    num: intl.formatMessage({ id: "token" }) + ' ' + intl.formatMessage({ id: "amount" }),
+    trxNum: "TRX " + intl.formatMessage({ id: "amount" }),
     startTime: intl.formatMessage({ id: "start_date" }),
     endTime: intl.formatMessage({ id: "end_date" }),
     description: intl.formatMessage({ id: "description" }),
@@ -209,7 +209,7 @@ class TokenForm extends Component {
                 name="trxNum"
                 parse={v => Number(v)}
                 component={renderInputField}
-                label={["TRX", intl.formatMessage({ id: "amount" })]}
+                label={["TRX", ' ', intl.formatMessage({ id: "amount" })]}
               />
             </div>
             <div className="form-group col-md-6">
@@ -220,6 +220,7 @@ class TokenForm extends Component {
                 component={renderInputField}
                 label={[
                   intl.formatMessage({ id: "token" }),
+                  ' ',
                   intl.formatMessage({ id: "amount" })
                 ]}
               />
