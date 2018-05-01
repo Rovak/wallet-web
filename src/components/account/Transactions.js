@@ -50,8 +50,8 @@ class Transactions extends Component {
       
     let {transactions} = this.props;
     let {account} = this.props;
-    let userAddress = "27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS";
-    //let userAddress = passwordToAddress(account.key);
+    //let userAddress = "27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS";
+    let userAddress = passwordToAddress(account.key);
    
     if (transactions === null) {
       return (
