@@ -34,6 +34,45 @@ class Account extends Component {
       loadTokenBalances(passwordToAddress(account.key));
   };
 
+  isTronix(index){
+      if (index == 0) {
+            return (
+                  "bg-primary"
+            );
+      }
+  }
+  
+  renderTronix() {
+
+    let {tokenBalances = []} = this.props;
+
+    if (tokenBalances.length === 0) {
+      return (
+        <div className="text-center d-flex justify-content-center p-4">
+          <BarLoader/>
+        </div>
+      );
+    }
+
+    return (
+      <div className="t-3">
+        {
+          tokenBalances.map((token, index) => (
+            
+            (index === 0 && token.name == "TRX") && //Only shows TRON TRX on this view   
+             <div className="text-center">
+              <h2 className="text-secondary">{tu("trx_balance")}</h2>
+              <h1>
+               <FormattedNumber value={token.balance}/>
+              </h1>    
+             </div> 
+            
+          ))
+        }
+      </div>
+    )
+  }
+  
   renderTokens() {
 
     let {tokenBalances = []} = this.props;
@@ -56,13 +95,16 @@ class Account extends Component {
         </thead>
         <tbody>
         {
-          tokenBalances.map((token) => (
-            <tr key={token.name}>
+          tokenBalances.map((token, index) => (
+            
+            (index > 0) && //Hide TRON TRX on this view   
+            <tr key={index}>
               <td>{token.name}</td>
               <td className="text-right">
                 <FormattedNumber value={token.balance} />
               </td>
             </tr>
+            
           ))
         }
         </tbody>
@@ -191,17 +233,26 @@ class Account extends Component {
                     </span>
                   </div>
                 </div>
-                <div className="row">
+                <div className="row pt-3">
                   <div className="col-md-2">
                     <b>{tu("password")}</b>
                   </div>
-                  <button className={showPassword?'btn btn-primary hide':'btn btn-primary show'} onClick={this.showPword.bind(this)}>
+                  <button className={"btn btn-primary btn-sm " + (showPassword ? 'hide' : 'show')} onClick={this.showPword.bind(this)}>
                       {tu("showpassword")}
                   </button>
                   <div className={showPassword?'col-md-10 show':'col-md-10 hide'}>
                       {key}<br/>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <div className="card">
+              <div className="card-body p-3 border-0">
+                {this.renderTronix()}
               </div>
             </div>
           </div>
