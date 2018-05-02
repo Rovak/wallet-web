@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { debounce, omit } from "lodash";
+import { debounce } from "lodash";
 import { search } from "../../actions/app";
 import { injectIntl } from "react-intl";
 
