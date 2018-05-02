@@ -4,11 +4,13 @@
 </h1>
 
 <h2 align="center">
-  Langues : 
-  <a href="./README.md"><img src="http://flags.fmcdn.net/data/flags/w580/gb.png" width="30" height="20"></a>
-    
-  <a href="./README_FR.md"><img src="http://flags.fmcdn.net/data/flags/w580/fr.png" width="30" height="20"></a>
-  <br>
+    <table align="center">
+        <tr>
+            <td>Langues :</td>
+            <td><a href="./README.md"><img src="http://flags.fmcdn.net/data/flags/w580/gb.png" width="30" height="20"></a></td>
+            <td><a href="./README_FR.md"><img src="http://flags.fmcdn.net/data/flags/w580/fr.png" width="30" height="20"></a></td>
+        </tr>
+    </table>
 </h2>
 
 <h4 align="center">
