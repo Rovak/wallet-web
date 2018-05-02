@@ -6,6 +6,7 @@ export const SET_PRICE = 'SET_PRICE';
 export const SET_LANGUAGE = 'SET_LANGUAGE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const SEARCH = 'SEARCH';
 
 export const setLanguage = (language = 'en') => ({
   type: SET_LANGUAGE,
@@ -30,6 +31,11 @@ export const setPrice = (price, percentage) => ({
   type: SET_PRICE,
   price: parseFloat(price),
   percentage: parseFloat(percentage),
+});
+
+export const search = (searchString) => ({
+  type: SEARCH,
+  searchString,
 });
 
 export const loadAccounts = () => async (dispatch) => {

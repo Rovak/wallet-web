@@ -37,6 +37,10 @@ export default class Content extends Component {
                           );
                         })
                       }
+                      {
+                        (route.search && props.location.pathname !== route.search.exclude)
+                        && <Route component={route.search.component}/>
+                      }
                     </nav>
                   </div>
                 </div>
