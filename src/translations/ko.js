@@ -22,6 +22,7 @@ export const messages = {
   "balance": "잔액",
   "votes": "투표수",
   "password": "암호",
+  "showpassword":'암호 표시',
   "my_vote": "나의 투표",
   "submit_votes": "투표 제출",
   "submit": "제출",
