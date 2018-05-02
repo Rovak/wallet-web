@@ -12,6 +12,7 @@ import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
 import {Link, Redirect} from "react-router-dom";
 
+
 class Votes extends Component {
 
   constructor() {
@@ -30,6 +31,7 @@ class Votes extends Component {
       return <Redirect to="/login" />;
     }  
     loadWitnesses();
+    if(account.isLoggedIn)
     loadTokenBalances(passwordToAddress(account.key));
   }
 
@@ -69,12 +71,12 @@ class Votes extends Component {
     });
   };
 
-  hasVotes = () => {
+ /* hasVotes = () => {
     let voteStatus = this.getVoteStatus();
 
     return voteStatus.votesSpend > 0 && voteStatus.votesAvailable >= 0;
   };
-
+*/
   onSearchFieldChangeHandler = (e) => {
     this.setState({
       searchString: e.target.value,
@@ -133,13 +135,14 @@ class Votes extends Component {
   }
 
   render() {
-
+    
     let { account } = this.props;
     if (!account.isLoggedIn) {
       return <Redirect to="/login" />;
     }  
 
     let {intl} = this.props;
+
     let {votesSubmitted, searchString, votes} = this.state;
 
     let witnesses = this.filteredWitnesses();
