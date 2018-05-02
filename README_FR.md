@@ -3,11 +3,13 @@
   <br>
 </h1>
 
-<h1 align="center">
+<h2 align="center">
   Langues : 
-  <a href="./blob/master/README.md"><img src="http://flags.fmcdn.net/data/flags/w580/fr.png" width="30" height="20"></a>
+  <a href="./README.md"><img src="http://flags.fmcdn.net/data/flags/w580/gb.png" width="30" height="20"></a>
+    
+  <a href="./README_FR.md"><img src="http://flags.fmcdn.net/data/flags/w580/fr.png" width="30" height="20"></a>
   <br>
-</h1>
+</h2>
 
 <h4 align="center">
   Wallet for the <a href="https://tron.network">Tron Protocol</a>
