@@ -76,7 +76,8 @@ export const routes = [
     search: {
       label: "search",
       component: SearchBar,
-      exclude: "/tokens/create"
+      exclude: "/tokens/create",
+      placeholder: "search_token"
     }
   },
   {

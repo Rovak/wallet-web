@@ -180,4 +180,5 @@ export const messages = {
   "the_url": "이 주소",
   "external_link_warning": "(은)는 외부 링크이므로 결과적으로 안전하지 않을 수 있습니다. 주의해서 진행하십시오.",
   "proceed": "진행",
+  "search_token": "토큰 이름 검색",
 };

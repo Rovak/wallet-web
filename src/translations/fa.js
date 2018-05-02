@@ -162,4 +162,5 @@ export const messages = {
   "the_url": "The URL",
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
+  "search_token": "Search for token name",
 };
