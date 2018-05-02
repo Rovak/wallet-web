@@ -23,6 +23,7 @@ export const messages = {
   "balance": "saldo",
   "votes": "votos",
   "password": "senha",
+  "showpassword":'mostrar senha',
   "my_vote": "meus votos",
   "submit_votes": "enviar votos",
   "submit": "enviar",

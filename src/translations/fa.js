@@ -21,6 +21,7 @@ export const messages = {
   "balance": "مانده حساب",
   "votes": "رای ها",
   "password": "رمز ورود",
+  "showpassword":'رمز عبور را نشان بده',
   "my_vote": "رای من",
   "submit_votes": "ارسال رای",
   "submit": "ارسال",
