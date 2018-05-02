@@ -1,7 +1,7 @@
 
 export const messages = {
   "app_title": "Tron Protocol",
-  "money_price": "prijs",
+  "money_price": "TRX prijs",
   "transactions": "transacties",
   "blocks": "blokken",
   "name": "naam",
@@ -22,6 +22,7 @@ export const messages = {
   "balance": "balans",
   "votes": "stemmen",
   "password": "wachtwoord",
+  "showpassword":'laat wachtwoord zien',
   "my_vote": "mijn stem",
   "submit_votes": "Bevestig stemmen",
   "submit": "bevestig",
@@ -103,4 +104,5 @@ export const messages = {
   "the_url": "The URL",
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
+  "search_token": "Search for token name",
 };

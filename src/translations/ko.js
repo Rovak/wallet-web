@@ -1,6 +1,6 @@
 export const messages = {
   "app_title": "Tron Protocol",
-  "money_price": "가격",
+  "money_price": "TRX 가격",
   "blocks": "블록",
   "block": "블록",
   "transactions": "거래",
@@ -22,6 +22,7 @@ export const messages = {
   "balance": "잔액",
   "votes": "투표수",
   "password": "암호",
+  "showpassword":'암호 표시',
   "my_vote": "나의 투표",
   "submit_votes": "투표 제출",
   "submit": "제출",
@@ -179,4 +180,5 @@ export const messages = {
   "the_url": "이 주소",
   "external_link_warning": "(은)는 외부 링크이므로 결과적으로 안전하지 않을 수 있습니다. 주의해서 진행하십시오.",
   "proceed": "진행",
+  "search_token": "토큰 이름 검색",
 };
