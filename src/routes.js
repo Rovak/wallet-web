@@ -13,6 +13,7 @@ import Send from "./components/transfer/Send";
 import Receive from "./components/transfer/Receive";
 import Blocks from "./components/blockchain/Blocks";
 import Block from "./components/blockchain/Block";
+import SearchBar from "./components/common/SearchBar";
 
 export const routes = [
   {
@@ -71,8 +72,13 @@ export const routes = [
         path: "/tokens/create",
         component: TokensCreate,
         icon: ''
-      },
-    ]
+      }
+    ],
+    search: {
+      label: "search",
+      component: SearchBar,
+      exclude: "/tokens/create"
+    }
   },
   {
     path: "/accounts",

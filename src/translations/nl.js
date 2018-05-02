@@ -22,6 +22,7 @@ export const messages = {
   "balance": "balans",
   "votes": "stemmen",
   "password": "wachtwoord",
+  "showpassword":'laat wachtwoord zien',
   "my_vote": "mijn stem",
   "submit_votes": "Bevestig stemmen",
   "submit": "bevestig",

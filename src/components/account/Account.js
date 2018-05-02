@@ -12,10 +12,10 @@ class Account extends Component {
 
   constructor() {
     super();
-
     this.state = {
       waitingForTrx: false,
       showRequest: true,
+      showPassword:false,
       trxRequestResponse: {
         success: false,
         code: -1,
@@ -79,7 +79,7 @@ class Account extends Component {
 
       let address = passwordToAddress(account.key);
 
-      let {data} = await xhr.post(`${window.location.origin}/request-coins`, {
+      let {data} = await xhr.post(`https://tronscan.org/request-coins`, {
         address,
       });
 
@@ -109,6 +109,11 @@ class Account extends Component {
     }
   };
 
+  showPword (){
+      this.setState({
+          showPassword: true
+      });
+  }
   renderTestnetRequest() {
 
     let {waitingForTrx, trxRequestResponse} = this.state;
@@ -160,8 +165,21 @@ class Account extends Component {
     } 
           
     let {showRequest} = this.state;
+            return (
+              <div>
+                <div className="alert alert-warning">
+                {tu("need_to_login")}
+                </div>
+                <p className="text-center">
+                  <Link to="/login">{tu("Go to login")}</Link>
+                </p>
+              </div>
+            );
+          }
+    let {showRequest,showPassword} = this.state;
 
     let address = passwordToAddress(account.key);
+    let key = account.key;
 
     return (
       <main className="container pt-3">
@@ -184,6 +202,17 @@ class Account extends Component {
                     <span className="text-danger">
                       ({tu("do_not_send_2")})
                     </span>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-2">
+                    <b>{tu("password")}</b>
+                  </div>
+                  <button className={showPassword?'btn btn-primary hide':'btn btn-primary show'} onClick={this.showPword.bind(this)}>
+                      {tu("showpassword")}
+                  </button>
+                  <div className={showPassword?'col-md-10 show':'col-md-10 hide'}>
+                      {key}<br/>
                   </div>
                 </div>
               </div>
