@@ -10,6 +10,8 @@ import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
+import {Link} from "react-router-dom";
+
 
 class Votes extends Component {
 
@@ -26,6 +28,7 @@ class Votes extends Component {
   componentDidMount() {
     let {account, loadWitnesses, loadTokenBalances} = this.props;
     loadWitnesses();
+    if(account.isLoggedIn)
     loadTokenBalances(passwordToAddress(account.key));
   }
 
@@ -65,12 +68,12 @@ class Votes extends Component {
     });
   };
 
-  hasVotes = () => {
+ /* hasVotes = () => {
     let voteStatus = this.getVoteStatus();
 
     return voteStatus.votesSpend > 0 && voteStatus.votesAvailable >= 0;
   };
-
+*/
   onSearchFieldChangeHandler = (e) => {
     this.setState({
       searchString: e.target.value,
@@ -130,7 +133,20 @@ class Votes extends Component {
 
   render() {
 
-    let {intl} = this.props;
+    let {account , intl} = this.props;
+      if (!account.isLoggedIn) {
+          return (
+              <div>
+                  <div className="alert alert-warning">
+                      {tu("need_to_login")}
+                  </div>
+                  <p className="text-center">
+                      <Link to="/login">{tu("Go to login")}</Link>
+                  </p>
+              </div>
+          );
+      }
+
     let {votesSubmitted, searchString, votes} = this.state;
 
     let witnesses = this.filteredWitnesses();
