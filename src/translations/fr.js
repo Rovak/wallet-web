@@ -54,7 +54,7 @@ export const messages = {
   "accounts": "comptes",
   "account": "compte",
   "scan_qr_code": "Scannez le code avec un lecteur QR Code",
-  "receive_trx": "recevoir trx",
+  "receive_trx": "recevoir TRX",
   "require_account_to_send": "Vous devez être connecté pour envoyer des coins",
   "require_account_to_receive": "Vous devez être connecté pour recevoir des coins",
   "successful_send": "Envoyé avec succès!",
