@@ -62,6 +62,7 @@ export const messages = {
   "nodes": "nodes",
   "confirm_transaction": "confirm transaction",
   "last_confirmed": "Last Confirmed",
+  "recent_blocks": "Recent Blocks",
   "blocks_produced": "Blocks Produced",
   "blocks_missed": "Blocks Missed",
   "do_not_send_1": "Do not send TRX from your own wallet or exchange to your testnet address!",

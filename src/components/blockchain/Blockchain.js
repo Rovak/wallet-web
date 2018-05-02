@@ -169,7 +169,7 @@ class Blockchain extends Component {
             <div className="card border-light mb-3">
               <div className="card-header bg-dark text-white">
                 <i className="fas fa-cubes mr-1"/>
-                {tu("Recent blocks")}
+                {tu("recent_blocks")}
               </div>
               <div className="card-body">
                 {this.renderBlocks()}
