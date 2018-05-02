@@ -162,22 +162,9 @@ class Account extends Component {
     let {account} = this.props;
     if (!account.isLoggedIn) {
       return <Redirect to="/login" />;
-    } 
-          
-    let {showRequest} = this.state;
-            return (
-              <div>
-                <div className="alert alert-warning">
-                {tu("need_to_login")}
-                </div>
-                <p className="text-center">
-                  <Link to="/login">{tu("Go to login")}</Link>
-                </p>
-              </div>
-            );
-          }
+    }     
+   
     let {showRequest,showPassword} = this.state;
-
     let address = passwordToAddress(account.key);
     let key = account.key;
 
