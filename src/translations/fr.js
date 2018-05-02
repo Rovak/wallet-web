@@ -1,7 +1,7 @@
 
 export const messages = {
   "app_title": "Protocole Tron",
-  "money_price": "prix",
+  "money_price": "Prix du TRX",
   "blocks": "blocs",
   "transactions": "transactions",
   "name": "nom",
@@ -146,5 +146,5 @@ export const messages = {
   "the_url": "L'url",
   "external_link_warning": "est un lien externe et peut, par conséquent, ne pas être sécurisé. Soyez vigilants.",
   "proceed": "Procéder",
-  "search_token": "Search for token name",
+  "search_token": "Rechercher un jeton par son nom",
 };

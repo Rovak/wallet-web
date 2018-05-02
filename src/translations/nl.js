@@ -1,7 +1,7 @@
 
 export const messages = {
   "app_title": "Tron Protocol",
-  "money_price": "prijs",
+  "money_price": "TRX prijs",
   "transactions": "transacties",
   "blocks": "blokken",
   "name": "naam",
