@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
-import {sortBy} from "lodash";
+import {filter, sortBy} from "lodash";
 import {loadTokens} from "../../actions/tokens";
 import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
 import {tu, tv} from "../../utils/i18n";
@@ -121,9 +121,10 @@ class TokensView extends Component {
   }
 
   renderTable() {
-    let {tokens, account} = this.props;
+    let {tokens, account, searchString} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
 
+    tokens = filter(tokens, t => t.name.toUpperCase().indexOf(searchString) !== -1);
     tokens = sortBy(tokens, t => t.name);
 
     return (
@@ -249,6 +250,7 @@ class TokensView extends Component {
   renderSmallDate(token) {
 
     let now = new Date().getTime();
+    let {account} = this.props;
 
     if (token.endTime < now) {
       return (
@@ -271,7 +273,7 @@ class TokensView extends Component {
             <FormattedTime value={token.startTime}/>
           </span>
           {
-            !this.containsToken(token) &&  <button
+            (!this.containsToken(token) && account.isLoggedIn) &&  <button
               className="btn btn-primary btn-sm float-right"
               onClick={() => this.toggleToken(token)}>
               {tu("participate")}
@@ -294,9 +296,10 @@ class TokensView extends Component {
   }
 
   renderSmallTable() {
-    let {tokens} = this.props;
+    let {tokens, searchString} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
 
+    tokens = filter(tokens, t => t.name.indexOf(searchString) !== -1);
     tokens = sortBy(tokens, t => t.name);
 
     return (
@@ -408,6 +411,7 @@ function mapStateToProps(state) {
   return {
     tokens: state.tokens.tokens,
     account: state.app.account,
+    searchString: state.app.searchString,
   };
 }
 

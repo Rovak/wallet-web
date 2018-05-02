@@ -36,7 +36,7 @@ class Send extends React.Component {
     const {account} = this.props ;
     let address = passwordToAddress(account.key);
 
-    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address ; ;
+    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
   };
 
   /**
@@ -59,7 +59,8 @@ class Send extends React.Component {
   };
 
   setAmount = (amount) => {
-
+    // 20180417 fbsobreira: allow send values smaller than 0 (FIX issue #91)
+    /*
     if (amount !== '') {
       amount = parseFloat(amount);
     }
@@ -67,6 +68,13 @@ class Send extends React.Component {
     this.setState({
       amount: amount > 0 ? amount : '',
     });
+    */
+    amount = amount.replace(/^0+(?!\.|$)/, '').replace(/[^0-9 .]+/g,'').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1");
+    
+    this.setState({
+      amount: amount,
+    });
+   
   };
 
   getSelectedTokenBalance = () => {
@@ -202,7 +210,7 @@ class Send extends React.Component {
         <div className="form-group">
           <label>{tu("amount")}</label>
           <div className="input-group mb-3">
-            <input type="number"
+            <input type="text"
                    onChange={(ev) => this.setAmount(ev.target.value) }
                    className={"form-control " + (!isAmountValid ? "is-invalid" : "")}
                    value={amount}
@@ -235,12 +243,12 @@ class Send extends React.Component {
     }
 
     return (
-      <main className="container-fluid pt-5 pb-5 bg-dark">
+      <main className="container-fluid pt-5 pb-5">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-sm-8 col-lg-5">
               <div className="card">
-                <div className="card-header text-center">
+                <div className="card-header text-center bg-dark text-white">
                  {tu("Send TRX")}
                 </div>
                 <div className="card-body">

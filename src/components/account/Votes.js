@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {t, tu} from "../../utils/i18n";
-import {filter, find, some, sumBy} from "lodash";
+import {tu} from "../../utils/i18n";
+import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
 import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
@@ -10,6 +10,8 @@ import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
+import {Link} from "react-router-dom";
+
 
 class Votes extends Component {
 
@@ -26,6 +28,7 @@ class Votes extends Component {
   componentDidMount() {
     let {account, loadWitnesses, loadTokenBalances} = this.props;
     loadWitnesses();
+    if(account.isLoggedIn)
     loadTokenBalances(passwordToAddress(account.key));
   }
 
@@ -33,7 +36,7 @@ class Votes extends Component {
     let {votes} = this.state;
 
     if (numberOfVotes !== "") {
-      numberOfVotes = parseInt(numberOfVotes);
+      numberOfVotes = parseInt(numberOfVotes, 10);
 
       if (numberOfVotes < 0) {
         numberOfVotes = 0;
@@ -53,7 +56,7 @@ class Votes extends Component {
 
     let witnessVotes = Object.keys(votes).map(address => ({
       address,
-      amount: parseInt(votes[address]),
+      amount: parseInt(votes[address], 10),
     }));
 
     witnessVotes = filter(witnessVotes, vote => vote.amount > 0);
@@ -65,12 +68,12 @@ class Votes extends Component {
     });
   };
 
-  hasVotes = () => {
+ /* hasVotes = () => {
     let voteStatus = this.getVoteStatus();
 
     return voteStatus.votesSpend > 0 && voteStatus.votesAvailable >= 0;
   };
-
+*/
   onSearchFieldChangeHandler = (e) => {
     this.setState({
       searchString: e.target.value,
@@ -101,7 +104,7 @@ class Votes extends Component {
     let trx = find(tokenBalances, tb => tb.name.toUpperCase() === "TRX");
     let trxBalance = trx ? trx.balance : 0;
 
-    let votesSpend = sumBy(Object.values(votes), vote => parseInt(vote) || 0);
+    let votesSpend = sumBy(Object.values(votes), vote => parseInt(vote, 10) || 0);
 
     let votesAvailable = trxBalance - votesSpend;
     let spendAll = (votesSpend > 0 && votesAvailable === 0);
@@ -130,7 +133,20 @@ class Votes extends Component {
 
   render() {
 
-    let {intl} = this.props;
+    let {account , intl} = this.props;
+      if (!account.isLoggedIn) {
+          return (
+              <div>
+                  <div className="alert alert-warning">
+                      {tu("need_to_login")}
+                  </div>
+                  <p className="text-center">
+                      <Link to="/login">{tu("Go to login")}</Link>
+                  </p>
+              </div>
+          );
+      }
+
     let {votesSubmitted, searchString, votes} = this.state;
 
     let witnesses = this.filteredWitnesses();
@@ -190,14 +206,11 @@ class Votes extends Component {
             <button className="btn btn-danger col-md mt-3"
                     onClick={this.voteForWitnesses}
                     disabled={voteStatus.votesSpend === 0 || voteStatus.voteState === -1}>
-              {tu("to_much_votes")}
+              {tu("too_many_votes")}
             </button>
           }
           <p className="mt-3">
-            Use your TRX to vote for Super Representatives. For every TRX you hold in your
-            account you have one vote to spend. TRX will not be consumed.
-            You can vote as many times for the several representatives as you like.
-            The final votes will be tallied at 24 o'clock and the list of delegates will be updated.
+            {tu("use_your_vote")}
           </p>
         </div>
       </div>
@@ -240,9 +253,9 @@ class Votes extends Component {
                     witnesses.map((account, index) => (
                       <tr key={account.address}>
                         <th scope="row">{index + 1}</th>
-                        <td>
+                        <td className="break-word">
                           {account.address.substr(0, 24)}...<br/>
-                          {account.url}
+                          <small>{account.url}</small>
                         </td>
                         <td>{account.votes} TRX</td>
                         <td>

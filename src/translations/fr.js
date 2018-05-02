@@ -22,6 +22,7 @@ export const messages = {
   "balance": "solde",
   "votes": "votes",
   "password": "mot de passe",
+  "showpassword":'montrer le mot de passe',
   "my_vote": "mon vote",
   "submit_votes": "soumettre les votes",
   "submit": "soumettre",
@@ -104,14 +105,46 @@ export const messages = {
   "issue_a_token": "Émettre un jeton",
   "issue_token": "Jeton d'émission",
   "ok": "OK",
-  "the_lunch_test": "The launch of testnet aims to test all the features of our blockchain explorer and wallet.",
-  "plese_keep_in_mind": `Please keep in mind, that since your registered account address is only used for testnet, do not send TRX from your
-  own wallet or exchange to the account address of testnet.`,
-  "tron_foundation": "TRON Foundation",
-  "trx_for_testing": `TRX for testing will be sent to your testing account once you successfully apply through account management.`,
-  "dear_users,": "Dear users,",
-  "finished": "Finished",
-  "need_to_login": "You must be logged in to access to account page ",
-  "produced_by": "Produced by {witnessAddress}",
-  "show_more": "Show {countriesLength} More",
+  "the_lunch_test": "Le lancement de testnet vise à tester toutes les fonctionnalités de notre explorateur blockchain et de notre portefeuille.",
+  "plese_keep_in_mind": `Veuillez garder à l'esprit, que votre adresse de compte enregistrée est utilisée uniquement sur le testnet. Ne faites pas de transactions TRX entre votre portefeuille réel et celui du testnet.`,
+  "tron_foundation": "Fondation TRON",
+  "trx_for_testing": `Les TRX pour les tests seront envoyés à votre compte de test une fois que vous aurez fait la demande depuis la page de votre compte.`,
+  "dear_users,": "Chers utilisateurs,",
+  "finished": "Terminé",
+  "need_to_login": "Vous devez être connecté pour accéder à la page du compte ",
+  "produced_by": "Produit par {witnessAddress}",
+  "show_more": "Afficher {countriesLength} de plus",
+  "vote_guide_message": `Utilisez votre TRX pour voter pour les Super Representants. 
+    Vous pouvez envoyer un vote pour chaque TRX détenu. 
+    TRX ne sera pas consommé. Vous pouvez voter autant de fois que vous le souhaitez pour plusieurs représentants. 
+    Les votes finaux seront comptés à minuit et la liste des délégués sera mise à jour.`,
+  "token_issue_guide_message_1":`L'émission d'un jeton sur le protocole Tron peut être faite
+                par quiconque ayant au moins 1024 TRX dans son compte.`,
+  "token_issue_guide_message_2":`Quand un jeton est émis, il sera affiché sur la page d'aperçu des jetons.
+                Les utilisateurs peuvent alors participer à la période de participation et échanger leur TRX contre des jetons.`,
+  "token_issue_guide_message_3":`Après avoir émis le jeton, votre compte recevra un nombre de jetons égal à l'offre totale.
+                Lorsque d'autres utilisateurs échangent leur TRX contre des jetons, les jetons seront retirés de votre compte et vous
+                recevez du TRX égal au taux de change spécifié.`,
+  "search_address": "Rechercher une adresse",
+  "check_box_invalid": "La vérification est requise.",
+  "required_invalid": "Le champ {title} est obligatoire.",
+  "min_invalid": "Le {title} doit être au moins {min}.",
+  "date_invalid": "Le {titre} n'a pas un format de date valide.",
+  "url_invalid": "Le {title} format est invalide",
+  "require_account_to_apply": "vous devez être connecté pour postuler afin d'être délégué",
+  "start_past_date_invalid": "{startDate} ne peut pas être antérieure à la date du jour .",
+  "end_past_date_invalid": "{endDate} ne peut pas être antérieure à {startDate}.",
+  "total_supply_short_txt": "Quantité totale de jetons qui seront en circulation",
+  "description_short_txt": "Une brève description de l'objectif du jeton",
+  "url_short_txt": "Un site Web où les utilisateurs peuvent trouver plus d'informations sur le jeton",
+  "exchange_rate_short_txt_1": `Spécifiez le prix d'un jeton unique en définissant combien de jetons
+    un participant recevra pour chaque TRX qu'il dépensera.`,
+  "exchange_rate_short_txt_2": `Les participants recevront {num} pour chaque {trxNum}.`,
+  "participation_short_txt": `Précisez la période de participation pendant laquelle les jetons seront émis.
+    Pendant la période de participation, les utilisateurs peuvent échanger des TRX contre des jetons {name}.`,
+  "success_short_txt": "Jeton émis avec succès",
+  "the_url": "L'url",
+  "external_link_warning": "est un lien externe et peut, par conséquent, ne pas être sécurisé. Soyez vigilants.",
+  "proceed": "Procéder",
+  "search_token": "Search for token name",
 };

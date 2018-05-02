@@ -22,6 +22,7 @@ export const messages = {
   "balance": "잔액",
   "votes": "투표수",
   "password": "암호",
+  "showpassword":'암호 표시',
   "my_vote": "나의 투표",
   "submit_votes": "투표 제출",
   "submit": "제출",
@@ -53,8 +54,8 @@ export const messages = {
   "accounts": "계정",
   "scan_qr_code": "QR 코드 스캐너로 코드를 스캔하세요",
   "receive_trx": "TRX 받기",
-  "require_account_to_send": "코인을 보내려면 로그인을 해야 합니다",
-  "require_account_to_receive": "코인을 받으려면 로그인을 해야 합니다",
+  "require_account_to_send": "코인을 보내려면 로그인해야합니다",
+  "require_account_to_receive": "코인을 받으려면 로그인해야합니다",
   "successful_send": "전송 성공!",
   "nodes": "노드",
   "receive": "받기",
@@ -65,7 +66,8 @@ export const messages = {
   "Recent blocks": "최근 블록",
   "All blocks": "모든 블록",
   "Send TRX": "TRX 보내기",
-  "to": "보낼 주소",
+  "to": "받는 주소",
+  "from": "보내는 주소",
   "Most TRX": "최대 TRX",
   "account": "계정",
   "Account": "계정",
@@ -124,6 +126,7 @@ export const messages = {
   "details": "세부 사항",
   "participation": "참여",
   "token_price": "토큰 가격",
+  "price": "가격",
   "exchange_rate": "교환 비율",
   "url": "토큰 정보 안내 주소",
   "search_address_or_url": "주소 또는 URL 검색",
@@ -142,4 +145,40 @@ export const messages = {
   "witness": "증인",
   "size": "크기",
   "no_transactions_found": "거래 없음",
+  "no_transactions": "거래 없음",
+  "use_your_vote": `TRX를 사용하여 Super Representatives에 투표하십시오. 
+    귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
+    TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
+    최종 투표는 24시에 집계되며 대표단 명단이 업데이트됩니다.`,
+  "vote_guide_message": `TRX를 사용하여 Super Representatives에 투표하십시오. 
+    귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
+    TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
+    최종 투표는 24시에 집계되며 대표단 명단이 업데이트됩니다.`,
+  "token_issue_guide_message_1":`Tron 프로토콜에서 토큰을 발행하는 것은 
+    계정에 최소 1024 개의 TRX를 가진 사람이 수행 할 수 있습니다.`,
+  "token_issue_guide_message_2":`토큰이 발급되면 토큰 개요 페이지에 표시됩니다.
+    사용자는 참여 기간 내에 참여하고 TRX를 토큰으로 교환 할 수 있습니다.`,
+  "token_issue_guide_message_3":`토큰을 발행하면 계정에 총 공급과 동일한 토큰 금액이 지급됩니다.
+    다른 사용자가 TRX를 토큰으로 교환하면 토큰이 계정에서 철회되고 지정된 환율과 동일한 TRX를 받게됩니다.`,
+  "search_address": "주소 검색",
+  "check_box_invalid": "확인이 필요합니다.",
+  "required_invalid": "{title}(은)는 필수 입력 항목입니다.",
+  "min_invalid": "{title}(은)는 최소 {min}이상 입력을 해야합니다.",
+  "date_invalid": "{title}(은)는 유효한 날짜 포맷이 아닙니다.",
+  "url_invalid": "{title}에 올바른 URL을 입력해주세요.",
+  "require_account_to_apply": "위임을 신청하려면 로그인해야합니다.",
+  "start_past_date_invalid": "{startDate}는 현재보다 과거일 수 없습니다.",
+  "end_past_date_invalid": "{endDate}는 {startDate}보다 과거일 수 없습니다.",
+  "total_supply_short_txt": "유통 예정인 총 토큰 양",
+  "description_short_txt": "토큰의 목적에 대한 간단한 설명",
+  "url_short_txt": "사용자가 토큰에 대한 자세한 정보를 찾을 수있는 웹 사이트",
+  "exchange_rate_short_txt_1": `참여자가 지출하는 모든 TRX에 대해 받는 토큰 수를 정의하여 단일 토큰의 가격을 지정하십시오.`,
+  "exchange_rate_short_txt_2": `참여자는 {trxNum}마다 {num}을받을 것입니다.`,
+  "participation_short_txt": `토큰이 발행 될 참여 기간을 지정하십시오. 
+    참여 기간 동안 사용자는 {name} 토큰에 대해 TRX를 교환 할 수 있습니다.`,
+  "success_short_txt": "토큰이 성공적으로 발행되었습니다.",
+  "the_url": "이 주소",
+  "external_link_warning": "(은)는 외부 링크이므로 결과적으로 안전하지 않을 수 있습니다. 주의해서 진행하십시오.",
+  "proceed": "진행",
+  "search_token": "토큰 이름 검색",
 };

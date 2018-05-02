@@ -12,27 +12,32 @@ import Send from "./components/transfer/Send";
 import Receive from "./components/transfer/Receive";
 import Blocks from "./components/blockchain/Blocks";
 import Block from "./components/blockchain/Block";
+import SearchBar from "./components/common/SearchBar";
 
 export const routes = [
   {
     path: "/blockchain",
     label: "blockchain",
     component: Blockchain,
+    icon: ''
   },
   {
     path: "/network",
     label: "network",
     component: Representatives,
+    icon: '',
     routes: [
       {
         label: "nodes",
         path: "/network/nodes",
-        component: Nodes
+        component: Nodes,
+        icon: ''
       },
       {
         label: "representatives",
         path: "/network/representatives",
-        component: Representatives
+        component: Representatives,
+        icon: ''
       },
     ]
   },
@@ -40,12 +45,14 @@ export const routes = [
     path: "/block/:id",
     label: "block",
     component: Block,
+    icon: '',
     showInMenu: false,
   },
   {
     path: "/blocks",
     label: "blocks",
     component: Blocks,
+    icon: '',
     showInMenu: false,
   },
   {
@@ -56,29 +63,40 @@ export const routes = [
       {
         label: "view",
         path: "/tokens/view",
-        component: TokensView
+        component: TokensView,
+        icon: ''
       },
       {
         label: "create",
         path: "/tokens/create",
-        component: TokensCreate
-      },
-    ]
+        component: TokensCreate,
+        icon: ''
+      }
+    ],
+    search: {
+      label: "search",
+      component: SearchBar,
+      exclude: "/tokens/create",
+      placeholder: "search_token"
+    }
   },
   {
     path: "/accounts",
     label: "accounts",
-    component: Accounts
+    component: Accounts,
+    icon: ''
   },
   {
     path: "/send",
     label: "send",
-    component: Send
+    component: Send,
+    icon: "fa fa-paper-plane mr-2"
   },
   {
     path: "/receive",
     label: "receive",
-    component: Receive
+    component: Receive,
+    icon: "fa fa-qrcode mr-2"
   },
   {
     path: "/login",
