@@ -80,7 +80,7 @@ export const messages = {
   "available": "disponível",
   "request_trx_for_testing": "Solicite TRX para teste",
   "testnet": "Testnet",
-  "information_message_1": "Ao solicitar TRX, você receberá 10.000 TRX, que pode ser usado para teste na testnet.",
+  "information_message_1": "Ao solicitar TRX, você receberá 1.000.000 TRX, que pode ser usado para teste na testnet.",
   "information_message_2": "Você só pode solicitar TRX uma vez por conta.",
   "invalid_address": "endereço inválido",
   "insufficient_tokens": "tokens insuficientes",
