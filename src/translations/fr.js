@@ -146,4 +146,5 @@ export const messages = {
   "the_url": "L'url",
   "external_link_warning": "est un lien externe et peut, par conséquent, ne pas être sécurisé. Soyez vigilants.",
   "proceed": "Procéder",
+  "search_token": "Search for token name",
 };

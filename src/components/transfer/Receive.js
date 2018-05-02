@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
-import {tu} from "../../utils/i18n";
-import {Link, Redirect} from "react-router-dom";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
-import {CopyToClipboard} from "react-copy-to-clipboard";
+import { tu } from "../../utils/i18n";
+import { Link, Redirect } from "react-router-dom";
+import { passwordToAddress } from "@tronprotocol/wallet-api/src/utils/crypto";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import MediaQuery from "react-responsive";
 
 class Receive extends React.Component {

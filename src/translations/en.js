@@ -177,5 +177,6 @@ export const messages = {
   "register_new_account": "or register a new account",
   "account_address": "Account Address",
   "welcome_to_tron": "Welcome to TRON",
-  "your_wallet": "Your Wallet"
+  "your_wallet": "Your Wallet",
+  "search_token": "Search for token name",
 };

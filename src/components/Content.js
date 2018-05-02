@@ -39,7 +39,7 @@ export default class Content extends Component {
                       }
                       {
                         (route.search && props.location.pathname !== route.search.exclude)
-                        && <Route component={route.search.component}/>
+                        && <Route component={() => <route.search.component placeholder={route.search.placeholder}/>}/>
                       }
                     </nav>
                   </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { debounce, omit } from "lodash";
+import { debounce } from "lodash";
 import { search } from "../../actions/app";
+import { injectIntl } from "react-intl";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -52,18 +53,24 @@ class SearchBar extends React.Component {
   };
 
   render() {
+    const {
+      placeholder,
+      intl: { formatMessage }
+    } = this.props;
+
     return (
-      <form className="form-inline">
+      <div className="col-md-4 mt-1">
         <input
-          type="search"
+          type="text"
           ref={ref => (this.input = ref)}
           value={this.state.searchString}
           onChange={this.handleChange}
           onFocus={this.toggleFocus}
           onBlur={this.toggleFocus}
-          className="form-control mr-sm-2"
+          className="form-control"
+          placeholder={formatMessage({ id: placeholder })}
         />
-      </form>
+      </div>
     );
   }
 }
@@ -78,4 +85,4 @@ const mapDispatchToProps = {
   search
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(SearchBar));
