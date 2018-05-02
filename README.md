@@ -1,3 +1,13 @@
+<h2 align="center">
+    <table align="center">
+        <tr>
+            <td>Languages :</td>
+            <td><a href="./README.md"><img src="http://flags.fmcdn.net/data/flags/w580/gb.png" width="30" height="20"></a></td>
+            <td><a href="./README_FR.md"><img src="http://flags.fmcdn.net/data/flags/w580/fr.png" width="30" height="20"></a></td>
+        </tr>
+    </table>
+</h2>
+
 <h1 align="center">
   wallet-web
   <br>
