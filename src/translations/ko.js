@@ -53,7 +53,7 @@ export const messages = {
   "start_end_time": "시작 / 종료 시간",
   "accounts": "계정",
   "scan_qr_code": "QR 코드 스캐너로 코드를 스캔하세요",
-  "send_trx": "TRX ",
+  "send_trx": "TRX 보내기",
   "receive_trx": "TRX 받기",
   "require_account_to_send": "코인을 보내려면 로그인해야합니다",
   "require_account_to_receive": "코인을 받으려면 로그인해야합니다",
