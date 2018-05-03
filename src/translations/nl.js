@@ -106,4 +106,5 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "search_token": "Search for token name",
+  "send_trx_address": "Send TRX to the following address",
 };
