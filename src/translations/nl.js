@@ -18,6 +18,7 @@ export const messages = {
   "view": "bekijken",
   "create": "nieuw",
   "country": "land",
+  "recent_blocks": "Recent blocks",
   "address": "adres",
   "balance": "balans",
   "votes": "stemmen",

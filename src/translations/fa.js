@@ -61,7 +61,7 @@ export const messages = {
   "tokens": "توکن ها",
   "No transactions": "فاقد تراکنش",
   "blockchain": "بلاکچین",
-  "Recent blocks": "بلاک های اخیر",
+  "recent_blocks": "بلاک های اخیر",
   "All blocks": "تمام بلاک ها",
   "Send TRX": "انتقال ترون",
   "to": "به آدرس",

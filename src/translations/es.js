@@ -86,6 +86,7 @@ export const messages = {
   "participate": "participar",
   "token_exchange_confirm": "Confirmo que gastaré {trxAmount} en esta distribución de tokens y conseguiré un total de {tokenAmount} tokens.",
   "blockchain": "blockchain",
+  "recent_blocks": "Recent blocks",
   "tokens": "tokens",
   "receive": "recibir",
   "supply": "oferta",
