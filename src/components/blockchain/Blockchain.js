@@ -48,7 +48,7 @@ class Blockchain extends Component {
                 <strong className="d-block text-gray-dark break-word">
                     {
                       tv("produced_by", {
-                          witnessAddress: block.witnessAddress.substr(0, 28) + '...'
+                          witnessAddress: block.witnessAddress
                       })
                     }
                 </strong>
@@ -139,7 +139,11 @@ class Blockchain extends Component {
               <div className="col-md-3 ml-md-auto d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-server fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">{tu("representatives")}</h6>
+                  <h6 className="mb-0 text-white lh-100">
+                    <Link className="text-white" to={"/network/representatives"}>
+                      {tu("representatives")}
+                    </Link>
+                  </h6>
                   <small>{witnesses.length}</small>
                 </div>
               </div>
