@@ -153,7 +153,7 @@ export const messages = {
   "vote_guide_message": `TRX를 사용하여 Super Representatives에 투표하십시오. 
     귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
     TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
-    최종 투표는 24시에 집계되며 대표단 명단이 업데이트됩니다.`,
+    득표는 6 시간마다 한 번 집계되고 최종 선거 결과는 UTC 오전 6시 (UTC), 오전 6시 (UTC), 오후 12시 (12:00) UTC에 업데이트됩니다. 6:00 PM (18:00) UTC, SuperRepresentatives 목록이 업데이트됩니다.`,
   "token_issue_guide_message_1":`Tron 프로토콜에서 토큰을 발행하는 것은 
     계정에 최소 1024 개의 TRX를 가진 사람이 수행 할 수 있습니다.`,
   "token_issue_guide_message_2":`토큰이 발급되면 토큰 개요 페이지에 표시됩니다.

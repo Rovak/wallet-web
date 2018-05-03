@@ -118,7 +118,7 @@ export const messages = {
   "vote_guide_message": `Utilisez votre TRX pour voter pour les Super Representants. 
     Vous pouvez envoyer un vote pour chaque TRX détenu. 
     TRX ne sera pas consommé. Vous pouvez voter autant de fois que vous le souhaitez pour plusieurs représentants. 
-    Les votes finaux seront comptés à minuit et la liste des délégués sera mise à jour.`,
+    Les votes sont comptabilisés toutes les six heures et les résultats définitifs des élections seront mis à jour à 0h00 (0h00) UTC, 6h00 (6h00) UTC, 12h00 (12:00) UTC et 18h00 UTC, et la liste des SuperRepresentants sera mise à jour.`,
   "token_issue_guide_message_1":`L'émission d'un jeton sur le protocole Tron peut être faite
                 par quiconque ayant au moins 1024 TRX dans son compte.`,
   "token_issue_guide_message_2":`Quand un jeton est émis, il sera affiché sur la page d'aperçu des jetons.

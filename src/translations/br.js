@@ -119,10 +119,10 @@ export const messages = {
   "vote": "votar",
   "produced_by": "Produzido por {witnessAddress}",
   "show_more": "Mostrar mais {countriesLength}",
-  "use_your_vote": `Use seus TRX para votar nos Super Representantes.
+  "vote_guide_message": `Use seus TRX para votar nos Super Representantes.
         Para cada TRX que você possui em sua conta, você terá de votos para gastar.
         TRX não será consumido. Você pode votar quantas vezes quiser para os vários representantes.
-        Os votos finais serão computados às 24 horas, e a lista de representantes será atualizada.`,
+        Os votos são computados uma vez a cada 6 horas e os resultados finais das eleições serão atualizados às 0:00 (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC e 6:00 PM (18:00) UTC, e a lista de SuperRepresentantes será atualizada.`,
   "token_issue_guide_message_1":`Emitir um token no protocolo Tron pode ser feito
         por qualquer pessoa que tenha pelo menos 1024 TRX em sua conta.`,
   "token_issue_guide_message_2":`Quando um token é emitido, ele será mostrado na página de visão geral de tokens.

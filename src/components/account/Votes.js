@@ -210,7 +210,7 @@ class Votes extends Component {
             </button>
           }
           <p className="mt-3">
-            {tu("use_your_vote")}
+            {tu("vote_guide_message")}
           </p>
         </div>
       </div>
