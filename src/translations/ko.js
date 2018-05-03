@@ -63,7 +63,7 @@ export const messages = {
   "tokens": "토큰",
   "No transactions": "거래 없음",
   "blockchain": "블록체인",
-  "Recent blocks": "최근 블록",
+  "recent_blocks": "최근 블록",
   "All blocks": "모든 블록",
   "Send TRX": "TRX 보내기",
   "to": "받는 주소",

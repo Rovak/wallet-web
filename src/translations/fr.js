@@ -9,6 +9,7 @@ export const messages = {
   "network": "réseau",
   "current": "actuel",
   "last_block": "dernier bloc",
+  "recent_blocks": "Recent blocks",
   "total_supply": "approvisionnement total",
   "sign_out": "déconnexion",
   "register_login": "Inscription / Connexion",
