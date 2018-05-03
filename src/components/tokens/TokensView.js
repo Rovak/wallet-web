@@ -131,10 +131,10 @@ class TokensView extends Component {
       <table className="table table-striped">
         <thead className="thead-dark">
           <tr>
-            <th>{tu("name")}</th>
-            <th>{tu("issuer")}</th>
-            <th className="text-right">{tu("total_supply")}</th>
-            <th>{tu("start_end_time")}</th>
+            <th style={{verticalAlign: 'baseline'}}>{tu("name")}</th>
+            <th style={{verticalAlign: 'baseline'}}>{tu("issuer")}</th>
+            <th style={{verticalAlign: 'baseline'}} className="text-right">{tu("total_supply")}</th>
+            <th style={{verticalAlign: 'baseline'}} className="text-center">{tu("start_end_time")}</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -143,10 +143,12 @@ class TokensView extends Component {
           tokens.map((token, index) => (
             <Fragment key={index}>
               <tr key={token.name}>
-                <td>{token.name}</td>
+                <td>
+                  {(token.name.length > 25) ? token.name.substr(0, 25)+" ..." : token.name}
+                </td>
                 <td>
                   <span title={token.ownerAddress}>
-                    {token.ownerAddress.substr(0, 16)}...
+                    {token.ownerAddress}
                   </span>
                 </td>
                 <td className="text-right">
@@ -155,7 +157,7 @@ class TokensView extends Component {
                 <td>
                   <FormattedDate value={token.startTime}/>&nbsp;
                   <FormattedTime value={token.startTime}/>&nbsp;
-                  -&nbsp;
+                  <br/>
                   <FormattedDate value={token.endTime}/>&nbsp;
                   <FormattedTime value={token.endTime}/>
                 </td>
@@ -170,7 +172,7 @@ class TokensView extends Component {
                   participateSuccess ? <tr>
                       <td colSpan="5">
                         <div className="alert alert-success text-center">
-                          You succesfully partipated!
+                        {tu("participated")}
                         </div>
                       </td>
                     </tr>
