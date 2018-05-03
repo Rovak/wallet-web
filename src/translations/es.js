@@ -86,6 +86,7 @@ export const messages = {
   "participate": "participar",
   "token_exchange_confirm": "Confirmo que gastaré {trxAmount} en esta distribución de tokens y conseguiré un total de {tokenAmount} tokens.",
   "blockchain": "blockchain",
+  "recent_blocks": "Recent blocks",
   "tokens": "tokens",
   "receive": "recibir",
   "supply": "oferta",
@@ -167,4 +168,5 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "search_token": "Search for token name",
+  "send_trx_address": "Send TRX to the following address",
 };

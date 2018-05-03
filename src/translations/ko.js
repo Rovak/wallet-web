@@ -63,7 +63,7 @@ export const messages = {
   "tokens": "토큰",
   "No transactions": "거래 없음",
   "blockchain": "블록체인",
-  "Recent blocks": "최근 블록",
+  "recent_blocks": "최근 블록",
   "All blocks": "모든 블록",
   "Send TRX": "TRX 보내기",
   "to": "받는 주소",
@@ -181,4 +181,5 @@ export const messages = {
   "external_link_warning": "(은)는 외부 링크이므로 결과적으로 안전하지 않을 수 있습니다. 주의해서 진행하십시오.",
   "proceed": "진행",
   "search_token": "토큰 이름 검색",
+  "send_trx_address": "TRX를 다음 주소로 보내주세요",
 };

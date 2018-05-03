@@ -61,7 +61,7 @@ export const messages = {
   "tokens": "توکن ها",
   "No transactions": "فاقد تراکنش",
   "blockchain": "بلاکچین",
-  "Recent blocks": "بلاک های اخیر",
+  "recent_blocks": "بلاک های اخیر",
   "All blocks": "تمام بلاک ها",
   "Send TRX": "انتقال ترون",
   "to": "به آدرس",
@@ -163,4 +163,5 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "search_token": "Search for token name",
+  "send_trx_address": "Send TRX to the following address",
 };

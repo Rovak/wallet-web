@@ -86,6 +86,7 @@ export const messages = {
   "participate": "participer",
   "token_exchange_confirm": "Je confirme l'envoi de {trxAmount}. Je reçois en retour {tokenAmount}.",
   "blockchain": "blockchain",
+  "recent_blocks": "Recent blocks",
   "tokens": "jetons",
   "receive": "recevoir",
   "supply" : "approvisionnement",
@@ -147,4 +148,5 @@ export const messages = {
   "external_link_warning": "est un lien externe et peut, par conséquent, ne pas être sécurisé. Soyez vigilants.",
   "proceed": "Procéder",
   "search_token": "Rechercher un jeton par son nom",
+  "send_trx_address": "Send TRX to the following address",
 };
