@@ -150,8 +150,6 @@ class Account extends Component {
         </button>
         <p className="pt-1">
           {tu("information_message_1")}
-          <br/>
-          {tu("information_message_2")}
         </p>
       </React.Fragment>
     );
