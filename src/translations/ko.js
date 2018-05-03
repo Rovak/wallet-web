@@ -66,7 +66,6 @@ export const messages = {
   "blockchain": "블록체인",
   "recent_blocks": "최근 블록",
   "All blocks": "모든 블록",
-  "Send TRX": "TRX 보내기",
   "to": "받는 주소",
   "from": "보내는 주소",
   "most_trx": "최대 TRX",
