@@ -85,7 +85,7 @@ class Navigation extends Component {
                           <span className="sr-only">Toggle Dropdown</span>
                         </button>
                         <div className="dropdown-menu">
-                          <Link className="dropdown-item" to="/account/transactions">
+                          <Link className="dropdown-item hide" to="/account/transactions">
                             <i className="fa fa-exchange-alt mr-2"/>
                             {tu("my_transactions")}
                           </Link> 
