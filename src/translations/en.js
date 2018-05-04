@@ -41,7 +41,7 @@ export const messages = {
   `,
   "unknown_error": "an unknown error occurred",
   "representative_understand": "I understand how to be a TRON representative",
-  "generate_account": "Click to generate your account address and password",
+  "generate_account": "Generate new account address and password",
   "create_account_confirm_1": "I understand that if I forget/lose my password I will never be able to access my assets",
   "create_account_confirm_2": "I understand that if I forget/lose my password no one will be able to help me recover it",
   "create_account_confirm_3": "I've written my password on paper",

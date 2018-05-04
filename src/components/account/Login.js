@@ -81,7 +81,7 @@ class Login extends Component {
 
     return true;
   };
-
+  
   renderLogin() {
 
     return (
@@ -89,10 +89,8 @@ class Login extends Component {
         <p className="text-center">
           <img src={TronLogo} alt="Tron"/><br/>
         </p>
-        <h5>{tu("welcome_to_tron")}</h5>
         <p className="mt-5">
-          <label>{tu("password")}</label>
-          <input className="form-control" type="password" onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
+          <input className="form-control" type="password" placeholder="Password..." onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
         </p>
         <p>
           <button
@@ -118,11 +116,10 @@ class Login extends Component {
         <p className="text-center">
           <img src={TronLogo} alt="Tron"/><br/>
         </p>
-        <h5 className="text-center">{tu("register")}</h5>
         <div className="mt-5">
           <p>
             <button className="btn btn-primary col-sm" onClick={this.generateAccount}>
-              {tu("generate_account")}
+              <i className="fa fa-redo"/> {tu("generate_account")}
             </button>
           </p>
           <form>
