@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MediaQuery from "react-responsive";
 import ExternalUrlWarning from "../dialogs/ExternalUrlWarning";
 
 class ExternalUrl extends Component {
@@ -19,12 +20,18 @@ class ExternalUrl extends Component {
       <React.Fragment>
         <a
           href={this.props.url}
+          title={this.props.url}
           onClick={e => {
             e.preventDefault();
             this.toggleModal();
           }}
         >
-          {this.props.url}
+          <MediaQuery minWidth={820}>
+            {this.props.url.slice(0, 20) + (this.props.url.length > 18 ? "..." : "")}
+          </MediaQuery>
+          <MediaQuery maxWidth={820}>
+            {this.props.url.slice(0, 15) + (this.props.url.length > 12 ? "..." : "")}
+          </MediaQuery>
         </a>
 
         <ExternalUrlWarning
