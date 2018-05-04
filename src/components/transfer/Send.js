@@ -5,7 +5,7 @@ import * as qs from "query-string";
 import {loadTokenBalances} from "../../actions/account";
 import {tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {isAddressValid, passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
 import {find} from "lodash";
@@ -230,17 +230,8 @@ class Send extends React.Component {
     let {account} = this.props;
 
     if (!account.isLoggedIn) {
-      return (
-        <div>
-          <div className="alert alert-warning">
-            {tu("require_account_to_send")}
-          </div>
-          <p className="text-center">
-            <Link to="/login">{tu("Go to login")}</Link>
-          </p>
-        </div>
-      );
-    }
+      return <Redirect to="/login" />;
+    }  
 
     return (
       <main className="container-fluid pt-5 pb-5">

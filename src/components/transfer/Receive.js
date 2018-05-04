@@ -2,9 +2,10 @@ import { connect } from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
 import { tu } from "../../utils/i18n";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { passwordToAddress } from "@tronprotocol/wallet-api/src/utils/crypto";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import MediaQuery from "react-responsive";
 
 class Receive extends React.Component {
 
@@ -24,17 +25,15 @@ class Receive extends React.Component {
 
     let { account } = this.props;
 
-    if (!account.isLoggedIn) {
-      return;
-    }
-
     let rootUrl = process.env.PUBLIC_URL || window.location.origin;
 
-    QRCode.toDataURL(`${rootUrl}/#/send?to=${passwordToAddress(account.key)}`, (err, url) => {
-      this.setState({
-        qrcode: url,
-      });
-    })
+    if (account.isLoggedIn) {
+        QRCode.toDataURL(`${rootUrl}/#/send?to=${passwordToAddress(account.key)}`, (err, url) => {
+          this.setState({
+            qrcode: url,
+          });
+        })
+    }    
   }
 
   render() {
@@ -43,17 +42,8 @@ class Receive extends React.Component {
     let { account } = this.props;
 
     if (!account.isLoggedIn) {
-      return (
-        <div>
-          <div className="alert alert-warning">
-            {tu("require_account_to_receive")}
-          </div>
-          <p className="text-center">
-            <Link to="/login">{tu("Go to login")}</Link>
-          </p>
-        </div>
-      );
-    }
+      return <Redirect to="/login" />;
+    }  
 
     return (
       <main className="container-fluid pt-5">

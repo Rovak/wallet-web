@@ -7,6 +7,7 @@ import TokensView from "./components/tokens/TokensView";
 import Login from "./components/account/Login";
 import Account from "./components/account/Account";
 import ApplyForDelegate from "./components/account/ApplyForDelegate";
+import Transactions from "./components/account/Transactions";
 import Votes from "./components/account/Votes";
 import Send from "./components/transfer/Send";
 import Receive from "./components/transfer/Receive";
@@ -90,18 +91,25 @@ export const routes = [
     path: "/send",
     label: "send",
     component: Send,
-    icon: "fa fa-paper-plane mr-2"
+    icon: "fa fa-paper-plane mr-2",
+    showLoggedIn: true
   },
   {
     path: "/receive",
     label: "receive",
     component: Receive,
-    icon: "fa fa-qrcode mr-2"
+    icon: "fa fa-qrcode mr-2",
+    showLoggedIn: true
   },
   {
     path: "/login",
     showInMenu: false,
     component: Login,
+  },
+  {
+    path: "/account/transactions",
+    showInMenu: false,
+    component: Transactions,
   },
   {
     path: "/account/votes",
