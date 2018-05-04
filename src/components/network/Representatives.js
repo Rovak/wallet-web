@@ -46,10 +46,10 @@ class Representatives extends Component {
                     <tr>
                       <td><b>{index + 1}</b></td>
                       <td><ExternalUrl url={account.url} /></td>
-                      <td>{account.latestBlockNumber}</td>
-                      <td>{account.producedTotal}</td>
-                      <td>{account.missedTotal}</td>
-                      <td>{account.votes}</td>
+                      <td><FormattedNumber value={account.latestBlockNumber} /></td>
+                      <td><FormattedNumber value={account.producedTotal} /></td>
+                      <td><FormattedNumber value={account.missedTotal} /></td>
+                      <td><FormattedNumber value={account.votes} /></td>
                     </tr>
                   ))
                 }
