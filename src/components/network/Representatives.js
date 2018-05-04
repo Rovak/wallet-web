@@ -32,12 +32,12 @@ class Representatives extends Component {
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr className="text-nowrap">
-                  <th>#</th>
-                  <th>Website</th>
-                  <th>Last block</th>
-                  <th>Blocks produced</th>
-                  <th>Blocks missed</th>
-                  <th>Votes</th>
+                <th>#</th>
+                <th>{tu("name")}</th>
+                <th>{tu("last_block")}</th>
+                <th>{tu("blocks_produced")}</th>
+                <th>{tu("blocks_missed")}</th>
+                <th>{tu("votes")}</th>
                 </tr>
               </thead>
               <tbody>
