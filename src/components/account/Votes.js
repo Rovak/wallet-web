@@ -69,6 +69,7 @@ class Votes extends Component {
     this.setState({
       votesSubmitted: true,
     });
+
   };
 
  /* hasVotes = () => {
@@ -133,6 +134,11 @@ class Votes extends Component {
       votePercentage: (votesSpend / trxBalance) * 100,
     };
   }
+  returnVate(){
+      this.setState({
+          votesSubmitted: false,
+      });
+  }
 
   render() {
     
@@ -155,6 +161,11 @@ class Votes extends Component {
             <div className="col-md-12">
               <Alert color="success" className="text-center">
                 {tu("vote_thanks")}
+                <br/>
+                <br/>
+                <button className="btn btn-primary btn-sm" onClick={this.returnVate.bind(this)}>
+                    {tu("return_vate")}
+                </button>
               </Alert>
             </div>
           </div>
