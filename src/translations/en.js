@@ -170,7 +170,5 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "search_token": "Search for token name",
-  "to": "To",
-  "most_trx": "Most TRX",
   "trx_balance": "TRX Balance"
 };
