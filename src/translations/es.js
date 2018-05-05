@@ -55,6 +55,7 @@ export const messages = {
   "accounts": "cuentas",
   "account": "cuenta",
   "scan_qr_code": "Escanea el código con un escaner de código QR",
+  "send_trx": "send TRX",
   "receive_trx": "recibir TRX",
   "require_account_to_send": "Debes iniciar sesión para enviar monedas",
   "require_account_to_receive": "Debes iniciar sesión para recibir monedas",

@@ -55,6 +55,7 @@ export const messages = {
   "start_end_time": "Start- / Eind Tijd",
   "accounts": "accounts",
   "scan_qr_code": "Scan the code with a QR Code scanner",
+  "send_trx": "send TRX",
   "receive_trx": "receive trx",
   "require_account_to_send": "You must be logged in to send coins",
   "require_account_to_receive": "You must be logged in to receive coins",

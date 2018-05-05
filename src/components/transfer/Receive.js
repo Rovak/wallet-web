@@ -59,7 +59,7 @@ class Receive extends React.Component {
                   <div className="input-group mb-3">
                     <input type="text"
                       readOnly={true}
-                      className="form-control"
+                      className="form-control text-center"
                       value={passwordToAddress(account.key)} />
                     <div className="input-group-append">
                       <CopyToClipboard text={passwordToAddress(account.key)}>

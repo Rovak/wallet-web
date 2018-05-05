@@ -240,7 +240,7 @@ class Send extends React.Component {
             <div className="col-12 col-sm-8 col-lg-5">
               <div className="card">
                 <div className="card-header text-center bg-dark text-white">
-                 {tu("Send TRX")}
+                 {tu("send_trx")}
                 </div>
                 <div className="card-body">
                   {this.renderForm()}
