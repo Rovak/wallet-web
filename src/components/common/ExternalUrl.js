@@ -16,7 +16,6 @@ class ExternalUrl extends Component {
   };
 
   render() {
-      const url = this.props.url.length>30?this.props.url.substring(0,30)+'...':this.props.url
     return (
       <React.Fragment>
         <a
