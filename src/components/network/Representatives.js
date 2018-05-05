@@ -27,7 +27,7 @@ class Representatives extends Component {
 
     return (
       <Fragment>
-          <div class="table-responsive mt-3">
+          <div class="table-responsive mt-2">
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr className="text-nowrap">
