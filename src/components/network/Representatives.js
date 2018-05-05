@@ -19,7 +19,7 @@ class Representatives extends Component {
 
     if (witnesses.length === 0) {
       return (
-        <div className="text-center d-flex justify-content-center p-4">
+        <div className="loader-center">
           <BarLoader />
         </div>
       );

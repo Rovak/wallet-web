@@ -11,6 +11,8 @@ import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
 import {Link, Redirect} from "react-router-dom";
+import {BarLoader} from "../common/loaders";
+import {FormattedNumber} from "react-intl";
 
 
 class Votes extends Component {
@@ -155,6 +157,16 @@ class Votes extends Component {
 
     let witnesses = this.filteredWitnesses();
     let voteStatus = this.getVoteStatus();
+    
+    
+    if (witnesses === null || witnesses.length === 0) {
+      return (
+        <div className="loader-center">
+          <BarLoader />
+        </div>
+      );
+    }
+    
 
     if (votesSubmitted) {
       return (
@@ -266,7 +278,9 @@ class Votes extends Component {
                           {account.address.substr(0, 24)}...<br/>
                           <small>{account.url}</small>
                         </td>
-                        <td>{account.votes} TRX</td>
+                        <td className="text-right"  style={{fontFamily: 'sans-serif'}}>
+                            <FormattedNumber value={account.votes} />
+                        </td>
                         <td>
                           <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
                                  value={votes[account.address]}
