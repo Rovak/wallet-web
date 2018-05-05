@@ -27,17 +27,16 @@ class Representatives extends Component {
 
     return (
       <Fragment>
-        <div class="container">
           <div class="table-responsive mt-3">
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr className="text-nowrap">
-                <th>#</th>
-                <th>{tu("name")}</th>
-                <th>{tu("last_block")}</th>
-                <th>{tu("blocks_produced")}</th>
-                <th>{tu("blocks_missed")}</th>
-                <th>{tu("votes")}</th>
+                  <th>#</th>
+                  <th>{tu("name")}</th>
+                  <th>{tu("last_block")}</th>
+                  <th>{tu("blocks_produced")}</th>
+                  <th>{tu("blocks_missed")}</th>
+                  <th>{tu("votes")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,14 +48,13 @@ class Representatives extends Component {
                       <td><FormattedNumber value={account.latestBlockNumber} /></td>
                       <td><FormattedNumber value={account.producedTotal} /></td>
                       <td><FormattedNumber value={account.missedTotal} /></td>
-                      <td><FormattedNumber value={account.votes} /></td>
+                      <td className="text-nowrap"><FormattedNumber value={account.votes} /> TRX</td>
                     </tr>
                   ))
                 }
               </tbody>
             </table>
           </div>
-        </div>
       </Fragment>
     )
   }
