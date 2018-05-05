@@ -172,4 +172,5 @@ export const messages = {
   "search_token": "Search for token name",
   "to": "To",
   "most_trx": "Most TRX",
+  "trx_balance": "TRX Balance"
 };
