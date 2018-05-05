@@ -1,6 +1,6 @@
 export const messages = {
   "app_title": "Tron Protocol",
-  "money_price": "قیمت",
+  "money_price": "TRX قیمت",
   "blocks": "بلاک ها",
   "transactions": "تراکنش ها",
   "name": "نام",
@@ -45,6 +45,7 @@ export const messages = {
   "create_account_confirm_2": "متوجه شدم اگر پسووردم را فراموش کردم هیچ کس نمیتواند به من کمک کند",
   "create_account_confirm_3": "پسووردم را روی کاغذ نوشتم",
   "vote_thanks": "ممنون بابت ارسال رای شما ",
+  "return_vate":"رأی دهندگان",
   "recent_transactions": "تراکنش های اخیر",
   "newest_account": "جدیدترین اکانت",
   "representatives": "نمایندگان",
@@ -61,7 +62,7 @@ export const messages = {
   "tokens": "توکن ها",
   "No transactions": "فاقد تراکنش",
   "blockchain": "بلاکچین",
-  "Recent blocks": "بلاک های اخیر",
+  "recent_blocks": "بلاک های اخیر",
   "All blocks": "تمام بلاک ها",
   "Send TRX": "انتقال ترون",
   "to": "به آدرس",
@@ -95,7 +96,7 @@ export const messages = {
   "base_token_amount": "مقدار توکن اصلی",
   "creating_a_token": "ایجاد توکن",
   "available": "در دسترس",
-  "information_message_1": "بعد از درخواست ترون شما 10000 ترون برای تست در شبکه دریافت میکنید",
+  "information_message_1": "بعد از درخواست ترون شما 1000000 ترون برای تست در شبکه دریافت میکنید",
   "information_message_2": " شما به ازای هر حساب فقط یک بار میتوانید ترون درخواست کنید ",
   "invalid_address": "آدرس غیر معتبر است",
   "insufficient_tokens": "عدم وجود توکن کافی",
@@ -133,7 +134,7 @@ export const messages = {
   "vote_guide_message": `Use your TRX to vote for Super Representatives. 
     For every TRX you hold in your account you have one vote to spend. 
     TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+    The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
                 by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
@@ -163,4 +164,5 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "search_token": "Search for token name",
+  "send_trx_address": "Send TRX to the following address",
 };

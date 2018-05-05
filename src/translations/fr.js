@@ -1,7 +1,7 @@
 
 export const messages = {
   "app_title": "Protocole Tron",
-  "money_price": "prix",
+  "money_price": "Prix du TRX",
   "blocks": "blocs",
   "transactions": "transactions",
   "name": "nom",
@@ -46,6 +46,7 @@ export const messages = {
   "create_account_confirm_2": "Je comprends que si j'oublie ou perd mon mot de passe, personne ne pourra m'aider à le récupérer",
   "create_account_confirm_3": "J'ai écrit mon mot de passe sur papier",
   "vote_thanks": "Merci d'avoir envoyé votre vote!",
+  "return_vate":"Retourne les votes",
   "recent_transactions": "transactions récentes",
   "newest_account": "nouveau compte",
   "representatives": "représentants",
@@ -54,7 +55,7 @@ export const messages = {
   "accounts": "comptes",
   "account": "compte",
   "scan_qr_code": "Scannez le code avec un lecteur QR Code",
-  "receive_trx": "recevoir trx",
+  "receive_trx": "recevoir TRX",
   "require_account_to_send": "Vous devez être connecté pour envoyer des coins",
   "require_account_to_receive": "Vous devez être connecté pour recevoir des coins",
   "successful_send": "Envoyé avec succès!",
@@ -78,7 +79,7 @@ export const messages = {
   "available": "disponible",
   "request_trx_for_testing": "Demander des TRX pour les tests",
   "testnet": "Testnet",
-  "information_message_1": "Lorsque vous demanderez des TRX, vous recevrez 10000 TRX que vous pouvez utiliser sur le testnet.",
+  "information_message_1": "Lorsque vous demanderez des TRX, vous recevrez 1000000 TRX que vous pouvez utiliser sur le testnet.",
   "information_message_2": "Vous ne pouvez demander des TRX qu'une seule fois par compte.",
   "invalid_address": "adresse invalide",
   "insufficient_tokens": "Nombre de jetons insuffisant",
@@ -86,6 +87,7 @@ export const messages = {
   "participate": "participer",
   "token_exchange_confirm": "Je confirme l'envoi de {trxAmount}. Je reçois en retour {tokenAmount}.",
   "blockchain": "blockchain",
+  "recent_blocks": "Recent blocks",
   "tokens": "jetons",
   "receive": "recevoir",
   "supply" : "approvisionnement",
@@ -117,7 +119,7 @@ export const messages = {
   "vote_guide_message": `Utilisez votre TRX pour voter pour les Super Representants. 
     Vous pouvez envoyer un vote pour chaque TRX détenu. 
     TRX ne sera pas consommé. Vous pouvez voter autant de fois que vous le souhaitez pour plusieurs représentants. 
-    Les votes finaux seront comptés à minuit et la liste des délégués sera mise à jour.`,
+    Les votes sont comptabilisés toutes les six heures et les résultats définitifs des élections seront mis à jour à 0h00 (0h00) UTC, 6h00 (6h00) UTC, 12h00 (12:00) UTC et 18h00 UTC, et la liste des SuperRepresentants sera mise à jour.`,
   "token_issue_guide_message_1":`L'émission d'un jeton sur le protocole Tron peut être faite
                 par quiconque ayant au moins 1024 TRX dans son compte.`,
   "token_issue_guide_message_2":`Quand un jeton est émis, il sera affiché sur la page d'aperçu des jetons.
@@ -146,5 +148,6 @@ export const messages = {
   "the_url": "L'url",
   "external_link_warning": "est un lien externe et peut, par conséquent, ne pas être sécurisé. Soyez vigilants.",
   "proceed": "Procéder",
-  "search_token": "Search for token name",
+  "search_token": "Rechercher un jeton par son nom",
+  "send_trx_address": "Send TRX to the following address",
 };

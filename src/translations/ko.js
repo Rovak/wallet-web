@@ -1,6 +1,6 @@
 export const messages = {
   "app_title": "Tron Protocol",
-  "money_price": "가격",
+  "money_price": "TRX 가격",
   "blocks": "블록",
   "block": "블록",
   "transactions": "거래",
@@ -46,6 +46,7 @@ export const messages = {
   "create_account_confirm_2": "암호를 잊거나 잃어버리면 아무도 복구할 수 없는 것을 이해했습니다",
   "create_account_confirm_3": "암호를 다른 곳에 적어놨습니다",
   "vote_thanks": "귀하의 투표를 제출해 주셔서 감사합니다",
+  "return_vate":"투표 수를 반환하십시오.",
   "recent_transactions": "최근 거래",
   "newest_account": "신규 계정",
   "representatives": "위임자",
@@ -63,7 +64,7 @@ export const messages = {
   "tokens": "토큰",
   "No transactions": "거래 없음",
   "blockchain": "블록체인",
-  "Recent blocks": "최근 블록",
+  "recent_blocks": "최근 블록",
   "All blocks": "모든 블록",
   "Send TRX": "TRX 보내기",
   "to": "받는 주소",
@@ -96,7 +97,7 @@ export const messages = {
   "available": "이용가능",
   "request_trx_for_testing": "테스트용 TRX 요청",
   "testnet": "테스트넷",
-  "information_message_1": "TRX를 요청할 때 10000 TRX를 받습니다. TRX는 테스트 네트워크에서 테스트하는 데 사용할 수 있습니다.",
+  "information_message_1": "TRX를 요청할 때 1000000 TRX를 받습니다. TRX는 테스트 네트워크에서 테스트하는 데 사용할 수 있습니다.",
   "information_message_2": "TRX는 계정 당 한 번만 요청할 수 있습니다.",
   "invalid_address": "잘못된 주소",
   "insufficient_tokens": "불충분한 토큰",
@@ -153,7 +154,7 @@ export const messages = {
   "vote_guide_message": `TRX를 사용하여 Super Representatives에 투표하십시오. 
     귀하가 보유하고있는 모든 TRX에 대해 귀하는 하나의 투표권을가집니다. 
     TRX는 소비되지 않습니다. 원하는대로 여러 대표에게 여러 번 투표 할 수 있습니다. 
-    최종 투표는 24시에 집계되며 대표단 명단이 업데이트됩니다.`,
+    득표는 6 시간마다 한 번 집계되고 최종 선거 결과는 UTC 오전 6시 (UTC), 오전 6시 (UTC), 오후 12시 (12:00) UTC에 업데이트됩니다. 6:00 PM (18:00) UTC, SuperRepresentatives 목록이 업데이트됩니다.`,
   "token_issue_guide_message_1":`Tron 프로토콜에서 토큰을 발행하는 것은 
     계정에 최소 1024 개의 TRX를 가진 사람이 수행 할 수 있습니다.`,
   "token_issue_guide_message_2":`토큰이 발급되면 토큰 개요 페이지에 표시됩니다.
@@ -181,4 +182,5 @@ export const messages = {
   "external_link_warning": "(은)는 외부 링크이므로 결과적으로 안전하지 않을 수 있습니다. 주의해서 진행하십시오.",
   "proceed": "진행",
   "search_token": "토큰 이름 검색",
+  "send_trx_address": "TRX를 다음 주소로 보내주세요",
 };

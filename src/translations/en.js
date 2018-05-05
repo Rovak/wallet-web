@@ -1,7 +1,7 @@
 
 export const messages = {
   "app_title": "Tron Protocol",
-  "money_price": "price",
+  "money_price": "TRX price",
   "blocks": "blocks",
   "transactions": "transactions",
   "name": "name",
@@ -46,6 +46,7 @@ export const messages = {
   "create_account_confirm_2": "I understand that if I forget/lose my password no one will be able to help me recover it",
   "create_account_confirm_3": "I've written my password on paper",
   "vote_thanks": "Thanks for submitting your vote!",
+  "return_vate":"Return the Votes",
   "recent_transactions": "recent transactions",
   "newest_account": "newest account",
   "representatives": "representatives",
@@ -87,6 +88,7 @@ export const messages = {
   "participate": "participate",
   "token_exchange_confirm": "I've confirmed to spend {trxAmount} on token distribution, and get a total of {tokenAmount} tokens.",
   "blockchain": "blockchain",
+  "recent_blocks": "Recent blocks",
   "tokens": "tokens",
   "receive": "receive",
   "supply": "supply",
@@ -130,7 +132,7 @@ export const messages = {
   "vote": "vote",
   "candidates": "candidates",
   "use_your_vote": `Use your TRX to vote for Super Representatives. For every TRX you hold in your account you have one vote to spend. TRX will not be consumed.
-  You can vote as many times for the several representatives as you like. The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+  You can vote as many times for the several representatives as you like. The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "close":"close",
   "price":"price",
   "produced_by": "Produced by {witnessAddress}",
@@ -138,7 +140,7 @@ export const messages = {
   "vote_guide_message": `Use your TRX to vote for Super Representatives. 
     For every TRX you hold in your account you have one vote to spend. 
     TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+    The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
     by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.

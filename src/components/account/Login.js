@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TronLogo from "../../images/trans_tron_logo.png";
-// import {generateAccount} from "@tronprotocol/wallet-api/src/utils/account";
+// import {generateAccount} from "tronaccount/src/utils/account";
 import {generateAccount} from "tronaccount/src/utils/account";
 import {loginWithPassword} from "../../actions/app";
 import {connect} from "react-redux";

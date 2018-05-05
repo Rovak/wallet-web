@@ -1,7 +1,7 @@
 
 export const messages = {
   "app_title": "Tron Protocol",
-  "money_price": "precio",
+  "money_price": "TRX precio",
   "blocks": "bloques",
   "transactions": "transacciones",
   "name": "nombre",
@@ -46,6 +46,7 @@ export const messages = {
   "create_account_confirm_2": "Entiedno que si olvido o pierdo mi contraseña no habrá forma de recuperarla",
   "create_account_confirm_3": "He escrito mi contraseña en papel",
   "vote_thanks": "¡Gracias por enviar tu voto!",
+  "return_vate": "Devuelve los votos",
   "recent_transactions": "transacciones recientes",
   "newest_account": "cuenta mas reciente",
   "representatives": "representantes",
@@ -78,7 +79,7 @@ export const messages = {
   "available": "disponible",
   "request_trx_for_testing": "Solicitar TRX para para pruebas",
   "testnet": "Testnet",
-  "information_message_1": "Al solicitar TRX recibirás 10000 TRX para pruebas en testnet.",
+  "information_message_1": "Al solicitar TRX recibirás 1000000 TRX para pruebas en testnet.",
   "information_message_2": "Sólo es posible una solicitud de TRX por cuenta.",
   "invalid_address": "direccion no válida",
   "insufficient_tokens": "Tokens insuficientes",
@@ -86,6 +87,7 @@ export const messages = {
   "participate": "participar",
   "token_exchange_confirm": "Confirmo que gastaré {trxAmount} en esta distribución de tokens y conseguiré un total de {tokenAmount} tokens.",
   "blockchain": "blockchain",
+  "recent_blocks": "Recent blocks",
   "tokens": "tokens",
   "receive": "recibir",
   "supply": "oferta",
@@ -129,15 +131,13 @@ export const messages = {
   "vote": "votar",
   "candidates": "candidatos",
   "use_your_vote": `Utiliza tus TRXs para votar a Super Representantes. Por cada TRX que poseas tienes derecho a un voto. Ningún TRX se gasta al votar.
-  Puedes dar la cantidad de votos que quieras a diferentes representantes. El recuento de votos se hará a las 00:00h y la lista de representantes quedará actualizada.`,
+  Puedes dar la cantidad de votos que quieras a diferentes representantes. Los votos se cuentan una vez cada 6 horas y los resultados de las elecciones finales se actualizarán a las 0:00 a.m. (0:00) UTC, 6:00 a.m. (6:00 a.m.), 12:00 a.m. (12:00 a.m. UTC) y 6:00 PM (18:00) UTC, y se actualizará la lista de SuperRepresentatives.`,
   "close":"cerrar",
   "price":"precio",
   "produced_by": "Produced by {witnessAddress}",
   "show_more": "Show {countriesLength} More",
-  "vote_guide_message": `Use your TRX to vote for Super Representatives. 
-    For every TRX you hold in your account you have one vote to spend. 
-    TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+  "vote_guide_message": `Utiliza tus TRXs para votar a Super Representantes. Por cada TRX que poseas tienes derecho a un voto. Ningún TRX se gasta al votar.
+  Puedes dar la cantidad de votos que quieras a diferentes representantes. Los votos se cuentan una vez cada 6 horas y los resultados de las elecciones finales se actualizarán a las 0:00 a.m. (0:00) UTC, 6:00 a.m. (6:00 a.m.), 12:00 a.m. (12:00 a.m. UTC) y 6:00 PM (18:00) UTC, y se actualizará la lista de SuperRepresentatives.`,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
                 by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
@@ -167,4 +167,5 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "search_token": "Search for token name",
+  "send_trx_address": "Send TRX to the following address",
 };

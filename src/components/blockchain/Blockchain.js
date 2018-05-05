@@ -48,7 +48,7 @@ class Blockchain extends Component {
                 <strong className="d-block text-gray-dark break-word">
                     {
                       tv("produced_by", {
-                          witnessAddress: block.witnessAddress.substr(0, 28) + '...'
+                          witnessAddress: block.witnessAddress
                       })
                     }
                 </strong>
@@ -132,14 +132,18 @@ class Blockchain extends Component {
               <div className="col-md-3 d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-dollar-sign fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">TRX {tu("money_price")}</h6>
+                  <h6 className="mb-0 text-white lh-100">{tu("money_price")}</h6>
                   <small>${price.usd} <span className={price.percentage > 0 ? "text-success" : "text-danger"}>{price.percentage}%</span></small>
                 </div>
               </div>
               <div className="col-md-3 ml-md-auto d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-server fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">{tu("representatives")}</h6>
+                  <h6 className="mb-0 text-white lh-100">
+                    <Link className="text-white" to={"/network/representatives"}>
+                      {tu("representatives")}
+                    </Link>
+                  </h6>
                   <small>{witnesses.length}</small>
                 </div>
               </div>
@@ -169,7 +173,7 @@ class Blockchain extends Component {
             <div className="card border-light mb-3">
               <div className="card-header bg-dark text-white">
                 <i className="fas fa-cubes mr-1"/>
-                {tu("Recent blocks")}
+                {tu("recent_blocks")}
               </div>
               <div className="card-body">
                 {this.renderBlocks()}

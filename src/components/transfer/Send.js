@@ -6,7 +6,7 @@ import {loadTokenBalances} from "../../actions/account";
 import {tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
 import {Link, Redirect} from "react-router-dom";
-import {isAddressValid, passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import {isAddressValid, passwordToAddress} from "tronaccount/src/utils/crypto";
 import SendOption from "./SendOption";
 import {find} from "lodash";
 import {ONE_TRX} from "../../constants";

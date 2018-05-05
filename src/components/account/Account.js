@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
 import {loadTokenBalances} from "../../actions/account";
 import {BarLoader} from "../common/loaders";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import xhr from "axios";
 import {FormattedNumber} from "react-intl";
 import {Link, Redirect} from "react-router-dom";
@@ -192,8 +192,6 @@ class Account extends Component {
         </button>
         <p className="pt-1">
           {tu("information_message_1")}
-          <br/>
-          {tu("information_message_2")}
         </p>
       </React.Fragment>
     );

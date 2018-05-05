@@ -4,7 +4,7 @@ import {tu} from "../../utils/i18n";
 import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import {injectIntl} from "react-intl";
 import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
@@ -69,6 +69,7 @@ class Votes extends Component {
     this.setState({
       votesSubmitted: true,
     });
+
   };
 
  /* hasVotes = () => {
@@ -133,6 +134,13 @@ class Votes extends Component {
       votePercentage: (votesSpend / trxBalance) * 100,
     };
   }
+  returnVate(){
+      this.setState({
+          votesSubmitted: false,
+          votes: {},
+      });
+
+  }
 
   render() {
     
@@ -155,6 +163,11 @@ class Votes extends Component {
             <div className="col-md-12">
               <Alert color="success" className="text-center">
                 {tu("vote_thanks")}
+                <br/>
+                <br/>
+                <button className="btn btn-primary btn-sm" onClick={this.returnVate.bind(this)}>
+                    {tu("return_vate")}
+                </button>
               </Alert>
             </div>
           </div>
@@ -206,7 +219,7 @@ class Votes extends Component {
             </button>
           }
           <p className="mt-3">
-            {tu("use_your_vote")}
+            {tu("vote_guide_message")}
           </p>
         </div>
       </div>
