@@ -22,7 +22,7 @@ export const messages = {
   "balance": "balance",
   "votes": "votes",
   "password": "password",
-  "showpassword":'show password',
+  "showpassword": "show password",
   "my_vote": "my vote",
   "submit_votes": "submit votes",
   "submit": "submit",
@@ -41,11 +41,12 @@ export const messages = {
   `,
   "unknown_error": "an unknown error occurred",
   "representative_understand": "I understand how to be a TRON representative",
-  "generate_account": "Click to generate your account address and password",
+  "generate_account": "Generate new account address and password",
   "create_account_confirm_1": "I understand that if I forget/lose my password I will never be able to access my assets",
   "create_account_confirm_2": "I understand that if I forget/lose my password no one will be able to help me recover it",
   "create_account_confirm_3": "I've written my password on paper",
   "vote_thanks": "Thanks for submitting your vote!",
+  "return_vate":"Return the Votes",
   "recent_transactions": "recent transactions",
   "newest_account": "newest account",
   "representatives": "representatives",
@@ -54,6 +55,7 @@ export const messages = {
   "accounts": "accounts",
   "account": "account",
   "scan_qr_code": "Or scan this QR code on a mobile device",
+  "send_trx": "send TRX",
   "receive_trx": "receive TRX",
   "send_trx_address": "Send TRX to the following address",
   "require_account_to_send": "You must be logged in to send coins",
@@ -131,7 +133,7 @@ export const messages = {
   "vote": "vote",
   "candidates": "candidates",
   "use_your_vote": `Use your TRX to vote for Super Representatives. For every TRX you hold in your account you have one vote to spend. TRX will not be consumed.
-  You can vote as many times for the several representatives as you like. The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+  You can vote as many times for the several representatives as you like. The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "close":"close",
   "price":"price",
   "produced_by": "Produced by {witnessAddress}",
@@ -139,7 +141,7 @@ export const messages = {
   "vote_guide_message": `Use your TRX to vote for Super Representatives. 
     For every TRX you hold in your account you have one vote to spend. 
     TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+    The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
     by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
@@ -165,8 +167,20 @@ export const messages = {
   "participation_short_txt": `Specify the participation period in which tokens will be issued.
     During the participation period users can exchange TRX for {name} tokens.`,
   "success_short_txt": "Token successfully issued",
+  "my_transactions": "My Transactions",
+  "from": "from",
+  "to": "to",
   "the_url": "The URL",
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
+  "bytes": "bytes",
+  "recent_blocks": "Recent blocks",
+  "send_trx": "Send TRX",
+  "create_account": "Create Account",
+  "register_new_account": "or register a new account",
+  "account_address": "Account Address",
+  "welcome_to_tron": "Welcome to TRON",
+  "your_wallet": "Your Wallet",
   "search_token": "Search for token name",
+  "trx_balance": "TRX Balance"
 };

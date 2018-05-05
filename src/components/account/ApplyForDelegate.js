@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {t, tu} from "../../utils/i18n";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {Client} from "../../services/api";
 
 class ApplyForDelegate extends Component {
@@ -66,21 +66,11 @@ class ApplyForDelegate extends Component {
   }
 
   render() {
-
+      
     let {account} = this.props;
-
     if (!account.isLoggedIn) {
-      return (
-        <div>
-          <div className="alert alert-warning">
-            {tu("require_account_to_apply")}
-          </div>
-          <p className="text-center">
-            <Link to="/login">{tu("Go to login")}</Link>
-          </p>
-        </div>
-      );
-    }
+      return <Redirect to="/login" />;
+    } 
 
     return (
       <main className="container pt-5 pb-5">

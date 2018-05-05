@@ -48,15 +48,17 @@ export const messages = {
   "create_account_confirm_2": "Eu compreendo que se eu esquecer ou perder minha senha, ninguém poderá me ajudar a recuperá-la",
   "create_account_confirm_3": "Eu escrevi minha senha em um papel",
   "vote_thanks": "Obrigado por enviar seu voto!",
+  "return_vate":"Devolva o voto",
   "recent_transactions": "transações recentes",
   "newest_account": "conta mais recente",
-  "Most TRX": "maior carteira",
+  "most_trx": "maior carteira",
   "representatives": "representantes",
   "most_votes": "mais votado",
   "start_end_time": "Data Início / Fim ",
   "account": "conta",
   "accounts": "contas",
   "scan_qr_code": "Digitalize a imagem com um scanner de QR code",
+  "send_trx": "send TRX",
   "receive_trx": "receber TRX",
   "require_account_to_send": "Você precisa estar logado para enviar moedas",
   "require_account_to_receive": "Você precisa estar logado para receber moedas",
@@ -119,10 +121,10 @@ export const messages = {
   "vote": "votar",
   "produced_by": "Produzido por {witnessAddress}",
   "show_more": "Mostrar mais {countriesLength}",
-  "use_your_vote": `Use seus TRX para votar nos Super Representantes.
+  "vote_guide_message": `Use seus TRX para votar nos Super Representantes.
         Para cada TRX que você possui em sua conta, você terá de votos para gastar.
         TRX não será consumido. Você pode votar quantas vezes quiser para os vários representantes.
-        Os votos finais serão computados às 24 horas, e a lista de representantes será atualizada.`,
+        Os votos são computados uma vez a cada 6 horas e os resultados finais das eleições serão atualizados às 0:00 (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC e 6:00 PM (18:00) UTC, e a lista de SuperRepresentantes será atualizada.`,
   "token_issue_guide_message_1":`Emitir um token no protocolo Tron pode ser feito
         por qualquer pessoa que tenha pelo menos 1024 TRX em sua conta.`,
   "token_issue_guide_message_2":`Quando um token é emitido, ele será mostrado na página de visão geral de tokens.

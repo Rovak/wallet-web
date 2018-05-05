@@ -45,6 +45,7 @@ export const messages = {
   "create_account_confirm_2": "متوجه شدم اگر پسووردم را فراموش کردم هیچ کس نمیتواند به من کمک کند",
   "create_account_confirm_3": "پسووردم را روی کاغذ نوشتم",
   "vote_thanks": "ممنون بابت ارسال رای شما ",
+  "return_vate":"رأی دهندگان",
   "recent_transactions": "تراکنش های اخیر",
   "newest_account": "جدیدترین اکانت",
   "representatives": "نمایندگان",
@@ -52,6 +53,7 @@ export const messages = {
   "start_end_time": "شروع / پایان زمان",
   "accounts": "حساب ها",
   "scan_qr_code": "کد را اسکن کنید ",
+  "send_trx": "send TRX",
   "receive_trx": "دریافت ترون",
   "require_account_to_send": "شما برای پرداخت کوین باید به حسابتان وارد شوید",
   "require_account_to_receive": "شما برای دریافت کوین باید وارد حساب کاربریتان شوید",
@@ -66,7 +68,7 @@ export const messages = {
   "Send TRX": "انتقال ترون",
   "to": "به آدرس",
   "token": "توکن",
-  "Most TRX": "بیشترین ترون",
+  "most_trx": "بیشترین ترون",
   "account": "حساب",
   "Welcome to TRON": "خوش آمدید به ترون",
   "or register a new account": "یک حساب جدید ایجاد کنید ",
@@ -133,7 +135,7 @@ export const messages = {
   "vote_guide_message": `Use your TRX to vote for Super Representatives. 
     For every TRX you hold in your account you have one vote to spend. 
     TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+    The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
                 by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.

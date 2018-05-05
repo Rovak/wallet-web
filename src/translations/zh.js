@@ -47,6 +47,7 @@ export const messages = {
   "create_account_confirm_2": "I understand if i forgot or lost my password that noone can help me recover it",
   "create_account_confirm_3": "I've written my password on paper",
   "vote_thanks": "Thanks for submitting your vote!",
+  "return_vate":"Return the Votes",
   "recent_transactions": "recent transactions",
   "newest_account": "newest account",
   "representatives": "representatives",
@@ -54,6 +55,7 @@ export const messages = {
   "start_end_time": "Start / End Time",
   "accounts": "accounts",
   "scan_qr_code": "Scan the code with a QR Code scanner",
+  "send_trx": "send TRX",
   "receive_trx": "receive trx",
   "require_account_to_send": "You must be logged in to send coins",
   "require_account_to_receive": "You must be logged in to receive coins",
@@ -75,7 +77,7 @@ export const messages = {
   "vote_guide_message": `Use your TRX to vote for Super Representatives. 
     For every TRX you hold in your account you have one vote to spend. 
     TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The final votes will be tallied at 24 o'clock and the list of delegates will be updated.`,
+    The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
                 by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.

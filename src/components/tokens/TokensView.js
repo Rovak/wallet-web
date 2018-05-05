@@ -9,6 +9,11 @@ import {Client} from "../../services/api";
 import MediaQuery from "react-responsive";
 import {ONE_TRX} from "../../constants";
 
+const desStyle = {
+    whiteSpace: "normal",
+    wordSrap: "break-word",
+    wordBreak:"break-all"
+}
 class TokensView extends Component {
 
   constructor() {
@@ -194,7 +199,7 @@ class TokensView extends Component {
                       <div className="form-group row no-gutters">
                         <label className="col-2 font-weight-bold text-right">{tu("description")}</label>
                         <div className="col-sm-9">
-                          <div className="pl-2">{token.description}</div>
+                          <div className="pl-2" style={desStyle}>{token.description}</div>
                         </div>
                       </div>
                       <div className="form-group row no-gutters">
