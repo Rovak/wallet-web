@@ -26,11 +26,11 @@ class ExternalUrl extends Component {
             this.toggleModal();
           }}
         >
-          <MediaQuery minWidth={820}>
-            {this.props.url.slice(0, 20) + (this.props.url.length > 18 ? "..." : "")}
+          <MediaQuery minWidth={920}>
+            {(this.props.url.length > 30 ? this.props.url.slice(0, 30) + "..." : this.props.url)}
           </MediaQuery>
-          <MediaQuery maxWidth={820}>
-            {this.props.url.slice(0, 15) + (this.props.url.length > 12 ? "..." : "")}
+          <MediaQuery maxWidth={920}>
+            {(this.props.url.length > 15 ? this.props.url.slice(0, 15) + "..." : this.props.url)}
           </MediaQuery>
         </a>
 
