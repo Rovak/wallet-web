@@ -1,7 +1,7 @@
 <h2 align="center">
     <table align="center">
         <tr>
-            <td>Languages :</td>
+            <td>Langues :</td>
             <td><a href="./README.md"><img src="http://flags.fmcdn.net/data/flags/w580/gb.png" width="30" height="20"></a></td>
             <td><a href="./README_FR.md"><img src="http://flags.fmcdn.net/data/flags/w580/fr.png" width="30" height="20"></a></td>
         </tr>
@@ -14,7 +14,7 @@
 </h1>
 
 <h4 align="center">
-  Wallet for the <a href="https://tron.network">Tron Protocol</a>
+  Portefeuille pour le <a href="https://tron.network">protocole Tron</a>
 </h4>
 
 <p align="center">
@@ -44,53 +44,53 @@
 </p>
 
 <p align="center">
-  <a href="#how-to-use">How to Use</a> •
-  <a href="#links">Links</a> •
+  <a href="#how-to-use">Comment utiliser</a> •
+  <a href="#links">Liens</a> •
   <a href="http://wiki.tron.network">Wiki</a> •
-  <a href="#community">Community</a>
+  <a href="#community">Communauté</a>
 </p>
 
-# How to use
+# Comment l'utiliser
 
-## Requirements
+## Exigences
 
 * Node v9.8.0
 * Yarn
 
-## Running
+## Fonctionnement
 
 ```bash
 > yarn install
 > yarn start
 ```
 
-The wallet should then be running on [http://localhost:3000](http://localhost:3000)
+Le portefeuille devra se lancer par la suite sur [http://localhost:3000](http://localhost:3000)
 
-## Changing the default API URL
+## Changer l'URL par défaut de l'API
 
-By default the Explorer will connect to https://tronscan.io for its data. 
+Par défaut, l'explorateur se connectera à https://tronscan.io pour récupérer ses données. 
 
-When developing locally the url can be changed by defining the `API_URL` environment variable
+Lors du développement en local, l'URL peut être modifiée en définissant la variable d'environnement `API_URL`
 
 ```bash
 > API_URL=http://127.0.0.0:8088 yarn start
 ```
 
-This should change the API_URL to point to your local `wallet-cli` server
+Cela devrait changer le API_URL pour pointer vers votre serveur `wallet-cli` en local
 
-# Community
+# Communauté
 
 * [Slack](https://join.slack.com/t/tronfoundation/shared_invite/enQtMzAzNzg4NTI4NDM3LTAyZGQzMzEzMjNkNDU0ZjNkNTA4OTYyNTA5YWZmYjE3MTEyOWZhNzljNzQwODM3NDQ0OWRiMTIyMDhlYzgyOGQ)
 * [Telegram](https://t.me/tronnetworkEN)
 
-# Links
+# Liens
 
 * [Website](https://tron.network/)
 * [Documentation](https://github.com/tronprotocol/wallet-web)
 * [Blog](https://tronprotocol.github.io/tron-blog/)
 * [TRON Wiki](http://wiki.tron.network/en/latest/)
 
-# Projects
+# Projets
 
 * [TRON Protocol](https://github.com/tronprotocol/protocol)
 * [Wallet Client](https://github.com/tronprotocol/wallet-cli)
