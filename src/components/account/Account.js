@@ -85,31 +85,45 @@ class Account extends Component {
       );
     }
 
-    return (
-      <table className="table border-0 m-0">
-        <thead>
-        <tr>
-          <th>{tu("name")}</th>
-          <th className="text-right">{tu("balance")}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {
-          tokenBalances.map((token, index) => (
-            
-            (index > 0) && //Hide TRON TRX on this view   
-            <tr key={index}>
-              <td>{token.name}</td>
-              <td className="text-right">
-                <FormattedNumber value={token.balance} />
-              </td>
-            </tr>
-            
-          ))
-        }
-        </tbody>
-      </table>
-    )
+    //displays all tokens except TRX
+    if (tokenBalances.length > 1) {      
+        return (
+          <div className="row mt-3">
+            <div className="col-md-12">
+                <div className="card">
+                  <div className="card-header border-bottom-0 text-center bg-dark text-white">
+                    {tu("tokens")}
+                  </div>
+                  <div className="card-body p-0 border-0">
+                    <table className="table border-0 m-0">
+                      <thead>
+                      <tr>
+                        <th>{tu("name")}</th>
+                        <th className="text-right">{tu("balance")}</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {
+                        tokenBalances.map((token, index) => (
+
+                          (index > 0) && //Hide TRON TRX on this view   
+                          <tr key={index}>
+                            <td>{token.name}</td>
+                            <td className="text-right">
+                              <FormattedNumber value={token.balance} />
+                            </td>
+                          </tr>
+
+                        ))
+                      }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+         </div> 
+        );     
+    }
   }
 
   requestTrx = async () => {
@@ -217,29 +231,14 @@ class Account extends Component {
           <div className="col-md-12">
             <div className="card">
               <div className="card-header text-center bg-dark text-white">
-                {tu("account")}
+                {tu("account")} {tu("address")} (Testnet)
               </div>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-md-2">
-                    <b>{tu("address")}</b>
-                  </div>
-                  <div className="col-md-10">
-                    {address}<br/>
-                    <span className="text-danger">
-                      ({tu("do_not_send_2")})
-                    </span>
-                  </div>
-                </div>
-                <div className="row pt-3">
-                  <div className="col-md-2">
-                    <b>{tu("password")}</b>
-                  </div>
-                  <button className={"btn btn-primary btn-sm " + (showPassword ? 'hide' : 'show')} onClick={this.showPword.bind(this)}>
-                      {tu("showpassword")}
-                  </button>
-                  <div className={showPassword?'col-md-10 show':'col-md-10 hide'}>
-                      {key}<br/>
+                  <div className="col-md-12">
+                    <div className="text-center">
+                        {address}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -255,18 +254,10 @@ class Account extends Component {
             </div>
           </div>
         </div>
-        <div className="row mt-3">
-          <div className="col-md-12">
-            <div className="card">
-              <div className="card-header border-bottom-0 text-center bg-dark text-white">
-                {tu("tokens")}
-              </div>
-              <div className="card-body p-0 border-0">
-                {this.renderTokens()}
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        {this.renderTokens()}
+        
+        
         {
           showRequest && <div className="row mt-3">
             <div className="col-md-12">
