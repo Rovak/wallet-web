@@ -45,11 +45,11 @@ class Representatives extends Component {
                 <tr key={account.address}>
                   <td className="text-right">{index + 1}</td>
                   <td>
-                    <ExternalUrl url={account.url}><span className="text-truncate text-nowrap d-inline-block" style={{maxWidth: 300}}></span></ExternalUrl></td>
+                    <ExternalUrl url={(account.url.length > 50) ? account.url.substr(0, 50)+" ..." : account.url}><span className="text-truncate text-nowrap d-inline-block" style={{maxWidth: 300}}></span></ExternalUrl></td>
                   <td className="text-right"><FormattedNumber value={account.latestBlockNumber} /></td>
                   <td className="text-right"><FormattedNumber value={account.producedTotal} /></td>
                   <td className="text-right"><FormattedNumber value={account.missedTotal} /></td>
-                  <td className="text-right"><FormattedNumber value={account.votes} /> TRX</td>
+                  <td className="text-right"><FormattedNumber value={account.votes} /></td>
                 </tr>
               ))
             }

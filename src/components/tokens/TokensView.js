@@ -8,6 +8,7 @@ import {TextField} from "../../utils/formHelper";
 import {Client} from "../../services/api";
 import MediaQuery from "react-responsive";
 import {ONE_TRX} from "../../constants";
+import {BarLoader} from "../common/loaders";
 
 class TokensView extends Component {
 
@@ -123,9 +124,17 @@ class TokensView extends Component {
   renderTable() {
     let {tokens, account, searchString} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
-
+    
     tokens = filter(tokens, t => t.name.toUpperCase().indexOf(searchString) !== -1);
     tokens = sortBy(tokens, t => t.name);
+    
+    if (tokens === null || tokens.length === 0) {
+      return (
+        <div className="loader-center">
+          <BarLoader />
+        </div>
+      );
+    }
 
     return (
       <table className="table table-striped">
@@ -134,7 +143,7 @@ class TokensView extends Component {
             <th>{tu("name")}</th>
             <th>{tu("issuer")}</th>
             <th className="text-right">{tu("total_supply")}</th>
-            <th>{tu("start_end_time")}</th>
+            <th className="text-center">{tu("start_end_time")}</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -143,7 +152,9 @@ class TokensView extends Component {
           tokens.map((token, index) => (
             <Fragment key={index}>
               <tr key={token.name}>
-                <td>{token.name}</td>
+                <td>
+                   {(token.name.length > 25) ? token.name.substr(0, 25)+" ..." : token.name}
+                </td>
                 <td>
                   <span title={token.ownerAddress}>
                     {token.ownerAddress.substr(0, 16)}...
@@ -152,12 +163,12 @@ class TokensView extends Component {
                 <td className="text-right">
                   <FormattedNumber value={token.totalSupply} />
                 </td>
-                <td>
-                  <FormattedDate value={token.startTime}/>&nbsp;
-                  <FormattedTime value={token.startTime}/>&nbsp;
-                  -&nbsp;
-                  <FormattedDate value={token.endTime}/>&nbsp;
-                  <FormattedTime value={token.endTime}/>
+                <td className="small text-right">
+                  <FormattedDate value={token.startTime} year='numeric' month='2-digit' day='2-digit'/>&nbsp;
+                  <FormattedTime value={token.startTime} hour='2-digit' minute='2-digit' second='2-digit'/>
+                  <br/>
+                  <FormattedDate value={token.endTime} year='numeric' month='2-digit' day='2-digit'/>&nbsp;
+                  <FormattedTime value={token.endTime} hour='2-digit' minute='2-digit' second='2-digit'/>
                 </td>
                 {
                   account.isLoggedIn && <td className="text-right">

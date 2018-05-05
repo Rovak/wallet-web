@@ -41,6 +41,48 @@ body {
   font-size: 20px;
 }
 
+.loader-center {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 150px;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* needed to keep the footer on the bottom when loading (not fixed nor sticky footer)*/
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  color: gray;
+  text-align: center;
+}
+/* end footer on the bottom*/
 
 
 @include media-breakpoint-down(md) {

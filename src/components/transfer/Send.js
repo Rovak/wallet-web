@@ -201,7 +201,7 @@ class Send extends React.Component {
               value={token}>
               {
                 tokenBalances.map(tokenBalance => (
-                  <SendOption key={tokenBalance.name} name={tokenBalance.name} balance={tokenBalance.balance}/>
+                  <SendOption key={tokenBalance.name} name={(tokenBalance.name.length > 25) ? tokenBalance.name.substr(0, 25)+" ..." : tokenBalance.name} balance={tokenBalance.balance}/>
                 ))
               }
             </select>

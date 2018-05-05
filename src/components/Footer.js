@@ -1,17 +1,21 @@
 import React, {Component} from "react";
+import packageJson from '../../package.json';
 
 export default class Footer extends Component {
 
 
   render() {
-    return (
-      <footer className="container text-center pt-3">
-        <a className="mr-1 text-muted" href="https://github.com/tronprotocol/wallet-web" target="_blank" rel="noopener noreferrer">
+    return (   
+      <footer className="footer text-center mt-3 mb-4">
+        <a className="mr-1 text-muted" href={packageJson.bugs.url} target="_blank" rel="noopener noreferrer">
           <i className="fab fa-github social mr-2"/>
         </a>
         <a className="mr-1 text-muted" href="https://twitter.com/tronfoundation" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-twitter social ml-2"/>
         </a>
+        <div>
+            <small>Tron Wallet v.{packageJson.version}</small>
+        </div>
       </footer>
     )
   }
