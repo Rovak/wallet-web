@@ -46,6 +46,7 @@ export const messages = {
   "create_account_confirm_2": "암호를 잊거나 잃어버리면 아무도 복구할 수 없는 것을 이해했습니다",
   "create_account_confirm_3": "암호를 다른 곳에 적어놨습니다",
   "vote_thanks": "귀하의 투표를 제출해 주셔서 감사합니다",
+  "return_vate":"투표 수를 반환하십시오.",
   "recent_transactions": "최근 거래",
   "newest_account": "신규 계정",
   "representatives": "위임자",

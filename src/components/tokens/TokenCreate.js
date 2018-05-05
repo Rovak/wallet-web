@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { loadTokens } from "../../actions/tokens";
 import { ONE_TRX } from "../../constants";
 import TokenForm from "./TokenForm";
+import {Link, Redirect} from "react-router-dom";
 
 class TokenCreate extends Component {
   constructor() {
@@ -47,6 +48,12 @@ class TokenCreate extends Component {
   };
 
   render() {
+      
+    let {account} = this.props;
+    if (!account.isLoggedIn) {
+      return <Redirect to="/login" />;
+    }
+    
     const submitHandler = async formValues => {
       let { account } = this.props;
 

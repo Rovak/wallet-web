@@ -47,6 +47,7 @@ export const messages = {
   "create_account_confirm_2": "I understand if i forgot or lost my password that noone can help me recover it",
   "create_account_confirm_3": "I've written my password on paper",
   "vote_thanks": "Dank u voor het stemmen!",
+  "return_vate":"Stuur de stemmen terug",
   "recent_transactions": "recente transacties",
   "newest_account": "nieuwste account",
   "representatives": "representatives",
