@@ -4,13 +4,13 @@ import {tu} from "../../utils/i18n";
 import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import {injectIntl} from "react-intl";
 import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 
 class Votes extends Component {
@@ -27,6 +27,9 @@ class Votes extends Component {
 
   componentDidMount() {
     let {account, loadWitnesses, loadTokenBalances} = this.props;
+    if (!account.isLoggedIn) {
+      return <Redirect to="/login" />;
+    }  
     loadWitnesses();
     if(account.isLoggedIn)
     loadTokenBalances(passwordToAddress(account.key));
@@ -66,6 +69,7 @@ class Votes extends Component {
     this.setState({
       votesSubmitted: true,
     });
+
   };
 
  /* hasVotes = () => {
@@ -130,22 +134,22 @@ class Votes extends Component {
       votePercentage: (votesSpend / trxBalance) * 100,
     };
   }
+  returnVate(){
+      this.setState({
+          votesSubmitted: false,
+          votes: {},
+      });
+
+  }
 
   render() {
+    
+    let { account } = this.props;
+    if (!account.isLoggedIn) {
+      return <Redirect to="/login" />;
+    }  
 
-    let {account , intl} = this.props;
-      if (!account.isLoggedIn) {
-          return (
-              <div>
-                  <div className="alert alert-warning">
-                      {tu("need_to_login")}
-                  </div>
-                  <p className="text-center">
-                      <Link to="/login">{tu("Go to login")}</Link>
-                  </p>
-              </div>
-          );
-      }
+    let {intl} = this.props;
 
     let {votesSubmitted, searchString, votes} = this.state;
 
@@ -159,6 +163,11 @@ class Votes extends Component {
             <div className="col-md-12">
               <Alert color="success" className="text-center">
                 {tu("vote_thanks")}
+                <br/>
+                <br/>
+                <button className="btn btn-primary btn-sm" onClick={this.returnVate.bind(this)}>
+                    {tu("return_vate")}
+                </button>
               </Alert>
             </div>
           </div>

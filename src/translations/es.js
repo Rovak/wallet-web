@@ -46,6 +46,7 @@ export const messages = {
   "create_account_confirm_2": "Entiedno que si olvido o pierdo mi contraseña no habrá forma de recuperarla",
   "create_account_confirm_3": "He escrito mi contraseña en papel",
   "vote_thanks": "¡Gracias por enviar tu voto!",
+  "return_vate": "Devuelve los votos",
   "recent_transactions": "transacciones recientes",
   "newest_account": "cuenta mas reciente",
   "representatives": "representantes",

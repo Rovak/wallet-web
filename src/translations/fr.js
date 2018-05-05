@@ -46,6 +46,7 @@ export const messages = {
   "create_account_confirm_2": "Je comprends que si j'oublie ou perd mon mot de passe, personne ne pourra m'aider à le récupérer",
   "create_account_confirm_3": "J'ai écrit mon mot de passe sur papier",
   "vote_thanks": "Merci d'avoir envoyé votre vote!",
+  "return_vate":"Retourne les votes",
   "recent_transactions": "transactions récentes",
   "newest_account": "nouveau compte",
   "representatives": "représentants",

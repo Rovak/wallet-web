@@ -45,6 +45,7 @@ export const messages = {
   "create_account_confirm_2": "متوجه شدم اگر پسووردم را فراموش کردم هیچ کس نمیتواند به من کمک کند",
   "create_account_confirm_3": "پسووردم را روی کاغذ نوشتم",
   "vote_thanks": "ممنون بابت ارسال رای شما ",
+  "return_vate":"رأی دهندگان",
   "recent_transactions": "تراکنش های اخیر",
   "newest_account": "جدیدترین اکانت",
   "representatives": "نمایندگان",
