@@ -48,7 +48,7 @@ export const messages = {
   "create_account_confirm_2": "Eu compreendo que se eu esquecer ou perder minha senha, ninguém poderá me ajudar a recuperá-la",
   "create_account_confirm_3": "Eu escrevi minha senha em um papel",
   "vote_thanks": "Obrigado por enviar seu voto!",
-  "return_vate":"devolver vate",
+  "return_vate":"Devolva o voto",
   "recent_transactions": "transações recentes",
   "newest_account": "conta mais recente",
   "Most TRX": "maior carteira",

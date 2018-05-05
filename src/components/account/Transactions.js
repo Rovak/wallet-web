@@ -5,7 +5,7 @@ import {tu} from "../../utils/i18n";
 import {BarLoader} from "../common/loaders";
 import {Redirect} from "react-router-dom";
 import {Client} from "../../services/api";
-import {passwordToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import {filter} from "lodash";
 import {FormattedNumber} from "react-intl";
 
