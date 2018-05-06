@@ -58,7 +58,7 @@ export const messages = {
   "account": "conta",
   "accounts": "contas",
   "scan_qr_code": "Digitalize a imagem com um scanner de QR code",
-  "send_trx": "send TRX",
+  "send_trx": "Send TRX",
   "receive_trx": "receber TRX",
   "require_account_to_send": "Você precisa estar logado para enviar moedas",
   "require_account_to_receive": "Você precisa estar logado para receber moedas",
@@ -166,6 +166,11 @@ export const messages = {
   "proceed": "Prosseguir",
   "search_token": "Localizar Token por nome",
   "send_trx_address": "Envie TRX para o seguinte endereço",
-  "Send TRX": "Enviar TRX",
   "supply": "oferta",
+  "my_transactions": "Minhas Transações",
+  "no_transactions": "Nenhuma transação no momento",
+  "welcome_to_tron": "Welcome to TRON",
+  "your_wallet": "Your Wallet",
+  "trx_balance": "Saldo TRX",
+  "remaining": "restantes" 
 };
