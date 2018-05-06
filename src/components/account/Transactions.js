@@ -27,7 +27,7 @@ class Transactions extends Component {
 
     transactions = filter(
       transactions, a =>
-        a.from == userAddress || a.to == userAddress);
+        a.from === userAddress || a.to === userAddress);
 
     return transactions;
   }
@@ -90,7 +90,7 @@ class Transactions extends Component {
                       <tr key={i}>
                         <td>
                         {
-                            userAddress == transaction.from
+                            userAddress === transaction.from
                             ?
                             tu('your_wallet')
                             : 
@@ -100,7 +100,7 @@ class Transactions extends Component {
                         <td><i className='fa fa-arrow-right'/></td>
                         <td>
                         {
-                            userAddress == transaction.to
+                            userAddress === transaction.to
                             ?
                             tu('your_wallet')
                             : 

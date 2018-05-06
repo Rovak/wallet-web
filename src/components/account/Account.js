@@ -35,7 +35,7 @@ class Account extends Component {
   };
 
   isTronix(index){
-      if (index == 0) {
+      if (index === 0) {
             return (
                   "bg-primary"
             );
@@ -59,7 +59,7 @@ class Account extends Component {
         {
           tokenBalances.map((token, index) => (
             
-            (index === 0 && token.name == "TRX") && //Only shows TRON TRX on this view   
+            (index === 0 && token.name === "TRX") && //Only shows TRON TRX on this view   
              <div className="text-center">
               <h2 className="text-secondary">{tu("trx_balance")}</h2>
               <h1>
