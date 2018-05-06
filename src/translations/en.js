@@ -131,16 +131,15 @@ export const messages = {
   "no_transactions": "No transactions",
   "vote": "vote",
   "candidates": "candidates",
-  "use_your_vote": `Use your TRX to vote for Super Representatives. For every TRX you hold in your account you have one vote to spend. TRX will not be consumed.
+  "use_your_vote": `For every TRX you hold in your account you have one vote to spend (TRX will not be consumed).
   You can vote as many times for the several representatives as you like. The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "close":"close",
   "price":"price",
   "produced_by": "Produced by {witnessAddress}",
   "show_more": "Show {countriesLength} More",
-  "vote_guide_message": `Use your TRX to vote for Super Representatives. 
-    For every TRX you hold in your account you have one vote to spend. 
-    TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
+  "vote_guide_message": `For every TRX you hold in your account you have one vote to spend (TRX will not be consumed).
+    You can vote as many times as you like for several representatives.  The votes are tallied every 6 hours and the results will be updated at 0:00AM, 6:00AM, 12:00PM and 6:00PM (UTC Time). The list of Super Representatives will be updated based on those votes.
+    Every time you place your votes you are resetting your previous votes. On every 6h cycle your last votes submisson will be counted. You only need to vote once and the system will keep counting those votes until you change them. `,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
     by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
@@ -182,5 +181,8 @@ export const messages = {
   "your_wallet": "Your Wallet",
   "search_token": "Search for token name",
   "trx_balance": "TRX Balance",
-  "remaining": "remaining"
+  "remaining": "remaining",
+  "vote_info_link": "For more information about Tron Super Representatives visit the ",
+  "sr_guide": "SR Guide",
+  "votes_remaining": "Votes Remaining"
 };

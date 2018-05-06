@@ -12,7 +12,9 @@ import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
 import {Link, Redirect} from "react-router-dom";
 import {BarLoader} from "../common/loaders";
-import {FormattedNumber} from "react-intl";
+import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
+import Countdown from 'react-countdown-now';
+ 
 
 
 class Votes extends Component {
@@ -86,7 +88,6 @@ class Votes extends Component {
     })
   };
 
-
   filteredWitnesses() {
     let {witnesses} = this.props;
     let {searchString} = this.state;
@@ -136,6 +137,7 @@ class Votes extends Component {
       votePercentage: (votesSpend / trxBalance) * 100,
     };
   }
+  
   returnVate(){
       this.setState({
           votesSubmitted: false,
@@ -143,6 +145,42 @@ class Votes extends Component {
       });
 
   }
+  
+
+  
+  diffSeconds(){
+      
+        var now = new Date;
+        var utcHour = now.getUTCHours();
+        var fromTime = new Date(2000, 1, 1, utcHour, now.getMinutes(), now.getSeconds());
+      
+        var utcHour = new Date().getUTCHours();
+        var nextHour = 24;
+        
+        if (utcHour >= 0 && utcHour <= 6) {
+            var nextHour = 6;
+        }     
+        if (utcHour >= 7 && utcHour <= 12) {
+            var nextHour = 12;
+        }   
+        if (utcHour >= 13 && utcHour <= 18) {
+            var nextHour = 18;
+        }    
+        if (utcHour >= 19 && utcHour <= 24) {
+            var nextHour = 24;
+        }  
+        var toTime = new Date(2000, 1, 1, nextHour, 0, 0);
+      
+  
+        var dif = fromTime.getTime() - toTime.getTime();
+        var secondsDiff = Math.abs(dif);
+      
+        return secondsDiff;
+        
+  }
+
+  
+  
 
   render() {
     
@@ -167,7 +205,6 @@ class Votes extends Component {
       );
     }
     
-
     if (votesSubmitted) {
       return (
         <main className="container pt-5 pb-5">
@@ -187,6 +224,19 @@ class Votes extends Component {
       );
     }
 
+
+
+    const CountingVotes = () => <span>Counting Votes...</span>;
+    
+    const renderer = ({ hours, minutes, seconds, completed }) => {
+      if (completed) {
+        return <CountingVotes />;
+      }else{
+        return <span>{hours}:{minutes}:{seconds}</span>;
+      }
+    };
+
+    
     const VoteCard = ({className = ""}) => (
       <div className={"card " + className}>
         <div className="card-header text-center bg-dark text-white">
@@ -196,7 +246,7 @@ class Votes extends Component {
           {
             voteStatus.voteState === 1 &&
             <p className="text-center">
-              {voteStatus.votesAvailable} TRX {tu("remaining")}
+               <FormattedNumber value={voteStatus.votesAvailable} /> {tu("votes_remaining")}
             </p>
           }
           {
@@ -230,8 +280,17 @@ class Votes extends Component {
               {tu("too_many_votes")}
             </button>
           }
-          <p className="mt-3">
+          <div className="text-center m-3 text-info" style={{fontFamily: 'sans-serif'}}>
+          <small>{tu("Time left until next votes counting")}</small><br/>    
+          <Countdown date={Date.now() + this.diffSeconds()} renderer={renderer} style={{fontWeight: 'bold'}}>
+                <CountingVotes />
+          </Countdown>
+          </div>
+          
+          
+          <p className="mt-3 small">
             {tu("vote_guide_message")}
+            {tu("vote_info_link")}&nbsp;<a href='https://medium.com/@Tronfoundation/tron-community-guidelines-ca10c2fcd444'>{tu("sr_guide")} <i class="fas fa-external-link-alt"></i></a>        
           </p>
         </div>
       </div>
@@ -257,7 +316,7 @@ class Votes extends Component {
             </div>
             <div className="card">
               <div className="card-header text-center bg-dark text-white">
-                {tu("candidates")}
+                Super Representatives {tu("candidates")}
               </div>
               <div className="card-body p-0">
                 <table className="table table-striped bg-white">
