@@ -17,9 +17,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@tronprotocol/wallet-api@^0.0.29":
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/@tronprotocol/wallet-api/-/wallet-api-0.0.29.tgz#c7cc315e2d0b3d910fe907dd7de4a71b48ba09f2"
+"@tronprotocol/wallet-api@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@tronprotocol/wallet-api/-/wallet-api-0.0.30.tgz#bd826df8b3b1a562f0dab7f18951feab3083bd83"
   dependencies:
     axios "^0.18.0"
     chai "^4.1.2"
@@ -7625,22 +7625,6 @@ trim-newlines@^1.0.0:
 trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
-
-tronaccount@^0.0.29:
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/tronaccount/-/tronaccount-0.0.29.tgz#738009b59d93e301488d1ec84e26dff884e8442c"
-  dependencies:
-    axios "^0.18.0"
-    chai "^4.1.2"
-    crypto-js "^3.1.9-1"
-    elliptic "^6.4.0"
-    google-protobuf "^3.5.0"
-    grpc "^1.10.0"
-    grpc-caller "^0.4.0"
-    grpc-tools "^1.6.6"
-    js-sha3 "^0.7.0"
-    mocha "^5.1.0"
-    qs "^6.5.1"
 
 "true-case-path@^1.0.2":
   version "1.0.2"
