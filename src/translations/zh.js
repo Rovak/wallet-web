@@ -37,7 +37,7 @@ export const messages = {
     (If you have certain sum of TRX, you can vote less than or equal to certain number of votes). 
     The result of votes will be calculated based on the final voter information of every account in each
      voting cycle of which the time is from 00:00 to 24:00. TRX holders with the most votes will become super delegate. 
-     Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be getted.
+     Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be rewarded.
      TRX will not be consumed in the process of super delegate application and voting.
   `,
   "unknown_error": "an unknown error occurred",
