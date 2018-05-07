@@ -135,7 +135,7 @@ class PaginationBar extends Component {
   render() {
     const { pages, currentPage, totalPage } = this.state.pager;
 
-    if (!pages || pages.length <= 1) {
+    if (!pages || !pages.length) {
       return null;
     }
 
