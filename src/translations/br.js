@@ -22,7 +22,7 @@ export const messages = {
   "address": "endereço",
   "balance": "saldo",
   "votes": "votos",
-  "password": "senha",
+  "password": "Chave privada",
   "showpassword":'mostrar senha',
   "my_vote": "meus votos",
   "submit_votes": "enviar votos",
@@ -43,7 +43,7 @@ export const messages = {
   `,
   "unknown_error": "Ocoreu um erro desconhecido",
   "representative_understand": "Eu compreendo como ser um representante TRON",
-  "generate_account": "Clique para gerar seu endereço de conta e senha",
+  "generate_account": "Gerar nova conta e chave privada",
   "create_account_confirm_1": "Eu compreendo que, se eu perder minha senha, nunca acessarei meus ativos",
   "create_account_confirm_2": "Eu compreendo que se eu esquecer ou perder minha senha, ninguém poderá me ajudar a recuperá-la",
   "create_account_confirm_3": "Eu escrevi minha senha em um papel",
@@ -170,7 +170,13 @@ export const messages = {
   "my_transactions": "Minhas Transações",
   "no_transactions": "Nenhuma transação no momento",
   "welcome_to_tron": "Welcome to TRON",
-  "your_wallet": "Your Wallet",
+  "your_wallet": "Sua carteira",
   "trx_balance": "Saldo TRX",
-  "remaining": "restantes" 
+  "remaining": "restantes",
+  "private_key": "Chave privada",
+  "show_private_key": "Exibir chave privada",
+  "register_new_account": "Criar nova conta",
+  "account_address": "endereço da conta",
+  "create_account": "Criar conta",
+  "not_started_yet": "Ainda não iniciado"
 };
