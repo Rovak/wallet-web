@@ -3,10 +3,10 @@ import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
 import {loadTokenBalances} from "../../actions/account";
 import {BarLoader} from "../common/loaders";
-import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import xhr from "axios";
+import {find} from "lodash";
 import {FormattedNumber} from "react-intl";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 class Account extends Component {
 
@@ -15,7 +15,7 @@ class Account extends Component {
     this.state = {
       waitingForTrx: false,
       showRequest: true,
-      showPassword:false,
+      showPassword: false,
       trxRequestResponse: {
         success: false,
         code: -1,
@@ -30,10 +30,10 @@ class Account extends Component {
 
   reloadTokens = () => {
     let {account, loadTokenBalances} = this.props;
-    if(account.isLoggedIn)
-      loadTokenBalances(passwordToAddress(account.key));
+    if (account.isLoggedIn)
+      loadTokenBalances(account.address);
   };
-  
+
   renderTronix() {
 
     let {tokenBalances = []} = this.props;
@@ -46,26 +46,22 @@ class Account extends Component {
       );
     }
 
+    let trx = find(tokenBalances, token => token.name === "TRX");
+
     return (
       <div className="t-3">
         {
-          tokenBalances.map((token, index) => (
-            //Only shows TRON TRX on this view. extra conparation index===0 is needed because  
-            //token names are not unique
-            (index === 0 && token.name === "TRX") && //Only shows TRON TRX on this view. index===0 needed because    
-             <div className="text-center">
-              <h2 className="text-secondary">{tu("trx_balance")}</h2>
-              <h1>
-               <FormattedNumber value={token.balance}/>
-              </h1>    
-             </div> 
-            
-          ))
+          trx && <div className="text-center">
+            <h2 className="text-secondary">{tu("trx_balance")}</h2>
+            <h1>
+              <FormattedNumber value={trx.balance}/>
+            </h1>
+          </div>
         }
       </div>
     )
   }
-  
+
   renderTokens() {
 
     let {tokenBalances = []} = this.props;
@@ -78,45 +74,31 @@ class Account extends Component {
       );
     }
 
-    //displays all tokens except TRX
-    if (tokenBalances.length > 1) {      
-        return (
-          <div className="row mt-3">
-            <div className="col-md-12">
-                <div className="card">
-                  <div className="card-header border-bottom-0 text-center bg-dark text-white">
-                    {tu("tokens")}
-                  </div>
-                  <div className="card-body p-0 border-0">
-                    <table className="table border-0 m-0">
-                      <thead>
-                      <tr>
-                        <th>{tu("name")}</th>
-                        <th className="text-right">{tu("balance")}</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      {
-                        tokenBalances.map((token, index) => (
+    return (
+      <table className="table border-0 m-0">
+        <thead>
+        <tr>
+          <th>{tu("name")}</th>
+          <th className="text-right">{tu("balance")}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {
+          tokenBalances.map((token, index) => (
 
-                          (index > 0) && //Hide TRON TRX on this view   
-                          <tr key={index}>
-                            <td>{token.name}</td>
-                            <td className="text-right">
-                              <FormattedNumber value={token.balance} />
-                            </td>
-                          </tr>
+            (index > 0) && //Hide TRON TRX on this view
+            <tr key={index}>
+              <td>{token.name}</td>
+              <td className="text-right">
+                <FormattedNumber value={token.balance}/>
+              </td>
+            </tr>
 
-                        ))
-                      }
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-            </div>
-         </div> 
-        );     
-    }
+          ))
+        }
+        </tbody>
+      </table>
+    )
   }
 
   requestTrx = async () => {
@@ -126,7 +108,7 @@ class Account extends Component {
 
     try {
 
-      let address = passwordToAddress(account.key);
+      let address = account.address;
 
       let {data} = await xhr.post(`https://tronscan.org/request-coins`, {
         address,
@@ -142,7 +124,7 @@ class Account extends Component {
 
       setTimeout(() => this.reloadTokens(), 1500);
 
-    } catch(e) {
+    } catch (e) {
       this.setState({
         trxRequestResponse: {
           success: false,
@@ -158,12 +140,12 @@ class Account extends Component {
     }
   };
 
-  showPword (){
-      this.setState({
-          showPassword: true
-      });
-  }
-  
+  togglePassword = () => {
+    this.setState({
+      showPassword: true
+    });
+  };
+
   renderTestnetRequest() {
 
     let {waitingForTrx, trxRequestResponse} = this.state;
@@ -180,7 +162,7 @@ class Account extends Component {
       if (trxRequestResponse.success === true) {
         return (
           <div className="alert alert-success text-success">
-            {ONE_TRX} TRX {tu("have_been_added_to_your_account!")}
+            1000000 TRX {tu("have_been_added_to_your_account!")}
           </div>
         )
       } else {
@@ -209,11 +191,11 @@ class Account extends Component {
 
     let {account} = this.props;
     if (!account.isLoggedIn) {
-      return <Redirect to="/login" />;
-    }     
-   
-    let {showRequest,showPassword} = this.state;
-    let address = passwordToAddress(account.key);
+      return <Redirect to="/login"/>;
+    }
+
+    let {showRequest, showPassword} = this.state;
+    let address = account.address;
     let key = account.key;
 
     return (
@@ -225,14 +207,30 @@ class Account extends Component {
           <div className="col-md-12">
             <div className="card">
               <div className="card-header text-center bg-dark text-white">
-                {tu("account")} {tu("address")} (Testnet)
+                {tu("account")}
               </div>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-md-12">
-                    <div className="text-center">
-                        {address}
-                    </div>
+                  <div className="col-md-2">
+                    <b>{tu("address")}</b>
+                  </div>
+                  <div className="col-md-10">
+                    {address}<br/>
+                    <span className="text-danger">
+                      ({tu("do_not_send_2")})
+                    </span>
+                  </div>
+                </div>
+                <div className="row pt-3">
+                  <div className="col-md-2">
+                    <b>{tu("private_key")}</b>
+                  </div>
+                  <button className={"btn btn-primary btn-sm " + (showPassword ? 'hide' : 'show')}
+                          onClick={this.togglePassword}>
+                    {tu("show_private_key")}
+                  </button>
+                  <div className={showPassword ? 'col-md-10 show' : 'col-md-10 hide'}>
+                    {key}<br/>
                   </div>
                 </div>
               </div>
@@ -248,10 +246,18 @@ class Account extends Component {
             </div>
           </div>
         </div>
-        
-        {this.renderTokens()}
-        
-        
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <div className="card">
+              <div className="card-header border-bottom-0 text-center bg-dark text-white">
+                {tu("tokens")}
+              </div>
+              <div className="card-body p-0 border-0">
+                {this.renderTokens()}
+              </div>
+            </div>
+          </div>
+        </div>
         {
           showRequest && <div className="row mt-3">
             <div className="col-md-12">
@@ -270,7 +276,6 @@ class Account extends Component {
     )
   }
 }
-
 
 function mapStateToProps(state) {
   return {
