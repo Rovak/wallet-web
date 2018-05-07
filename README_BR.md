@@ -1,7 +1,7 @@
 <h2 align="center">
     <table align="center">
         <tr>
-            <td>Languages :</td>
+            <td>Idiomas :</td>
             <td><a href="./README.md"><img src="http://flags.fmcdn.net/data/flags/w580/gb.png" width="30" height="20"></a></td>
             <td><a href="./README_FR.md"><img src="http://flags.fmcdn.net/data/flags/w580/fr.png" width="30" height="20"></a></td>
             <td><a href="./README_BR.md"><img src="http://flags.fmcdn.net/data/flags/w580/br.png" width="30" height="20"></a></td>
@@ -15,7 +15,7 @@
 </h1>
 
 <h4 align="center">
-  Wallet for the <a href="https://tron.network">Tron Protocol</a>
+  Carteira digital para <a href="https://tron.network">Protocolo Tron</a>
 </h4>
 
 <p align="center">
@@ -45,41 +45,41 @@
 </p>
 
 <p align="center">
-  <a href="#how-to-use">How to Use</a> •
+  <a href="#how-to-use">Como utilizar</a> •
   <a href="#links">Links</a> •
   <a href="http://wiki.tron.network">Wiki</a> •
-  <a href="#community">Community</a>
+  <a href="#community">Comunidade</a>
 </p>
 
-# How to use
+# Como Utilizar
 
-## Requirements
+## Requisitos
 
 * Node v9.8.0
 * Yarn
 
-## Running
+## Funcionamento
 
 ```bash
 > yarn install
 > yarn start
 ```
 
-The wallet should then be running on [http://localhost:3000](http://localhost:3000)
+A carteira então pode ser acessada através do endereço: [http://localhost:3000](http://localhost:3000)
 
-## Changing the default API URL
+## Alterando o URL da API padrão
 
-By default the Explorer will connect to https://tronscan.io for its data. 
+Por padrão, o Explorer se conectará à https://tronscan.io para obter os dados. 
 
-When developing locally the url can be changed by defining the `API_URL` environment variable
+Quando executada localmente, o URL pode ser alterado definindo a variável de ambiente `API_URL` 
 
 ```bash
 > API_URL=http://127.0.0.0:8088 yarn start
 ```
 
-This should change the API_URL to point to your local `wallet-cli` server
+Isto deve alterar a variável API_URL, apontando para o serviço local `wallet-cli`
 
-# Community
+# Comunidade
 
 * [Slack](https://join.slack.com/t/tronfoundation/shared_invite/enQtMzAzNzg4NTI4NDM3LTAyZGQzMzEzMjNkNDU0ZjNkNTA4OTYyNTA5YWZmYjE3MTEyOWZhNzljNzQwODM3NDQ0OWRiMTIyMDhlYzgyOGQ)
 * [Telegram](https://t.me/tronnetworkEN)
@@ -87,11 +87,11 @@ This should change the API_URL to point to your local `wallet-cli` server
 # Links
 
 * [Website](https://tron.network/)
-* [Documentation](https://github.com/tronprotocol/wallet-web)
+* [Documentação](https://github.com/tronprotocol/wallet-web)
 * [Blog](https://tronprotocol.github.io/tron-blog/)
 * [TRON Wiki](http://wiki.tron.network/en/latest/)
 
-# Projects
+# Projetos
 
 * [TRON Protocol](https://github.com/tronprotocol/protocol)
-* [Wallet Client](https://github.com/tronprotocol/wallet-cli)
+* [Wallet-CLI](https://github.com/tronprotocol/wallet-cli)
