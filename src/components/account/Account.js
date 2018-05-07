@@ -33,15 +33,6 @@ class Account extends Component {
     if(account.isLoggedIn)
       loadTokenBalances(passwordToAddress(account.key));
   };
-
-
-  isTronix(index){
-      if (index === 0) {
-            return (
-                  "bg-primary"
-            );
-      }
-  }
   
   renderTronix() {
 
@@ -59,8 +50,9 @@ class Account extends Component {
       <div className="t-3">
         {
           tokenBalances.map((token, index) => (
-            
-            (index === 0 && token.name == "TRX") && //Only shows TRON TRX on this view   
+            //Only shows TRON TRX on this view. extra conparation index===0 is needed because  
+            //token names are not unique
+            (index === 0 && token.name === "TRX") && //Only shows TRON TRX on this view. index===0 needed because    
              <div className="text-center">
               <h2 className="text-secondary">{tu("trx_balance")}</h2>
               <h1>
@@ -171,6 +163,7 @@ class Account extends Component {
           showPassword: true
       });
   }
+  
   renderTestnetRequest() {
 
     let {waitingForTrx, trxRequestResponse} = this.state;
@@ -187,7 +180,7 @@ class Account extends Component {
       if (trxRequestResponse.success === true) {
         return (
           <div className="alert alert-success text-success">
-            1000000 TRX {tu("have_been_added_to_your_account!")}
+            {ONE_TRX} TRX {tu("have_been_added_to_your_account!")}
           </div>
         )
       } else {
