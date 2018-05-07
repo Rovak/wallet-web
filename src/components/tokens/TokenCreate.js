@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { loadTokens } from "../../actions/tokens";
 import { ONE_TRX } from "../../constants";
 import TokenForm from "./TokenForm";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 class TokenCreate extends Component {
   constructor() {

@@ -34,6 +34,14 @@ class Account extends Component {
       loadTokenBalances(passwordToAddress(account.key));
   };
 
+
+  isTronix(index){
+      if (index === 0) {
+            return (
+                  "bg-primary"
+            );
+      }
+  }
   
   renderTronix() {
 
