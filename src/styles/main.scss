@@ -84,6 +84,15 @@ body {
 }
 /* end footer on the bottom*/
 
+.blink_txt {
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 
 @include media-breakpoint-down(md) {
   body {

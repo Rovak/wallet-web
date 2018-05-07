@@ -10,9 +10,9 @@ import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {BarLoader} from "../common/loaders";
-import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
+import {FormattedNumber} from "react-intl";
 import Countdown from 'react-countdown-now';
  
 
@@ -149,28 +149,28 @@ class Votes extends Component {
 
   
   diffSeconds(){
-      
-        var now = new Date;
+        // Calculation of difference of time (in seconds) between now time in UTC
+        // and next voting time in UTC
+        
+        var now = new Date();
         var utcHour = now.getUTCHours();
         var fromTime = new Date(2000, 1, 1, utcHour, now.getMinutes(), now.getSeconds());
       
-        var utcHour = new Date().getUTCHours();
         var nextHour = 24;
         
-        if (utcHour >= 0 && utcHour <= 6) {
+        if (utcHour >= 0 && utcHour < 6) {
             var nextHour = 6;
         }     
-        if (utcHour >= 7 && utcHour <= 12) {
+        if (utcHour >= 6 && utcHour < 12) {
             var nextHour = 12;
         }   
-        if (utcHour >= 13 && utcHour <= 18) {
+        if (utcHour >= 12 && utcHour < 18) {
             var nextHour = 18;
         }    
-        if (utcHour >= 19 && utcHour <= 24) {
+        if (utcHour >= 18 && utcHour < 24) {
             var nextHour = 24;
         }  
-        var toTime = new Date(2000, 1, 1, nextHour, 0, 0);
-      
+        var toTime = new Date(2000, 1, 1, nextHour, 0, 0);      
   
         var dif = fromTime.getTime() - toTime.getTime();
         var secondsDiff = Math.abs(dif);
@@ -226,13 +226,18 @@ class Votes extends Component {
 
 
 
-    const CountingVotes = () => <span>Counting Votes...</span>;
+    const CountingVotes = () => <span className="blink_txt">{tu("counting_votes")}...</span>;
     
-    const renderer = ({ hours, minutes, seconds, completed }) => {
+    const RendererClock = ({ hours, minutes, seconds, completed }) => {
       if (completed) {
-        return <CountingVotes />;
+        return <CountingVotes/>;
       }else{
-        return <span>{hours}:{minutes}:{seconds}</span>;
+        return (
+                <div>
+                    <small>{tu("countdown_txt")}</small>
+                    <div style={{fontWeight: 'bold'}}>{hours}:{minutes}:{seconds}</div>
+                </div>
+        );
       }
     };
 
@@ -280,17 +285,15 @@ class Votes extends Component {
               {tu("too_many_votes")}
             </button>
           }
+          <hr/>
           <div className="text-center m-3 text-info" style={{fontFamily: 'sans-serif'}}>
-          <small>{tu("Time left until next votes counting")}</small><br/>    
-          <Countdown date={Date.now() + this.diffSeconds()} renderer={renderer} style={{fontWeight: 'bold'}}>
-                <CountingVotes />
-          </Countdown>
+            <Countdown date={Date.now() + this.diffSeconds()} renderer={RendererClock}>
+            </Countdown>
           </div>
-          
-          
+          <hr/>
           <p className="mt-3 small">
             {tu("vote_guide_message")}
-            {tu("vote_info_link")}&nbsp;<a href='https://medium.com/@Tronfoundation/tron-community-guidelines-ca10c2fcd444'>{tu("sr_guide")} <i class="fas fa-external-link-alt"></i></a>        
+            {tu("vote_info_link")}&nbsp;<a href='https://medium.com/@Tronfoundation/tron-community-guidelines-ca10c2fcd444'>{tu("sr_guide")} <i className="fas fa-external-link-alt"></i></a>        
           </p>
         </div>
       </div>

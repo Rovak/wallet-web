@@ -172,7 +172,6 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "bytes": "bytes",
-  "recent_blocks": "Recent blocks",
   "send_trx": "Send TRX",
   "create_account": "Create Account",
   "register_new_account": "or register a new account",
@@ -184,5 +183,7 @@ export const messages = {
   "remaining": "remaining",
   "vote_info_link": "For more information about Tron Super Representatives visit the ",
   "sr_guide": "SR Guide",
-  "votes_remaining": "Votes Remaining"
+  "votes_remaining": "Votes Remaining",
+  "countdown_txt": "Time left until next votes counting",
+  "counting_votes":"Counting Votes",
 };
