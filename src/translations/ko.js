@@ -189,4 +189,5 @@ export const messages = {
   "create_account": "계정 생성",
   "account_address": "계정 주소",
   "show_private_key": "개인키 보기",
+  "my_transactions": "내 거래",
 };

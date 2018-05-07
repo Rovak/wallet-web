@@ -13,7 +13,6 @@ import {Redirect} from "react-router-dom";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
 import Countdown from 'react-countdown-now';
- 
 
 
 class Votes extends Component {

@@ -6,7 +6,7 @@ import {BarLoader} from "../common/loaders";
 import xhr from "axios";
 import {find} from "lodash";
 import {FormattedNumber} from "react-intl";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 class Account extends Component {
 

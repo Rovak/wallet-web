@@ -137,7 +137,7 @@ class Login extends Component {
               </div>
             </div>
             <div className="form-group">
-              <label>{tu("password")}</label>
+              <label>{tu("private_key")}</label>
               <div className="input-group mb-3">
                 <input type="text"
                        readOnly={true}
