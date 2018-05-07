@@ -27,6 +27,14 @@ class Send extends React.Component {
     };
   }
 
+  isAddress = (address) => {
+      try {
+          return isAddressValid(address);
+      } catch (e) {
+          return false;
+      }
+  };
+
   /**
    * Check if the form is valid
    * @returns {*|boolean}
@@ -36,7 +44,7 @@ class Send extends React.Component {
     const {account} = this.props ;
     let address = account.address;
 
-    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
+    return this.isAddress(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
   };
 
   /**
@@ -158,7 +166,7 @@ class Send extends React.Component {
     let {tokenBalances} = this.props;
     let {to, token, amount} = this.state;
 
-    let isToValid = to.length === 0 || isAddressValid(to);
+    let isToValid = to.length === 0 || this.isAddress(to);
     let isAmountValid = this.isAmountValid();
 
 
