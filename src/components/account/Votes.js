@@ -4,13 +4,12 @@ import {tu} from "../../utils/i18n";
 import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
-import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import {injectIntl} from "react-intl";
 import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 
 class Votes extends Component {
@@ -29,10 +28,10 @@ class Votes extends Component {
     let {account, loadWitnesses, loadTokenBalances} = this.props;
     if (!account.isLoggedIn) {
       return <Redirect to="/login" />;
-    }  
+    }
     loadWitnesses();
     if(account.isLoggedIn)
-    loadTokenBalances(passwordToAddress(account.key));
+    loadTokenBalances(account.address);
   }
 
   setVote = (address, numberOfVotes) => {
@@ -143,11 +142,11 @@ class Votes extends Component {
   }
 
   render() {
-    
+
     let { account } = this.props;
     if (!account.isLoggedIn) {
       return <Redirect to="/login" />;
-    }  
+    }
 
     let {intl} = this.props;
 

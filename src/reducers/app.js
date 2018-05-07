@@ -1,6 +1,8 @@
 import Lockr from "lockr";
 
 import {LOGIN, LOGOUT, SET_ACCOUNTS, SET_LANGUAGE, SET_PRICE, SEARCH} from "../actions/app";
+import {privateKeyToAddress} from "@tronprotocol/wallet-api/src/utils/crypto";
+
 
 const initialState = {
   accounts: [],
@@ -20,9 +22,9 @@ const initialState = {
   },
   activeLanguage: 'en',
   account: {
-    key: Lockr.get("account_key"),
+    key: undefined,
     address: undefined,
-    isLoggedIn: Lockr.get("account_key") !== undefined,
+    isLoggedIn: false,
   },
   searchString: '',
 };
@@ -73,6 +75,7 @@ export function appReducer(state = initialState, action) {
         account: {
           key: action.password,
           isLoggedIn: true,
+          address: privateKeyToAddress(action.password),
         }
       };
     }

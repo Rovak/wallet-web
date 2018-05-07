@@ -183,4 +183,11 @@ export const messages = {
   "proceed": "진행",
   "search_token": "토큰 이름 검색",
   "send_trx_address": "TRX를 다음 주소로 보내주세요",
+  "private_key": "개인키",
+  "trx_balance": "TRX 잔액",
+  "register_new_account": "또는 새 계정 등록",
+  "create_account": "계정 생성",
+  "account_address": "계정 주소",
+  "show_private_key": "개인키 보기",
+  "my_transactions": "내 거래",
 };

@@ -2,8 +2,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TronLogo from "../../images/trans_tron_logo.png";
-// import {generateAccount} from "tronaccount/src/utils/account";
-import {generateAccount} from "tronaccount/src/utils/account";
+import {generateAccount} from "@tronprotocol/wallet-api/src/utils/account";
 import {loginWithPassword} from "../../actions/app";
 import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
@@ -21,11 +20,9 @@ class Login extends Component {
 
       // Register
       address: "",
-      password: "",
       privateKey: "",
       registerCheck1: false,
       registerCheck2: false,
-      registerCheck3: false,
       showWarning: false,
 
       // Login
@@ -43,12 +40,9 @@ class Login extends Component {
 
     this.setState({
       address: account.address,
-      password: account.password,
       privateKey: account.privateKey,
     })
   };
-
-  // component
 
   doLogin = () => {
     let {loginPassword} = this.state;
@@ -57,9 +51,8 @@ class Login extends Component {
   };
 
   isRegisterFormValid = () => {
-    let {registerCheck1, registerCheck2, registerCheck3} = this.state;
-
-    return registerCheck1 && registerCheck2 && registerCheck3;
+    let {registerCheck1, registerCheck2} = this.state;
+    return registerCheck1 && registerCheck2;
   };
 
   createAccount = () => {
@@ -81,7 +74,7 @@ class Login extends Component {
 
     return true;
   };
-  
+
   renderLogin() {
 
     return (
@@ -90,7 +83,10 @@ class Login extends Component {
           <img src={TronLogo} alt="Tron"/><br/>
         </p>
         <p className="mt-5">
-          <input className="form-control" type="password" placeholder="Password..." onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
+          <label>{tu("private_key")}</label>
+          <input className="form-control"
+                 type="password"
+                 onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
         </p>
         <p>
           <button
@@ -109,7 +105,7 @@ class Login extends Component {
 
   renderRegister() {
 
-    let {address, password, privateKey} = this.state;
+    let {address, privateKey} = this.state;
 
     return (
       <div className="card-text">
@@ -130,7 +126,6 @@ class Login extends Component {
                   type="text"
                   readOnly={true}
                   className="form-control"
-                  onChange={(ev) => this.setState({ address: ev.target.value })}
                   value={address} />
                 <div className="input-group-append">
                   <CopyToClipboard text={address}>
@@ -142,15 +137,14 @@ class Login extends Component {
               </div>
             </div>
             <div className="form-group">
-              <label>{tu("password")}</label>
+              <label>{tu("private_key")}</label>
               <div className="input-group mb-3">
                 <input type="text"
                        readOnly={true}
                        className="form-control"
-                       value={password}
-                       onChange={(ev) => this.setState({ password: ev.target.value })} />
+                       value={privateKey} />
                 <div className="input-group-append">
-                  <CopyToClipboard text={password}>
+                  <CopyToClipboard text={privateKey}>
                     <button className="btn btn-outline-secondary" type="button">
                       <i className="fa fa-paste"/>
                     </button>
@@ -158,23 +152,6 @@ class Login extends Component {
                 </div>
               </div>
             </div>
-            {/*<div className="form-group">*/}
-            {/*<label>{tu("Private Key")}</label>*/}
-            {/*<div className="input-group mb-3">*/}
-              {/*<input type="text"*/}
-                     {/*readOnly={true}*/}
-                     {/*onChange={(ev) => this.setState({ privateKey: ev.target.value })}*/}
-                     {/*className="form-control"*/}
-                     {/*value={privateKey} />*/}
-              {/*<div className="input-group-append">*/}
-                {/*<CopyToClipboard text={privateKey}>*/}
-                  {/*<button className="btn btn-outline-secondary" type="button">*/}
-                    {/*<i className="fa fa-paste"/>*/}
-                  {/*</button>*/}
-                {/*</CopyToClipboard>*/}
-              {/*</div>*/}
-            {/*</div>*/}
-          {/*</div>*/}
             <div className="form-check">
               <input type="checkbox"
                      className="form-check-input" onChange={(ev) => this.setState({ registerCheck1: ev.target.checked })} />
@@ -186,12 +163,6 @@ class Login extends Component {
               <input type="checkbox" className="form-check-input" />
               <label className="form-check-label small">
                 {tu("create_account_confirm_2")}
-              </label>
-            </div>
-            <div className="form-check" onChange={(ev) => this.setState({ registerCheck3: ev.target.checked })}>
-              <input type="checkbox" className="form-check-input" />
-              <label className="form-check-label small">
-                {tu("create_account_confirm_3")}
               </label>
             </div>
           </form>
@@ -207,13 +178,13 @@ class Login extends Component {
   }
 
   nextAfterRegister = () => {
-    let {password} = this.state;
+    let {privateKey} = this.state;
 
     this.setState({
       showWarning: false,
     });
 
-    this.props.loginWithPassword(password);
+    this.props.loginWithPassword(privateKey);
     this.props.history.push("/account");
   };
 

@@ -2,10 +2,8 @@ import { connect } from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
 import { tu } from "../../utils/i18n";
-import { Link, Redirect } from "react-router-dom";
-import { passwordToAddress } from "tronaccount/src/utils/crypto";
+import { Redirect } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import MediaQuery from "react-responsive";
 
 class Receive extends React.Component {
 
@@ -28,12 +26,12 @@ class Receive extends React.Component {
     let rootUrl = process.env.PUBLIC_URL || window.location.origin;
 
     if (account.isLoggedIn) {
-        QRCode.toDataURL(`${rootUrl}/#/send?to=${passwordToAddress(account.key)}`, (err, url) => {
+        QRCode.toDataURL(`${rootUrl}/#/send?to=${account.address}`, (err, url) => {
           this.setState({
             qrcode: url,
           });
         })
-    }    
+    }
   }
 
   render() {
@@ -43,7 +41,7 @@ class Receive extends React.Component {
 
     if (!account.isLoggedIn) {
       return <Redirect to="/login" />;
-    }  
+    }
 
     return (
       <main className="container-fluid pt-5">
@@ -60,9 +58,9 @@ class Receive extends React.Component {
                     <input type="text"
                       readOnly={true}
                       className="form-control text-center"
-                      value={passwordToAddress(account.key)} />
+                      value={account.address} />
                     <div className="input-group-append">
-                      <CopyToClipboard text={passwordToAddress(account.key)}>
+                      <CopyToClipboard text={account.address}>
                         <button className="btn btn-outline-secondary" type="button">
                           <i className="fa fa-paste" />
                         </button>

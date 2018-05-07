@@ -171,7 +171,6 @@ export const messages = {
   "external_link_warning": "est un lien externe et peut, par conséquent, ne pas être sécurisé. Soyez vigilants.",
   "proceed": "Procéder",
   "search_token": "Rechercher un jeton par son nom",
-  "send_trx_address": "Envoyer des TRX à l'adresse suivante :",
   "to": "À",
   "most_trx": "solde max en TRX",
 };
