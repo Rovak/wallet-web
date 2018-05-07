@@ -90,7 +90,8 @@ class Login extends Component {
           <img src={TronLogo} alt="Tron"/><br/>
         </p>
         <p className="mt-5">
-          <input className="form-control" type="password" placeholder="Password..." onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
+          <label>{tu("password")}</label>
+          <input className="form-control" type="password" onChange={(ev) => this.setState({ loginPassword: ev.target.value })}/>
         </p>
         <p>
           <button

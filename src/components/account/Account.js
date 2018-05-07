@@ -7,6 +7,8 @@ import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import xhr from "axios";
 import {FormattedNumber} from "react-intl";
 import {Link, Redirect} from "react-router-dom";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 class Account extends Component {
 
@@ -85,30 +87,56 @@ class Account extends Component {
       );
     }
 
+    var arr = [];
+    
+    for (var i = 1; i < tokenBalances.length; i++) {
+        let transformed = {
+            index: i,
+            name: tokenBalances[i].name,
+            balance: tokenBalances[i].balance
+        };
+    
+        arr.push(transformed);
+    }
+
     return (
-      <table className="table border-0 m-0">
-        <thead>
-        <tr>
-          <th>{tu("name")}</th>
-          <th className="text-right">{tu("balance")}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {
-          tokenBalances.map((token, index) => (
-            
-            (index > 0) && //Hide TRON TRX on this view   
-            <tr key={index}>
-              <td>{token.name}</td>
-              <td className="text-right">
-                <FormattedNumber value={token.balance} />
-              </td>
-            </tr>
-            
-          ))
-        }
-        </tbody>
-      </table>
+
+      <ReactTable
+        data={arr}
+        noDataText="Empty"
+        filterable
+        columns={[{
+            Header: () => <strong>#</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "left", paddingLeft : 10},
+            accessor: 'index',
+            maxWidth: 50,
+            style: {
+              textAlign: "left",
+              paddingLeft : 10
+            },
+            Cell: row => (<strong>{row.value}</strong>)
+          }, {
+            Header: () => <strong>{tu("name")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "left"},
+            accessor: 'name',
+            minWidth: 200,
+            style: {
+              textAlign: "left"
+            },
+          }, {
+            Header: () => <strong>{tu("balance")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "right"},
+            accessor: 'balance',
+            maxWidth: 200,
+            style: {
+              textAlign: "right"
+            },
+            Cell:  row => (new Intl.NumberFormat('gb-GB', { style: 'currency', currency: '' }).format(row.value))
+          },
+        ]}
+        defaultPageSize={5}
+        className="-striped -highlight"
+      />
     )
   }
 

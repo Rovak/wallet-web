@@ -28,7 +28,7 @@ class Receive extends React.Component {
     let rootUrl = process.env.PUBLIC_URL || window.location.origin;
 
     if (account.isLoggedIn) {
-        QRCode.toDataURL(`${rootUrl}/#/send?to=${passwordToAddress(account.key)}`, (err, url) => {
+        QRCode.toDataURL(passwordToAddress(account.key), (err, url) => {
           this.setState({
             qrcode: url,
           });

@@ -40,12 +40,12 @@ class Navigation extends Component {
             <span className="navbar-toggler-icon"/>
           </button>
           <div className="d-md-none pull-right">
-            <img src={logo} className="logo" alt="Tron"/>
+            <Link to="/blockchain"><img src={logo} className="logo" alt="Tron"/></Link>
           </div>
           <div className="collapse navbar-collapse" id="navbar-top">
             <ul className="navbar-nav mr-auto">
                 <li  className="nav-item d-none d-md-block">
-                  <img src={logo} className="logo" alt="Tron"/>
+                <Link to="/blockchain"><img src={logo} className="logo" alt="Tron"/></Link>
                 </li>
               {viewableRoutes.map(route => (
                 <li key={route.path} className="nav-item">

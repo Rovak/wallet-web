@@ -12,8 +12,11 @@ const initialValues = {
   totalSupply: 100000,
   num: 1,
   trxNum: 1,
-  startTime: moment().format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS),
+  startTime: moment()
+            .add(10, "minutes")
+            .format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS),
   endTime: moment()
+      .add(10, "minutes")
       .add(90, "days")
       .format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS),
   description: "",
@@ -229,7 +232,7 @@ class TokenForm extends Component {
           <div className="form-row">
             <p className="col-md-12">
               <b>{tu("token_price")}</b>: 1 {name || tu("token")} ={" "}
-              {<FormattedNumber value={exchangeRate} />} TRX
+              {<FormattedNumber value={exchangeRate} maximumFractionDigits={8}/>} TRX
             </p>
           </div>
         </fieldset>

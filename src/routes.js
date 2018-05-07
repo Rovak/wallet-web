@@ -29,15 +29,15 @@ export const routes = [
     icon: '',
     routes: [
       {
-        label: "nodes",
-        path: "/network/nodes",
-        component: Nodes,
-        icon: ''
-      },
-      {
         label: "representatives",
         path: "/network/representatives",
         component: Representatives,
+        icon: ''
+      },
+      {
+        label: "nodes",
+        path: "/network/nodes",
+        component: Nodes,
         icon: ''
       },
     ]

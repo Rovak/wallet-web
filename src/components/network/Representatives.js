@@ -1,11 +1,12 @@
-import React, {Component, Fragment} from 'react';
-import MediaQuery from "react-responsive";
+import React, {Component} from 'react';
 import ExternalUrl from "../common/ExternalUrl";
 import {connect} from "react-redux";
 import {loadWitnesses} from "../../actions/network";
 import {tu} from "../../utils/i18n";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 class Representatives extends Component {
 
@@ -25,58 +26,89 @@ class Representatives extends Component {
       );
     }
 
-    return (
-      <Fragment>
-        <MediaQuery minWidth={980}>
-          <table className="table table-striped bg-white">
-              <thead className="thead-dark">
-              <tr>
-                <th className="text-right">#</th>
-                <th>{tu("name")}</th>
-                <th className="text-right">{tu("last_block")}</th>
-                <th className="text-right">{tu("blocks_produced")}</th>
-                <th className="text-right">{tu("blocks_missed")}</th>
-                <th className="text-right">{tu("votes")}</th>
-              </tr>
-            </thead>
-            <tbody>
-            {
-              witnesses.map((account, index) => (
-                <tr key={account.address}>
-                  <td className="text-right">{index + 1}</td>
-                  <td>
-                    <ExternalUrl url={account.url}><span className="text-truncate text-nowrap d-inline-block" style={{maxWidth: 300}}></span></ExternalUrl></td>
-                  <td className="text-right"><FormattedNumber value={account.latestBlockNumber} /></td>
-                  <td className="text-right"><FormattedNumber value={account.producedTotal} /></td>
-                  <td className="text-right"><FormattedNumber value={account.missedTotal} /></td>
-                  <td className="text-right"><FormattedNumber value={account.votes} /> TRX</td>
-                </tr>
-              ))
-            }
-            </tbody>
-          </table>
-        </MediaQuery>
-        <MediaQuery maxWidth={980}>
-          {
-            witnesses.map((account, index) => (
-              <div className="media small mb-2 text-truncate text-nowrap" key={account.address}>
-                <div className="block">
-                  #{index}
-                </div>
-                <div className="media-body mb-0 lh-150">
-                  <div className="ml-3">
-                    <ExternalUrl url={account.url} index={index}></ExternalUrl>
-                  </div>
-                  <div className="ml-3 text-muted">
-                    {account.votes} TRX
-                  </div>
-                </div>
-              </div>
-            ))
-          }
+    var arr = [];
+    
+    for (var i = 0; i < witnesses.length; i++) {
+        let transformed = {
+            index: i+1,
+            address: witnesses[i].address,
+            url: witnesses[i].url,
+            latestBlockNumber: witnesses[i].latestBlockNumber,
+            producedTotal: witnesses[i].producedTotal,
+            missedTotal: witnesses[i].missedTotal,
+            votes: witnesses[i].votes
+        };
+    
+        arr.push(transformed);
+    }
 
-        </MediaQuery>
-      </Fragment>
+    return (
+      <ReactTable
+        data={arr}
+        noDataText="Empty"
+        filterable
+        columns={[{
+            Header: () => <strong>#</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "center", paddingLeft : 10},
+            accessor: 'index',
+            maxWidth: 50,
+            style: {
+              textAlign: "center",
+              paddingLeft : 10
+            },
+            Cell: row => (<strong>{row.value}</strong>)
+          }, {
+            Header: () => <strong>{tu("name")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "left"},
+            accessor: 'url',
+            Width: 300,
+            maxWidth: 400,
+            style: {
+              textAlign: "left"
+            },
+            Cell : row => (<ExternalUrl url={row.value}><span className="text-truncate text-nowrap d-inline-block"></span></ExternalUrl>)
+          }, {
+            Header: () => <strong>{tu("last_block")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "right"},
+            accessor: 'latestBlockNumber',
+            width: 175,
+            style: {
+              textAlign: "right"
+            },
+            Cell:  row => (new Intl.NumberFormat().format(row.value))
+          }, {
+            Header: () => <strong>{tu("blocks_produced")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "right"},
+            accessor: 'producedTotal',
+            width: 175,
+            style: {
+              textAlign: "right"
+            },
+            Cell:  row => (new Intl.NumberFormat().format(row.value))
+          }, {
+            Header: () => <strong>{tu("blocks_missed")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "right"},
+            accessor: 'missedTotal',
+            width: 175,
+            maxWidth: 150,
+            style: {
+              textAlign: "right"
+            },
+            Cell:  row => (new Intl.NumberFormat().format(row.value))
+          }, {
+            Header: () => <strong>{tu("votes")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "right"},
+            accessor: 'votes',
+            width: 200,
+            style: {
+              textAlign: "right"
+            },
+            Cell:  row => (new Intl.NumberFormat('gb-GB', { style: 'currency', currency: 'TRX' }).format(row.value))
+          },
+        ]}
+        defaultPageSize={20}
+        className="-striped -highlight"
+      />
     )
   }
 

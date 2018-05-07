@@ -174,13 +174,12 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "bytes": "bytes",
-  "recent_blocks": "Recent blocks",
-  "send_trx": "Send TRX",
   "create_account": "Create Account",
   "register_new_account": "or register a new account",
   "account_address": "Account Address",
   "welcome_to_tron": "Welcome to TRON",
   "your_wallet": "Your Wallet",
   "search_token": "Search for token name",
+  "most_trx": "Most TRX",
   "trx_balance": "TRX Balance"
 };

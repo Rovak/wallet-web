@@ -11,6 +11,7 @@ import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
 import {Link, Redirect} from "react-router-dom";
+import ExternalUrl from "../common/ExternalUrl";
 
 
 class Votes extends Component {
@@ -264,7 +265,7 @@ class Votes extends Component {
                         <th scope="row">{index + 1}</th>
                         <td className="break-word">
                           {account.address.substr(0, 24)}...<br/>
-                          <small>{account.url}</small>
+                          <small><ExternalUrl url={account.url}><span className="text-truncate text-nowrap d-inline-block"></span></ExternalUrl></small>
                         </td>
                         <td>{account.votes} TRX</td>
                         <td>

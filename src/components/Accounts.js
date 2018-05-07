@@ -1,11 +1,11 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {loadAccounts} from "../actions/app";
-import MediaQuery from 'react-responsive';
 import {tu} from "../utils/i18n";
 import {BarLoader} from "./common/loaders";
 import {FormattedNumber, injectIntl} from "react-intl";
-import {filter} from "lodash";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
 class Accounts extends Component {
 
@@ -13,33 +13,11 @@ class Accounts extends Component {
     super();
 
     this.state = {
-      searchString: "",
     }
   }
 
   componentDidMount() {
     this.props.loadAccounts();
-  }
-
-  onSearchFieldChangeHandler = (e) => {
-      this.setState({
-          searchString: e.target.value,
-      })
-  };
-
-  filteredAccounts() {
-    let {accounts} = this.props;
-    let {searchString} = this.state;
-
-    searchString = searchString.toUpperCase();
-
-    if (searchString.length > 0) {
-      accounts = filter(
-        accounts, a =>
-          a.address.toUpperCase().indexOf(searchString) !== -1);
-    }
-
-    return accounts;
   }
 
   renderAccounts() {
@@ -54,56 +32,57 @@ class Accounts extends Component {
       );
     }
 
-    accounts = this.filteredAccounts();
+    var arr = [];
+    
+    for (var i = 0; i < accounts.length; i++) {
+        let transformed = {
+            index: i+1,
+            address: accounts[i].address,
+            balance: accounts[i].balanceNum
+        };
+    
+        arr.push(transformed);
+    }
+
 
     return (
-      <Fragment>
-        <MediaQuery minWidth={980}>
-          <table className="table table-striped">
-            <thead className="thead-dark">
-            <tr>
-              <th>#</th>
-              <th>{tu("address")}</th>
-              <th className="text-right">{tu("balance")}</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-              accounts.map((account, index) => (
-                <tr key={account.address}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{account.address}</td>
-                  <td className="text-right">
-                    <FormattedNumber value={account.balanceNum} /> TRX
-                  </td>
-                </tr>
-              ))
-            }
-            </tbody>
-          </table>
-        </MediaQuery>
-        <MediaQuery maxWidth={980}>
-          <div className="p-3">
-            {
-              accounts.map((account, index) => (
-                <div className="media small mb-2" key={account.address}>
-                  <div className="block">
-                    #{index}
-                  </div>
-                  <div className="media-body mb-0 lh-150">
-                    <div className="ml-3">
-                      {account.address.toUpperCase()}
-                    </div>
-                    <div className="ml-3 text-muted">
-                      <FormattedNumber value={account.balanceNum}/> TRX
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </MediaQuery>
-      </Fragment>
+
+      <ReactTable
+        data={arr}
+        noDataText="Empty"
+        filterable
+        columns={[{
+            Header: () => <strong>#</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "left", paddingLeft : 10},
+            accessor: 'index',
+            maxWidth: 100,
+            style: {
+              textAlign: "left",
+              paddingLeft : 10
+            },
+            Cell: row => (<strong>{row.value}</strong>)
+          }, {
+            Header: () => <strong>{tu("address")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "left"},
+            accessor: 'address',
+            minWidth: 200,
+            style: {
+              textAlign: "left"
+            },
+          }, {
+            Header: () => <strong>{tu("balance")}</strong>,
+            headerStyle: {backgroundColor: '#2c2c2c', color:'#ffffff', cursor: "pointer", textAlign: "right"},
+            accessor: 'balance',
+            maxWidth: 200,
+            style: {
+              textAlign: "right"
+            },
+            Cell:  row => (new Intl.NumberFormat('gb-GB', { style: 'currency', currency: 'TRX' }).format(row.value))
+          },
+        ]}
+        defaultPageSize={20}
+        className="-striped -highlight"
+      />
     )
   }
 
@@ -114,15 +93,6 @@ class Accounts extends Component {
 
     return (
       <main role="main" className="container mt-3">
-        <div className="row">
-          <div className="col-md-12">
-            <input type="text"
-                   placeholder={intl.formatMessage({id: "search_address"})}
-                   onChange={this.onSearchFieldChangeHandler}
-                   className="form-control"
-                   value={searchString}/>
-          </div>
-        </div>
         <div className="row">
           <div className="col-md-12">
             <div className="p-3 my-3 text-white-50 bg-dark rounded row no-gutters">
@@ -161,8 +131,6 @@ class Accounts extends Component {
     )
   }
 }
-
-
 
 function mapStateToProps(state) {
   return {
