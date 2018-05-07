@@ -37,6 +37,11 @@ body {
   height: 600px;
 }
 
+.node-table {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
 .social {
   font-size: 20px;
 }
