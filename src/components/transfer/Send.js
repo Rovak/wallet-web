@@ -6,7 +6,7 @@ import {loadTokenBalances} from "../../actions/account";
 import {tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
 import {Link, Redirect} from "react-router-dom";
-import {isAddressValid, passwordToAddress} from "tronaccount/src/utils/crypto";
+import {isAddressValid} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
 import {find} from "lodash";
 import {ONE_TRX} from "../../constants";
@@ -34,7 +34,7 @@ class Send extends React.Component {
   isValid = () => {
     let {to, token, amount} = this.state;
     const {account} = this.props ;
-    let address = passwordToAddress(account.key);
+    let address = account.address;
 
     return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
   };
@@ -70,11 +70,11 @@ class Send extends React.Component {
     });
     */
     amount = amount.replace(/^0+(?!\.|$)/, '').replace(/[^0-9 .]+/g,'').replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1");
-    
+
     this.setState({
       amount: amount,
     });
-   
+
   };
 
   getSelectedTokenBalance = () => {
@@ -102,7 +102,7 @@ class Send extends React.Component {
   refreshTokenBalances = () => {
     let {account} = this.props;
     if (account.isLoggedIn) {
-      this.props.loadTokenBalances(passwordToAddress(account.key));
+      this.props.loadTokenBalances(account.address);
     }
   };
 
@@ -231,7 +231,7 @@ class Send extends React.Component {
 
     if (!account.isLoggedIn) {
       return <Redirect to="/login" />;
-    }  
+    }
 
     return (
       <main className="container-fluid pt-5 pb-5">

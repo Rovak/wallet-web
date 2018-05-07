@@ -41,9 +41,9 @@ export const messages = {
   `,
   "unknown_error": "an unknown error occurred",
   "representative_understand": "I understand how to be a TRON representative",
-  "generate_account": "Generate new account address and password",
-  "create_account_confirm_1": "I understand that if I forget/lose my password I will never be able to access my assets",
-  "create_account_confirm_2": "I understand that if I forget/lose my password no one will be able to help me recover it",
+  "generate_account": "Generate new account and private key",
+  "create_account_confirm_1": "I understand that if I forget/lose my private key I will never be able to access my assets",
+  "create_account_confirm_2": "I understand that if I forget/lose my private key no one will be able to help me recover it",
   "create_account_confirm_3": "I've written my password on paper",
   "vote_thanks": "Thanks for submitting your vote!",
   "return_vate":"Return the Votes",
@@ -180,5 +180,7 @@ export const messages = {
   "welcome_to_tron": "Welcome to TRON",
   "your_wallet": "Your Wallet",
   "search_token": "Search for token name",
-  "trx_balance": "TRX Balance"
+  "trx_balance": "TRX Balance",
+  "private_key": "Private Key",
+  "show_private_key": "Show Private Key",
 };
