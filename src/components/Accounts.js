@@ -136,7 +136,7 @@ class Accounts extends Component {
               <div className="col-md-3 ml-md-auto d-flex align-items-center mb-3 mb-md-0">
                 <i className="fas fa-trophy fa-3x mr-3" style={{width: 50}}/>
                 <div className="lh-100">
-                  <h6 className="mb-0 text-white lh-100">{tu("Most TRX")}</h6>
+                  <h6 className="mb-0 text-white lh-100">{tu("most_trx")}</h6>
                   <small>{accounts[0] && <FormattedNumber value={accounts[0].balanceNum}/>} TRX</small>
                 </div>
               </div>

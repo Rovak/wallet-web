@@ -4,8 +4,6 @@ import {loadAllBlocks} from "../../actions/account";
 import {tu} from "../../utils/i18n";
 import {BarLoader} from "../common/loaders";
 import {Redirect} from "react-router-dom";
-import {Client} from "../../services/api";
-import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import {filter} from "lodash";
 import {FormattedNumber} from "react-intl";
 
@@ -20,8 +18,8 @@ class Transactions extends Component {
 
     this.state = {};
   }
-  
-  
+
+
   userTransactions(userAddress) {
     let {transactions} = this.props;
 
@@ -31,28 +29,28 @@ class Transactions extends Component {
 
     return transactions;
   }
-  
-  
+
+
   totalTransactions(){
     let {blocks} = this.props;
-    
+
     return (
         <small className="text-center justify-content-center">
             {tu("searching_latest")} {blocks.length} {tu("blocks")}
         </small>
     );
-          
+
   }
-  
-  
+
+
 
   renderTable() {
-      
+
     let {transactions} = this.props;
     let {account} = this.props;
     //let userAddress = "27d3byPxZXKQWfXX7sJvemJJuv5M65F3vjS";
-    let userAddress = passwordToAddress(account.key);
-   
+    let userAddress = account.address;
+
     if (transactions === null) {
       return (
         <div className="text-center d-flex justify-content-center">
@@ -60,7 +58,7 @@ class Transactions extends Component {
         </div>
       );
     }
-    
+
     let userTrans = this.userTransactions(userAddress);
 
     if (userTrans.length === 0) {
@@ -72,8 +70,8 @@ class Transactions extends Component {
     }
 
     return (
-            
-        <div>    
+
+        <div>
         <table className="table table-sm table-hover bg-white m-0 border-top-0">
             <thead className="thead-dark">
               <tr>
@@ -86,14 +84,14 @@ class Transactions extends Component {
             <tbody>
 
             {userTrans.slice(0,100).map((transaction, i) => (
-                 
+
                       <tr key={i}>
                         <td>
                         {
                             userAddress == transaction.from
                             ?
                             tu('your_wallet')
-                            : 
+                            :
                             transaction.from
                         }
                         </td>
@@ -103,7 +101,7 @@ class Transactions extends Component {
                             userAddress == transaction.to
                             ?
                             tu('your_wallet')
-                            : 
+                            :
                             transaction.to
                         }
                         </td>
@@ -121,12 +119,12 @@ class Transactions extends Component {
               {userTrans.length} {tu("transactions_found")}
             </div>
         }
-        </div>   
+        </div>
     );
-    
+
   }
-  
-  
+
+
 
   render() {
 

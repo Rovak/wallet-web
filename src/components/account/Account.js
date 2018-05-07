@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import {tu} from "../../utils/i18n";
 import {loadTokenBalances} from "../../actions/account";
 import {BarLoader} from "../common/loaders";
-import {passwordToAddress} from "tronaccount/src/utils/crypto";
 import xhr from "axios";
+import {find} from "lodash";
 import {FormattedNumber} from "react-intl";
 import {Link, Redirect} from "react-router-dom";
 
@@ -15,7 +15,7 @@ class Account extends Component {
     this.state = {
       waitingForTrx: false,
       showRequest: true,
-      showPassword:false,
+      showPassword: false,
       trxRequestResponse: {
         success: false,
         code: -1,
@@ -30,18 +30,10 @@ class Account extends Component {
 
   reloadTokens = () => {
     let {account, loadTokenBalances} = this.props;
-    if(account.isLoggedIn)
-      loadTokenBalances(passwordToAddress(account.key));
+    if (account.isLoggedIn)
+      loadTokenBalances(account.address);
   };
 
-  isTronix(index){
-      if (index == 0) {
-            return (
-                  "bg-primary"
-            );
-      }
-  }
-  
   renderTronix() {
 
     let {tokenBalances = []} = this.props;
@@ -54,25 +46,22 @@ class Account extends Component {
       );
     }
 
+    let trx = find(tokenBalances, token => token.name === "TRX");
+
     return (
       <div className="t-3">
         {
-          tokenBalances.map((token, index) => (
-            
-            (index === 0 && token.name == "TRX") && //Only shows TRON TRX on this view   
-             <div className="text-center">
-              <h2 className="text-secondary">{tu("trx_balance")}</h2>
-              <h1>
-               <FormattedNumber value={token.balance}/>
-              </h1>    
-             </div> 
-            
-          ))
+          trx && <div className="text-center">
+            <h2 className="text-secondary">{tu("trx_balance")}</h2>
+            <h1>
+              <FormattedNumber value={trx.balance}/>
+            </h1>
+          </div>
         }
       </div>
     )
   }
-  
+
   renderTokens() {
 
     let {tokenBalances = []} = this.props;
@@ -133,7 +122,7 @@ class Account extends Component {
 
     try {
 
-      let address = passwordToAddress(account.key);
+      let address = account.address;
 
       let {data} = await xhr.post(`https://tronscan.org/request-coins`, {
         address,
@@ -149,7 +138,7 @@ class Account extends Component {
 
       setTimeout(() => this.reloadTokens(), 1500);
 
-    } catch(e) {
+    } catch (e) {
       this.setState({
         trxRequestResponse: {
           success: false,
@@ -165,11 +154,12 @@ class Account extends Component {
     }
   };
 
-  showPword (){
-      this.setState({
-          showPassword: true
-      });
-  }
+  togglePassword = () => {
+    this.setState({
+      showPassword: true
+    });
+  };
+
   renderTestnetRequest() {
 
     let {waitingForTrx, trxRequestResponse} = this.state;
@@ -215,11 +205,11 @@ class Account extends Component {
 
     let {account} = this.props;
     if (!account.isLoggedIn) {
-      return <Redirect to="/login" />;
-    }     
-   
-    let {showRequest,showPassword} = this.state;
-    let address = passwordToAddress(account.key);
+      return <Redirect to="/login"/>;
+    }
+
+    let {showRequest, showPassword} = this.state;
+    let address = account.address;
     let key = account.key;
 
     return (
@@ -276,7 +266,6 @@ class Account extends Component {
     )
   }
 }
-
 
 function mapStateToProps(state) {
   return {
