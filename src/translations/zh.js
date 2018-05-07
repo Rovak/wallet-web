@@ -108,4 +108,5 @@ export const messages = {
   "proceed": "Proceed",
   "search_token": "Search for token name",
   "send_trx_address": "Send TRX to the following address",
+  "most_trx": "Most TRX",
 };

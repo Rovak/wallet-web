@@ -182,5 +182,6 @@ export const messages = {
   "welcome_to_tron": "Welcome to TRON",
   "your_wallet": "Your Wallet",
   "search_token": "Search for token name",
-  "trx_balance": "TRX Balance"
+  "trx_balance": "TRX Balance", 
+  "most_trx": "Most TRX",
 };
