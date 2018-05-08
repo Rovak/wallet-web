@@ -9,7 +9,6 @@ export const setTokenBalances = (tokens = [], frozen = {}) => ({
   frozen,
 });
 
-
 export const loadTokenBalances = (password) => async (dispatch) => {
   let {balances, frozen} = await Client.getAccountBalances(password);
   dispatch(setTokenBalances(balances, frozen));
@@ -20,7 +19,7 @@ export const setBlocks = (blocks = []) => ({
   blocks,
 });
 
-export const loadAllBlocks = () => async (dispatch, getState) => {
+export const loadAllBlocks = () => async (dispatch) => {
 
   let block = await Client.getLatestBlock();
 

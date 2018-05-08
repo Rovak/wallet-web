@@ -48,6 +48,7 @@ class FreezeBalanceModal extends React.PureComponent {
     if (!isNaN(amount)) {
       amount = amount > 0 ? Math.floor(amount) : Math.abs(amount);
       amount = amount < trxBalance ? amount : trxBalance;
+      amount = Math.round(amount);
     } else {
       amount = "";
     }
