@@ -6,7 +6,7 @@ export default class Footer extends Component {
 
   render() {
     return (   
-      <footer className="footer text-center mt-3 mb-4">
+      <footer className="footer text-center mt-3 mb-2">
         <a className="mr-1 text-muted" href={packageJson.bugs.url} target="_blank" rel="noopener noreferrer">
           <i className="fab fa-github social mr-2"/>
         </a>

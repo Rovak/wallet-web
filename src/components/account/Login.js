@@ -33,6 +33,16 @@ class Login extends Component {
   componentDidMount() {
     this.generateAccount();
   }
+  
+  
+  componentDidMount() {
+    document.body.classList.add('bg-dark');
+  }
+
+  componentWillUnmount() {
+    document.body.classList.remove('bg-dark');
+  }
+  
 
   generateAccount = () => {
 
@@ -210,7 +220,7 @@ class Login extends Component {
     }
 
     return (
-      <main className="container-fluid pt-5 pb-5 bg-dark">
+      <main className="container-fluid pt-5">
         {this.renderTestNetWarning()}
         <div className="container">
           <div className="row justify-content-center">
@@ -253,6 +263,8 @@ function mapStateToProps(state) {
 
   };
 }
+
+
 
 const mapDispatchToProps = {
   loginWithPassword,
