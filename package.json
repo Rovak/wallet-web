@@ -46,6 +46,7 @@
     "promise": "8.0.1",
     "qrcode": "^1.2.0",
     "query-string": "^6.0.0",
+    "radium": "^0.24.0",
     "raf": "3.4.0",
     "react": "^16.2.0",
     "react-async-component": "^2.0.0",
