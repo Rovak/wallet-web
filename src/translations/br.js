@@ -168,4 +168,5 @@ export const messages = {
   "send_trx_address": "Envie TRX para o seguinte endereço",
   "Send TRX": "Enviar TRX",
   "supply": "oferta",
+  "parenthash": "Parent Hash",
 };

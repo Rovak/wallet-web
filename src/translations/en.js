@@ -184,4 +184,5 @@ export const messages = {
   "private_key": "Private Key",
   "show_private_key": "Show Private Key",
   "most_trx": "Most TRX",
+  "parenthash": "Parent Hash",
 };
