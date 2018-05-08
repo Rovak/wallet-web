@@ -84,6 +84,10 @@ class Block extends React.Component {
     let { block, transactions, tabs } = this.state;
     let { activeLanguage, match } = this.props;
 
+    if (block.number <= 0) {
+      return null;
+    }
+
     return (
       <StyleRoot>
         <main role="main" className="container">
