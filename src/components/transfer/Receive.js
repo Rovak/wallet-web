@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
 import { tu } from "../../utils/i18n";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 class Receive extends React.Component {

@@ -5,6 +5,8 @@ import {loadTokenBalances} from "../../actions/account";
 import {BarLoader} from "../common/loaders";
 import xhr from "axios";
 import {find} from "lodash";
+import {FormattedNumber} from "react-intl";
+import {Redirect} from "react-router-dom";
 import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
 import {Redirect} from "react-router-dom";
 import FreezeBalanceModal from "./FreezeBalanceModal";
