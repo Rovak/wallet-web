@@ -80,32 +80,46 @@ class Account extends Component {
       );
     }
 
-    return (
-      <table className="table border-0 m-0">
-        <thead>
-        <tr>
-          <th>{tu("name")}</th>
-          <th className="text-right">{tu("balance")}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {
-          tokenBalances.map((token, index) => (
 
-            (index > 0) && //Hide TRON TRX on this view
-            <tr key={index}>
-              <td>{token.name}</td>
-              <td className="text-right">
-                <FormattedNumber value={token.balance}/>
-              </td>
+    if (tokenBalances.length < 2) {
+        
+        return (
+            <h3 className="text-center text-secondary p-3" colspan="2">{tu("no_tokens_found")}</h3>
+        );
+        
+    }else{
+        
+        return (
+                
+           <table className="table border-0 m-0">
+            <thead>
+            <tr>
+              <th>{tu("name")}</th>
+              <th className="text-right">{tu("balance")}</th>
             </tr>
+            </thead>
+            <tbody>
+            {
+            tokenBalances.map((token, index) => (
 
-          ))
-        }
-        </tbody>
-      </table>
-    )
-  }
+                (index > 0) && //Hide TRON TRX on this view
+                <tr key={index}>
+                  <td>{token.name}</td>
+                  <td className="text-right">
+                    <FormattedNumber value={token.balance}/>
+                  </td>
+                </tr>
+
+              ))
+            }
+            </tbody>
+            </table>
+                
+        );  
+    }
+ }   
+  
+  
 
   requestTrx = async () => {
     let {account} = this.props;

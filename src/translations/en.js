@@ -191,4 +191,5 @@ export const messages = {
   "show_private_key": "Show Private Key",
   "most_trx": "Most TRX",
   "parenthash": "Parent Hash",
+  "no_tokens_found":"No Tokens Found"
 };
