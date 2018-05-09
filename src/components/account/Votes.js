@@ -13,6 +13,8 @@ import {Redirect} from "react-router-dom";
 import {BarLoader} from "../common/loaders";
 import {FormattedNumber} from "react-intl";
 import Countdown from 'react-countdown-now';
+import {ONE_TRX} from "../../constants";
+
 
 
 class Votes extends Component {
@@ -74,12 +76,6 @@ class Votes extends Component {
 
   };
 
- /* hasVotes = () => {
-    let voteStatus = this.getVoteStatus();
-
-    return voteStatus.votesSpend > 0 && voteStatus.votesAvailable >= 0;
-  };
-*/
   onSearchFieldChangeHandler = (e) => {
     this.setState({
       searchString: e.target.value,
@@ -103,11 +99,10 @@ class Votes extends Component {
   }
 
   getVoteStatus() {
-    let {tokenBalances} = this.props;
+    let {frozen} = this.props;
     let {votes} = this.state;
 
-    let trx = find(tokenBalances, tb => tb.name.toUpperCase() === "TRX");
-    let trxBalance = trx ? trx.balance : 0;
+    let trxBalance = frozen.total / ONE_TRX;
 
     let votesSpend = sumBy(Object.values(votes), vote => parseInt(vote, 10) || 0);
 
@@ -382,6 +377,7 @@ function mapStateToProps(state) {
     account: state.app.account,
     tokenBalances: state.account.tokens,
     witnesses: state.network.witnesses,
+    frozen: state.account.frozen,
   };
 }
 

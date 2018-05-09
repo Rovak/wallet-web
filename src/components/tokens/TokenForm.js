@@ -150,7 +150,7 @@ class TokenForm extends Component {
               <Field
                 type="number"
                 name="totalSupply"
-                parse={v => Number(v)}
+                parse={v => isNaN(parseInt(v,10)) ? null : parseInt(v, 10)}
                 component={renderInputField}
                 label={intl.formatMessage({ id: "total_supply" })}
               />
@@ -207,7 +207,7 @@ class TokenForm extends Component {
               <Field
                 type="number"
                 name="trxNum"
-                parse={v => Number(v)}
+                parse={v => isNaN(parseInt(v,10)) ? null : parseInt(v, 10)}
                 component={renderInputField}
                 label={["TRX", ' ', intl.formatMessage({ id: "amount" })]}
               />
@@ -216,7 +216,7 @@ class TokenForm extends Component {
               <Field
                 type="number"
                 name="num"
-                parse={v => Number(v)}
+                parse={v => isNaN(parseInt(v,10)) ? null : parseInt(v, 10)}
                 component={renderInputField}
                 label={[
                   intl.formatMessage({ id: "token" }),
