@@ -43,7 +43,7 @@ class FreezeBalanceModal extends React.PureComponent {
 
     let {trxBalance} = this.props;
 
-    let amount = parseInt(ev.target.value);
+    let amount = parseInt(ev.target.value, 10);
 
     if (!isNaN(amount)) {
       amount = amount > 0 ? Math.floor(amount) : Math.abs(amount);
