@@ -20,7 +20,7 @@ const initialState = {
     fr: "Français",
     es: "Español" ,
   },
-  activeLanguage: (Lockr.get("language") !== undefined ? Lockr.get("language") : 'en'),
+  activeLanguage: Lockr.get("language", "en"),
   account: {   
     key: (Lockr.get("account_key") !== undefined ? Lockr.get("account_key") : undefined),
     address: (Lockr.get("account_key") !== undefined ? privateKeyToAddress(Lockr.get("account_key")) : undefined),
