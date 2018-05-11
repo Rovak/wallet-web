@@ -61,26 +61,28 @@ class Nodes extends Component {
     }
 
     return (
-      <table className="table">
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>{tu("country")}</th>
-          <th>{tu("nodes")}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {
-          shownCountries.map((country, index) => (
-            <tr key={country.name}>
-              <td>{index + 1}</td>
-              <td>{country.name}</td>
-              <td>{country.total}</td>
+      <div className="node-table">
+          <table className="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>{tu("country")}</th>
+              <th>{tu("nodes")}</th>
             </tr>
-          ))
-        }
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+            {
+              shownCountries.map((country, index) => (
+                <tr key={country.name}>
+                  <td>{index + 1}</td>
+                  <td>{country.name}</td>
+                  <td>{country.total}</td>
+                </tr>
+              ))
+            }
+            </tbody>
+          </table>
+        </div>
     );
   }
 
