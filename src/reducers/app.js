@@ -24,7 +24,7 @@ const initialState = {
   account: {   
     key: Lockr.get("account_key"),
     address: (Lockr.get("account_key") !== undefined ? privateKeyToAddress(Lockr.get("account_key")) : undefined),
-    isLoggedIn: (Lockr.get("account_key") !== undefined ? true : false)
+    isLoggedIn: Lockr.get("account_key") !== undefined
   },
   searchString: '',
 };
