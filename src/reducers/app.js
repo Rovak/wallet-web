@@ -22,7 +22,7 @@ const initialState = {
   },
   activeLanguage: Lockr.get("language", "en"),
   account: {   
-    key: (Lockr.get("account_key") !== undefined ? Lockr.get("account_key") : undefined),
+    key: Lockr.get("account_key"),
     address: (Lockr.get("account_key") !== undefined ? privateKeyToAddress(Lockr.get("account_key")) : undefined),
     isLoggedIn: (Lockr.get("account_key") !== undefined ? true : false)
   },
