@@ -184,7 +184,7 @@ export const messages = {
   "vote_info_link": "For more information about Tron Super Representatives visit the ",
   "sr_guide": "SR Guide",
   "votes_remaining": "Votes Remaining",
-  "countdown_txt": "Time left until next votes counting",
+  "countdown_txt": "Next votes tally in...",
   "counting_votes":"Counting Votes",
   "private_key": "Private Key",
   "show_private_key": "Show Private Key",
