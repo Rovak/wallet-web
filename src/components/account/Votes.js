@@ -11,6 +11,8 @@ import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
 import {Redirect} from "react-router-dom";
 import {ONE_TRX} from "../../constants";
+import ExternalUrl from "../common/ExternalUrl";
+import { FormattedNumber } from "react-intl";
 
 
 class Votes extends Component {
@@ -241,37 +243,39 @@ class Votes extends Component {
                 {tu("candidates")}
               </div>
               <div className="card-body p-0">
-                <table className="table table-striped bg-white">
-                  <thead className="thead-dark">
-                  <tr>
-                    <th style={{width: 25}}>#</th>
-                    <th>{tu("address")}</th>
-                    <th>{tu("votes")}</th>
-                    <th className="text-center" style={{width: 120}}>{tu("my_vote")}</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {
-                    witnesses.map((account, index) => (
-                      <tr key={account.address}>
-                        <th scope="row">{index + 1}</th>
-                        <td className="break-word">
-                          {account.address.substr(0, 24)}...<br/>
-                          <small>{account.url}</small>
-                        </td>
-                        <td>{account.votes} TRX</td>
-                        <td>
-                          <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
-                                 value={votes[account.address]}
-                                 className="form-control form-control-sm text-center"
-                                 placeholder="0"
-                                 type="number"/>
-                        </td>
-                      </tr>
-                    ))
-                  }
-                  </tbody>
-                </table>
+                <div className="table-responsive">
+                  <table className="table table-striped">
+                    <thead className="thead">
+                    <tr className="text-nowrap">
+                      <th>#</th>
+                      <th>{tu("address")}</th>
+                      <th>{tu("votes")}</th>
+                      <th style={{width: 135}}>{tu("my_vote")}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {
+                      witnesses.map((account, index) => (
+                        <tr key={account.address}>
+                          <td><b>{index + 1}</b></td>
+                          <td title={account.address}>
+                            {account.address.substr(0, 24)}...<br/>
+                            <ExternalUrl url={account.url} />
+                          </td>
+                          <td className="text-nowrap"><FormattedNumber value={account.votes} /> TRX</td>
+                          <td>
+                            <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
+                                  value={votes[account.address]}
+                                  className="form-control form-control-sm text-center"
+                                  placeholder="0"
+                                  type="number"/>
+                          </td>
+                        </tr>
+                      ))
+                    }
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
