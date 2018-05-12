@@ -152,16 +152,16 @@ class Votes extends Component {
         var nextHour = 24;
         
         if (utcHour >= 0 && utcHour < 6) {
-            var nextHour = 6;
+            nextHour = 6;
         }     
         if (utcHour >= 6 && utcHour < 12) {
-            var nextHour = 12;
+            nextHour = 12;
         }   
         if (utcHour >= 12 && utcHour < 18) {
-            var nextHour = 18;
+            nextHour = 18;
         }    
         if (utcHour >= 18 && utcHour < 24) {
-            var nextHour = 24;
+            nextHour = 24;
         }  
         var toTime = new Date(2000, 1, 1, nextHour, 0, 0);      
   

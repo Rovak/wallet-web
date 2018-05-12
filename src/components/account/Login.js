@@ -32,12 +32,9 @@ class Login extends Component {
 
   componentDidMount() {
     this.generateAccount();
-  }
-  
-  
-  componentDidMount() {
     document.body.classList.add('bg-dark');
   }
+  
 
   componentWillUnmount() {
     document.body.classList.remove('bg-dark');

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import MediaQuery from "react-responsive";
 import ExternalUrl from "../common/ExternalUrl";
 import { connect } from "react-redux";
 import { loadWitnesses } from "../../actions/network";

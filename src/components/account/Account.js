@@ -84,7 +84,7 @@ class Account extends Component {
     if (tokenBalances.length < 2) {
         
         return (
-            <h3 className="text-center text-secondary p-3" colspan="2">{tu("no_tokens_found")}</h3>
+            <h3 className="text-center text-secondary p-3" colSpan="2">{tu("no_tokens_found")}</h3>
         );
         
     }else{
@@ -389,7 +389,7 @@ class Account extends Component {
           <div className="col-md-12">
             <div className="card">
               <div className="card-header border-bottom-0 text-center bg-dark text-white">
-                {tu("Frozen Tokens")}
+                {tu("Frozen TRX Tokens")}
               </div>
               {this.renderFrozenTokens()}
               <div className="card-body text-center">

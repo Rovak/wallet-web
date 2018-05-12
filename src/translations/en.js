@@ -173,7 +173,6 @@ export const messages = {
   "external_link_warning": "is an external link and may, as a result, be insecure. Proceed with caution.",
   "proceed": "Proceed",
   "bytes": "bytes",
-  "send_trx": "Send TRX",
   "create_account": "Create Account",
   "register_new_account": "or register a new account",
   "account_address": "Account Address",
