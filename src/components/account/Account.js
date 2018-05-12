@@ -10,7 +10,7 @@ import {Redirect} from "react-router-dom";
 import FreezeBalanceModal from "./FreezeBalanceModal";
 import {Client} from "../../services/api";
 import {buildUnfreezeBalance} from "@tronprotocol/wallet-api/src/utils/transaction";
-import {ONE_TRX} from "../../constants";
+import {ONE_TRX, IS_TESTNET} from "../../constants";
 import {Modal, ModalBody, ModalHeader} from "reactstrap";
 
 class Account extends Component {
@@ -327,9 +327,14 @@ class Account extends Component {
     return (
       <main className="container pt-3">
         {modal}
-        <div className="alert alert-danger text-center">
-          {tu("do_not_send_1")}
-        </div>
+        
+        {
+            IS_TESTNET &&
+            <div className="alert alert-danger text-center">
+              {tu("do_not_send_1")}
+            </div>
+        }
+        
         <div className="row">
           <div className="col-md-12">
             <div className="card">
@@ -342,10 +347,15 @@ class Account extends Component {
                     <b>{tu("address")}</b>
                   </div>
                   <div className="col-md-10">
-                    {address}<br/>
-                    <span className="text-danger">
-                      ({tu("do_not_send_2")})
-                    </span>
+                    {address}
+                    
+                    {
+                        IS_TESTNET &&
+                         
+                        <div className="text-danger">
+                          ({tu("do_not_send_2")})
+                        </div>
+                    }
                   </div>
                 </div>
                 <div className="row pt-3">
@@ -415,7 +425,7 @@ class Account extends Component {
           </div>
         </div>
         {
-          showRequest && <div className="row mt-3">
+          IS_TESTNET && showRequest && <div className="row mt-3">
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header border-bottom-0 text-center bg-dark text-white">

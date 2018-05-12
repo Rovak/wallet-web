@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import packageJson from '../../package.json';
+import {IS_TESTNET} from "../constants";
 
 export default class Footer extends Component {
 
@@ -14,7 +15,14 @@ export default class Footer extends Component {
           <i className="fab fa-twitter social ml-2"/>
         </a>
         <div>
-            <small>Tron Wallet v.{packageJson.version}</small>
+            <small>Tron Wallet v.{packageJson.version}
+            {
+            IS_TESTNET && 
+            <span>
+              &nbsp;(Testnet)
+             </span>
+            }  
+            </small>        
         </div>
       </footer>
     )

@@ -9,6 +9,7 @@ import {tu} from "../../utils/i18n";
 import {CopyToClipboard} from "react-copy-to-clipboard";
 import {withRouter} from "react-router-dom";
 import TestNetWarning from "../dialogs/TestNetWarning";
+import {IS_TESTNET} from "../../constants";
 
 class Login extends Component {
 
@@ -218,7 +219,10 @@ class Login extends Component {
 
     return (
       <main className="container-fluid pt-5">
-        {this.renderTestNetWarning()}
+        {
+            IS_TESTNET && 
+            this.renderTestNetWarning()
+        }  
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-sm-12 col-md-8 col-lg-6">
