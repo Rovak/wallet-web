@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {tu} from "../../utils/i18n";
+import {tu, tup} from "../../utils/i18n";
 import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
@@ -285,7 +285,7 @@ class Votes extends Component {
           </div>
           <hr/>
           <p className="mt-3 small">
-            {tu("vote_guide_message")}
+            {tup("vote_guide_message")}
             {tu("vote_info_link")}&nbsp;<a href='https://medium.com/@Tronfoundation/tron-community-guidelines-ca10c2fcd444'>{tu("sr_guide")} <i className="fas fa-external-link-alt"></i></a>        
           </p>
         </div>

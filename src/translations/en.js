@@ -30,14 +30,11 @@ export const messages = {
   "send": "send",
   "amount": "Amount",
   "apply_for_delegate_description": `
-    TRX holders can apply to become a super delegate by using the account management function, and vote for candidates. 
-    Each account can update current voter information and also is allowed to vote for multiple candidates. 
-    The maximum number of votes is less than or equal to the number of TRX users hold each time. 
-    (If you have certain sum of TRX, you can vote less than or equal to certain number of votes). 
-    The result of votes will be calculated based on the final voter information of every account in each
-     voting cycle of which the time is from 00:00 to 24:00. TRX holders with the most votes will become super delegate. 
-     Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be rewarded.
-     TRX will not be consumed in the process of super delegate application and voting.
+    TRX holders can apply to become a super delegate by using the account management function, and vote for candidates. Each account can update current voter information and also is allowed to vote for multiple candidates. 
+    
+    The maximum number of votes is less than or equal to the number of TRX users hold each time. (If you have certain sum of TRX, you can vote less than or equal to certain number of votes). The votes are tallied every 6 hours, based on the final voter information. 
+
+    TRX holders with the most votes will become super delegate. Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be rewarded. TRX will not be consumed in the process of super delegate application and voting.
   `,
   "unknown_error": "an unknown error occurred",
   "representative_understand": "I understand how to be a TRON representative",
@@ -139,7 +136,10 @@ export const messages = {
   "produced_by": "Produced by {witnessAddress}",
   "show_more": "Show {countriesLength} More",
   "vote_guide_message": `For every TRX you hold in your account you have one vote to spend (TRX will not be consumed).
-    You can vote as many times as you like for several representatives.  The votes are tallied every 6 hours and the results will be updated at 0:00AM, 6:00AM, 12:00PM and 6:00PM (UTC Time). The list of Super Representatives will be updated based on those votes.
+    You can vote as many times as you like for several representatives.  
+    
+    The votes are tallied every 6 hours and the results will be updated at 0:00AM, 6:00AM, 12:00PM and 6:00PM (UTC Time). The list of Super Representatives will be updated based on those votes.
+    
     Every time you place your votes you are resetting your previous votes. On every 6h cycle your last votes submisson will be counted. You only need to vote once and the system will keep counting those votes until you change them. `,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
     by anyone who has at least 1024 TRX in their account.`,

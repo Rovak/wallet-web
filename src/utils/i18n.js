@@ -17,3 +17,12 @@ export function tu(id) {
 export function tv(id, values) {
   return <FormattedMessage id={id} values={values} />;
 }
+
+
+export function tup(id) {
+  return (
+    <FormattedMessage id={id}>
+      {txt => <p style={{whiteSpace: 'pre-line'}}>{upperFirst(txt)}</p>}
+    </FormattedMessage>
+  );
+}
