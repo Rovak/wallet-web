@@ -8,6 +8,7 @@ import {TextField} from "../../utils/formHelper";
 import {Client} from "../../services/api";
 import MediaQuery from "react-responsive";
 import {ONE_TRX} from "../../constants";
+import {BarLoader} from "../common/loaders";
 
 const desStyle = {
     whiteSpace: "normal",
@@ -128,9 +129,17 @@ class TokensView extends Component {
   renderTable() {
     let {tokens, account, searchString} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
-
+    
     tokens = filter(tokens, t => t.name.toUpperCase().indexOf(searchString) !== -1);
     tokens = sortBy(tokens, t => t.name);
+    
+    if (tokens === null || tokens.length === 0) {
+      return (
+        <div className="loader-center">
+          <BarLoader />
+        </div>
+      );
+    }
 
     return (
       <table className="table table-striped">
@@ -159,12 +168,12 @@ class TokensView extends Component {
                 <td className="text-right">
                   <FormattedNumber value={token.totalSupply} />
                 </td>
-                <td>
-                  <FormattedDate value={token.startTime}/>&nbsp;
-                  <FormattedTime value={token.startTime}/>&nbsp;
+                <td className="small text-right">
+                  <FormattedDate value={token.startTime} year='numeric' month='2-digit' day='2-digit'/>&nbsp;
+                  <FormattedTime value={token.startTime} hour='2-digit' minute='2-digit' second='2-digit'/>
                   <br/>
-                  <FormattedDate value={token.endTime}/>&nbsp;
-                  <FormattedTime value={token.endTime}/>
+                  <FormattedDate value={token.endTime} year='numeric' month='2-digit' day='2-digit'/>&nbsp;
+                  <FormattedTime value={token.endTime} hour='2-digit' minute='2-digit' second='2-digit'/>
                 </td>
                 {
                   account.isLoggedIn && <td className="text-right">

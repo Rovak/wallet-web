@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import MediaQuery from "react-responsive";
 import ExternalUrl from "../common/ExternalUrl";
 import { connect } from "react-redux";
 import { loadWitnesses } from "../../actions/network";
@@ -19,7 +18,7 @@ class Representatives extends Component {
 
     if (witnesses.length === 0) {
       return (
-        <div className="text-center d-flex justify-content-center p-4">
+        <div className="loader-center">
           <BarLoader />
         </div>
       );
@@ -27,9 +26,9 @@ class Representatives extends Component {
 
     return (
       <Fragment>
-          <div class="table-responsive mt-2">
-            <table class="table table-striped">
-              <thead class="thead-dark">
+          <div className="table-responsive mt-2">
+            <table className="table table-striped">
+              <thead className="thead-dark">
                 <tr className="text-nowrap">
                   <th>#</th>
                   <th>{tu("name")}</th>
@@ -42,7 +41,7 @@ class Representatives extends Component {
               <tbody>
                 {
                   witnesses.map((account, index) => (
-                    <tr>
+                    <tr key={index}>
                       <td><b>{index + 1}</b></td>
                       <td><ExternalUrl url={account.url} /></td>
                       <td><FormattedNumber value={account.latestBlockNumber} /></td>

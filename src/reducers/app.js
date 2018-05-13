@@ -20,11 +20,11 @@ const initialState = {
     fr: "Français",
     es: "Español" ,
   },
-  activeLanguage: 'en',
-  account: {
-    key: undefined,
-    address: undefined,
-    isLoggedIn: false,
+  activeLanguage: Lockr.get("language", "en"),
+  account: {   
+    key: Lockr.get("account_key"),
+    address: (Lockr.get("account_key") !== undefined ? privateKeyToAddress(Lockr.get("account_key")) : undefined),
+    isLoggedIn: Lockr.get("account_key") !== undefined
   },
   searchString: '',
 };
