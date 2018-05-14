@@ -9,6 +9,7 @@ import {tu} from "../../utils/i18n";
 import {CopyToClipboard} from "react-copy-to-clipboard";
 import {withRouter} from "react-router-dom";
 import TestNetWarning from "../dialogs/TestNetWarning";
+import {IS_TESTNET} from "../../constants";
 
 class Login extends Component {
 
@@ -32,7 +33,14 @@ class Login extends Component {
 
   componentDidMount() {
     this.generateAccount();
+    document.body.classList.add('bg-dark');
   }
+  
+
+  componentWillUnmount() {
+    document.body.classList.remove('bg-dark');
+  }
+  
 
   generateAccount = () => {
 
@@ -137,7 +145,7 @@ class Login extends Component {
               </div>
             </div>
             <div className="form-group">
-              <label>{tu("password")}</label>
+              <label>{tu("private_key")}</label>
               <div className="input-group mb-3">
                 <input type="text"
                        readOnly={true}
@@ -210,8 +218,11 @@ class Login extends Component {
     }
 
     return (
-      <main className="container-fluid pt-5 pb-5 bg-dark">
-        {this.renderTestNetWarning()}
+      <main className="container-fluid pt-5">
+        {
+            IS_TESTNET && 
+            this.renderTestNetWarning()
+        }  
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-sm-12 col-md-8 col-lg-6">
@@ -253,6 +264,8 @@ function mapStateToProps(state) {
 
   };
 }
+
+
 
 const mapDispatchToProps = {
   loginWithPassword,

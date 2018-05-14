@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {tu} from "../../utils/i18n";
+import {tu, tup} from "../../utils/i18n";
 import {filter, find, sumBy} from "lodash";
 import {loadWitnesses} from "../../actions/network";
 import {Client} from "../../services/api";
@@ -9,7 +9,12 @@ import {loadTokenBalances} from "../../actions/account";
 import {Sticky, StickyContainer} from "react-sticky";
 import MediaQuery from "react-responsive";
 import {Alert} from "reactstrap";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
+import {BarLoader} from "../common/loaders";
+import {FormattedNumber} from "react-intl";
+import Countdown from 'react-countdown-now';
+import {ONE_TRX} from "../../constants";
+
 
 
 class Votes extends Component {
@@ -71,18 +76,11 @@ class Votes extends Component {
 
   };
 
- /* hasVotes = () => {
-    let voteStatus = this.getVoteStatus();
-
-    return voteStatus.votesSpend > 0 && voteStatus.votesAvailable >= 0;
-  };
-*/
   onSearchFieldChangeHandler = (e) => {
     this.setState({
       searchString: e.target.value,
     })
   };
-
 
   filteredWitnesses() {
     let {witnesses} = this.props;
@@ -101,11 +99,10 @@ class Votes extends Component {
   }
 
   getVoteStatus() {
-    let {tokenBalances} = this.props;
+    let {frozen} = this.props;
     let {votes} = this.state;
 
-    let trx = find(tokenBalances, tb => tb.name.toUpperCase() === "TRX");
-    let trxBalance = trx ? trx.balance : 0;
+    let trxBalance = frozen.total / ONE_TRX;
 
     let votesSpend = sumBy(Object.values(votes), vote => parseInt(vote, 10) || 0);
 
@@ -133,6 +130,7 @@ class Votes extends Component {
       votePercentage: (votesSpend / trxBalance) * 100,
     };
   }
+  
   returnVate(){
       this.setState({
           votesSubmitted: false,
@@ -140,6 +138,42 @@ class Votes extends Component {
       });
 
   }
+  
+
+  
+  diffSeconds(){
+        // Calculation of difference of time (in seconds) between now time in UTC
+        // and next voting time in UTC
+        
+        var now = new Date();
+        var utcHour = now.getUTCHours();
+        var fromTime = new Date(2000, 1, 1, utcHour, now.getMinutes(), now.getSeconds());
+      
+        var nextHour = 24;
+        
+        if (utcHour >= 0 && utcHour < 6) {
+            nextHour = 6;
+        }     
+        if (utcHour >= 6 && utcHour < 12) {
+            nextHour = 12;
+        }   
+        if (utcHour >= 12 && utcHour < 18) {
+            nextHour = 18;
+        }    
+        if (utcHour >= 18 && utcHour < 24) {
+            nextHour = 24;
+        }  
+        var toTime = new Date(2000, 1, 1, nextHour, 0, 0);      
+  
+        var dif = fromTime.getTime() - toTime.getTime();
+        var secondsDiff = Math.abs(dif);
+      
+        return secondsDiff;
+        
+  }
+
+  
+  
 
   render() {
 
@@ -154,7 +188,16 @@ class Votes extends Component {
 
     let witnesses = this.filteredWitnesses();
     let voteStatus = this.getVoteStatus();
-
+    
+    
+    if (witnesses === null || witnesses.length === 0) {
+      return (
+        <div className="loader-center">
+          <BarLoader />
+        </div>
+      );
+    }
+    
     if (votesSubmitted) {
       return (
         <main className="container pt-5 pb-5">
@@ -174,6 +217,24 @@ class Votes extends Component {
       );
     }
 
+
+
+    const CountingVotes = () => <span className="blink_txt">{tu("counting_votes")}...</span>;
+    
+    const RendererClock = ({ hours, minutes, seconds, completed }) => {
+      if (completed) {
+        return <CountingVotes/>;
+      }else{
+        return (
+                <div>
+                    <small>{tu("countdown_txt")}</small>
+                    <div style={{fontWeight: 'bold'}}>{hours}:{minutes}:{seconds}</div>
+                </div>
+        );
+      }
+    };
+
+    
     const VoteCard = ({className = ""}) => (
       <div className={"card " + className}>
         <div className="card-header text-center bg-dark text-white">
@@ -183,7 +244,7 @@ class Votes extends Component {
           {
             voteStatus.voteState === 1 &&
             <p className="text-center">
-              {voteStatus.votesAvailable} TRX {tu("remaining")}
+               <FormattedNumber value={voteStatus.votesAvailable} /> {tu("votes_remaining")}
             </p>
           }
           {
@@ -217,8 +278,15 @@ class Votes extends Component {
               {tu("too_many_votes")}
             </button>
           }
-          <p className="mt-3">
-            {tu("vote_guide_message")}
+          <hr/>
+          <div className="text-center m-3 text-info" style={{fontFamily: 'sans-serif'}}>
+            <Countdown date={Date.now() + this.diffSeconds()} renderer={RendererClock}>
+            </Countdown>
+          </div>
+          <hr/>
+          <p className="mt-3 small">
+            {tup("vote_guide_message")}
+            {tu("vote_info_link")}&nbsp;<a href='https://medium.com/@Tronfoundation/tron-community-guidelines-ca10c2fcd444'>{tu("sr_guide")} <i className="fas fa-external-link-alt"></i></a>        
           </p>
         </div>
       </div>
@@ -244,7 +312,7 @@ class Votes extends Component {
             </div>
             <div className="card">
               <div className="card-header text-center bg-dark text-white">
-                {tu("candidates")}
+                Super Representatives {tu("candidates")}
               </div>
               <div className="card-body p-0">
                 <table className="table table-striped bg-white">
@@ -265,7 +333,9 @@ class Votes extends Component {
                           {account.address.substr(0, 24)}...<br/>
                           <small>{account.url}</small>
                         </td>
-                        <td>{account.votes} TRX</td>
+                        <td className="text-right"  style={{fontFamily: 'sans-serif'}}>
+                            <FormattedNumber value={account.votes} />
+                        </td>
                         <td>
                           <input onChange={(ev) => this.setVote(account.address, ev.target.value)}
                                  value={votes[account.address]}
@@ -307,6 +377,7 @@ function mapStateToProps(state) {
     account: state.app.account,
     tokenBalances: state.account.tokens,
     witnesses: state.network.witnesses,
+    frozen: state.account.frozen,
   };
 }
 

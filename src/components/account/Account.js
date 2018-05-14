@@ -5,8 +5,13 @@ import {loadTokenBalances} from "../../actions/account";
 import {BarLoader} from "../common/loaders";
 import xhr from "axios";
 import {find} from "lodash";
-import {FormattedNumber} from "react-intl";
-import {Link, Redirect} from "react-router-dom";
+import {FormattedDate, FormattedNumber, FormattedTime} from "react-intl";
+import {Redirect} from "react-router-dom";
+import FreezeBalanceModal from "./FreezeBalanceModal";
+import {Client} from "../../services/api";
+import {buildUnfreezeBalance} from "@tronprotocol/wallet-api/src/utils/transaction";
+import {ONE_TRX, IS_TESTNET} from "../../constants";
+import {Modal, ModalBody, ModalHeader} from "reactstrap";
 
 class Account extends Component {
 
@@ -16,6 +21,7 @@ class Account extends Component {
       waitingForTrx: false,
       showRequest: true,
       showPassword: false,
+      modal: null,
       trxRequestResponse: {
         success: false,
         code: -1,
@@ -74,32 +80,46 @@ class Account extends Component {
       );
     }
 
-    return (
-      <table className="table border-0 m-0">
-        <thead>
-        <tr>
-          <th>{tu("name")}</th>
-          <th className="text-right">{tu("balance")}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {
-          tokenBalances.map((token, index) => (
 
-            (index > 0) && //Hide TRON TRX on this view
-            <tr key={index}>
-              <td>{token.name}</td>
-              <td className="text-right">
-                <FormattedNumber value={token.balance}/>
-              </td>
+    if (tokenBalances.length < 2) {
+        
+        return (
+            <h3 className="text-center text-secondary p-3" colSpan="2">{tu("no_tokens_found")}</h3>
+        );
+        
+    }else{
+        
+        return (
+                
+           <table className="table border-0 m-0">
+            <thead>
+            <tr>
+              <th>{tu("name")}</th>
+              <th className="text-right">{tu("balance")}</th>
             </tr>
+            </thead>
+            <tbody>
+            {
+            tokenBalances.map((token, index) => (
 
-          ))
-        }
-        </tbody>
-      </table>
-    )
-  }
+                (index > 0) && //Hide TRON TRX on this view
+                <tr key={index}>
+                  <td>{token.name}</td>
+                  <td className="text-right">
+                    <FormattedNumber value={token.balance}/>
+                  </td>
+                </tr>
+
+              ))
+            }
+            </tbody>
+            </table>
+                
+        );  
+    }
+ }   
+  
+  
 
   requestTrx = async () => {
     let {account} = this.props;
@@ -122,7 +142,7 @@ class Account extends Component {
         },
       });
 
-      setTimeout(() => this.reloadTokens(), 1500);
+      setTimeout(() => this.reloadTokens(), 1200);
 
     } catch (e) {
       this.setState({
@@ -145,6 +165,42 @@ class Account extends Component {
       showPassword: true
     });
   };
+
+
+  renderFrozenTokens() {
+
+    let {frozen} = this.props;
+
+    if (frozen.balances.length === 0) {
+      return null;
+    }
+
+    return (
+      <table className="table border-0 m-0">
+        <thead className="thead-light">
+        <tr>
+          <th>{tu("amount")}</th>
+          <th className="text-right">{tu("expires")}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {
+          frozen.balances.map((balance, index) => (
+            <tr key={index}>
+              <td>
+                <FormattedNumber value={balance.amount / ONE_TRX} />
+              </td>
+              <td className="text-right">
+                <FormattedDate value={balance.expires}/>&nbsp;
+                <FormattedTime value={balance.expires}/>
+              </td>
+            </tr>
+          ))
+        }
+        </tbody>
+      </table>
+    )
+  }
 
   renderTestnetRequest() {
 
@@ -187,22 +243,98 @@ class Account extends Component {
     );
   }
 
+  showFreezeBalance = () => {
+    this.setState({
+      modal: (
+        <FreezeBalanceModal
+          onHide={() => this.setState({ modal: null })}
+          onConfirm={() => {
+            this.setState({ modal: null });
+            setTimeout(() => this.reloadTokens(), 1200);
+          }}
+        />
+      )
+    })
+  };
+
+  unfreeze = async () => {
+    let {account} = this.props;
+    let transaction = buildUnfreezeBalance(account.address);
+    let success = await Client.signTransaction(account.key, transaction);
+
+    if (success) {
+      this.setState({
+        modal: null,
+      });
+      setTimeout(() => this.reloadTokens(), 1200);
+    } else {
+      this.setState({
+        modal: (
+          <Modal isOpen={true} toggle={this.hideModal} fade={false} className="modal-dialog-centered" >
+            <ModalBody className="text-center">
+              <p>
+                Unable to unfreeze TRX. This could be caused because the minimal freeze period hasn't been reached yet.
+              </p>
+              <button className="btn btn-primary mr-2" onClick={() => this.setState({ modal: null })}>
+                {tu("Close")}
+              </button>
+            </ModalBody>
+          </Modal>
+        ),
+      });
+    }
+  };
+
+  unfreezeBalance = async () => {
+
+    this.setState({
+      modal: (
+        <Modal isOpen={true} toggle={this.hideModal} fade={false} className="modal-dialog-centered" >
+          <ModalHeader className="text-center" toggle={this.hideModal}>
+            {tu("Unfreeze TRX")}
+          </ModalHeader>
+          <ModalBody className="text-center">
+            <p>
+              Are you sure you want to unfreeze your TRX?
+            </p>
+            <button className="btn btn-secondary mr-2" onClick={() => this.setState({ modal: null })}>
+              {tu("Cancel")}
+            </button>
+            <button className="btn btn-danger" onClick={this.unfreeze}>
+              <i className="fa fa-fire mr-2"/>
+              {tu("Unfreeze TRX")}
+            </button>
+          </ModalBody>
+        </Modal>
+      )
+    });
+  };
+
   render() {
 
-    let {account} = this.props;
+    let {showRequest, showPassword, modal} = this.state;
+    let {account, frozen} = this.props;
+
     if (!account.isLoggedIn) {
       return <Redirect to="/login"/>;
     }
 
-    let {showRequest, showPassword} = this.state;
     let address = account.address;
     let key = account.key;
 
+    let hasFrozen = frozen.balances.length > 0;
+
     return (
       <main className="container pt-3">
-        <div className="alert alert-danger text-center">
-          {tu("do_not_send_1")}
-        </div>
+        {modal}
+        
+        {
+            IS_TESTNET &&
+            <div className="alert alert-danger text-center">
+              {tu("do_not_send_1")}
+            </div>
+        }
+        
         <div className="row">
           <div className="col-md-12">
             <div className="card">
@@ -215,10 +347,15 @@ class Account extends Component {
                     <b>{tu("address")}</b>
                   </div>
                   <div className="col-md-10">
-                    {address}<br/>
-                    <span className="text-danger">
-                      ({tu("do_not_send_2")})
-                    </span>
+                    {address}
+                    
+                    {
+                        IS_TESTNET &&
+                         
+                        <div className="text-danger">
+                          ({tu("do_not_send_2")})
+                        </div>
+                    }
                   </div>
                 </div>
                 <div className="row pt-3">
@@ -258,8 +395,37 @@ class Account extends Component {
             </div>
           </div>
         </div>
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <div className="card">
+              <div className="card-header border-bottom-0 text-center bg-dark text-white">
+                {tu("Frozen TRX Tokens")}
+              </div>
+              {this.renderFrozenTokens()}
+              <div className="card-body text-center">
+                <p className="card-text">
+                  TRX can be frozen/locked to enable additional features.
+                  For example, with your frozen TRX you can vote for super delegates.<br/>
+                  Frozen tokens are "locked" for a period of 3 days. During this period the frozen TRX
+                  cannot be traded.<br/>
+                  After this period you can unfreeze the TRX and trade the tokens.
+                </p>
+                {
+                  hasFrozen && <button className="btn btn-danger mr-2" onClick={this.unfreezeBalance}>
+                    <i className="fa fa-fire mr-2"/>
+                    Unfreeze
+                  </button>
+                }
+                <button className="btn btn-primary mr-2" onClick={this.showFreezeBalance}>
+                  <i className="fa fa-snowflake mr-2"/>
+                  Freeze
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         {
-          showRequest && <div className="row mt-3">
+          IS_TESTNET && showRequest && <div className="row mt-3">
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header border-bottom-0 text-center bg-dark text-white">
@@ -281,6 +447,7 @@ function mapStateToProps(state) {
   return {
     account: state.app.account,
     tokenBalances: state.account.tokens,
+    frozen: state.account.frozen,
   };
 }
 

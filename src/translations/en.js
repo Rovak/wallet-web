@@ -21,8 +21,8 @@ export const messages = {
   "address": "address",
   "balance": "balance",
   "votes": "votes",
-  "password": "password",
-  "showpassword": "show password",
+  "password": "private key",
+  "showpassword": "show private key",
   "my_vote": "my vote",
   "submit_votes": "submit votes",
   "submit": "submit",
@@ -30,21 +30,18 @@ export const messages = {
   "send": "send",
   "amount": "Amount",
   "apply_for_delegate_description": `
-    TRX holders can apply to become a super delegate by using the account management function, and vote for candidates. 
-    Each account can update current voter information and also is allowed to vote for multiple candidates. 
-    The maximum number of votes is less than or equal to the number of TRX users hold each time. 
-    (If you have certain sum of TRX, you can vote less than or equal to certain number of votes). 
-    The result of votes will be calculated based on the final voter information of every account in each
-     voting cycle of which the time is from 00:00 to 24:00. TRX holders with the most votes will become super delegate. 
-     Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be getted.
-     TRX will not be consumed in the process of super delegate application and voting.
+    TRX holders can apply to become a super delegate by using the account management function, and vote for candidates. Each account can update current voter information and also is allowed to vote for multiple candidates. 
+    
+    The maximum number of votes is less than or equal to the number of TRX users hold each time. (If you have certain sum of TRX, you can vote less than or equal to certain number of votes). The votes are tallied every 6 hours, based on the final voter information. 
+
+    TRX holders with the most votes will become super delegate. Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be rewarded. TRX will not be consumed in the process of super delegate application and voting.
   `,
   "unknown_error": "an unknown error occurred",
   "representative_understand": "I understand how to be a TRON representative",
   "generate_account": "Generate new account and private key",
   "create_account_confirm_1": "I understand that if I forget/lose my private key I will never be able to access my assets",
   "create_account_confirm_2": "I understand that if I forget/lose my private key no one will be able to help me recover it",
-  "create_account_confirm_3": "I've written my password on paper",
+  "create_account_confirm_3": "I've written my private key on paper",
   "vote_thanks": "Thanks for submitting your vote!",
   "return_vate":"Return the Votes",
   "recent_transactions": "recent transactions",
@@ -66,7 +63,7 @@ export const messages = {
   "last_confirmed": "Last Confirmed",
   "blocks_produced": "Blocks Produced",
   "blocks_missed": "Blocks Missed",
-  "do_not_send_1": "Do not send TRX from your own wallet or exchange to your testnet address!",
+  "do_not_send_1": "Do not send TRX from your own wallet or exchange to the following testnet address!",
   "do_not_send_2": "Do not send TRX from your own wallet or exchange to the above account address of testnet!",
   "name_of_the_token": "Name of the token",
   "create_token": "Create Token",
@@ -132,16 +129,18 @@ export const messages = {
   "no_transactions": "No transactions",
   "vote": "vote",
   "candidates": "candidates",
-  "use_your_vote": `Use your TRX to vote for Super Representatives. For every TRX you hold in your account you have one vote to spend. TRX will not be consumed.
+  "use_your_vote": `For every TRX you hold in your account you have one vote to spend (TRX will not be consumed).
   You can vote as many times for the several representatives as you like. The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
   "close":"close",
   "price":"price",
   "produced_by": "Produced by {witnessAddress}",
   "show_more": "Show {countriesLength} More",
-  "vote_guide_message": `Use your TRX to vote for Super Representatives. 
-    For every TRX you hold in your account you have one vote to spend. 
-    TRX will not be consumed. You can vote as many times for the several representatives as you like. 
-    The votes are tallied once every 6 hours and the final election results will be updated at 0:00 AM (0:00) UTC, 6:00 AM (6:00) UTC, 12:00 PM (12:00) UTC and 6:00 PM (18:00) UTC, and the list of SuperRepresentatives will be updated.`,
+  "vote_guide_message": `For every TRX you hold in your account you have one vote to spend (TRX will not be consumed).
+    You can vote as many times as you like for several representatives.  
+    
+    The votes are tallied every 6 hours and the results will be updated at 0:00AM, 6:00AM, 12:00PM and 6:00PM (UTC Time). The list of Super Representatives will be updated based on those votes.
+    
+    Every time you place your votes you are resetting your previous votes. On every 6h cycle your last votes submisson will be counted. You only need to vote once and the system will keep counting those votes until you change them. `,
   "token_issue_guide_message_1":`Issuing a token on the Tron Protocol can be done
     by anyone who has at least 1024 TRX in their account.`,
   "token_issue_guide_message_2":`When a token is issued it will be shown on the token overview page.
@@ -181,6 +180,15 @@ export const messages = {
   "your_wallet": "Your Wallet",
   "search_token": "Search for token name",
   "trx_balance": "TRX Balance",
+  "remaining": "remaining",
+  "vote_info_link": "For more information about Tron Super Representatives visit the ",
+  "sr_guide": "SR Guide",
+  "votes_remaining": "Votes Remaining",
+  "countdown_txt": "Next votes tally in...",
+  "counting_votes":"Counting Votes",
   "private_key": "Private Key",
   "show_private_key": "Show Private Key",
+  "most_trx": "Most TRX",
+  "parenthash": "Parent Hash",
+  "no_tokens_found":"No Tokens Found"
 };

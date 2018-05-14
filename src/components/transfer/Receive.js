@@ -2,8 +2,9 @@ import { connect } from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
 import { tu } from "../../utils/i18n";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import {IS_TESTNET} from "../../constants";
 
 class Receive extends React.Component {
 
@@ -44,10 +45,16 @@ class Receive extends React.Component {
     }
 
     return (
-      <main className="container-fluid pt-5">
+      <main className="container-fluid pt-3">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-sm-8 col-lg-5">
+            {
+            IS_TESTNET &&
+            <div className="alert alert-danger text-center">
+              {tu("do_not_send_1")}
+            </div>
+            }
               <div className="card">
                 <div className="card-header text-center text-white bg-dark">
                   {tu("receive_trx")}

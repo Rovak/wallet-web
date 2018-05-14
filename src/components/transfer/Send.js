@@ -5,7 +5,7 @@ import * as qs from "query-string";
 import {loadTokenBalances} from "../../actions/account";
 import {tu} from "../../utils/i18n";
 import {Client} from "../../services/api";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {isAddressValid} from "@tronprotocol/wallet-api/src/utils/crypto";
 import SendOption from "./SendOption";
 import {find} from "lodash";
@@ -27,6 +27,14 @@ class Send extends React.Component {
     };
   }
 
+  isAddress = (address) => {
+      try {
+          return isAddressValid(address);
+      } catch (e) {
+          return false;
+      }
+  };
+
   /**
    * Check if the form is valid
    * @returns {*|boolean}
@@ -36,7 +44,7 @@ class Send extends React.Component {
     const {account} = this.props ;
     let address = account.address;
 
-    return isAddressValid(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
+    return this.isAddress(to) && token !== "" && this.getSelectedTokenBalance() >= amount && amount > 0 && to !== address;
   };
 
   /**
@@ -158,7 +166,7 @@ class Send extends React.Component {
     let {tokenBalances} = this.props;
     let {to, token, amount} = this.state;
 
-    let isToValid = to.length === 0 || isAddressValid(to);
+    let isToValid = to.length === 0 || this.isAddress(to);
     let isAmountValid = this.isAmountValid();
 
 
@@ -201,7 +209,7 @@ class Send extends React.Component {
               value={token}>
               {
                 tokenBalances.map(tokenBalance => (
-                  <SendOption key={tokenBalance.name} name={tokenBalance.name} balance={tokenBalance.balance}/>
+                  <SendOption key={tokenBalance.name} name={(tokenBalance.name.length > 25) ? tokenBalance.name.substr(0, 25)+" ..." : tokenBalance.name} balance={tokenBalance.balance}/>
                 ))
               }
             </select>

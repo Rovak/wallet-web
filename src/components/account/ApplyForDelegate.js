@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {t, tu} from "../../utils/i18n";
-import {Link, Redirect} from "react-router-dom";
+import {t, tu, tup} from "../../utils/i18n";
+import {Redirect} from "react-router-dom";
 import {Client} from "../../services/api";
 
 class ApplyForDelegate extends Component {
@@ -82,7 +82,7 @@ class ApplyForDelegate extends Component {
               </div>
               <div className="card-body">
                 <p className="card-text">
-                  {t("apply_for_delegate_description")}
+                  {tup("apply_for_delegate_description")}
                 </p>
                 <hr/>
                 <p className="mt-5 text-center">
