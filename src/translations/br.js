@@ -168,6 +168,9 @@ export const messages = {
   "send_trx_address": "Envie TRX para o seguinte endereço",
   "supply": "oferta",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 89cf6d57492b897f93ac409d5312e930e1604956
   "my_transactions": "Minhas Transações",
   "no_transactions": "Nenhuma transação no momento",
   "welcome_to_tron": "Welcome to TRON",
@@ -181,8 +184,11 @@ export const messages = {
   "create_account": "Criar conta",
   "not_started_yet": "Ainda não iniciado",
   "parenthash": "Hash pai",
+<<<<<<< HEAD
 =======
   "parenthash": "Parent Hash",
   "search_representatives":"Search representatives"
 >>>>>>> upstream/master
+=======
+>>>>>>> 89cf6d57492b897f93ac409d5312e930e1604956
 };
