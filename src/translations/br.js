@@ -169,4 +169,5 @@ export const messages = {
   "Send TRX": "Enviar TRX",
   "supply": "oferta",
   "parenthash": "Parent Hash",
+  "search_representatives":"Search representatives"
 };

@@ -111,4 +111,5 @@ export const messages = {
   "send_trx_address": "Send TRX to the following address",
   "most_trx": "Most TRX",
   "parenthash": "Parent Hash",
+  "search_representatives":"Search representatives"
 };

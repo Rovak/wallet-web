@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ExternalUrl from "../common/ExternalUrl";
 import { connect } from "react-redux";
+import {filter, sortBy} from "lodash";
 import { loadWitnesses } from "../../actions/network";
 import { tu } from "../../utils/i18n";
 import { BarLoader } from "../common/loaders";
@@ -13,8 +14,7 @@ class Representatives extends Component {
   }
 
   renderWitnesses() {
-
-    let { witnesses } = this.props;
+    let { witnesses, searchString } = this.props;
 
     if (witnesses.length === 0) {
       return (
@@ -23,6 +23,9 @@ class Representatives extends Component {
         </div>
       );
     }
+
+    witnesses = filter(witnesses, w => w.url.toUpperCase().indexOf(searchString) !== -1);
+    witnesses = sortBy(witnesses, w => w.url);
 
     return (
       <Fragment>
@@ -106,6 +109,7 @@ class Representatives extends Component {
 function mapStateToProps(state) {
   return {
     witnesses: state.network.witnesses,
+    searchString: state.app.searchString,
   };
 }
 

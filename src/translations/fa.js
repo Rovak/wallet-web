@@ -167,4 +167,5 @@ export const messages = {
   "search_token": "Search for token name",
   "send_trx_address": "Send TRX to the following address",
   "parenthash": "Parent Hash",
+  "search_representatives":"Search representatives"
 };
