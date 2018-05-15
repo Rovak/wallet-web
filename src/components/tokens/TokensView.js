@@ -14,7 +14,8 @@ const desStyle = {
     whiteSpace: "normal",
     wordSrap: "break-word",
     wordBreak:"break-all"
-}
+};
+
 class TokensView extends Component {
 
   constructor() {
@@ -129,10 +130,7 @@ class TokensView extends Component {
   renderTable() {
     let {tokens, account, searchString} = this.props;
     let {amount, confirmedParticipate, loading, participateSuccess} = this.state;
-    
-    tokens = filter(tokens, t => t.name.toUpperCase().indexOf(searchString) !== -1);
-    tokens = sortBy(tokens, t => t.name);
-    
+
     if (tokens === null || tokens.length === 0) {
       return (
         <div className="loader-center">
@@ -140,6 +138,9 @@ class TokensView extends Component {
         </div>
       );
     }
+
+    tokens = filter(tokens, t => t.name.toUpperCase().indexOf(searchString) !== -1);
+    tokens = sortBy(tokens, t => t.name);
 
     return (
       <table className="table table-striped">
