@@ -171,5 +171,18 @@ export const messages = {
   "send_trx_address": "Send TRX to the following address",
   "most_trx": "Most TRX",
   "parenthash": "Parent Hash",
-  "search_representatives":"Search representatives"
+  "search_representatives":"Search representatives",
+  "cancel": "Cancel",
+  "freeze": "Freeze",
+  "unfreeze": "Unfreeze",
+  "freeze_trx_txt": `TRX can be frozen/locked to enable additional features. For example, with your frozen TRX you can vote for super delegates.
+  Frozen tokens are "locked" for a period of 3 days. During this period the frozen TRX cannot be traded.
+  After this period you can unfreeze the TRX and trade the tokens.`,
+  "unfreeze_error": "Unable to unfreeze TRX. This could be caused because the minimal freeze period hasn't been reached yet.",
+  "unfreeze_question": "Are you sure you want to unfreeze your TRX?",
+  "frozen_trx_tokens": "Frozen TRX Tokens",
+  "freeze_trx": "Freeze TRX",
+  "unfreeze_trx": "Unfreeze TRX",
+  "trx_amount": "TRX Amount",
+  "expires": "expires"
 };
