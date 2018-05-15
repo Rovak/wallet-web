@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 import * as QRCode from "qrcode";
 import { tu } from "../../utils/i18n";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 class Receive extends React.Component {
@@ -26,7 +26,7 @@ class Receive extends React.Component {
     let rootUrl = process.env.PUBLIC_URL || window.location.origin;
 
     if (account.isLoggedIn) {
-        QRCode.toDataURL(`${rootUrl}/#/send?to=${account.address}`, (err, url) => {
+        QRCode.toDataURL(`${account.key}`, (err, url) => {
           this.setState({
             qrcode: url,
           });

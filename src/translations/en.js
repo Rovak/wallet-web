@@ -21,8 +21,8 @@ export const messages = {
   "address": "address",
   "balance": "balance",
   "votes": "votes",
-  "password": "password",
-  "showpassword": "show password",
+  "password": "private key",
+  "showpassword": "show private key",
   "my_vote": "my vote",
   "submit_votes": "submit votes",
   "submit": "submit",
@@ -36,7 +36,7 @@ export const messages = {
     (If you have certain sum of TRX, you can vote less than or equal to certain number of votes). 
     The result of votes will be calculated based on the final voter information of every account in each
      voting cycle of which the time is from 00:00 to 24:00. TRX holders with the most votes will become super delegate. 
-     Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be getted.
+     Every transaction made in the network is required to be validated by all SuperDelegates, and some bonuses will be rewarded.
      TRX will not be consumed in the process of super delegate application and voting.
   `,
   "unknown_error": "an unknown error occurred",
@@ -44,7 +44,7 @@ export const messages = {
   "generate_account": "Generate new account and private key",
   "create_account_confirm_1": "I understand that if I forget/lose my private key I will never be able to access my assets",
   "create_account_confirm_2": "I understand that if I forget/lose my private key no one will be able to help me recover it",
-  "create_account_confirm_3": "I've written my password on paper",
+  "create_account_confirm_3": "I've written my private key on paper",
   "vote_thanks": "Thanks for submitting your vote!",
   "return_vate":"Return the Votes",
   "recent_transactions": "recent transactions",
@@ -183,4 +183,6 @@ export const messages = {
   "trx_balance": "TRX Balance",
   "private_key": "Private Key",
   "show_private_key": "Show Private Key",
+  "most_trx": "Most TRX",
+  "parenthash": "Parent Hash",
 };

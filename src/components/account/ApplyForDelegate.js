@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {t, tu} from "../../utils/i18n";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {Client} from "../../services/api";
 
 class ApplyForDelegate extends Component {

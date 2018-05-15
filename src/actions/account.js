@@ -3,14 +3,15 @@ import {Client} from "../services/api";
 export const SET_TOKEN_BALANCES = 'SET_TOKEN_BALANCES';
 export const SET_BLOCKS = 'SET_BLOCKS';
 
-export const setTokenBalances = (tokens = []) => ({
+export const setTokenBalances = (tokens = [], frozen = {}) => ({
   type: SET_TOKEN_BALANCES,
   tokens,
+  frozen,
 });
 
 export const loadTokenBalances = (password) => async (dispatch) => {
-  let balances = await Client.getAccountBalances(password);
-  dispatch(setTokenBalances(balances));
+  let {balances, frozen} = await Client.getAccountBalances(password);
+  dispatch(setTokenBalances(balances, frozen));
 };
 
 export const setBlocks = (blocks = []) => ({
@@ -18,7 +19,7 @@ export const setBlocks = (blocks = []) => ({
   blocks,
 });
 
-export const loadAllBlocks = () => async (dispatch, getState) => {
+export const loadAllBlocks = () => async (dispatch) => {
 
   let block = await Client.getLatestBlock();
 

@@ -178,5 +178,6 @@ export const messages = {
   "register_new_account": "Criar nova conta",
   "account_address": "endereço da conta",
   "create_account": "Criar conta",
-  "not_started_yet": "Ainda não iniciado"
+  "not_started_yet": "Ainda não iniciado",
+  "parenthash": "Hash pai",
 };

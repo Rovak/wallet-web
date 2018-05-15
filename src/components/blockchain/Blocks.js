@@ -4,7 +4,6 @@ import {tu} from "../../utils/i18n";
 import {loadTokens} from "../../actions/tokens";
 import {connect} from "react-redux";
 import {range, random} from "lodash";
-import {Pagination, PaginationItem, PaginationLink} from "reactstrap";
 import TimeAgo from "react-timeago";
 import {FormattedNumber} from "react-intl";
 import {Link} from "react-router-dom";
