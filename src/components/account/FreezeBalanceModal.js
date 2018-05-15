@@ -88,7 +88,8 @@ class FreezeBalanceModal extends React.PureComponent {
           <form>
             <div className="form-group">
               <label>{tu("TRX Amount")}</label>
-              <input type="number"
+              <input type="text"
+                     pattern="[0-9]*"
                      value={amount}
                      className="form-control text-center"
                      onChange={this.onAmountChanged}/>
