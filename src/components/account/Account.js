@@ -10,7 +10,7 @@ import {Redirect} from "react-router-dom";
 import FreezeBalanceModal from "./FreezeBalanceModal";
 import {Client} from "../../services/api";
 import {buildUnfreezeBalance} from "@tronprotocol/wallet-api/src/utils/transaction";
-import {ONE_TRX} from "../../constants";
+import {ONE_TRX, IS_TESTNET} from "../../constants";
 import {Modal, ModalBody, ModalHeader} from "reactstrap";
 
 class Account extends Component {
@@ -80,32 +80,46 @@ class Account extends Component {
       );
     }
 
-    return (
-      <table className="table border-0 m-0">
-        <thead>
-        <tr>
-          <th>{tu("name")}</th>
-          <th className="text-right">{tu("balance")}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {
-          tokenBalances.map((token, index) => (
 
-            (index > 0) && //Hide TRON TRX on this view
-            <tr key={index}>
-              <td>{token.name}</td>
-              <td className="text-right">
-                <FormattedNumber value={token.balance}/>
-              </td>
+    if (tokenBalances.length < 2) {
+        
+        return (
+            <h3 className="text-center text-secondary p-3" colSpan="2">{tu("no_tokens_found")}</h3>
+        );
+        
+    }else{
+        
+        return (
+                
+           <table className="table border-0 m-0">
+            <thead>
+            <tr>
+              <th>{tu("name")}</th>
+              <th className="text-right">{tu("balance")}</th>
             </tr>
+            </thead>
+            <tbody>
+            {
+            tokenBalances.map((token, index) => (
 
-          ))
-        }
-        </tbody>
-      </table>
-    )
-  }
+                (index > 0) && //Hide TRON TRX on this view
+                <tr key={index}>
+                  <td>{token.name}</td>
+                  <td className="text-right">
+                    <FormattedNumber value={token.balance}/>
+                  </td>
+                </tr>
+
+              ))
+            }
+            </tbody>
+            </table>
+                
+        );  
+    }
+ }   
+  
+  
 
   requestTrx = async () => {
     let {account} = this.props;
@@ -313,9 +327,14 @@ class Account extends Component {
     return (
       <main className="container pt-3">
         {modal}
-        <div className="alert alert-danger text-center">
-          {tu("do_not_send_1")}
-        </div>
+        
+        {
+            IS_TESTNET &&
+            <div className="alert alert-danger text-center">
+              {tu("do_not_send_1")}
+            </div>
+        }
+        
         <div className="row">
           <div className="col-md-12">
             <div className="card">
@@ -328,10 +347,15 @@ class Account extends Component {
                     <b>{tu("address")}</b>
                   </div>
                   <div className="col-md-10">
-                    {address}<br/>
-                    <span className="text-danger">
-                      ({tu("do_not_send_2")})
-                    </span>
+                    {address}
+                    
+                    {
+                        IS_TESTNET &&
+                         
+                        <div className="text-danger">
+                          ({tu("do_not_send_2")})
+                        </div>
+                    }
                   </div>
                 </div>
                 <div className="row pt-3">
@@ -375,7 +399,7 @@ class Account extends Component {
           <div className="col-md-12">
             <div className="card">
               <div className="card-header border-bottom-0 text-center bg-dark text-white">
-                {tu("Frozen Tokens")}
+                {tu("Frozen TRX Tokens")}
               </div>
               {this.renderFrozenTokens()}
               <div className="card-body text-center">
@@ -401,7 +425,7 @@ class Account extends Component {
           </div>
         </div>
         {
-          showRequest && <div className="row mt-3">
+          IS_TESTNET && showRequest && <div className="row mt-3">
             <div className="col-md-12">
               <div className="card">
                 <div className="card-header border-bottom-0 text-center bg-dark text-white">

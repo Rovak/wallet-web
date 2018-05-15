@@ -167,6 +167,7 @@ export const messages = {
   "search_token": "Localizar Token por nome",
   "send_trx_address": "Envie TRX para o seguinte endereço",
   "supply": "oferta",
+<<<<<<< HEAD
   "my_transactions": "Minhas Transações",
   "no_transactions": "Nenhuma transação no momento",
   "welcome_to_tron": "Welcome to TRON",
@@ -180,4 +181,8 @@ export const messages = {
   "create_account": "Criar conta",
   "not_started_yet": "Ainda não iniciado",
   "parenthash": "Hash pai",
+=======
+  "parenthash": "Parent Hash",
+  "search_representatives":"Search representatives"
+>>>>>>> upstream/master
 };

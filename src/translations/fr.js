@@ -173,4 +173,5 @@ export const messages = {
   "search_token": "Rechercher un jeton par son nom",
   "to": "À",
   "most_trx": "solde max en TRX",
+  "search_representatives":"Search representatives"
 };

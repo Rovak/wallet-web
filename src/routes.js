@@ -40,7 +40,13 @@ export const routes = [
         component: Representatives,
         icon: ''
       },
-    ]
+    ],
+    search: {
+        label: "search",
+        component: SearchBar,
+        exclude: "/network/nodes",
+        placeholder: "search_representatives"
+    }
   },
   {
     path: "/block/:id",

@@ -94,6 +94,7 @@ const renderInputField = ({
   type,
   label,
   max,
+  pattern,
   className = "form-control",
   meta: { touched, error, warning }
 }) => (
@@ -105,6 +106,7 @@ const renderInputField = ({
         type={type}
         className={className + (touched && error ? " is-invalid" : "")}
         {...(max ? {max:max} : {})}
+        {...(pattern ? {pattern:pattern} : {})}
       />
       {type === "checkbox" && (
         <label className="form-check-label" style={{ marginBottom: 0 }}>
@@ -148,7 +150,8 @@ class TokenForm extends Component {
             </div>
             <div className="form-group col-md-6">
               <Field
-                type="number"
+                type="text"
+                pattern="[0-9]*"
                 name="totalSupply"
                 parse={v => isNaN(parseInt(v,10)) ? null : parseInt(v, 10)}
                 component={renderInputField}
@@ -196,8 +199,8 @@ class TokenForm extends Component {
             </p>
             <p className="col-md-12">
               {tv("exchange_rate_short_txt_2", {
-                num: <b>{<FormattedNumber value={num} />} {name || tu("token")}</b>,
-                trxNum: <b>{<FormattedNumber value={trxNum} />} TRX</b>
+                num: <b>{<FormattedNumber value={num || 0} />} {name || tu("token")}</b>,
+                trxNum: <b>{<FormattedNumber value={trxNum || 0} />} TRX</b>
               })}
             </p>
           </div>
@@ -205,7 +208,8 @@ class TokenForm extends Component {
           <div className="form-row">
             <div className="form-group col-md-6">
               <Field
-                type="number"
+                type="text"
+                pattern="[0-9]*"
                 name="trxNum"
                 parse={v => isNaN(parseInt(v,10)) ? null : parseInt(v, 10)}
                 component={renderInputField}
@@ -214,7 +218,8 @@ class TokenForm extends Component {
             </div>
             <div className="form-group col-md-6">
               <Field
-                type="number"
+                type="text"
+                pattern="[0-9]*"
                 name="num"
                 parse={v => isNaN(parseInt(v,10)) ? null : parseInt(v, 10)}
                 component={renderInputField}
@@ -229,7 +234,7 @@ class TokenForm extends Component {
           <div className="form-row">
             <p className="col-md-12">
               <b>{tu("token_price")}</b>: 1 {name || tu("token")} ={" "}
-              {<FormattedNumber value={exchangeRate} />} TRX
+              {<FormattedNumber value={exchangeRate || 0} />} TRX
             </p>
           </div>
         </fieldset>

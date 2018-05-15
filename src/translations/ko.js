@@ -190,4 +190,8 @@ export const messages = {
   "account_address": "계정 주소",
   "show_private_key": "개인키 보기",
   "my_transactions": "내 거래",
+  "expires": "만료",
+  "too_many_votes": "투표수 초과",
+  "thanks_for_applying": "신청해 주셔서 감사합니다",
+  "search_representatives": "위임자 검색",
 };
