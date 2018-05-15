@@ -194,4 +194,17 @@ export const messages = {
   "too_many_votes": "투표수 초과",
   "thanks_for_applying": "신청해 주셔서 감사합니다",
   "search_representatives": "위임자 검색",
+  "cancel": "Cancel",
+  "freeze": "Freeze",
+  "unfreeze": "Unfreeze",
+  "freeze_trx_txt": `TRX can be frozen/locked to enable additional features. For example, with your frozen TRX you can vote for super delegates.
+  Frozen tokens are "locked" for a period of 3 days. During this period the frozen TRX cannot be traded.
+  After this period you can unfreeze the TRX and trade the tokens.`,
+  "unfreeze_error": "Unable to unfreeze TRX. This could be caused because the minimal freeze period hasn't been reached yet.",
+  "unfreeze_question": "Are you sure you want to unfreeze your TRX?",
+  "frozen_trx_tokens": "Frozen TRX Tokens",
+  "freeze_trx": "Freeze TRX",
+  "unfreeze_trx": "Unfreeze TRX",
+  "trx_amount": "TRX Amount",
+  "expires": "expires"
 };

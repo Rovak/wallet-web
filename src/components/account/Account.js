@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {tu} from "../../utils/i18n";
+import {tu, tup} from "../../utils/i18n";
 import {loadTokenBalances} from "../../actions/account";
 import {BarLoader} from "../common/loaders";
 import xhr from "axios";
@@ -273,7 +273,7 @@ class Account extends Component {
           <Modal isOpen={true} toggle={this.hideModal} fade={false} className="modal-dialog-centered" >
             <ModalBody className="text-center">
               <p>
-                Unable to unfreeze TRX. This could be caused because the minimal freeze period hasn't been reached yet.
+              {tu("unfreeze_error")}
               </p>
               <button className="btn btn-primary mr-2" onClick={() => this.setState({ modal: null })}>
                 {tu("Close")}
@@ -291,18 +291,18 @@ class Account extends Component {
       modal: (
         <Modal isOpen={true} toggle={this.hideModal} fade={false} className="modal-dialog-centered" >
           <ModalHeader className="text-center" toggle={this.hideModal}>
-            {tu("Unfreeze TRX")}
+            {tu("unfreeze_trx")}
           </ModalHeader>
           <ModalBody className="text-center">
             <p>
-              Are you sure you want to unfreeze your TRX?
+              {tu("unfreeze_question")}
             </p>
             <button className="btn btn-secondary mr-2" onClick={() => this.setState({ modal: null })}>
-              {tu("Cancel")}
+              {tu("cancel")}
             </button>
             <button className="btn btn-danger" onClick={this.unfreeze}>
               <i className="fa fa-fire mr-2"/>
-              {tu("Unfreeze TRX")}
+              {tu("unfreeze_trx")}
             </button>
           </ModalBody>
         </Modal>
@@ -399,26 +399,22 @@ class Account extends Component {
           <div className="col-md-12">
             <div className="card">
               <div className="card-header border-bottom-0 text-center bg-dark text-white">
-                {tu("Frozen TRX Tokens")}
+                {tu("frozen_trx_tokens")}
               </div>
               {this.renderFrozenTokens()}
               <div className="card-body text-center">
                 <p className="card-text">
-                  TRX can be frozen/locked to enable additional features.
-                  For example, with your frozen TRX you can vote for super delegates.<br/>
-                  Frozen tokens are "locked" for a period of 3 days. During this period the frozen TRX
-                  cannot be traded.<br/>
-                  After this period you can unfreeze the TRX and trade the tokens.
+                {tup("freeze_trx_txt")}
                 </p>
                 {
                   hasFrozen && <button className="btn btn-danger mr-2" onClick={this.unfreezeBalance}>
                     <i className="fa fa-fire mr-2"/>
-                    Unfreeze
+                    {tu("unfreeze")}
                   </button>
                 }
                 <button className="btn btn-primary mr-2" onClick={this.showFreezeBalance}>
                   <i className="fa fa-snowflake mr-2"/>
-                  Freeze
+                  {tu("freeze")}
                 </button>
               </div>
             </div>
